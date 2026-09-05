@@ -36,51 +36,47 @@ flowchart TB
     classDef db fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff;
     classDef shed fill:#f07070,stroke:#333,stroke-width:2px,color:#fff;
 
-    Client([👤 User / Web Client]):::user -->|POST /chat| API[⚡ FastAPI Gateway]:::gateway
-    
+    Client(["👤 User / Web Client"]):::user -->|POST /chat| API["⚡ FastAPI Gateway"]:::gateway
+
     subgraph LocalContext ["Local Inference & Context"]
-        direction TB
-        Embedder[🧠 all-MiniLM-L6-v2\nEmbed Query]:::local
-        VectorDB[(📚 ChromaDB\nDocument Store)]:::db
-        Classifier[🧠 DistilBERT Scorer\nComplexity 0.0-1.0]:::local
-        
-        Tracker[📊 Active Load Tracker\n(In-flight Requests)]:::local
-        RateLimiter[⏱️ Provider API Tracker\n(RPM Deque)]:::local
-        
-        API -->|1. Raw Query| Embedder
-        Embedder -->|2. Vector| VectorDB
-        VectorDB -->|3. Top-K Context| API
-        API -->|4. Prompt + Context| Classifier
-        API -->|5. Check Load| Tracker
-        API -->|6. Check Limits| RateLimiter
+        Embedder["🧠 all-MiniLM-L6-v2<br/>Embed Query"]:::local
+        VectorDB[("📚 ChromaDB<br/>Document Store")]:::db
+        Classifier["🧠 DistilBERT Scorer<br/>Complexity 0.0-1.0"]:::local
+        Tracker["📊 Active Load Tracker<br/>In-flight Requests"]:::local
+        RateLimiter["⏱️ Provider API Tracker<br/>RPM Deque"]:::local
+
+        API -->|"1. Raw Query"| Embedder
+        Embedder -->|"2. Vector"| VectorDB
+        VectorDB -->|"3. Top-K Context"| API
+        API -->|"4. Prompt + Context"| Classifier
+        API -->|"5. Check Load"| Tracker
+        API -->|"6. Check Limits"| RateLimiter
     end
-    
-    Classifier -.->|Base Score| DecisionEngine{🔄 Adaptive Router\n+ Dynamic Thresholds}:::router
-    Tracker -.->|Current Capacity| DecisionEngine
-    RateLimiter -.->|Live Budgets| DecisionEngine
-    API ==>|7. Route Payload| DecisionEngine
-    
-    DecisionEngine -- "Score < 0.55\n(Simple Context)" --> WeakPool
-    DecisionEngine -- "Score >= 0.55\nOR Quota Exhausted" --> StrongPool
-    DecisionEngine -- "Load > 70% Capacity\n(Congestion)" --> Drop[🚫 HTTP 429\nFail-Fast Load Shed]:::shed
-    
+
+    Classifier -.->|"Base Score"| DecisionEngine{"🔄 Adaptive Router<br/>+ Dynamic Thresholds"}:::router
+    Tracker -.->|"Current Capacity"| DecisionEngine
+    RateLimiter -.->|"Live Budgets"| DecisionEngine
+    API ==>|"7. Route Payload"| DecisionEngine
+
+    DecisionEngine -- "Score under 0.55<br/>(Simple)" --> WeakPool
+    DecisionEngine -- "Score 0.55+<br/>OR Quota Exhausted" --> StrongPool
+    DecisionEngine -- "Load over 70%<br/>(Congestion)" --> Drop["🚫 HTTP 429<br/>Fail-Fast Load Shed"]:::shed
+
     subgraph WeakPool ["Weak Tier Pool (High Concurrency / Simple)"]
-        direction TB
-        Groq[🟢 Groq API\n20B OSS Model\nPrimary Worker]:::model
-        Gem[🟡 Gemini API\nFlash Model\nFast Fallback]:::model
-        Mis[🟠 Mistral API\nSmall Model\nDeep Fallback]:::model
+        Groq["🟢 Groq API<br/>20B OSS Model<br/>Primary Worker"]:::model
+        Gem["🟡 Gemini API<br/>Flash Model<br/>Fast Fallback"]:::model
+        Mis["🟠 Mistral API<br/>Small Model<br/>Deep Fallback"]:::model
         Groq -. "Circuit Breaker / Rate Limit" .-> Gem
         Gem -. "Circuit Breaker / Rate Limit" .-> Mis
     end
-    
+
     subgraph StrongPool ["Strong Tier (Deep Reasoning / Complex)"]
-        direction TB
-        Premium[🔵 Premium API\nGPT-4o / Claude 3.5\nHeavy Lifter]:::model
+        Premium["🔵 Premium API<br/>GPT-4o / Claude 3.5<br/>Heavy Lifter"]:::model
     end
-    
-    WeakPool ==>|Streaming Response| API
-    StrongPool ==>|Streaming Response| API
-    API ==>|Server-Sent Events| Client
+
+    WeakPool ==>|"Streaming Response"| API
+    StrongPool ==>|"Streaming Response"| API
+    API ==>|"Server-Sent Events"| Client
 ```
 
 ### 🔄 The Request Lifecycle
