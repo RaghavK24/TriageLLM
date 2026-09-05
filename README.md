@@ -76,7 +76,7 @@ flowchart TB
 This project was built from the ground up to solve edge-case concurrency failures. Here are the core architectural decisions implemented in the codebase:
 
 ### 1. Local DistilBERT Classification (Zero-Cost Routing)
-Many "adaptive" frameworks use an LLM (like GPT-3.5) to decide if a prompt is complex enough for GPT-4. This doubles latency and API costs. This architecture uses a locally hosted, fine-tuned **DistilBERT** pipeline (`app/classifier.py`) to score prompt complexity semantically in less than 20 milliseconds, for free.
+Many "adaptive" frameworks use an LLM (like GPT-3.5) to decide if a prompt is complex enough for GPT-4. This doubles latency and API costs. This architecture uses a fine-tuned **DistilBERT** pipeline (`app/classifier.py`) hosted on Hugging Face that automatically downloads and caches on first run to score prompt complexity semantically in less than 20 milliseconds, for free.
 
 ### 2. Local Vector RAG Injection
 Before classification occurs, the user's prompt is embedded using a local `sentence-transformers/all-MiniLM-L6-v2` model. The `app/rag.py` module queries a persistent **ChromaDB** vector store to retrieve top-K relevant documents. The context is injected into the prompt so the LLM has grounded knowledge.

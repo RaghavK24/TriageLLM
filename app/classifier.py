@@ -49,22 +49,15 @@ def _try_load_distilbert() -> bool:
     """
     global _distilbert_model, _distilbert_tokenizer, _distilbert_available
 
-    model_dir = Path(settings.distilbert_model_dir)
-    if not model_dir.exists() or not (model_dir / "config.json").exists():
-        logger.warning(
-            f"DistilBERT model not found at {model_dir}. "
-            f"Falling back to heuristic classifier. "
-            f"To use DistilBERT, run: python training/train_distilbert.py"
-        )
-        return False
-
+    model_id_or_path = settings.distilbert_model_dir
+    
     try:
         import torch
         from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
-        logger.info(f"Loading DistilBERT classifier from {model_dir}...")
-        _distilbert_tokenizer = AutoTokenizer.from_pretrained(str(model_dir))
-        _distilbert_model = AutoModelForSequenceClassification.from_pretrained(str(model_dir))
+        logger.info(f"Loading DistilBERT classifier from {model_id_or_path}...")
+        _distilbert_tokenizer = AutoTokenizer.from_pretrained(model_id_or_path)
+        _distilbert_model = AutoModelForSequenceClassification.from_pretrained(model_id_or_path)
         _distilbert_model.eval()  # inference mode — no dropout
 
         # Verify it's a 2-class model
