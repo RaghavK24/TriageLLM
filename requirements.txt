@@ -1,0 +1,32 @@
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+pydantic==2.10.3
+python-dotenv==1.0.1
+httpx<0.28.0,>=0.23.0
+
+# LLM layer
+litellm==1.55.3
+google-generativeai
+
+# RAG
+langchain==0.3.13
+langchain-community==0.3.13
+langchain-chroma==0.1.4
+langchain-huggingface==0.1.2
+chromadb
+sentence-transformers==3.3.1
+
+# Classifier (heuristic fallback)
+scikit-learn==1.6.0
+numpy<2.0.0,>=1.26.0
+
+# DistilBERT classifier (fine-tuned)
+transformers>=4.40.0
+accelerate
+datasets
+torch>=2.0.0
+
+# Eval + plotting
+matplotlib==3.10.0
+tqdm==4.67.1
+

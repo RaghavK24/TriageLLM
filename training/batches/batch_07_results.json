@@ -1,0 +1,152 @@
+[
+{
+"id": 1,
+"prompt": "What is machine learning in one sentence?",
+"label": "weak",
+"reasoning": "A simple, single-concept definition."
+},
+{
+"id": 2,
+"prompt": "What is a REST API?",
+"label": "weak",
+"reasoning": "A basic definitional lookup for a standard technical term."
+},
+{
+"id": 3,
+"prompt": "What is the difference between == and === in JavaScript?",
+"label": "weak",
+"reasoning": "A simple, commonly documented comparison of programming fundamentals."
+},
+{
+"id": 4,
+"prompt": "How do I create a new file in Python?",
+"label": "weak",
+"reasoning": "A simple how-to with a straightforward answer."
+},
+{
+"id": 5,
+"prompt": "What is a foreign key in a database?",
+"label": "weak",
+"reasoning": "A basic definitional explanation of a single concept."
+},
+{
+"id": 6,
+"prompt": "What is the largest ocean?",
+"label": "weak",
+"reasoning": "A simple factual lookup."
+},
+{
+"id": 7,
+"prompt": "Name three types of cloud services (IaaS, PaaS, SaaS).",
+"label": "weak",
+"reasoning": "Generating a short list of basic definitions."
+},
+{
+"id": 8,
+"prompt": "What is a webhook?",
+"label": "weak",
+"reasoning": "A straightforward definition of a common technical concept."
+},
+{
+"id": 9,
+"prompt": "How do I write a comment in Python?",
+"label": "weak",
+"reasoning": "A basic programming instruction and syntax lookup."
+},
+{
+"id": 10,
+"prompt": "What is the difference between RAM and ROM?",
+"label": "weak",
+"reasoning": "A basic conceptual distinction easily handled by small models."
+},
+{
+"id": 11,
+"prompt": "What does CRUD stand for?",
+"label": "weak",
+"reasoning": "A simple definitional lookup."
+},
+{
+"id": 12,
+"prompt": "What is a CDN?",
+"label": "weak",
+"reasoning": "A basic technical definition."
+},
+{
+"id": 13,
+"prompt": "What is localhost?",
+"label": "weak",
+"reasoning": "A simple definition of a standard networking term."
+},
+{
+"id": 14,
+"prompt": "Walk me through what happens when you type 'google.com' in a browser and press Enter. Cover every layer from DNS resolution through TCP/TLS handshake, HTTP request, server processing, response rendering, and JavaScript execution.",
+"label": "strong",
+"reasoning": "Requires a complex step-by-step technical explanation covering deep networking and system concepts."
+},
+{
+"id": 15,
+"prompt": "Explain how Python's import system works, including module search paths, **init**.py, relative vs absolute imports, circular imports, and the module cache. Analyze common import errors and debugging strategies.",
+"label": "strong",
+"reasoning": "Involves multi-step analysis of language internals and deep domain knowledge of Python's architecture."
+},
+{
+"id": 16,
+"prompt": "Explain how Git works internally. Cover the object model (blobs, trees, commits), refs, the index/staging area, and how merge, rebase, and cherry-pick work at the object level.",
+"label": "strong",
+"reasoning": "Requires a complex technical explanation of internal mechanisms and data structures."
+},
+{
+"id": 17,
+"prompt": "Explain step by step how a neural network learns, from random initialization through forward propagation, loss computation, backpropagation, and weight updates. Derive the chain rule for a 2-layer network and explain the vanishing gradient problem.",
+"label": "strong",
+"reasoning": "Demands mathematical derivation and a complex step-by-step explanation of machine learning fundamentals."
+},
+{
+"id": 18,
+"prompt": "Explain how Docker containers work at the Linux kernel level, covering namespaces (PID, network, mount, UTS, IPC, user), cgroups, union filesystem (overlay2), and seccomp profiles. Analyze container escape vectors.",
+"label": "strong",
+"reasoning": "Involves deep domain knowledge of operating system internals and complex technical analysis."
+},
+{
+"id": 19,
+"prompt": "Analyze the complete data flow in a Kafka-based event streaming system, from producer acknowledgment modes through partitioning, replication, consumer group coordination, offset management, and exactly-once semantics.",
+"label": "strong",
+"reasoning": "Requires multi-step analysis and deep architectural domain knowledge of distributed event streaming."
+},
+{
+"id": 20,
+"prompt": "You have a PostgreSQL database that has grown to 5TB and queries are slowing down. Walk through systematic optimization: EXPLAIN ANALYZE interpretation, index strategy, query rewriting, partitioning, materialized views, and connection pooling. Estimate expected improvement for each.",
+"label": "strong",
+"reasoning": "Demands multi-step analysis, database architecture expertise, and complex systematic problem-solving."
+},
+{
+"id": 21,
+"prompt": "Design a comprehensive monitoring and alerting system for microservices. Cover the four golden signals, distributed tracing with OpenTelemetry, log aggregation, and anomaly detection. Propose alerting strategy minimizing false positives while maintaining 99.99% detection.",
+"label": "strong",
+"reasoning": "Requires complex system design and the synthesis of advanced observability methodologies."
+},
+{
+"id": 22,
+"prompt": "Explain how HTTPS and TLS 1.3 work step by step. Compare with TLS 1.2, explain why 0-RTT resumption is faster but vulnerable to replay attacks, and propose mitigations.",
+"label": "strong",
+"reasoning": "Involves a complex step-by-step technical explanation, advanced protocol comparison, and deep security knowledge."
+},
+{
+"id": 23,
+"prompt": "What is the difference between HTTP/1.1 and HTTP/2?",
+"label": "weak",
+"reasoning": "A basic factual comparison of standard web protocols commonly documented."
+},
+{
+"id": 24,
+"prompt": "What is an environment variable?",
+"label": "weak",
+"reasoning": "A single-concept explanation of a basic technical term."
+},
+{
+"id": 25,
+"prompt": "How do I install Node.js?",
+"label": "weak",
+"reasoning": "A simple how-to with a straightforward answer."
+}
+]

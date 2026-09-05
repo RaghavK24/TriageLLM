@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "prompt": "What is the difference between authentication and authorization?",
+    "label": "weak",
+    "reasoning": "A basic conceptual distinction easily handled by small models."
+  },
+  {
+    "id": 2,
+    "prompt": "Give me a brief overview of what Kubernetes does.",
+    "label": "weak",
+    "reasoning": "A straightforward, high-level explanation of a single concept."
+  },
+  {
+    "id": 3,
+    "prompt": "What is a container in Docker?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup."
+  },
+  {
+    "id": 4,
+    "prompt": "What is a firewall?",
+    "label": "weak",
+    "reasoning": "A simple definition of a standard term."
+  },
+  {
+    "id": 5,
+    "prompt": "How do I check my Python version?",
+    "label": "weak",
+    "reasoning": "A simple how-to with a straightforward answer."
+  },
+  {
+    "id": 6,
+    "prompt": "How do I create a list in Python?",
+    "label": "weak",
+    "reasoning": "A basic programming instruction and syntax lookup."
+  },
+  {
+    "id": 7,
+    "prompt": "How do I make text bold in Markdown?",
+    "label": "weak",
+    "reasoning": "A simple how-to formatting question."
+  },
+  {
+    "id": 8,
+    "prompt": "How do I declare a variable in JavaScript?",
+    "label": "weak",
+    "reasoning": "A simple syntax lookup and basic instruction."
+  },
+  {
+    "id": 9,
+    "prompt": "How do I import a module in Python?",
+    "label": "weak",
+    "reasoning": "A fundamental syntax and how-to question."
+  },
+  {
+    "id": 10,
+    "prompt": "What are our support hours?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup."
+  },
+  {
+    "id": 11,
+    "prompt": "What version introduced tiered pricing?",
+    "label": "weak",
+    "reasoning": "A straightforward factual query."
+  },
+  {
+    "id": 12,
+    "prompt": "When was v3.2.0 released?",
+    "label": "weak",
+    "reasoning": "A simple date lookup."
+  },
+  {
+    "id": 13,
+    "prompt": "What is an API endpoint?",
+    "label": "weak",
+    "reasoning": "A basic definition of a common technical term."
+  },
+  {
+    "id": 14,
+    "prompt": "You are building a multi-tenant SaaS application. A customer reports intermittent 504 Gateway Timeout errors during peak hours. Walk through your debugging methodology step by step, covering load balancer logs, application tracing, database slow query analysis, and connection pool exhaustion. Propose both short-term mitigations and long-term architectural fixes.",
+    "label": "strong",
+    "reasoning": "Requires multi-step analysis, complex debugging, and deep architectural domain knowledge."
+  },
+  {
+    "id": 15,
+    "prompt": "Design a CI/CD pipeline for a monorepo containing 5 microservices, 2 shared libraries, and a frontend. Explain selective builds, parallel test execution, canary deployments, and rollback. Analyze monorepo tooling (Bazel, Nx) vs polyrepo trade-offs.",
+    "label": "strong",
+    "reasoning": "Demands complex system design and in-depth compare-and-contrast analysis of tooling."
+  },
+  {
+    "id": 16,
+    "prompt": "Explain how OAuth 2.0 and OpenID Connect work together. Walk through Authorization Code flow with PKCE, explain why implicit flow was deprecated, and propose a token refresh strategy balancing security with UX.",
+    "label": "strong",
+    "reasoning": "Involves a complex step-by-step technical explanation and deep security architecture knowledge."
+  },
+  {
+    "id": 17,
+    "prompt": "Design a data pipeline processing 1TB of clickstream data daily. Compare batch (Spark) vs streaming (Flink), explain exactly-once semantics in Kafka, and propose a schema evolution strategy.",
+    "label": "strong",
+    "reasoning": "Requires system design, deep domain knowledge of data engineering tools, and architectural synthesis."
+  },
+  {
+    "id": 18,
+    "prompt": "Explain how database sharding works. Compare range-based, hash-based, and directory-based strategies. Analyze cross-shard joins, rebalancing, and hot spots. Propose a sharding key for a social media app with 500 million users.",
+    "label": "strong",
+    "reasoning": "Requires deep database architecture knowledge, complex comparison, and system design application."
+  },
+  {
+    "id": 19,
+    "prompt": "Design a blue-green deployment strategy for a stateful app with PostgreSQL. Explain backward-compatible schema migrations, connection draining, and automatic rollback. Compare with canary deployments.",
+    "label": "strong",
+    "reasoning": "Involves complex deployment architecture, multi-step synthesis, and deep technical operations knowledge."
+  },
+  {
+    "id": 20,
+    "prompt": "Optimize a machine learning pipeline that takes 8 hours to train. Propose optimizations at each stage: data loading, feature engineering, training (data parallelism, mixed-precision, gradient accumulation), and evaluation. Derive expected speedup for each.",
+    "label": "strong",
+    "reasoning": "Requires advanced multi-step analysis, specialized machine learning optimization knowledge, and technical derivations."
+  },
+  {
+    "id": 21,
+    "prompt": "Design a comprehensive testing strategy for distributed microservices. Cover unit tests, integration tests, contract tests, end-to-end tests, chaos engineering, and performance tests. Explain the testing pyramid and trade-offs with CI/CD speed.",
+    "label": "strong",
+    "reasoning": "Demands deep technical domain knowledge, system design, and the synthesis of multiple methodologies."
+  },
+  {
+    "id": 22,
+    "prompt": "Convert 1 kilometer to miles.",
+    "label": "weak",
+    "reasoning": "A basic unit conversion."
+  },
+  {
+    "id": 23,
+    "prompt": "What are the vowels in the English alphabet?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup."
+  },
+  {
+    "id": 24,
+    "prompt": "What is the opposite of 'hot'?",
+    "label": "weak",
+    "reasoning": "A basic linguistic lookup."
+  },
+  {
+    "id": 25,
+    "prompt": "Sort these numbers: 5, 2, 8, 1, 9.",
+    "label": "weak",
+    "reasoning": "A simple arithmetic sorting task easily handled by small models."
+  }
+]

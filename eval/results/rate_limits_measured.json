@@ -1,0 +1,30 @@
+{
+  "azure/gpt-4-Azure-OpenAI-Ritwik": {
+    "safe_rpm": 60,
+    "limit_hit_at_rpm": null
+  },
+  "groq/openai/gpt-oss-20b": {
+    "safe_rpm": 28,
+    "limit_hit_at_rpm": 30
+  },
+  "groq/openai/gpt-oss-120b": {
+    "safe_rpm": 28,
+    "limit_hit_at_rpm": 30
+  },
+  "groq/qwen/qwen3.6-27b": {
+    "safe_rpm": 28,
+    "limit_hit_at_rpm": 30
+  },
+  "mistral/mistral-small-latest": {
+    "safe_rpm": 5,
+    "limit_hit_at_rpm": 5
+  },
+  "groq/qwen/qwen3.8-27b": {
+    "safe_rpm": 28,
+    "limit_hit_at_rpm": null
+  },
+  "groq/openai/gpt-oss-safeguard-20b": {
+    "safe_rpm": 28,
+    "limit_hit_at_rpm": null
+  }
+}

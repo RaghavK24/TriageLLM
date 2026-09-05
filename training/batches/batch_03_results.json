@@ -1,0 +1,152 @@
+[
+{
+"id": 1,
+"prompt": "Hello!",
+"label": "weak",
+"reasoning": "This is a basic greeting requiring minimal language capability."
+},
+{
+"id": 2,
+"prompt": "What's your name?",
+"label": "weak",
+"reasoning": "Simple conversational chit-chat easily handled by small models."
+},
+{
+"id": 3,
+"prompt": "What is the speed of light?",
+"label": "weak",
+"reasoning": "This is a straightforward factual lookup for a well-known scientific constant."
+},
+{
+"id": 4,
+"prompt": "Who wrote Romeo and Juliet?",
+"label": "weak",
+"reasoning": "This is a simple factual trivia question with a static answer."
+},
+{
+"id": 5,
+"prompt": "What is the chemical formula for water?",
+"label": "weak",
+"reasoning": "This is a basic science fact lookup."
+},
+{
+"id": 6,
+"prompt": "What is the tallest mountain in the world?",
+"label": "weak",
+"reasoning": "This is a simple geographic fact lookup."
+},
+{
+"id": 7,
+"prompt": "How many planets are in the solar system?",
+"label": "weak",
+"reasoning": "This is a basic science trivia question."
+},
+{
+"id": 8,
+"prompt": "What language is spoken in Brazil?",
+"label": "weak",
+"reasoning": "This is a straightforward factual lookup."
+},
+{
+"id": 9,
+"prompt": "What is the currency of Japan?",
+"label": "weak",
+"reasoning": "This is a simple factual lookup."
+},
+{
+"id": 10,
+"prompt": "Who painted the Mona Lisa?",
+"label": "weak",
+"reasoning": "This is a standard historical fact lookup."
+},
+{
+"id": 11,
+"prompt": "What is the boiling point of water in Fahrenheit?",
+"label": "weak",
+"reasoning": "This is a basic factual question and simple unit conversion."
+},
+{
+"id": 12,
+"prompt": "How many states are in the US?",
+"label": "weak",
+"reasoning": "This is a basic geographic fact lookup."
+},
+{
+"id": 13,
+"prompt": "What is the smallest country in the world?",
+"label": "weak",
+"reasoning": "This is a simple factual trivia question."
+},
+{
+"id": 14,
+"prompt": "Refactor the following Python function for readability and reduced cyclomatic complexity. Explain each change:\n`python\ndef process(data, mode, flag1, flag2):\n    result = []\n    for item in data:\n        if mode == 'A':\n            if flag1:\n                if item > 0:\n                    result.append(item * 2)\n                else:\n                    result.append(0)\n            else:\n                result.append(item)\n        elif mode == 'B':\n            if flag2:\n                result.append(item ** 2)\n            else:\n                if flag1:\n                    result.append(item + 1)\n                else:\n                    result.append(item - 1)\n    return result\n`",
+"label": "strong",
+"reasoning": "This involves complex code refactoring, logic simplification, and detailed step-by-step technical explanations."
+},
+{
+"id": 15,
+"prompt": "Analyze the following code for potential race conditions, memory leaks, and performance issues. Propose fixes:\n`python\nimport threading\nclass ConnectionPool:\n    _instance = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super().__new__(cls)\n            cls._instance.connections = []\n            cls._instance.lock = threading.Lock()\n        return cls._instance\n    def get_connection(self):\n        if self.connections:\n            return self.connections.pop()\n        return create_new_connection()\n    def release(self, conn):\n        self.connections.append(conn)\n`",
+"label": "strong",
+"reasoning": "This requires advanced code review, deep understanding of concurrency and design patterns, and debugging complex technical issues."
+},
+{
+"id": 16,
+"prompt": "Review this SQL query for performance issues. Explain what indexes would help and rewrite it optimally:\n`sql\nSELECT u.name, u.email,\n  (SELECT COUNT(*) FROM orders o WHERE o.user_id = u.id) as order_count,\n  (SELECT MAX(created_at) FROM orders o WHERE o.user_id = u.id) as last_order\nFROM users u WHERE u.status = 'active'\nORDER BY u.created_at DESC LIMIT 100;\n`",
+"label": "strong",
+"reasoning": "This requires deep domain knowledge of database optimization, query execution planning, and indexing strategies."
+},
+{
+"id": 17,
+"prompt": "Debug this async Python code that intermittently produces incorrect results. Identify the concurrency bug and provide a corrected version:\n`python\nimport asyncio\nclass Counter:\n    def __init__(self): self.count = 0\n    async def increment(self):\n        current = self.count\n        await asyncio.sleep(0.001)\n        self.count = current + 1\nasync def main():\n    counter = Counter()\n    await asyncio.gather(*[counter.increment() for _ in range(100)])\n    print(f'Expected 100, got {counter.count}')\n`",
+"label": "strong",
+"reasoning": "Identifying and fixing asynchronous race conditions requires sophisticated reasoning about concurrent execution flow."
+},
+{
+"id": 18,
+"prompt": "Prove that any comparison-based sorting algorithm requires Ω(n log n) comparisons in the worst case. Use the decision tree model and derive the information-theoretic lower bound.",
+"label": "strong",
+"reasoning": "This involves advanced mathematical proofs, formal algorithmic analysis, and deriving theoretical bounds."
+},
+{
+"id": 19,
+"prompt": "Derive Bayes' theorem from first principles and apply it to compute the probability that a medical test result is a true positive given a sensitivity of 99%, specificity of 95%, and disease prevalence of 1%.",
+"label": "strong",
+"reasoning": "This requires a step-by-step mathematical derivation from first principles followed by complex probability synthesis."
+},
+{
+"id": 20,
+"prompt": "Derive the birthday paradox probability — the minimum number of people needed for a 50% chance of a shared birthday. Then apply this to analyze hash collision probabilities in a hash table with 2^32 buckets.",
+"label": "strong",
+"reasoning": "This combines complex probabilistic derivations with deep technical analysis of hashing cryptography/structures."
+},
+{
+"id": 21,
+"prompt": "Prove that the greedy algorithm for the activity selection problem produces an optimal solution using an exchange argument.",
+"label": "strong",
+"reasoning": "Mathematical proofs and algorithmic correctness evaluations using specific formal arguments require powerful reasoning models."
+},
+{
+"id": 22,
+"prompt": "What element has the symbol 'Fe'?",
+"label": "weak",
+"reasoning": "This is a basic scientific fact lookup."
+},
+{
+"id": 23,
+"prompt": "What is the capital of Australia?",
+"label": "weak",
+"reasoning": "This is a simple geographic trivia question."
+},
+{
+"id": 24,
+"prompt": "Who discovered penicillin?",
+"label": "weak",
+"reasoning": "This is a standard historical and scientific fact lookup."
+},
+{
+"id": 25,
+"prompt": "What is the longest river in the world?",
+"label": "weak",
+"reasoning": "This is a basic geographic fact lookup."
+}
+]

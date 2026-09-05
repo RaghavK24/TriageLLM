@@ -1,0 +1,79 @@
+{
+  "endpoint": "/chat_baseline",
+  "n_concurrent": 5,
+  "n_ok": 5,
+  "n_err": 0,
+  "latency_ms": {
+    "avg": 2879.31299158372,
+    "p50": 2818.0982498452067,
+    "p95": 3222.0047919545323,
+    "max": 3222.0047919545323
+  },
+  "total_cost_usd": 0.004136,
+  "avg_cost_usd": 0.0008271999999999999,
+  "tier_counts": {
+    "baseline_strong": 5
+  },
+  "raw": [
+    {
+      "ok": true,
+      "latency_ms": 2731.6156250890344,
+      "server_latency_ms": 2725.8079999592155,
+      "tier": "baseline_strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00039875,
+      "complexity": 0.11891786754131317,
+      "load_fraction": 0.1,
+      "prompt_tokens": 25,
+      "completion_tokens": 30
+    },
+    {
+      "ok": true,
+      "latency_ms": 2797.363291028887,
+      "server_latency_ms": 2790.2262089774013,
+      "tier": "baseline_strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.0010037499999999999,
+      "complexity": 0.09623109549283981,
+      "load_fraction": 0.1,
+      "prompt_tokens": 221,
+      "completion_tokens": 36
+    },
+    {
+      "ok": true,
+      "latency_ms": 2818.0982498452067,
+      "server_latency_ms": 2811.1031248699874,
+      "tier": "baseline_strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.0011247499999999999,
+      "complexity": 0.10008938610553741,
+      "load_fraction": 0.1,
+      "prompt_tokens": 217,
+      "completion_tokens": 48
+    },
+    {
+      "ok": true,
+      "latency_ms": 3222.0047919545323,
+      "server_latency_ms": 3214.06654198654,
+      "tier": "baseline_strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00058575,
+      "complexity": 0.5558514595031738,
+      "load_fraction": 0.1,
+      "prompt_tokens": 33,
+      "completion_tokens": 45
+    },
+    {
+      "ok": true,
+      "latency_ms": 2827.483000000939,
+      "server_latency_ms": 2821.005499921739,
+      "tier": "baseline_strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.001023,
+      "complexity": 0.10146895796060562,
+      "load_fraction": 0.1,
+      "prompt_tokens": 224,
+      "completion_tokens": 37
+    }
+  ]
+}

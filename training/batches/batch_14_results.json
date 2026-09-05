@@ -1,0 +1,302 @@
+[
+{
+"id": 201,
+"prompt": "I have been meaning to ask this for a long time but I keep getting distracted by other things at work and then I forget, and then I remember again at like 2 AM when I can't sleep, and then I forget again by morning, so I'm finally just going to ask right now before I forget: what continent is Brazil on?",
+"label": "weak",
+"reasoning": "The prompt is filled with irrelevant personal context and ultimately asks a trivial geographic fact."
+},
+{
+"id": 202,
+"prompt": "Derive the expectation-maximization algorithm for fitting a mixture of Gaussians.",
+"label": "strong",
+"reasoning": "This prompt requests a rigorous mathematical derivation of a complex machine learning algorithm."
+},
+{
+"id": 203,
+"prompt": "What animal is known as man's best friend?",
+"label": "weak",
+"reasoning": "The prompt asks an extremely basic trivia question with no depth or complexity."
+},
+{
+"id": 204,
+"prompt": "Design an optimal caching strategy combining L1/L2 caches with a CDN, deriving hit rates using the Independent Reference Model.",
+"label": "strong",
+"reasoning": "This prompt requires advanced system design skills and formal mathematical modeling to answer."
+},
+{
+"id": 205,
+"prompt": "How many letters are in the English alphabet?",
+"label": "weak",
+"reasoning": "The prompt is a simple factual query requiring no analysis or expertise."
+},
+{
+"id": 206,
+"prompt": "Refactor this event-driven microservice from polling to server-sent events and explain the backpressure handling, connection lifecycle management, and reconnection strategy.",
+"label": "strong",
+"reasoning": "This prompt asks for a comprehensive architectural refactoring along with detailed technical explanations."
+},
+{
+"id": 207,
+"prompt": "My uncle was telling me about his trip to South America and all the amazing food he ate and the beautiful mountains he saw, and he showed me hundreds of photos on his phone, and it was really nice hearing about his adventures, but honestly the only thing I want to know right now is: what language do they speak in Brazil?",
+"label": "weak",
+"reasoning": "The prompt obscures a basic trivia question behind an excessive amount of unrelated conversational filler."
+},
+{
+"id": 208,
+"prompt": "Prove that the decision version of the knapsack problem is NP-complete.",
+"label": "strong",
+"reasoning": "This prompt requires a formal mathematical proof in computational complexity theory."
+},
+{
+"id": 209,
+"prompt": "What is the first letter of the alphabet?",
+"label": "weak",
+"reasoning": "The prompt asks an elementary question that requires zero reasoning or complex generation."
+},
+{
+"id": 210,
+"prompt": "Implement a distributed hash table using Kademlia and analyze its XOR-based routing metric.",
+"label": "strong",
+"reasoning": "This prompt demands both advanced implementation skills and algorithmic analysis of a distributed system."
+},
+{
+"id": 211,
+"prompt": "How do I turn off notifications?",
+"label": "weak",
+"reasoning": "The prompt is a basic support question lacking context about the specific device or application."
+},
+{
+"id": 212,
+"prompt": "Derive the optimal exploration-exploitation trade-off in multi-armed bandits using the UCB1 algorithm and prove its regret bound.",
+"label": "strong",
+"reasoning": "This prompt necessitates a deep understanding of reinforcement learning mathematics and formal proof techniques."
+},
+{
+"id": 213,
+"prompt": "I was cleaning out my garage and I found a box of old textbooks from college and I flipped through a few of them and it brought back so many memories of late-night study sessions and cramming for finals, and one of the books was about world history, which reminded me: what year did humans first land on the moon?",
+"label": "weak",
+"reasoning": "The prompt buries a simple historical fact query under a long, irrelevant personal anecdote."
+},
+{
+"id": 214,
+"prompt": "Design a real-time collaborative editing system using operational transformation, proving the convergence property for concurrent insertions and deletions.",
+"label": "strong",
+"reasoning": "This prompt combines complex system design with a rigorous formal proof requirement."
+},
+{
+"id": 215,
+"prompt": "What is the opposite of left?",
+"label": "weak",
+"reasoning": "The prompt is a rudimentary antonym question requiring no sophisticated reasoning."
+},
+{
+"id": 216,
+"prompt": "Compare the memory management models of Go, Java, and Rust, analyzing GC pause times, allocation patterns, and their impact on tail latency in microservices.",
+"label": "strong",
+"reasoning": "This prompt requires an expert-level comparative analysis of programming language internals and performance characteristics."
+},
+{
+"id": 217,
+"prompt": "How many planets are in our solar system?",
+"label": "weak",
+"reasoning": "The prompt is a basic science trivia question with a straightforward factual answer."
+},
+{
+"id": 218,
+"prompt": "Implement a Raft-based replicated state machine with log compaction and prove its linearizability.",
+"label": "strong",
+"reasoning": "This prompt asks for a complex distributed systems implementation coupled with a formal correctness proof."
+},
+{
+"id": 219,
+"prompt": "My coworker keeps using the word \"synergy\" in meetings and I smile and nod but I honestly have no idea what it means in a business context, but that's not even what I want to ask you about — I just need to know: what is the capital of Canada?",
+"label": "weak",
+"reasoning": "The prompt includes unnecessary narrative bloat before asking a fundamental geography question."
+},
+{
+"id": 220,
+"prompt": "Derive the communication complexity lower bound for matrix multiplication in the distributed setting using Loomis-Whitney inequality.",
+"label": "strong",
+"reasoning": "This prompt targets highly specialized theoretical computer science and advanced mathematics."
+},
+{
+"id": 221,
+"prompt": "What is a rectangle?",
+"label": "weak",
+"reasoning": "The prompt is a basic geometry definition request requiring no advanced generation."
+},
+{
+"id": 222,
+"prompt": "Design an anomaly detection system for time-series metrics using both statistical methods (z-score, Grubbs' test) and learned approaches (autoencoders), comparing their false positive rates.",
+"label": "strong",
+"reasoning": "This prompt requires a comprehensive design spanning statistical analysis and machine learning evaluation."
+},
+{
+"id": 223,
+"prompt": "How do I log out?",
+"label": "weak",
+"reasoning": "The prompt is overly broad and extremely basic, providing no specific context about the platform."
+},
+{
+"id": 224,
+"prompt": "Prove that minimum spanning trees can be found in O(E log V) time and explain why Fibonacci heaps improve Prim's algorithm to O(E + V log V).",
+"label": "strong",
+"reasoning": "This prompt demands algorithmic proof and a detailed understanding of data structure time complexities."
+},
+{
+"id": 225,
+"prompt": "I just moved to a new city and I've been exploring all the different neighborhoods and trying out new restaurants and coffee shops, and I signed up for a library card and joined a local gym, and I'm really starting to feel at home here, but there's one thing I still need to figure out for work: how do I set up direct deposit?",
+"label": "weak",
+"reasoning": "The prompt obscures a basic administrative question beneath a lengthy and irrelevant life story."
+},
+{
+"id": 226,
+"prompt": "Implement a self-balancing AVL tree with lazy propagation for range updates.",
+"label": "strong",
+"reasoning": "This prompt requires implementing a sophisticated data structure with advanced update mechanisms."
+},
+{
+"id": 227,
+"prompt": "What is the longest river in the world?",
+"label": "weak",
+"reasoning": "The prompt is a standard trivia question that requires merely retrieving a known fact."
+},
+{
+"id": 228,
+"prompt": "Derive the Cramér-Rao lower bound and explain its implications for efficient estimators in maximum likelihood.",
+"label": "strong",
+"reasoning": "This prompt involves complex statistical derivation and a deep understanding of estimation theory."
+},
+{
+"id": 229,
+"prompt": "How do I delete an email?",
+"label": "weak",
+"reasoning": "The prompt is a very generic tech support question lacking necessary context."
+},
+{
+"id": 230,
+"prompt": "Design a read-through/write-behind caching layer with eventual consistency, proving that no updates are lost under node failures using a write-ahead log.",
+"label": "strong",
+"reasoning": "This prompt requires designing a robust distributed system component and proving its fault tolerance."
+},
+{
+"id": 231,
+"prompt": "My sister called me yesterday and we talked for about two hours about everything from her new job to her vacation plans to the book she's reading, and she even told me about this cooking class she signed up for, and it was a really nice conversation, but now I need to focus on work — what's the shortcut for saving a file?",
+"label": "weak",
+"reasoning": "The prompt buries a trivial keyboard shortcut query under an extensive and unrelated personal anecdote."
+},
+{
+"id": 232,
+"prompt": "Compare B-epsilon trees, Bw-trees, and LSM trees for modern NVMe storage, analyzing the I/O amplification of each under mixed read-write workloads.",
+"label": "strong",
+"reasoning": "This prompt requires expert knowledge of database storage engines and hardware-specific performance characteristics."
+},
+{
+"id": 233,
+"prompt": "What does \"RSVP\" stand for?",
+"label": "weak",
+"reasoning": "The prompt is a simple acronym definition question that requires no reasoning."
+},
+{
+"id": 234,
+"prompt": "Implement a linearizable register on top of an eventually consistent store using ABD algorithm.",
+"label": "strong",
+"reasoning": "This prompt asks for the implementation of a specific, complex algorithm from distributed systems literature."
+},
+{
+"id": 235,
+"prompt": "How many minutes in an hour?",
+"label": "weak",
+"reasoning": "The prompt asks for a universal, elementary fact with absolutely no complexity."
+},
+{
+"id": 236,
+"prompt": "Derive the dual formulation of the SVM optimization problem and explain why the kernel trick works.",
+"label": "strong",
+"reasoning": "This prompt demands a strong mathematical derivation of machine learning foundations."
+},
+{
+"id": 237,
+"prompt": "I was watching a cooking show and the chef made this incredible chocolate cake and she was explaining all the chemistry behind why certain ingredients react the way they do when you bake them at different temperatures, and it was really educational, but I got distracted and missed one thing — how many eggs are in a dozen?",
+"label": "weak",
+"reasoning": "The prompt hides an extremely basic factual question behind a lengthy story about baking."
+},
+{
+"id": 238,
+"prompt": "Design an incremental view maintenance system for materialized views in a streaming database.",
+"label": "strong",
+"reasoning": "This prompt requires architectural design of a complex database internals feature."
+},
+{
+"id": 239,
+"prompt": "What color are stop signs?",
+"label": "weak",
+"reasoning": "The prompt is a trivial observational question that requires no analysis or insight."
+},
+{
+"id": 240,
+"prompt": "Prove that any comparison-based selection algorithm requires Ω(n) comparisons in the worst case.",
+"label": "strong",
+"reasoning": "This prompt necessitates a formal mathematical proof regarding algorithmic lower bounds."
+},
+{
+"id": 241,
+"prompt": "How do I take a screenshot on Mac?",
+"label": "weak",
+"reasoning": "The prompt is a basic technical support query that has a simple, static answer."
+},
+{
+"id": 242,
+"prompt": "Implement a wait-free single-producer single-consumer queue and prove its correctness using the happens-before memory model.",
+"label": "strong",
+"reasoning": "This prompt requires writing lock-free concurrent code and formally proving its thread safety."
+},
+{
+"id": 243,
+"prompt": "I went to the doctor yesterday for a routine checkup and everything was fine, and on the way home I stopped at the pharmacy to pick up some vitamins, and then I went to the post office to mail a package, and by the time I got home I was exhausted, but before I go to bed I just want to know: what vitamin do you get from sunlight?",
+"label": "weak",
+"reasoning": "The prompt includes a huge amount of conversational filler before asking a basic biology fact."
+},
+{
+"id": 244,
+"prompt": "Derive the optimal sharding strategy for a distributed database minimizing cross-shard transactions using graph partitioning.",
+"label": "strong",
+"reasoning": "This prompt requires applying advanced graph theory to a complex distributed database design problem."
+},
+{
+"id": 245,
+"prompt": "What is the square root of 9?",
+"label": "weak",
+"reasoning": "The prompt is an elementary math question with a trivial answer."
+},
+{
+"id": 246,
+"prompt": "Compare static dispatch vs dynamic dispatch in Rust and C++, analyzing the vtable overhead, branch prediction implications, and monomorphization costs.",
+"label": "strong",
+"reasoning": "This prompt requires a highly technical comparison of systems programming language compilation and runtime behavior."
+},
+{
+"id": 247,
+"prompt": "How do I mute a Zoom call?",
+"label": "weak",
+"reasoning": "The prompt is a basic software usage question with a straightforward factual answer."
+},
+{
+"id": 248,
+"prompt": "Implement a concurrent skip list with fine-grained locking and prove its linearizability.",
+"label": "strong",
+"reasoning": "This prompt demands the implementation and formal correctness proof of a complex concurrent data structure."
+},
+{
+"id": 249,
+"prompt": "My team is doing a trivia night next Friday and I'm trying to prepare by brushing up on general knowledge, and I've been quizzing myself with flashcards and reading Wikipedia articles, and I feel pretty confident about most categories except maybe sports, but anyway here's an easy one to start with: what is the smallest prime number?",
+"label": "weak",
+"reasoning": "The prompt obscures a basic mathematical fact beneath an extensive personal narrative."
+},
+{
+"id": 250,
+"prompt": "Design an observability platform with distributed tracing, deriving the sampling strategy that minimizes trace loss while staying within a storage budget.",
+"label": "strong",
+"reasoning": "This prompt combines large-scale system design with mathematical optimization for a sampling strategy."
+}
+]

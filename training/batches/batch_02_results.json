@@ -1,0 +1,152 @@
+[
+{
+"id": 1,
+"prompt": "What is an operating system?",
+"label": "weak",
+"reasoning": "This is a simple definition of a foundational computing concept."
+},
+{
+"id": 2,
+"prompt": "What is cloud computing?",
+"label": "weak",
+"reasoning": "This requests a straightforward definition of a broad technical term."
+},
+{
+"id": 3,
+"prompt": "Define the term 'bandwidth'.",
+"label": "weak",
+"reasoning": "This is a basic factual lookup for a specific definition."
+},
+{
+"id": 4,
+"prompt": "What is an IP address?",
+"label": "weak",
+"reasoning": "This is a simple, single-concept explanation that does not require deep reasoning."
+},
+{
+"id": 5,
+"prompt": "What is DNS?",
+"label": "weak",
+"reasoning": "This requires a simple factual explanation of a standard protocol."
+},
+{
+"id": 6,
+"prompt": "What is a load balancer?",
+"label": "weak",
+"reasoning": "This is a straightforward definition of a common networking concept."
+},
+{
+"id": 7,
+"prompt": "What is the difference between TCP and UDP?",
+"label": "weak",
+"reasoning": "This is a standard, single-concept comparison that is frequently documented and simple to summarize."
+},
+{
+"id": 8,
+"prompt": "What is a microservice?",
+"label": "weak",
+"reasoning": "This is a basic definition request for an architectural style."
+},
+{
+"id": 9,
+"prompt": "List three types of databases.",
+"label": "weak",
+"reasoning": "Retrieving a short list of common technical categories is a simple task."
+},
+{
+"id": 10,
+"prompt": "What is the file extension for Python files?",
+"label": "weak",
+"reasoning": "This is a basic factual trivia question."
+},
+{
+"id": 11,
+"prompt": "How do I create a virtual environment in Python?",
+"label": "weak",
+"reasoning": "This is a simple how-to request with a very straightforward standard answer."
+},
+{
+"id": 12,
+"prompt": "How do I start a new Git repository?",
+"label": "weak",
+"reasoning": "This is a basic procedural question with a standard command-line answer."
+},
+{
+"id": 13,
+"prompt": "What is a for loop? Give a simple example.",
+"label": "weak",
+"reasoning": "This is a single-concept explanation with a trivial code snippet that requires no complex reasoning."
+},
+{
+"id": 14,
+"prompt": "Design a real-time chat application like WhatsApp. Cover the architecture for message delivery, read receipts, group chats, media sharing, and end-to-end encryption. Analyze how you would handle millions of concurrent WebSocket connections.",
+"label": "strong",
+"reasoning": "This requires advanced system design, multi-step technical architecture, and deep analysis of scale."
+},
+{
+"id": 15,
+"prompt": "Design a distributed task queue system. Explain how you would handle task prioritization, retry logic with exponential backoff, dead letter queues, and exactly-once execution semantics. Analyze at-least-once vs exactly-once delivery.",
+"label": "strong",
+"reasoning": "This involves complex architectural design and a deep domain comparison of distributed delivery semantics."
+},
+{
+"id": 16,
+"prompt": "Design a content delivery network (CDN). Explain cache invalidation, content routing, origin shielding, and edge computing. Derive the cache hit ratio needed to achieve a 95% reduction in origin server load.",
+"label": "strong",
+"reasoning": "This combines complex system design with a mathematical derivation regarding performance metrics."
+},
+{
+"id": 17,
+"prompt": "Design a recommendation engine for an e-commerce platform. Compare collaborative filtering, content-based filtering, and hybrid approaches. Explain the cold-start problem and propose solutions.",
+"label": "strong",
+"reasoning": "This is a multi-step design prompt requiring deep synthesis and domain-specific compare-and-contrast analysis."
+},
+{
+"id": 18,
+"prompt": "Design a distributed log aggregation system that handles 100TB of logs per day. Compare Elasticsearch vs ClickHouse for this use case and justify your choice with specific technical trade-offs.",
+"label": "strong",
+"reasoning": "This requires high-scale system design and deep domain knowledge to analyze technical trade-offs between specific databases."
+},
+{
+"id": 19,
+"prompt": "Analyze the time complexity of Dijkstra's algorithm with a Fibonacci heap vs a binary heap. Derive the conditions under which the Fibonacci heap provides a meaningful speedup and explain why it's rarely used in practice.",
+"label": "strong",
+"reasoning": "This involves complex algorithmic analysis, derivation of performance bounds, and deep technical evaluation."
+},
+{
+"id": 20,
+"prompt": "Explain the difference between BFS and DFS, their time and space complexities, and when each is preferred. Then design a solution for finding the shortest path in an unweighted graph with cycles, proving its correctness.",
+"label": "strong",
+"reasoning": "While the first part is simple, designing a solution and proving its mathematical correctness requires a powerful model."
+},
+{
+"id": 21,
+"prompt": "Given a stream of integers, design a data structure that supports O(1) insert and O(1) median finding. Explain why a two-heap approach works, prove its correctness, and analyze the amortized complexity.",
+"label": "strong",
+"reasoning": "This requires advanced data structure synthesis, mathematical proof of correctness, and algorithmic complexity analysis."
+},
+{
+"id": 22,
+"prompt": "What is the square root of 144?",
+"label": "weak",
+"reasoning": "This is basic arithmetic easily resolved by small models."
+},
+{
+"id": 23,
+"prompt": "List the primary colors.",
+"label": "weak",
+"reasoning": "This is a simple list of basic static facts."
+},
+{
+"id": 24,
+"prompt": "Name three cloud providers.",
+"label": "weak",
+"reasoning": "This is a simple factual list lookup."
+},
+{
+"id": 25,
+"prompt": "What is the next number in the sequence: 2, 4, 6, 8, ?",
+"label": "weak",
+"reasoning": "This requires identifying a trivial arithmetic pattern."
+}
+]

@@ -1,0 +1,302 @@
+[
+{
+"id": 301,
+"prompt": "I was trying to organize a surprise birthday party for my best friend and I've been coordinating with like fifteen different people about the venue and the cake and the decorations and the playlist, and it's been incredibly stressful but I think it's going to be amazing, but right now I just need a break from party planning and I have a simple question: what is the largest desert in the world?",
+"label": "weak",
+"reasoning": "The prompt wraps a simple geography trivia question inside a lengthy, irrelevant story about party planning."
+},
+{
+"id": 302,
+"prompt": "Implement a concurrent garbage collector using the tri-color invariant and prove it does not collect live objects.",
+"label": "strong",
+"reasoning": "This prompt demands both advanced systems programming and a formal mathematical correctness proof."
+},
+{
+"id": 303,
+"prompt": "How many teeth do adults have?",
+"label": "weak",
+"reasoning": "The prompt is a basic anatomical fact query that requires no deeper analysis."
+},
+{
+"id": 304,
+"prompt": "Explain how indirect branch prediction exploits (Spectre v2) work at the microarchitectural level and analyze the performance impact of retpoline mitigations.",
+"label": "strong",
+"reasoning": "This prompt requires deep expertise in hardware microarchitecture, security vulnerabilities, and performance analysis."
+},
+{
+"id": 305,
+"prompt": "What is the third planet from the sun?",
+"label": "weak",
+"reasoning": "The prompt is an elementary science question with a universally known, single-word answer."
+},
+{
+"id": 306,
+"prompt": "Design and implement a custom allocator using slab allocation for fixed-size objects, analyzing internal fragmentation and cache-line alignment trade-offs.",
+"label": "strong",
+"reasoning": "This prompt involves low-level systems programming and complex analysis of memory management trade-offs."
+},
+{
+"id": 307,
+"prompt": "I've been binge-watching this really great TV show about time travel and parallel universes, and the plot is incredibly complex with all these different timelines intersecting and characters meeting alternate versions of themselves, and I've had to rewatch several episodes to understand what's going on, but my question for you is completely unrelated: what is 50 divided by 5?",
+"label": "weak",
+"reasoning": "The prompt obscures an extremely simple arithmetic problem within an unrelated narrative about a TV show."
+},
+{
+"id": 308,
+"prompt": "Derive the conditions under which gradient clipping guarantees convergence for non-convex optimization.",
+"label": "strong",
+"reasoning": "This prompt requires rigorous mathematical derivation within the context of advanced machine learning optimization."
+},
+{
+"id": 309,
+"prompt": "How do I check the weather?",
+"label": "weak",
+"reasoning": "The prompt is an overly broad, basic usability question lacking any device or platform context."
+},
+{
+"id": 310,
+"prompt": "Implement a compiler pass for dead code elimination using reaching definitions analysis.",
+"label": "strong",
+"reasoning": "This prompt requires applying theoretical computer science concepts to implement a complex compiler optimization."
+},
+{
+"id": 311,
+"prompt": "What color is grass?",
+"label": "weak",
+"reasoning": "The prompt is a trivial observation query that demands no analytical generation."
+},
+{
+"id": 312,
+"prompt": "Design a chaos engineering framework with fault injection, steady-state hypothesis testing, and blast radius limitation.",
+"label": "strong",
+"reasoning": "This prompt asks for the comprehensive architectural design of a specialized distributed systems reliability testing framework."
+},
+{
+"id": 313,
+"prompt": "I was at a coffee shop working on my laptop when the barista came over and asked if I wanted a refill, and I said yes please, and then she asked what kind of milk I wanted and I said oat milk, and while she was making my coffee I suddenly remembered something I've been meaning to look up: how many grams are in a kilogram?",
+"label": "weak",
+"reasoning": "The prompt buries a basic unit conversion question under a tedious and irrelevant coffee shop anecdote."
+},
+{
+"id": 314,
+"prompt": "Prove the correctness of the Aho-Corasick multi-pattern string matching algorithm.",
+"label": "strong",
+"reasoning": "This prompt necessitates a formal algorithmic proof of a sophisticated data structure and search algorithm."
+},
+{
+"id": 315,
+"prompt": "What is the opposite of up?",
+"label": "weak",
+"reasoning": "The prompt is an elementary antonym question requiring zero logical reasoning."
+},
+{
+"id": 316,
+"prompt": "Implement a lock-free memory reclamation scheme using hazard pointers and prove it prevents use-after-free.",
+"label": "strong",
+"reasoning": "This prompt requires implementing advanced concurrent programming techniques alongside a formal safety proof."
+},
+{
+"id": 317,
+"prompt": "How many sides does a square have?",
+"label": "weak",
+"reasoning": "The prompt is a rudimentary geometry question with a trivial factual answer."
+},
+{
+"id": 318,
+"prompt": "Derive the optimal checkpoint interval for a long-running distributed computation, balancing checkpoint overhead against expected failure recovery cost.",
+"label": "strong",
+"reasoning": "This prompt demands complex mathematical modeling and optimization in the context of distributed systems fault tolerance."
+},
+{
+"id": 319,
+"prompt": "My mom called me this morning to remind me that my cousin's wedding is in three weeks and I still haven't bought a gift from the registry, and she also wanted to know if I was bringing a plus one, and then she started telling me about the new curtains she bought for the living room, and after about forty-five minutes I finally managed to say goodbye — what is our PTO policy?",
+"label": "weak",
+"reasoning": "The prompt hides a simple workplace administrative question behind a massive wall of unrelated family conversation."
+},
+{
+"id": 320,
+"prompt": "Implement Earley parsing and compare its complexity to GLR for ambiguous grammars.",
+"label": "strong",
+"reasoning": "This prompt requires implementing a complex parsing algorithm and conducting an advanced theoretical complexity comparison."
+},
+{
+"id": 321,
+"prompt": "What is the fastest land animal?",
+"label": "weak",
+"reasoning": "The prompt is a common general knowledge trivia question with a static, simple answer."
+},
+{
+"id": 322,
+"prompt": "Design an adaptive load balancer that uses reinforcement learning to route requests, deriving the reward function and state space.",
+"label": "strong",
+"reasoning": "This prompt combines advanced system design with machine learning formulation and mathematical modeling."
+},
+{
+"id": 323,
+"prompt": "How do I zoom in?",
+"label": "weak",
+"reasoning": "The prompt is a generic, low-effort usability question lacking specific software or hardware context."
+},
+{
+"id": 324,
+"prompt": "Derive the space-time trade-off in rainbow tables for password cracking and explain why salted hashes defeat them.",
+"label": "strong",
+"reasoning": "This prompt requires cryptographic analysis and theoretical derivation of algorithmic trade-offs."
+},
+{
+"id": 325,
+"prompt": "What is the national flower of Japan?",
+"label": "weak",
+"reasoning": "The prompt is a simple geography and culture trivia question."
+},
+{
+"id": 326,
+"prompt": "Implement a differentiable neural computer with external memory addressing and explain the attention-based read/write heads.",
+"label": "strong",
+"reasoning": "This prompt involves implementing a highly advanced neural network architecture and explaining its complex mathematical mechanics."
+},
+{
+"id": 327,
+"prompt": "I was walking to work today and I passed by this construction site where they're building a new apartment complex, and the whole sidewalk was blocked off so I had to cross the street and walk around the entire block to get to the office, and by the time I arrived I was ten minutes late, but none of that matters because I just need to know: how many states are in the US?",
+"label": "weak",
+"reasoning": "The prompt buries a fundamental piece of trivia inside a long, irrelevant story about a morning commute."
+},
+{
+"id": 328,
+"prompt": "Prove the correctness of the Tarjan algorithm for finding strongly connected components.",
+"label": "strong",
+"reasoning": "This prompt requires a formal mathematical proof for an advanced graph theory algorithm."
+},
+{
+"id": 329,
+"prompt": "What does \"BRB\" stand for?",
+"label": "weak",
+"reasoning": "The prompt asks for a basic internet acronym definition requiring no generative depth."
+},
+{
+"id": 330,
+"prompt": "Design a semantic caching layer for LLM applications that clusters similar queries and serves cached responses, analyzing the similarity threshold trade-off between cache hit rate and response relevance.",
+"label": "strong",
+"reasoning": "This prompt demands modern AI architecture design coupled with complex statistical trade-off analysis."
+},
+{
+"id": 331,
+"prompt": "How do I underline text?",
+"label": "weak",
+"reasoning": "The prompt is a basic word processing question with a universally simple answer."
+},
+{
+"id": 332,
+"prompt": "Derive the training dynamics of batch normalization and explain the internal covariate shift hypothesis and its recent criticisms.",
+"label": "strong",
+"reasoning": "This prompt requires deep mathematical understanding of neural network training dynamics and contemporary machine learning literature."
+},
+{
+"id": 333,
+"prompt": "What is the sum of 3 and 4?",
+"label": "weak",
+"reasoning": "The prompt is a trivial single-digit addition problem."
+},
+{
+"id": 334,
+"prompt": "Implement a verified concurrent data structure in a language with linear types and prove data-race freedom.",
+"label": "strong",
+"reasoning": "This prompt involves advanced programming language theory, concurrent programming, and formal verification."
+},
+{
+"id": 335,
+"prompt": "I've been trying to eat healthier lately so I've been meal prepping on Sundays and packing my lunches for the week, and I've been trying all these new recipes for salads and grain bowls and smoothies, and honestly some of them have been really delicious but others have been pretty terrible, and I still haven't figured out how to make quinoa taste good — how many calories are in an apple?",
+"label": "weak",
+"reasoning": "The prompt surrounds a simple nutritional fact query with an extensive, unrelated story about meal prep."
+},
+{
+"id": 336,
+"prompt": "Design a multi-version concurrency control system for a distributed database, handling cross-partition transactions with 2PC and proving that read-only transactions never block.",
+"label": "strong",
+"reasoning": "This prompt requests an expert-level distributed database architecture design along with a formal concurrency proof."
+},
+{
+"id": 337,
+"prompt": "What is the color of snow?",
+"label": "weak",
+"reasoning": "The prompt is an extremely basic observational question with a single-word answer."
+},
+{
+"id": 338,
+"prompt": "Derive the Rademacher complexity bound for neural networks and explain its implications for generalization.",
+"label": "strong",
+"reasoning": "This prompt requires complex statistical learning theory derivation and theoretical analysis."
+},
+{
+"id": 339,
+"prompt": "How do I find and replace text?",
+"label": "weak",
+"reasoning": "The prompt is a generic, low-effort software usage question."
+},
+{
+"id": 340,
+"prompt": "Implement a compiler backend that performs register allocation using graph coloring with spill code generation.",
+"label": "strong",
+"reasoning": "This prompt demands the implementation of a classic, complex algorithm in compiler design."
+},
+{
+"id": 341,
+"prompt": "My cousin invited me to go hiking next weekend at this beautiful trail about two hours north of the city, and she said the views from the top are absolutely breathtaking, especially during fall when all the leaves are changing colors, and I'm really looking forward to it but I need to make sure I have the right gear — what is the tallest mountain in North America?",
+"label": "weak",
+"reasoning": "The prompt pads a basic geographic trivia question with a lengthy story about a hiking trip."
+},
+{
+"id": 342,
+"prompt": "Compare formal verification approaches (model checking, theorem proving, abstract interpretation) for verifying concurrent programs.",
+"label": "strong",
+"reasoning": "This prompt requires an expert-level comparative analysis of theoretical computer science methodologies."
+},
+{
+"id": 343,
+"prompt": "How do I connect Bluetooth headphones?",
+"label": "weak",
+"reasoning": "The prompt is a standard technical support query lacking specific device details."
+},
+{
+"id": 344,
+"prompt": "Derive the information bottleneck principle and explain how it relates to the layers of a deep neural network.",
+"label": "strong",
+"reasoning": "This prompt involves deep mathematical derivations combining information theory and deep learning."
+},
+{
+"id": 345,
+"prompt": "What is heavier, a pound of feathers or a pound of rocks?",
+"label": "weak",
+"reasoning": "The prompt is a classic, elementary trick question requiring no genuine analytical generation."
+},
+{
+"id": 346,
+"prompt": "Implement a query execution engine with vectorized processing (batch-at-a-time) and compare its cache utilization to row-at-a-time processing using a formal cost model.",
+"label": "strong",
+"reasoning": "This prompt requires building advanced database internals and conducting rigorous hardware-level performance modeling."
+},
+{
+"id": 347,
+"prompt": "I spent the whole afternoon organizing my email inbox and creating folders and labels and filters so that everything is neatly sorted, and I even unsubscribed from about thirty different newsletters that I never read, and now my inbox is beautifully clean and empty, and that makes me very happy — how do I archive an email?",
+"label": "weak",
+"reasoning": "The prompt buries a basic software operation query underneath a long story about digital organization."
+},
+{
+"id": 348,
+"prompt": "Prove the soundness and completeness of propositional resolution.",
+"label": "strong",
+"reasoning": "This prompt necessitates a rigorous formal proof in mathematical logic."
+},
+{
+"id": 349,
+"prompt": "What rhymes with \"cat\"?",
+"label": "weak",
+"reasoning": "The prompt is an elementary phonetics question with multiple trivial answers."
+},
+{
+"id": 350,
+"prompt": "Design a zero-knowledge proof system for verifying computation integrity without revealing the inputs, explaining the construction of a zk-SNARK circuit.",
+"label": "strong",
+"reasoning": "This prompt demands advanced cryptographic system design and deep mathematical explanation."
+}
+]

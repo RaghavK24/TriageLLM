@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adaptive RAG Router</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:          #1a1a1a;
+    --bg-surface:  #212121;
+    --bg-elevated: #2a2a2a;
+    --bg-hover:    #333;
+    --border:      #2e2e2e;
+    --text:        #ececec;
+    --text-2:      #a0a0a0;
+    --text-3:      #666;
+    --accent:      #c4a1ff;
+    --accent-dim:  rgba(196,161,255,0.12);
+    --green:       #7dd3a8;
+    --green-dim:   rgba(125,211,168,0.12);
+    --orange:      #f0a56c;
+    --orange-dim:  rgba(240,165,108,0.12);
+    --red:         #f07070;
+    --blue:        #7cc8e0;
+    --blue-dim:    rgba(124,200,224,0.10);
+    --font:        'Inter', system-ui, -apple-system, sans-serif;
+    --radius:      12px;
+  }
+  html, body { height: 100%; overflow: hidden; }
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ──────────────────────────────────────────────── */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .header-left { display: flex; align-items: center; gap: 12px; }
+  .logo-mark {
+    width: 32px; height: 32px;
+    position: relative;
+  }
+  .logo-mark svg { width: 100%; height: 100%; }
+  .header-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .header-sub   { font-size: 11px; color: var(--text-3); margin-top: 1px; }
+
+  .stats-bar { display: flex; gap: 8px; align-items: center; }
+  .stat-pill {
+    font-size: 11px; font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: var(--text-2);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 6px;
+    transition: all 0.3s;
+  }
+  .stat-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: breathe 2.5s ease-in-out infinite;
+  }
+  .stat-pill.warn .stat-dot { background: var(--orange); }
+  .stat-pill.crit .stat-dot { background: var(--red); }
+  @keyframes breathe {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+
+  /* ── Main ────────────────────────────────────────────────── */
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ── Chat ─────────────────────────────────────────────────── */
+  .chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 32px 0;
+  }
+  .chat::-webkit-scrollbar       { width: 4px; }
+  .chat::-webkit-scrollbar-track { background: transparent; }
+  .chat::-webkit-scrollbar-thumb { background: #444; border-radius: 2px; }
+  .chat.hidden { display: none; }
+
+  .msg-wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 24px;
+    animation: slideUp 0.3s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .msg {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .msg-avatar {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600;
+    margin-top: 2px;
+  }
+  .msg.user .msg-avatar    { background: var(--bg-elevated); color: var(--text-2); border: 1px solid var(--border); }
+  .msg.assistant .msg-avatar { background: var(--accent-dim); color: var(--accent); }
+  .msg-body { flex: 1; min-width: 0; }
+  .msg-role { font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 4px; }
+  .msg-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* ── Meta Tags ───────────────────────────────────────────── */
+  .meta { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+  .tag {
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 6px;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .tag.strong  { background: var(--orange-dim); color: var(--orange); }
+  .tag.weak    { background: var(--green-dim);  color: var(--green);  }
+  .tag.info    { background: var(--blue-dim);   color: var(--blue);   }
+  .tag.neutral { background: rgba(255,255,255,0.04); color: var(--text-2); }
+  .tag.reason  { font-style: italic; color: var(--text-3); margin-top: 2px; }
+
+  /* ── Typing ──────────────────────────────────────────────── */
+  .typing { display: none; gap: 4px; align-items: center; padding: 8px 0; }
+  .typing.on { display: flex; }
+  .typing span {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--text-3);
+    animation: bounce 1.2s ease-in-out infinite;
+  }
+  .typing span:nth-child(2) { animation-delay: 0.15s; }
+  .typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30%           { transform: translateY(-5px); }
+  }
+
+  /* ── Welcome ─────────────────────────────────────────────── */
+  .welcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .welcome.hidden { display: none; }
+  .welcome-logo {
+    width: 56px; height: 56px;
+    margin-bottom: 24px;
+    opacity: 0.85;
+  }
+  .welcome h1 {
+    font-size: 22px; font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .welcome p {
+    font-size: 14px;
+    color: var(--text-2);
+    max-width: 400px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 560px; }
+  .chip {
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font);
+  }
+  .chip:hover { background: var(--bg-elevated); color: var(--text); border-color: #444; }
+
+  /* ── Input ───────────────────────────────────────────────── */
+  .input-bar {
+    flex-shrink: 0;
+    padding: 14px 24px 20px;
+    border-top: 1px solid var(--border);
+  }
+  .input-row {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 4px 4px 16px;
+    transition: border-color 0.2s;
+  }
+  .input-row:focus-within { border-color: #555; }
+  .input-row textarea {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 10px 0;
+    resize: none;
+    outline: none;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+  .input-row textarea::placeholder { color: var(--text-3); }
+  .send-btn {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: var(--text);
+    color: var(--bg);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: opacity 0.15s;
+    margin-bottom: 4px;
+  }
+  .send-btn:hover:not(:disabled) { opacity: 0.85; }
+  .send-btn:disabled { opacity: 0.2; cursor: not-allowed; }
+  .send-btn svg { width: 16px; height: 16px; }
+  .bottom-row {
+    max-width: 700px;
+    margin: 8px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bottom-row .left { display: flex; align-items: center; gap: 6px; }
+  .toggle {
+    position: relative;
+    width: 30px; height: 16px;
+    appearance: none;
+    background: #444;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.2s;
+    border: none;
+  }
+  .toggle:checked { background: var(--accent); }
+  .toggle::before {
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: white;
+    top: 2px; left: 2px;
+    transition: transform 0.2s;
+  }
+  .toggle:checked::before { transform: translateX(14px); }
+  .bottom-row label { font-size: 11px; color: var(--text-3); cursor: pointer; }
+  .bottom-row .hint { font-size: 11px; color: var(--text-3); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <div class="logo-mark">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="15" stroke="#c4a1ff" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="10" cy="14" r="2.5" fill="#7dd3a8"/>
+        <circle cx="22" cy="14" r="2.5" fill="#f0a56c"/>
+        <circle cx="16" cy="22" r="2.5" fill="#c4a1ff"/>
+        <line x1="12" y1="15" x2="20" y2="15" stroke="#555" stroke-width="1"/>
+        <line x1="11" y1="16" x2="15" y2="21" stroke="#555" stroke-width="1"/>
+        <line x1="21" y1="16" x2="17" y2="21" stroke="#555" stroke-width="1"/>
+      </svg>
+    </div>
+    <div>
+      <div class="header-title">Adaptive Router</div>
+      <div class="header-sub">DistilBERT · Two-tier routing</div>
+    </div>
+  </div>
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-pill" id="statLoad">
+      <span class="stat-dot"></span>
+      <span id="loadText">0%</span>
+    </div>
+    <div class="stat-pill">
+      <span id="flightText">0 / 50</span>
+    </div>
+    <div id="circuitBreakers" style="display: flex; gap: 8px;"></div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="welcome" id="welcome">
+    <div class="welcome-logo">
+      <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="28" cy="28" r="27" stroke="#c4a1ff" stroke-width="1.5" opacity="0.3"/>
+        <circle cx="28" cy="28" r="18" stroke="#c4a1ff" stroke-width="1" opacity="0.15"/>
+        <circle cx="18" cy="24" r="4" fill="#7dd3a8" opacity="0.8"/>
+        <circle cx="38" cy="24" r="4" fill="#f0a56c" opacity="0.8"/>
+        <circle cx="28" cy="38" r="4" fill="#c4a1ff" opacity="0.8"/>
+        <line x1="21.5" y1="25.5" x2="34.5" y2="25.5" stroke="#555" stroke-width="1"/>
+        <line x1="20" y1="27" x2="26" y2="36" stroke="#555" stroke-width="1"/>
+        <line x1="36" y1="27" x2="30" y2="36" stroke="#555" stroke-width="1"/>
+      </svg>
+    </div>
+    <h1>Adaptive RAG Router</h1>
+    <p>Simple questions go to a fast model. Complex ones reach the powerful model. The router decides based on prompt complexity and live server load.</p>
+    <div class="chips">
+      <button class="chip" onclick="useSuggestion(this)">What are our support hours?</button>
+      <button class="chip" onclick="useSuggestion(this)">Define cold start</button>
+      <button class="chip" onclick="useSuggestion(this)">Explain the CAP theorem and its trade-offs</button>
+      <button class="chip" onclick="useSuggestion(this)">Design a distributed rate limiter</button>
+      <button class="chip" onclick="useSuggestion(this)">What is p95 latency?</button>
+      <button class="chip" onclick="useSuggestion(this)">Compare BM25 and dense retrieval</button>
+    </div>
+  </div>
+
+  <div class="chat hidden" id="chat">
+    <div id="messages"></div>
+    <div class="msg-wrap">
+      <div class="msg assistant">
+        <div class="msg-avatar">R</div>
+        <div class="msg-body">
+          <div class="typing" id="typing">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="input-bar">
+  <div class="input-row">
+    <textarea id="input" rows="1" placeholder="Message the router..." autofocus></textarea>
+    <button class="send-btn" id="sendBtn" onclick="send()">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5l.7.7L4.4 6.5H14v1H4.4l4.3 4.3-.7.7L2.5 7 8 1.5z" transform="rotate(-90 8 8)"/></svg>
+    </button>
+  </div>
+  <div class="bottom-row">
+    <div class="left">
+      <input type="checkbox" class="toggle" id="rag" checked>
+      <label for="rag">RAG context</label>
+    </div>
+    <span class="hint">Enter to send · Shift+Enter for newline</span>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const messagesEl = $('messages'), chatEl = $('chat'), welcomeEl = $('welcome');
+const input = $('input'), sendBtn = $('sendBtn'), typingEl = $('typing'), ragEl = $('rag');
+let busy = false;
+
+input.addEventListener('input', () => {
+  input.style.height = 'auto';
+  input.style.height = Math.min(input.scrollHeight, 140) + 'px';
+});
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); }
+});
+
+function useSuggestion(el) { input.value = el.textContent; input.dispatchEvent(new Event('input')); send(); }
+
+function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function addMsg(role, text, meta) {
+  const w = document.createElement('div');
+  w.className = 'msg-wrap';
+  const av = role === 'user' ? 'U' : 'R';
+  let pills = '';
+  if (meta) {
+    const tc = meta.tier === 'strong' || meta.tier === 'baseline_strong' ? 'strong' : 'weak';
+    const tl = tc === 'strong' ? 'Strong' : 'Weak';
+    const mn = (meta.model || '').replace(/^(azure\/|groq\/|gemini\/)/, '');
+    const ms = meta.latency_ms ? Math.round(meta.latency_ms) + ' ms' : '—';
+    const co = meta.cost_usd != null ? '\$' + meta.cost_usd.toFixed(4) : '—';
+    const cx = meta.complexity != null ? (meta.complexity * 100).toFixed(0) + '%' : '—';
+    const rg = meta.rag_context_used ? 'RAG' : 'No RAG';
+    pills = `<div class="meta">
+      <span class="tag ${tc}">${tl}</span>
+      <span class="tag neutral">${mn}</span>
+      <span class="tag info">${ms}</span>
+      <span class="tag neutral">${co}</span>
+      <span class="tag neutral">Complexity ${cx}</span>
+      <span class="tag neutral">${rg}</span>
+    </div>`;
+    if (meta.routing_reason) pills += `<div class="meta"><span class="tag neutral reason">${meta.routing_reason}</span></div>`;
+  }
+  w.innerHTML = `<div class="msg ${role}">
+    <div class="msg-avatar">${av}</div>
+    <div class="msg-body">
+      <div class="msg-role">${role === 'user' ? 'You' : 'Router'}</div>
+      <div class="msg-text">${esc(text)}</div>${pills}
+    </div></div>`;
+  messagesEl.appendChild(w);
+  chatEl.scrollTop = chatEl.scrollHeight;
+}
+
+async function send() {
+  const t = input.value.trim();
+  if (!t || busy) return;
+  welcomeEl.classList.add('hidden');
+  chatEl.classList.remove('hidden');
+  addMsg('user', t);
+  input.value = ''; input.style.height = 'auto';
+  busy = true; sendBtn.disabled = true;
+  typingEl.classList.add('on');
+  chatEl.scrollTop = chatEl.scrollHeight;
+  try {
+    const r = await fetch('/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: t, use_rag: ragEl.checked }),
+    });
+    const d = await r.json();
+    if (r.ok) addMsg('assistant', d.answer, d);
+    else addMsg('assistant', 'Error: ' + (d.detail || r.statusText));
+  } catch (e) { addMsg('assistant', 'Could not reach the server.'); }
+  busy = false; sendBtn.disabled = false;
+  typingEl.classList.remove('on');
+  chatEl.scrollTop = chatEl.scrollHeight;
+  input.focus();
+}
+
+async function poll() {
+  try {
+    const r = await fetch('/stats');
+    const s = await r.json();
+    const p = Math.round(s.load_fraction * 100);
+    $('loadText').textContent = p + '%';
+    $('flightText').textContent = s.in_flight + ' / ' + s.capacity;
+    const pill = $('statLoad');
+    pill.classList.remove('warn', 'crit');
+    if (s.load_fraction >= 0.9) pill.classList.add('crit');
+    else if (s.load_fraction >= 0.7) pill.classList.add('warn');
+
+    // Update Circuit Breakers
+    if (s.circuit_breakers) {
+      const cbContainer = $('circuitBreakers');
+      cbContainer.innerHTML = '';
+      Object.entries(s.circuit_breakers).forEach(([model, state]) => {
+        // Only show if it's not CLOSED, or if we want to show all
+        if (state !== 'CLOSED') {
+          const shortModel = model.split('/')[1] || model;
+          const badge = document.createElement('div');
+          badge.className = 'stat-pill crit';
+          if (state === 'HALF_OPEN') badge.className = 'stat-pill warn';
+          badge.innerHTML = `<span class="stat-dot"></span><span>${shortModel}: ${state}</span>`;
+          cbContainer.appendChild(badge);
+        }
+      });
+    }
+  } catch {}
+}
+setInterval(poll, 1000); poll();
+</script>
+</body>
+</html>

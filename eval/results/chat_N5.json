@@ -1,0 +1,79 @@
+{
+  "endpoint": "/chat",
+  "n_concurrent": 5,
+  "n_ok": 5,
+  "n_err": 0,
+  "latency_ms": {
+    "avg": 963.7860832270235,
+    "p50": 966.7913331650198,
+    "p95": 1170.1843747869134,
+    "max": 1170.1843747869134
+  },
+  "total_cost_usd": 0.0005995250000000001,
+  "avg_cost_usd": 0.00011990500000000001,
+  "tier_counts": {
+    "weak": 5
+  },
+  "raw": [
+    {
+      "ok": true,
+      "latency_ms": 966.7913331650198,
+      "server_latency_ms": 956.8175419699401,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.8-27b",
+      "cost_usd": 0.0002408,
+      "complexity": 0.11891786754131317,
+      "load_fraction": 0.1,
+      "prompt_tokens": 31,
+      "completion_tokens": 54
+    },
+    {
+      "ok": true,
+      "latency_ms": 808.5496670100838,
+      "server_latency_ms": 797.4445000290871,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-safeguard-20b",
+      "cost_usd": 6.209999999999999e-05,
+      "complexity": 0.09623109549283981,
+      "load_fraction": 0.1,
+      "prompt_tokens": 284,
+      "completion_tokens": 136
+    },
+    {
+      "ok": true,
+      "latency_ms": 782.5555831659585,
+      "server_latency_ms": 771.100000012666,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-safeguard-20b",
+      "cost_usd": 6.24e-05,
+      "complexity": 0.10008938610553741,
+      "load_fraction": 0.1,
+      "prompt_tokens": 280,
+      "completion_tokens": 138
+    },
+    {
+      "ok": true,
+      "latency_ms": 1170.1843747869134,
+      "server_latency_ms": 1159.6411659847945,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-safeguard-20b",
+      "cost_usd": 0.0001608,
+      "complexity": 0.5558514595031738,
+      "load_fraction": 0.1,
+      "prompt_tokens": 96,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 1090.849458007142,
+      "server_latency_ms": 1081.5701668616384,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-20b",
+      "cost_usd": 7.3425e-05,
+      "complexity": 0.10146895796060562,
+      "load_fraction": 0.1,
+      "prompt_tokens": 287,
+      "completion_tokens": 173
+    }
+  ]
+}

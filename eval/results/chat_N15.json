@@ -1,0 +1,200 @@
+{
+  "endpoint": "/chat",
+  "n_concurrent": 15,
+  "n_ok": 15,
+  "n_err": 0,
+  "latency_ms": {
+    "avg": 1984.7188027265172,
+    "p50": 1463.8562500476837,
+    "p95": 5627.197625115514,
+    "max": 5627.197625115514
+  },
+  "total_cost_usd": 0.025593975,
+  "avg_cost_usd": 0.001706265,
+  "tier_counts": {
+    "weak": 8,
+    "strong": 7
+  },
+  "raw": [
+    {
+      "ok": true,
+      "latency_ms": 725.141832837835,
+      "server_latency_ms": 714.1654579900205,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.8-27b",
+      "cost_usd": 0.0002408,
+      "complexity": 0.11891786754131317,
+      "load_fraction": 0.3,
+      "prompt_tokens": 31,
+      "completion_tokens": 54
+    },
+    {
+      "ok": true,
+      "latency_ms": 1460.6993747875094,
+      "server_latency_ms": 1452.2803749423474,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.6-27b",
+      "cost_usd": 0.0016848,
+      "complexity": 0.09623109549283981,
+      "load_fraction": 0.3,
+      "prompt_tokens": 248,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 846.2322079576552,
+      "server_latency_ms": 831.5155829768628,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.8-27b",
+      "cost_usd": 0.00038,
+      "complexity": 0.10008938610553741,
+      "load_fraction": 0.3,
+      "prompt_tokens": 240,
+      "completion_tokens": 47
+    },
+    {
+      "ok": true,
+      "latency_ms": 1425.7390000857413,
+      "server_latency_ms": 1417.4222080036998,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.6-27b",
+      "cost_usd": 0.0015582,
+      "complexity": 0.5558514595031738,
+      "load_fraction": 0.3,
+      "prompt_tokens": 37,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 939.512874931097,
+      "server_latency_ms": 933.189625153318,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-20b",
+      "cost_usd": 7.3425e-05,
+      "complexity": 0.10146895796060562,
+      "load_fraction": 0.3,
+      "prompt_tokens": 287,
+      "completion_tokens": 173
+    },
+    {
+      "ok": true,
+      "latency_ms": 1463.8562500476837,
+      "server_latency_ms": 1454.681082861498,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.6-27b",
+      "cost_usd": 0.001554,
+      "complexity": 0.09281302243471146,
+      "load_fraction": 0.3,
+      "prompt_tokens": 30,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 1424.0480000153184,
+      "server_latency_ms": 1415.102583123371,
+      "tier": "weak",
+      "model": "groq/qwen/qwen3.8-27b",
+      "cost_usd": 0.0015791999999999998,
+      "complexity": 0.36264291405677795,
+      "load_fraction": 0.3,
+      "prompt_tokens": 29,
+      "completion_tokens": 389
+    },
+    {
+      "ok": true,
+      "latency_ms": 937.8976249136031,
+      "server_latency_ms": 929.5843332074583,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-20b",
+      "cost_usd": 4.0799999999999996e-05,
+      "complexity": 0.12593425810337067,
+      "load_fraction": 0.3,
+      "prompt_tokens": 92,
+      "completion_tokens": 113
+    },
+    {
+      "ok": true,
+      "latency_ms": 1841.1480830982327,
+      "server_latency_ms": 1832.9865830019116,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00142725,
+      "complexity": 0.496591180562973,
+      "load_fraction": 0.3,
+      "prompt_tokens": 263,
+      "completion_tokens": 64
+    },
+    {
+      "ok": true,
+      "latency_ms": 5627.197625115514,
+      "server_latency_ms": 5618.389124982059,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00578875,
+      "complexity": 0.9324159622192383,
+      "load_fraction": 0.3,
+      "prompt_tokens": 57,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 1842.0139588415623,
+      "server_latency_ms": 1831.985207973048,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.0007975,
+      "complexity": 0.9412065744400024,
+      "load_fraction": 0.3,
+      "prompt_tokens": 270,
+      "completion_tokens": 5
+    },
+    {
+      "ok": true,
+      "latency_ms": 1836.7707920260727,
+      "server_latency_ms": 1828.4665001556277,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.0007975,
+      "complexity": 0.9304917454719543,
+      "load_fraction": 0.3,
+      "prompt_tokens": 270,
+      "completion_tokens": 5
+    },
+    {
+      "ok": true,
+      "latency_ms": 4502.584416186437,
+      "server_latency_ms": 4493.190124863759,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00583,
+      "complexity": 0.9296362400054932,
+      "load_fraction": 0.3,
+      "prompt_tokens": 72,
+      "completion_tokens": 512
+    },
+    {
+      "ok": true,
+      "latency_ms": 3369.907041080296,
+      "server_latency_ms": 3360.6285830028355,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.00341825,
+      "complexity": 0.9101365208625793,
+      "load_fraction": 0.3,
+      "prompt_tokens": 103,
+      "completion_tokens": 285
+    },
+    {
+      "ok": true,
+      "latency_ms": 1528.0329589731991,
+      "server_latency_ms": 1520.2507090289146,
+      "tier": "strong",
+      "model": "azure/gpt-4-Azure-OpenAI-Ritwik",
+      "cost_usd": 0.0004235,
+      "complexity": 0.9296426177024841,
+      "load_fraction": 0.3,
+      "prompt_tokens": 134,
+      "completion_tokens": 5
+    }
+  ]
+}

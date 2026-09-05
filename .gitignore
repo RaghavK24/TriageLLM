@@ -1,0 +1,30 @@
+# Environments
+.env
+.env.*
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# macOS
+.DS_Store
+
+# Application Data
+chroma_db/
+*.db
+*.sqlite3
+
+# Large Model Weights & Checkpoints (>100MB)
+*.safetensors
+*.pt
+*.bin
+training/model/distilbert-complexity/model.safetensors
+
+# Logs
+*.log
+

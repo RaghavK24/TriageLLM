@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "prompt": "What?",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat and clarification."
+  },
+  {
+    "id": 2,
+    "prompt": "Hi there, nice to meet you.",
+    "label": "weak",
+    "reasoning": "Simple greeting."
+  },
+  {
+    "id": 3,
+    "prompt": "How's it going?",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat."
+  },
+  {
+    "id": 4,
+    "prompt": "Hello, can you help me?",
+    "label": "weak",
+    "reasoning": "Simple greeting and basic conversational intent."
+  },
+  {
+    "id": 5,
+    "prompt": "Goodbye.",
+    "label": "weak",
+    "reasoning": "Basic conversational sign-off."
+  },
+  {
+    "id": 6,
+    "prompt": "What day of the week is Christmas 2026?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup and date calculation."
+  },
+  {
+    "id": 7,
+    "prompt": "What is 2 + 2?",
+    "label": "weak",
+    "reasoning": "Basic arithmetic calculation."
+  },
+  {
+    "id": 8,
+    "prompt": "What color is the sky?",
+    "label": "weak",
+    "reasoning": "A trivial factual question."
+  },
+  {
+    "id": 9,
+    "prompt": "Translate 'hello' to Japanese.",
+    "label": "weak",
+    "reasoning": "Simple, direct language translation."
+  },
+  {
+    "id": 10,
+    "prompt": "What is Python used for?",
+    "label": "weak",
+    "reasoning": "A single-concept explanation without deep reasoning."
+  },
+  {
+    "id": 11,
+    "prompt": "How do I make a list in HTML?",
+    "label": "weak",
+    "reasoning": "A simple how-to with straightforward syntax."
+  },
+  {
+    "id": 12,
+    "prompt": "What does JSON stand for?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup."
+  },
+  {
+    "id": 13,
+    "prompt": "What is the expense reimbursement policy?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup or retrieval request."
+  },
+  {
+    "id": 14,
+    "prompt": "Analyze the trade-offs between different SQL isolation levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE). For each, explain what anomalies it allows, give a concrete bug example in e-commerce, and derive the performance overhead of upgrading from READ COMMITTED to SERIALIZABLE.",
+    "label": "strong",
+    "reasoning": "Requires multi-step analysis, deep database domain knowledge, and complex scenario synthesis."
+  },
+  {
+    "id": 15,
+    "prompt": "Design a migration strategy for moving a monolithic application to microservices. Cover the strangler fig pattern, database decomposition, event-driven communication, and distributed transactions. Propose a 6-month phased plan.",
+    "label": "strong",
+    "reasoning": "Demands complex system design, architectural planning, and multi-step synthesis."
+  },
+  {
+    "id": 16,
+    "prompt": "Explain how a relational database processes a SQL query step by step, from parsing through planning, optimization (join ordering, index selection), and execution. Analyze how the optimizer chooses between nested loop, hash, and merge joins.",
+    "label": "strong",
+    "reasoning": "Involves a complex step-by-step technical explanation and deep knowledge of database internals."
+  },
+  {
+    "id": 17,
+    "prompt": "Explain the mathematical foundations of gradient descent optimization. Derive the convergence rate for convex functions, explain learning rate scheduling, compare Adam vs SGD with momentum, and analyze the saddle point problem.",
+    "label": "strong",
+    "reasoning": "Requires mathematical derivations, complex algorithmic analysis, and deep machine learning expertise."
+  },
+  {
+    "id": 18,
+    "prompt": "Prove that the Halting Problem is undecidable using a diagonalization argument. Then explain the implications for static analysis tools and why perfect bug detection is impossible.",
+    "label": "strong",
+    "reasoning": "Involves formal mathematical proof and deep theoretical computer science synthesis."
+  },
+  {
+    "id": 19,
+    "prompt": "Derive the master theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n). Apply it to analyze merge sort, Strassen's matrix multiplication, and binary search.",
+    "label": "strong",
+    "reasoning": "Demands mathematical derivation and advanced algorithmic analysis."
+  },
+  {
+    "id": 20,
+    "prompt": "Explain the internals of the V8 JavaScript engine, including the parser, AST, Ignition interpreter, TurboFan compiler, and hidden classes. Analyze inline caching and deoptimization triggers.",
+    "label": "strong",
+    "reasoning": "Requires deep domain knowledge of compiler architecture and a complex technical explanation."
+  },
+  {
+    "id": 21,
+    "prompt": "Design a search engine for a 100-million document corpus. Cover crawling, indexing (inverted index construction), ranking (TF-IDF, BM25, learning-to-rank), and serving. Handle near-duplicate detection, freshness, and multi-language support.",
+    "label": "strong",
+    "reasoning": "Requires advanced system design and synthesis of multiple complex search architecture components."
+  },
+  {
+    "id": 22,
+    "prompt": "Explain step by step how to implement binary search correctly, including edge cases (empty arrays, single elements, duplicates, off-by-one errors). Then prove termination and correctness.",
+    "label": "strong",
+    "reasoning": "Involves formal algorithmic proof, complex edge-case analysis, and detailed step-by-step instruction."
+  },
+  {
+    "id": 23,
+    "prompt": "What is an adaptive router?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup."
+  },
+  {
+    "id": 24,
+    "prompt": "What is load fraction?",
+    "label": "weak",
+    "reasoning": "A simple definitional lookup of a technical term."
+  },
+  {
+    "id": 25,
+    "prompt": "What does RAG stand for?",
+    "label": "weak",
+    "reasoning": "A simple acronym definition."
+  }
+]

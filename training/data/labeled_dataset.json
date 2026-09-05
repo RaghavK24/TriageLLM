@@ -1,0 +1,3602 @@
+[
+  {
+    "prompt": "Hi, how are you?",
+    "label": "weak",
+    "reasoning": "This is a simple greeting and basic chit-chat that requires minimal language understanding.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is the capital of France?",
+    "label": "weak",
+    "reasoning": "This is a simple factual lookup that a small model can handle instantly.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Tell me a joke.",
+    "label": "weak",
+    "reasoning": "Generating a basic joke falls under simple conversation and text generation.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What does API stand for?",
+    "label": "weak",
+    "reasoning": "This is a straightforward definition and acronym lookup.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "How many continents are there?",
+    "label": "weak",
+    "reasoning": "This is a basic factual question with a well-known, static answer.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is a variable in programming?",
+    "label": "weak",
+    "reasoning": "This is a single-concept explanation that does not require deep technical reasoning.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Name three programming languages.",
+    "label": "weak",
+    "reasoning": "Retrieving a short, simple list of common items is a basic task.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What year was Python first released?",
+    "label": "weak",
+    "reasoning": "This is a simple factual trivia question.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Convert 100 Celsius to Fahrenheit.",
+    "label": "weak",
+    "reasoning": "Basic arithmetic and unit conversions are easily handled by small models.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is a database?",
+    "label": "weak",
+    "reasoning": "This is a straightforward definition of a single foundational concept.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Who invented the telephone?",
+    "label": "weak",
+    "reasoning": "This is a standard historical fact lookup.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is the largest planet in our solar system?",
+    "label": "weak",
+    "reasoning": "This is a basic science fact lookup.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Define the term 'latency'.",
+    "label": "weak",
+    "reasoning": "This requests a simple definition without needing any deeper contextual analysis.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Compare and contrast microservices architecture with a monolithic approach. Analyze the trade-offs in terms of scalability, deployment complexity, team organization, and debugging difficulty. Provide concrete examples of when each approach is preferable.",
+    "label": "strong",
+    "reasoning": "This requires multi-step analysis, synthesis of deep domain knowledge, and complex architectural comparisons.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Design a URL shortening service like bit.ly. Walk through the system design including the database schema, hashing strategy, handling collisions, redirect flow, and analytics. Discuss how you would scale it to handle 10 billion URLs.",
+    "label": "strong",
+    "reasoning": "System design and architecture questions involving high-scale infrastructure planning require advanced reasoning.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Explain the CAP theorem and derive why a distributed system cannot simultaneously guarantee all three properties. Then analyze how DynamoDB, Cassandra, and PostgreSQL each make different trade-offs.",
+    "label": "strong",
+    "reasoning": "This asks for a logical derivation of a theorem followed by a deep compare-and-contrast of specific database technologies.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Given the following recursive function, analyze its time and space complexity, then refactor it to use dynamic programming and prove the optimized version runs in O(n):\n`python\ndef fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\n`",
+    "label": "strong",
+    "reasoning": "This combines code review, algorithm optimization, and mathematical proof of computational complexity.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Design an in-memory LRU cache that supports O(1) get and put operations. Explain why a hash map alone isn't sufficient and how combining it with a doubly-linked list solves the problem. Then extend your design to be thread-safe.",
+    "label": "strong",
+    "reasoning": "This involves advanced data structure synthesis, step-by-step technical explanation, and concurrency management.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Derive the expected number of hash collisions when inserting n items into a hash table of size m using uniform hashing. Then compute the load factor threshold at which linear probing degrades to O(n) expected lookup time.",
+    "label": "strong",
+    "reasoning": "Mathematical derivations and complex algorithmic probability calculations require powerful analytical capabilities.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Explain the difference between optimistic and pessimistic concurrency control in databases. Analyze when each is preferable and design a hybrid approach that switches between them based on observed contention.",
+    "label": "strong",
+    "reasoning": "This requires deep analysis of concurrency mechanisms and the synthesis of a novel architectural approach based on constraints.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "Analyze the trade-offs between B-trees and LSM-trees for database indexing. Explain write amplification, read amplification, and space amplification for each. Propose a strategy for a system that is 90% reads, 10% writes.",
+    "label": "strong",
+    "reasoning": "This is a complex technical explanation requiring deep domain knowledge of data storage and a synthesized system proposal.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is the difference between HTTP and HTTPS?",
+    "label": "weak",
+    "reasoning": "This is a common, simple comparison of a single basic concept.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is an algorithm?",
+    "label": "weak",
+    "reasoning": "This is a simple factual definition request.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What does SQL stand for?",
+    "label": "weak",
+    "reasoning": "This is a standard, simple acronym lookup.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is a compiler?",
+    "label": "weak",
+    "reasoning": "This is a straightforward definition of a basic computing term.",
+    "source": "batch_01_results.json"
+  },
+  {
+    "prompt": "What is an operating system?",
+    "label": "weak",
+    "reasoning": "This is a simple definition of a foundational computing concept.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is cloud computing?",
+    "label": "weak",
+    "reasoning": "This requests a straightforward definition of a broad technical term.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Define the term 'bandwidth'.",
+    "label": "weak",
+    "reasoning": "This is a basic factual lookup for a specific definition.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is an IP address?",
+    "label": "weak",
+    "reasoning": "This is a simple, single-concept explanation that does not require deep reasoning.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is DNS?",
+    "label": "weak",
+    "reasoning": "This requires a simple factual explanation of a standard protocol.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is a load balancer?",
+    "label": "weak",
+    "reasoning": "This is a straightforward definition of a common networking concept.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is the difference between TCP and UDP?",
+    "label": "weak",
+    "reasoning": "This is a standard, single-concept comparison that is frequently documented and simple to summarize.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is a microservice?",
+    "label": "weak",
+    "reasoning": "This is a basic definition request for an architectural style.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "List three types of databases.",
+    "label": "weak",
+    "reasoning": "Retrieving a short list of common technical categories is a simple task.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is the file extension for Python files?",
+    "label": "weak",
+    "reasoning": "This is a basic factual trivia question.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "How do I create a virtual environment in Python?",
+    "label": "weak",
+    "reasoning": "This is a simple how-to request with a very straightforward standard answer.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "How do I start a new Git repository?",
+    "label": "weak",
+    "reasoning": "This is a basic procedural question with a standard command-line answer.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is a for loop? Give a simple example.",
+    "label": "weak",
+    "reasoning": "This is a single-concept explanation with a trivial code snippet that requires no complex reasoning.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Design a real-time chat application like WhatsApp. Cover the architecture for message delivery, read receipts, group chats, media sharing, and end-to-end encryption. Analyze how you would handle millions of concurrent WebSocket connections.",
+    "label": "strong",
+    "reasoning": "This requires advanced system design, multi-step technical architecture, and deep analysis of scale.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Design a distributed task queue system. Explain how you would handle task prioritization, retry logic with exponential backoff, dead letter queues, and exactly-once execution semantics. Analyze at-least-once vs exactly-once delivery.",
+    "label": "strong",
+    "reasoning": "This involves complex architectural design and a deep domain comparison of distributed delivery semantics.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Design a content delivery network (CDN). Explain cache invalidation, content routing, origin shielding, and edge computing. Derive the cache hit ratio needed to achieve a 95% reduction in origin server load.",
+    "label": "strong",
+    "reasoning": "This combines complex system design with a mathematical derivation regarding performance metrics.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Design a recommendation engine for an e-commerce platform. Compare collaborative filtering, content-based filtering, and hybrid approaches. Explain the cold-start problem and propose solutions.",
+    "label": "strong",
+    "reasoning": "This is a multi-step design prompt requiring deep synthesis and domain-specific compare-and-contrast analysis.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Design a distributed log aggregation system that handles 100TB of logs per day. Compare Elasticsearch vs ClickHouse for this use case and justify your choice with specific technical trade-offs.",
+    "label": "strong",
+    "reasoning": "This requires high-scale system design and deep domain knowledge to analyze technical trade-offs between specific databases.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Analyze the time complexity of Dijkstra's algorithm with a Fibonacci heap vs a binary heap. Derive the conditions under which the Fibonacci heap provides a meaningful speedup and explain why it's rarely used in practice.",
+    "label": "strong",
+    "reasoning": "This involves complex algorithmic analysis, derivation of performance bounds, and deep technical evaluation.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Explain the difference between BFS and DFS, their time and space complexities, and when each is preferred. Then design a solution for finding the shortest path in an unweighted graph with cycles, proving its correctness.",
+    "label": "strong",
+    "reasoning": "While the first part is simple, designing a solution and proving its mathematical correctness requires a powerful model.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Given a stream of integers, design a data structure that supports O(1) insert and O(1) median finding. Explain why a two-heap approach works, prove its correctness, and analyze the amortized complexity.",
+    "label": "strong",
+    "reasoning": "This requires advanced data structure synthesis, mathematical proof of correctness, and algorithmic complexity analysis.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is the square root of 144?",
+    "label": "weak",
+    "reasoning": "This is basic arithmetic easily resolved by small models.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "List the primary colors.",
+    "label": "weak",
+    "reasoning": "This is a simple list of basic static facts.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Name three cloud providers.",
+    "label": "weak",
+    "reasoning": "This is a simple factual list lookup.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 4, 6, 8, ?",
+    "label": "weak",
+    "reasoning": "This requires identifying a trivial arithmetic pattern.",
+    "source": "batch_02_results.json"
+  },
+  {
+    "prompt": "Hello!",
+    "label": "weak",
+    "reasoning": "This is a basic greeting requiring minimal language capability.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What's your name?",
+    "label": "weak",
+    "reasoning": "Simple conversational chit-chat easily handled by small models.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the speed of light?",
+    "label": "weak",
+    "reasoning": "This is a straightforward factual lookup for a well-known scientific constant.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Who wrote Romeo and Juliet?",
+    "label": "weak",
+    "reasoning": "This is a simple factual trivia question with a static answer.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the chemical formula for water?",
+    "label": "weak",
+    "reasoning": "This is a basic science fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the tallest mountain in the world?",
+    "label": "weak",
+    "reasoning": "This is a simple geographic fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "How many planets are in the solar system?",
+    "label": "weak",
+    "reasoning": "This is a basic science trivia question.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What language is spoken in Brazil?",
+    "label": "weak",
+    "reasoning": "This is a straightforward factual lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the currency of Japan?",
+    "label": "weak",
+    "reasoning": "This is a simple factual lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Who painted the Mona Lisa?",
+    "label": "weak",
+    "reasoning": "This is a standard historical fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the boiling point of water in Fahrenheit?",
+    "label": "weak",
+    "reasoning": "This is a basic factual question and simple unit conversion.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "How many states are in the US?",
+    "label": "weak",
+    "reasoning": "This is a basic geographic fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the smallest country in the world?",
+    "label": "weak",
+    "reasoning": "This is a simple factual trivia question.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Refactor the following Python function for readability and reduced cyclomatic complexity. Explain each change:\n`python\ndef process(data, mode, flag1, flag2):\n    result = []\n    for item in data:\n        if mode == 'A':\n            if flag1:\n                if item > 0:\n                    result.append(item * 2)\n                else:\n                    result.append(0)\n            else:\n                result.append(item)\n        elif mode == 'B':\n            if flag2:\n                result.append(item ** 2)\n            else:\n                if flag1:\n                    result.append(item + 1)\n                else:\n                    result.append(item - 1)\n    return result\n`",
+    "label": "strong",
+    "reasoning": "This involves complex code refactoring, logic simplification, and detailed step-by-step technical explanations.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Analyze the following code for potential race conditions, memory leaks, and performance issues. Propose fixes:\n`python\nimport threading\nclass ConnectionPool:\n    _instance = None\n    def __new__(cls):\n        if cls._instance is None:\n            cls._instance = super().__new__(cls)\n            cls._instance.connections = []\n            cls._instance.lock = threading.Lock()\n        return cls._instance\n    def get_connection(self):\n        if self.connections:\n            return self.connections.pop()\n        return create_new_connection()\n    def release(self, conn):\n        self.connections.append(conn)\n`",
+    "label": "strong",
+    "reasoning": "This requires advanced code review, deep understanding of concurrency and design patterns, and debugging complex technical issues.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Review this SQL query for performance issues. Explain what indexes would help and rewrite it optimally:\n`sql\nSELECT u.name, u.email,\n  (SELECT COUNT(*) FROM orders o WHERE o.user_id = u.id) as order_count,\n  (SELECT MAX(created_at) FROM orders o WHERE o.user_id = u.id) as last_order\nFROM users u WHERE u.status = 'active'\nORDER BY u.created_at DESC LIMIT 100;\n`",
+    "label": "strong",
+    "reasoning": "This requires deep domain knowledge of database optimization, query execution planning, and indexing strategies.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Debug this async Python code that intermittently produces incorrect results. Identify the concurrency bug and provide a corrected version:\n`python\nimport asyncio\nclass Counter:\n    def __init__(self): self.count = 0\n    async def increment(self):\n        current = self.count\n        await asyncio.sleep(0.001)\n        self.count = current + 1\nasync def main():\n    counter = Counter()\n    await asyncio.gather(*[counter.increment() for _ in range(100)])\n    print(f'Expected 100, got {counter.count}')\n`",
+    "label": "strong",
+    "reasoning": "Identifying and fixing asynchronous race conditions requires sophisticated reasoning about concurrent execution flow.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Prove that any comparison-based sorting algorithm requires Ω(n log n) comparisons in the worst case. Use the decision tree model and derive the information-theoretic lower bound.",
+    "label": "strong",
+    "reasoning": "This involves advanced mathematical proofs, formal algorithmic analysis, and deriving theoretical bounds.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Derive Bayes' theorem from first principles and apply it to compute the probability that a medical test result is a true positive given a sensitivity of 99%, specificity of 95%, and disease prevalence of 1%.",
+    "label": "strong",
+    "reasoning": "This requires a step-by-step mathematical derivation from first principles followed by complex probability synthesis.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Derive the birthday paradox probability — the minimum number of people needed for a 50% chance of a shared birthday. Then apply this to analyze hash collision probabilities in a hash table with 2^32 buckets.",
+    "label": "strong",
+    "reasoning": "This combines complex probabilistic derivations with deep technical analysis of hashing cryptography/structures.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Prove that the greedy algorithm for the activity selection problem produces an optimal solution using an exchange argument.",
+    "label": "strong",
+    "reasoning": "Mathematical proofs and algorithmic correctness evaluations using specific formal arguments require powerful reasoning models.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What element has the symbol 'Fe'?",
+    "label": "weak",
+    "reasoning": "This is a basic scientific fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the capital of Australia?",
+    "label": "weak",
+    "reasoning": "This is a simple geographic trivia question.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Who discovered penicillin?",
+    "label": "weak",
+    "reasoning": "This is a standard historical and scientific fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "What is the longest river in the world?",
+    "label": "weak",
+    "reasoning": "This is a basic geographic fact lookup.",
+    "source": "batch_03_results.json"
+  },
+  {
+    "prompt": "Good morning!",
+    "label": "weak",
+    "reasoning": "Simple greeting that requires no complex reasoning.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "I'm bored.",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Tell me a fun fact.",
+    "label": "weak",
+    "reasoning": "A simple factual lookup and generation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What does HTML stand for?",
+    "label": "weak",
+    "reasoning": "A straightforward definitional lookup.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Name five fruits.",
+    "label": "weak",
+    "reasoning": "Generating a basic, short list of common items.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is 7 times 8?",
+    "label": "weak",
+    "reasoning": "Basic arithmetic calculation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Translate 'thank you' to French.",
+    "label": "weak",
+    "reasoning": "Simple, direct language translation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is version control?",
+    "label": "weak",
+    "reasoning": "A single-concept explanation without deep reasoning.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "How do I print 'Hello World' in Java?",
+    "label": "weak",
+    "reasoning": "A simple how-to with a straightforward code snippet.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "How do I install a pip package?",
+    "label": "weak",
+    "reasoning": "A basic, single-step technical instruction.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the difference between a list and a tuple in Python?",
+    "label": "weak",
+    "reasoning": "A simple, commonly documented comparison of programming fundamentals.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the purpose of a .gitignore file?",
+    "label": "weak",
+    "reasoning": "A straightforward explanation of a single technical concept.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Describe what a primary key is in a database.",
+    "label": "weak",
+    "reasoning": "A basic definitional explanation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Design a payment processing system that handles credit card transactions. Explain idempotency, double-spend prevention, PCI compliance, and how you would handle partial failures across microservices using the saga pattern.",
+    "label": "strong",
+    "reasoning": "Requires complex system design, deep distributed architecture knowledge, and multi-step reasoning.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Design a feature flag system for a large-scale application. Explain percentage rollouts, A/B testing, user segmentation, and real-time flag updates. Analyze consistency requirements across distributed services.",
+    "label": "strong",
+    "reasoning": "Demands architectural planning and complex analysis of distributed systems consistency.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Design a search autocomplete system that serves suggestions within 100ms. Cover data structures (tries vs inverted indexes), ranking algorithms, personalization, and trending queries. Derive the memory requirements for 100 million queries.",
+    "label": "strong",
+    "reasoning": "Involves complex algorithm comparison, system design, and mathematical derivation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Architect a multi-tenant SaaS application. Explain the trade-offs between shared database, schema-per-tenant, and database-per-tenant approaches. Analyze query performance, data isolation, and operational complexity at 100,000 tenants.",
+    "label": "strong",
+    "reasoning": "Requires deep architectural analysis, synthesis of scale, and advanced database pattern tradeoffs.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Explain how garbage collection works in the JVM. Compare G1, ZGC, and Shenandoah collectors. Derive the relationship between heap size, pause times, and throughput for a latency-sensitive app with a p99 target of 10ms.",
+    "label": "strong",
+    "reasoning": "Requires deep domain knowledge of language internals, nuanced technical comparisons, and mathematical derivation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Analyze the security implications of JWT vs session-based authentication. Cover token theft, replay attacks, revocation strategies, and scalability. Derive the expected number of valid-but-revoked tokens at any time under a 1-hour lifetime and 0.1% revocation rate.",
+    "label": "strong",
+    "reasoning": "Involves advanced security analysis, deep technical comparisons, and mathematical probability derivation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Design a disaster recovery strategy for a cloud-native application across three AWS regions. Cover RPO/RTO targets, active-active vs active-passive replication, DNS failover, and cost optimization.",
+    "label": "strong",
+    "reasoning": "Requires complex multi-region system design and deep synthesis of cloud architecture strategies.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Explain how vector databases work internally. Compare HNSW, IVF-PQ, and brute-force search in terms of recall, latency, and memory usage. Propose a tuning strategy for 10 million embeddings and a 50ms latency budget.",
+    "label": "strong",
+    "reasoning": "Demands deep knowledge of advanced search algorithms, performance tradeoffs, and complex system tuning.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the difference between frontend and backend?",
+    "label": "weak",
+    "reasoning": "A basic conceptual distinction easily handled by small models.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the difference between GET and POST requests?",
+    "label": "weak",
+    "reasoning": "A simple factual comparison of standard web protocols.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the role of a product manager?",
+    "label": "weak",
+    "reasoning": "A basic, single-concept explanation.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "Explain what caching is in simple terms.",
+    "label": "weak",
+    "reasoning": "A straightforward explanation of a single concept.",
+    "source": "batch_04_results.json"
+  },
+  {
+    "prompt": "What is the difference between authentication and authorization?",
+    "label": "weak",
+    "reasoning": "A basic conceptual distinction easily handled by small models.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Give me a brief overview of what Kubernetes does.",
+    "label": "weak",
+    "reasoning": "A straightforward, high-level explanation of a single concept.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What is a container in Docker?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What is a firewall?",
+    "label": "weak",
+    "reasoning": "A simple definition of a standard term.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "How do I check my Python version?",
+    "label": "weak",
+    "reasoning": "A simple how-to with a straightforward answer.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "How do I create a list in Python?",
+    "label": "weak",
+    "reasoning": "A basic programming instruction and syntax lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "How do I make text bold in Markdown?",
+    "label": "weak",
+    "reasoning": "A simple how-to formatting question.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "How do I declare a variable in JavaScript?",
+    "label": "weak",
+    "reasoning": "A simple syntax lookup and basic instruction.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "How do I import a module in Python?",
+    "label": "weak",
+    "reasoning": "A fundamental syntax and how-to question.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What are our support hours?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What version introduced tiered pricing?",
+    "label": "weak",
+    "reasoning": "A straightforward factual query.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "When was v3.2.0 released?",
+    "label": "weak",
+    "reasoning": "A simple date lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What is an API endpoint?",
+    "label": "weak",
+    "reasoning": "A basic definition of a common technical term.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "You are building a multi-tenant SaaS application. A customer reports intermittent 504 Gateway Timeout errors during peak hours. Walk through your debugging methodology step by step, covering load balancer logs, application tracing, database slow query analysis, and connection pool exhaustion. Propose both short-term mitigations and long-term architectural fixes.",
+    "label": "strong",
+    "reasoning": "Requires multi-step analysis, complex debugging, and deep architectural domain knowledge.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Design a CI/CD pipeline for a monorepo containing 5 microservices, 2 shared libraries, and a frontend. Explain selective builds, parallel test execution, canary deployments, and rollback. Analyze monorepo tooling (Bazel, Nx) vs polyrepo trade-offs.",
+    "label": "strong",
+    "reasoning": "Demands complex system design and in-depth compare-and-contrast analysis of tooling.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Explain how OAuth 2.0 and OpenID Connect work together. Walk through Authorization Code flow with PKCE, explain why implicit flow was deprecated, and propose a token refresh strategy balancing security with UX.",
+    "label": "strong",
+    "reasoning": "Involves a complex step-by-step technical explanation and deep security architecture knowledge.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Design a data pipeline processing 1TB of clickstream data daily. Compare batch (Spark) vs streaming (Flink), explain exactly-once semantics in Kafka, and propose a schema evolution strategy.",
+    "label": "strong",
+    "reasoning": "Requires system design, deep domain knowledge of data engineering tools, and architectural synthesis.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Explain how database sharding works. Compare range-based, hash-based, and directory-based strategies. Analyze cross-shard joins, rebalancing, and hot spots. Propose a sharding key for a social media app with 500 million users.",
+    "label": "strong",
+    "reasoning": "Requires deep database architecture knowledge, complex comparison, and system design application.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Design a blue-green deployment strategy for a stateful app with PostgreSQL. Explain backward-compatible schema migrations, connection draining, and automatic rollback. Compare with canary deployments.",
+    "label": "strong",
+    "reasoning": "Involves complex deployment architecture, multi-step synthesis, and deep technical operations knowledge.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Optimize a machine learning pipeline that takes 8 hours to train. Propose optimizations at each stage: data loading, feature engineering, training (data parallelism, mixed-precision, gradient accumulation), and evaluation. Derive expected speedup for each.",
+    "label": "strong",
+    "reasoning": "Requires advanced multi-step analysis, specialized machine learning optimization knowledge, and technical derivations.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Design a comprehensive testing strategy for distributed microservices. Cover unit tests, integration tests, contract tests, end-to-end tests, chaos engineering, and performance tests. Explain the testing pyramid and trade-offs with CI/CD speed.",
+    "label": "strong",
+    "reasoning": "Demands deep technical domain knowledge, system design, and the synthesis of multiple methodologies.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Convert 1 kilometer to miles.",
+    "label": "weak",
+    "reasoning": "A basic unit conversion.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What are the vowels in the English alphabet?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "What is the opposite of 'hot'?",
+    "label": "weak",
+    "reasoning": "A basic linguistic lookup.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Sort these numbers: 5, 2, 8, 1, 9.",
+    "label": "weak",
+    "reasoning": "A simple arithmetic sorting task easily handled by small models.",
+    "source": "batch_05_results.json"
+  },
+  {
+    "prompt": "Hey, what's up?",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Thanks for your help!",
+    "label": "weak",
+    "reasoning": "Simple greeting and basic conversational response.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What can you do?",
+    "label": "weak",
+    "reasoning": "Standard system capability inquiry easily handled by small models.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Tell me something interesting.",
+    "label": "weak",
+    "reasoning": "A simple fact generation task.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Who is the CEO of Apple?",
+    "label": "weak",
+    "reasoning": "A straightforward factual lookup.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What year did World War 2 end?",
+    "label": "weak",
+    "reasoning": "A simple historical fact lookup.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What continent is Egypt in?",
+    "label": "weak",
+    "reasoning": "A basic geographical fact lookup.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is the largest desert in the world?",
+    "label": "weak",
+    "reasoning": "A simple trivia and factual question.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is the population of India roughly?",
+    "label": "weak",
+    "reasoning": "A basic factual lookup.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Summarize what Git does in one sentence.",
+    "label": "weak",
+    "reasoning": "A single-concept explanation without deep reasoning.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Write a one-sentence summary of what Python is.",
+    "label": "weak",
+    "reasoning": "A straightforward definitional summary.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is 15% of 200?",
+    "label": "weak",
+    "reasoning": "Basic arithmetic calculation.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Name three web browsers.",
+    "label": "weak",
+    "reasoning": "Generating a basic, short list of common items.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Analyze this React component for performance anti-patterns, unnecessary re-renders, and potential bugs. Refactor using hooks best practices:\n```jsx\nfunction UserDashboard({ userId }) {\n  const [user, setUser] = useState(null);\n  const [posts, setPosts] = useState([]);\n  useEffect(() => {\n    fetch(`/api/users/${userId}`).then(r => r.json()).then(setUser);\n    fetch(`/api/users/${userId}/posts`).then(r => r.json()).then(setPosts);\n  });\n  const total = posts.reduce((acc, p) => acc + p.likes, 0);\n  return <div>{user?.name} - {total} likes</div>;\n}\n```",
+    "label": "strong",
+    "reasoning": "Requires deep code review, debugging, and synthesis of React best practices.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Review this Dockerfile for security vulnerabilities, layer optimization issues, and best practice violations. Rewrite it for production:\n```dockerfile\nFROM python:3.11\nCOPY . /app\nWORKDIR /app\nRUN pip install -r requirements.txt\nRUN apt-get update && apt-get install -y curl vim\nENV SECRET_KEY=mysecretkey123\nEXPOSE 8000\nCMD python app.py\n```",
+    "label": "strong",
+    "reasoning": "Involves advanced security analysis, DevOps best practices, and code refactoring.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Refactor this JavaScript promise chain into clean async/await with proper error handling, retry logic, and timeout. Explain differences in error propagation:\n```javascript\nfunction fetchUserData(userId) {\n  return fetch(`/api/users/${userId}`)\n    .then(r => r.json())\n    .then(user => fetch(`/api/users/${userId}/preferences`)\n      .then(r => r.json())\n      .then(prefs => fetch(`/api/users/${userId}/notifications`)\n        .then(r => r.json())\n        .then(notifs => ({...user, prefs, notifs}))))\n    .catch(e => console.log(e))\n}\n```",
+    "label": "strong",
+    "reasoning": "Requires complex code refactoring, implementation of advanced logic (retry, timeout), and technical explanation.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Explain the transformer architecture from first principles. Derive the self-attention mechanism mathematically, explain why positional encodings are necessary, analyze the O(n²) complexity, and compare sparse attention and linear attention approaches.",
+    "label": "strong",
+    "reasoning": "Demands complex multi-step technical explanations, mathematical derivations, and deep domain knowledge.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Analyze the trade-offs between gRPC and REST for microservice communication. Cover serialization overhead, streaming, code generation, debugging tooling, and browser compatibility. Propose a decision matrix.",
+    "label": "strong",
+    "reasoning": "Involves in-depth compare-and-contrast analysis requiring deep architectural domain knowledge.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Explain how Kubernetes networking works, including pod-to-pod communication, services, ingress controllers, and network policies. Compare CNI plugins (Calico, Cilium, Flannel) and propose a network architecture for a multi-tenant cluster.",
+    "label": "strong",
+    "reasoning": "Requires a complex step-by-step technical explanation, tool comparison, and system design.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Derive the expected cost savings per 1000 requests for a two-tier router that sends fraction p of traffic to a cheap model at $0.10/MTok and (1-p) to an expensive model at $3.00/MTok, assuming 500 tokens per response. Compute p such that cost is 20% of always-expensive baseline.",
+    "label": "strong",
+    "reasoning": "Involves multi-step mathematical derivation and problem-solving.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "Design a privacy-compliant data architecture for GDPR, CCPA, and data residency. Explain data subject access requests, right to erasure, and consent management across a distributed system. Analyze performance impact of encryption.",
+    "label": "strong",
+    "reasoning": "Requires system design, deep legal-technical domain knowledge, and architectural trade-off analysis.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is the difference between Java and JavaScript?",
+    "label": "weak",
+    "reasoning": "A basic, commonly documented conceptual distinction.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "How many hours are in a day?",
+    "label": "weak",
+    "reasoning": "A trivial factual question.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is the plural of 'mouse'?",
+    "label": "weak",
+    "reasoning": "A basic linguistic lookup.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "List three types of machine learning.",
+    "label": "weak",
+    "reasoning": "Generating a short list of basic definitions.",
+    "source": "batch_06_results.json"
+  },
+  {
+    "prompt": "What is machine learning in one sentence?",
+    "label": "weak",
+    "reasoning": "A simple, single-concept definition.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is a REST API?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup for a standard technical term.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is the difference between == and === in JavaScript?",
+    "label": "weak",
+    "reasoning": "A simple, commonly documented comparison of programming fundamentals.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "How do I create a new file in Python?",
+    "label": "weak",
+    "reasoning": "A simple how-to with a straightforward answer.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is a foreign key in a database?",
+    "label": "weak",
+    "reasoning": "A basic definitional explanation of a single concept.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is the largest ocean?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Name three types of cloud services (IaaS, PaaS, SaaS).",
+    "label": "weak",
+    "reasoning": "Generating a short list of basic definitions.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is a webhook?",
+    "label": "weak",
+    "reasoning": "A straightforward definition of a common technical concept.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "How do I write a comment in Python?",
+    "label": "weak",
+    "reasoning": "A basic programming instruction and syntax lookup.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is the difference between RAM and ROM?",
+    "label": "weak",
+    "reasoning": "A basic conceptual distinction easily handled by small models.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What does CRUD stand for?",
+    "label": "weak",
+    "reasoning": "A simple definitional lookup.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is a CDN?",
+    "label": "weak",
+    "reasoning": "A basic technical definition.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is localhost?",
+    "label": "weak",
+    "reasoning": "A simple definition of a standard networking term.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Walk me through what happens when you type 'google.com' in a browser and press Enter. Cover every layer from DNS resolution through TCP/TLS handshake, HTTP request, server processing, response rendering, and JavaScript execution.",
+    "label": "strong",
+    "reasoning": "Requires a complex step-by-step technical explanation covering deep networking and system concepts.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Explain how Python's import system works, including module search paths, **init**.py, relative vs absolute imports, circular imports, and the module cache. Analyze common import errors and debugging strategies.",
+    "label": "strong",
+    "reasoning": "Involves multi-step analysis of language internals and deep domain knowledge of Python's architecture.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Explain how Git works internally. Cover the object model (blobs, trees, commits), refs, the index/staging area, and how merge, rebase, and cherry-pick work at the object level.",
+    "label": "strong",
+    "reasoning": "Requires a complex technical explanation of internal mechanisms and data structures.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Explain step by step how a neural network learns, from random initialization through forward propagation, loss computation, backpropagation, and weight updates. Derive the chain rule for a 2-layer network and explain the vanishing gradient problem.",
+    "label": "strong",
+    "reasoning": "Demands mathematical derivation and a complex step-by-step explanation of machine learning fundamentals.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Explain how Docker containers work at the Linux kernel level, covering namespaces (PID, network, mount, UTS, IPC, user), cgroups, union filesystem (overlay2), and seccomp profiles. Analyze container escape vectors.",
+    "label": "strong",
+    "reasoning": "Involves deep domain knowledge of operating system internals and complex technical analysis.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Analyze the complete data flow in a Kafka-based event streaming system, from producer acknowledgment modes through partitioning, replication, consumer group coordination, offset management, and exactly-once semantics.",
+    "label": "strong",
+    "reasoning": "Requires multi-step analysis and deep architectural domain knowledge of distributed event streaming.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "You have a PostgreSQL database that has grown to 5TB and queries are slowing down. Walk through systematic optimization: EXPLAIN ANALYZE interpretation, index strategy, query rewriting, partitioning, materialized views, and connection pooling. Estimate expected improvement for each.",
+    "label": "strong",
+    "reasoning": "Demands multi-step analysis, database architecture expertise, and complex systematic problem-solving.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Design a comprehensive monitoring and alerting system for microservices. Cover the four golden signals, distributed tracing with OpenTelemetry, log aggregation, and anomaly detection. Propose alerting strategy minimizing false positives while maintaining 99.99% detection.",
+    "label": "strong",
+    "reasoning": "Requires complex system design and the synthesis of advanced observability methodologies.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "Explain how HTTPS and TLS 1.3 work step by step. Compare with TLS 1.2, explain why 0-RTT resumption is faster but vulnerable to replay attacks, and propose mitigations.",
+    "label": "strong",
+    "reasoning": "Involves a complex step-by-step technical explanation, advanced protocol comparison, and deep security knowledge.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is the difference between HTTP/1.1 and HTTP/2?",
+    "label": "weak",
+    "reasoning": "A basic factual comparison of standard web protocols commonly documented.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What is an environment variable?",
+    "label": "weak",
+    "reasoning": "A single-concept explanation of a basic technical term.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "How do I install Node.js?",
+    "label": "weak",
+    "reasoning": "A simple how-to with a straightforward answer.",
+    "source": "batch_07_results.json"
+  },
+  {
+    "prompt": "What?",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat and clarification.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Hi there, nice to meet you.",
+    "label": "weak",
+    "reasoning": "Simple greeting.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "How's it going?",
+    "label": "weak",
+    "reasoning": "Basic conversational chit-chat.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Hello, can you help me?",
+    "label": "weak",
+    "reasoning": "Simple greeting and basic conversational intent.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Goodbye.",
+    "label": "weak",
+    "reasoning": "Basic conversational sign-off.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What day of the week is Christmas 2026?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup and date calculation.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What is 2 + 2?",
+    "label": "weak",
+    "reasoning": "Basic arithmetic calculation.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What color is the sky?",
+    "label": "weak",
+    "reasoning": "A trivial factual question.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Translate 'hello' to Japanese.",
+    "label": "weak",
+    "reasoning": "Simple, direct language translation.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What is Python used for?",
+    "label": "weak",
+    "reasoning": "A single-concept explanation without deep reasoning.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "How do I make a list in HTML?",
+    "label": "weak",
+    "reasoning": "A simple how-to with straightforward syntax.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What does JSON stand for?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What is the expense reimbursement policy?",
+    "label": "weak",
+    "reasoning": "A simple factual lookup or retrieval request.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Analyze the trade-offs between different SQL isolation levels (READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, SERIALIZABLE). For each, explain what anomalies it allows, give a concrete bug example in e-commerce, and derive the performance overhead of upgrading from READ COMMITTED to SERIALIZABLE.",
+    "label": "strong",
+    "reasoning": "Requires multi-step analysis, deep database domain knowledge, and complex scenario synthesis.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Design a migration strategy for moving a monolithic application to microservices. Cover the strangler fig pattern, database decomposition, event-driven communication, and distributed transactions. Propose a 6-month phased plan.",
+    "label": "strong",
+    "reasoning": "Demands complex system design, architectural planning, and multi-step synthesis.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Explain how a relational database processes a SQL query step by step, from parsing through planning, optimization (join ordering, index selection), and execution. Analyze how the optimizer chooses between nested loop, hash, and merge joins.",
+    "label": "strong",
+    "reasoning": "Involves a complex step-by-step technical explanation and deep knowledge of database internals.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Explain the mathematical foundations of gradient descent optimization. Derive the convergence rate for convex functions, explain learning rate scheduling, compare Adam vs SGD with momentum, and analyze the saddle point problem.",
+    "label": "strong",
+    "reasoning": "Requires mathematical derivations, complex algorithmic analysis, and deep machine learning expertise.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Prove that the Halting Problem is undecidable using a diagonalization argument. Then explain the implications for static analysis tools and why perfect bug detection is impossible.",
+    "label": "strong",
+    "reasoning": "Involves formal mathematical proof and deep theoretical computer science synthesis.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Derive the master theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n). Apply it to analyze merge sort, Strassen's matrix multiplication, and binary search.",
+    "label": "strong",
+    "reasoning": "Demands mathematical derivation and advanced algorithmic analysis.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Explain the internals of the V8 JavaScript engine, including the parser, AST, Ignition interpreter, TurboFan compiler, and hidden classes. Analyze inline caching and deoptimization triggers.",
+    "label": "strong",
+    "reasoning": "Requires deep domain knowledge of compiler architecture and a complex technical explanation.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Design a search engine for a 100-million document corpus. Cover crawling, indexing (inverted index construction), ranking (TF-IDF, BM25, learning-to-rank), and serving. Handle near-duplicate detection, freshness, and multi-language support.",
+    "label": "strong",
+    "reasoning": "Requires advanced system design and synthesis of multiple complex search architecture components.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Explain step by step how to implement binary search correctly, including edge cases (empty arrays, single elements, duplicates, off-by-one errors). Then prove termination and correctness.",
+    "label": "strong",
+    "reasoning": "Involves formal algorithmic proof, complex edge-case analysis, and detailed step-by-step instruction.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What is an adaptive router?",
+    "label": "weak",
+    "reasoning": "A basic definitional lookup.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What is load fraction?",
+    "label": "weak",
+    "reasoning": "A simple definitional lookup of a technical term.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "What does RAG stand for?",
+    "label": "weak",
+    "reasoning": "A simple acronym definition.",
+    "source": "batch_08_results.json"
+  },
+  {
+    "prompt": "Design a globally distributed lock service.",
+    "label": "strong",
+    "reasoning": "Despite its brevity, this requires deep distributed systems knowledge, consensus algorithms (like Paxos/Raft), and failure handling.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Hello! I hope you are having an absolutely wonderful day today. I am currently sitting in my kitchen, drinking a lovely cup of chamomile tea, and looking out the window at the birds in my garden. I was just wondering, since I am writing a small letter to my grandson who lives in Paris, how do I say 'I love you' in French?",
+    "label": "weak",
+    "reasoning": "Highly verbose, but the core request is a basic, single-phrase translation.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Derive the Black-Scholes equation.",
+    "label": "strong",
+    "reasoning": "A very short prompt that demands complex stochastic calculus and financial mathematics to answer.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I have a list of items that I need to buy from the grocery store today. The items are: apples, bananas, milk, bread, cheese, eggs, orange juice, cereal, pasta, and tomato sauce. Can you please arrange this exact list of items in alphabetical order for me so it's easier to read?",
+    "label": "weak",
+    "reasoning": "A long, wordy prompt that only requires basic alphabetical sorting.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Write a quine in Brainfuck.",
+    "label": "strong",
+    "reasoning": "Extremely short, but writing a self-replicating program in an esoteric language requires advanced logic and deep computational understanding.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Prove P vs NP.",
+    "label": "strong",
+    "reasoning": "A three-word prompt asking for the solution to one of the most complex unsolved problems in computer science.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "My friend and I were arguing about the solar system earlier today. He thinks that the Earth is the largest planet, but I am pretty sure that isn't true. We looked at a few books but couldn't find a straight answer quickly. Out of all the planets in our solar system, which one is the biggest?",
+    "label": "weak",
+    "reasoning": "Lots of contextual fluff surrounding a trivial science trivia question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain the Y-combinator.",
+    "label": "strong",
+    "reasoning": "A brief prompt that requires a deep explanation of advanced lambda calculus and functional programming concepts.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am working on a small Python script to automate some of my daily tasks. I have a variable named 'x' that is currently an integer with the value of 5. I want to convert this integer into a string so I can concatenate it with a sentence. What is the built-in function to do this?",
+    "label": "weak",
+    "reasoning": "A long-winded explanation for a basic syntax lookup (str() in Python).",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Implement Paxos.",
+    "label": "strong",
+    "reasoning": "Two words requesting the implementation of a highly complex distributed consensus algorithm.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am trying to learn how to cook, and I found this recipe for chocolate chip cookies that looks amazing. The only problem is that the recipe calls for 2 cups of sugar, but I only have a scale that measures in grams. Assuming standard granulated white sugar, how many grams is 2 cups?",
+    "label": "weak",
+    "reasoning": "Verbose context masking a simple unit conversion.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Reverse engineer the TikTok algorithm.",
+    "label": "strong",
+    "reasoning": "Short prompt demanding deep analysis of machine learning recommendation systems, user behavioral modeling, and scalable architecture.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "What is the capital of Australia? I always get it confused with Sydney or Melbourne because they are the biggest cities, but I know it's something else.",
+    "label": "weak",
+    "reasoning": "A multi-sentence prompt asking a basic geographical fact.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Design a High-Frequency Trading matching engine.",
+    "label": "strong",
+    "reasoning": "Brief request that requires ultra-low latency system design, advanced data structures, and concurrency expertise.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "So I was walking my dog today, a golden retriever named Max, and we saw this really weird looking bug. It made me think about biology and how living things are classified. It reminded me of my high school biology class. What does DNA stand for?",
+    "label": "weak",
+    "reasoning": "A long story that ends with a simple acronym definition.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain Gödel's First Incompleteness Theorem.",
+    "label": "strong",
+    "reasoning": "Short prompt requiring a complex explanation of mathematical logic and formal systems.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Write a regex to validate RFC 5322 email addresses perfectly.",
+    "label": "strong",
+    "reasoning": "A single sentence that requires deep knowledge of complex regular expressions and strict RFC standards.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I'm redecorating my living room and I want to paint the walls a nice calming color. I currently have a red couch, a blue rug, and yellow curtains. If I mix blue and yellow paint together, what color will I get?",
+    "label": "weak",
+    "reasoning": "Extraneous context for a rudimentary color mixing question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Compare B-Trees and LSM Trees.",
+    "label": "strong",
+    "reasoning": "Short query that requires in-depth analysis of database storage engines, read/write trade-offs, and algorithmic complexity.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Could you please take a look at the following sentence and tell me if there are any spelling mistakes? The sentence is: 'The quick browwn fox jumps over the lzay dog.' Thank you so much for your help!",
+    "label": "weak",
+    "reasoning": "A polite, wordy request for a trivial spell-check.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Bypass ASLR in Linux.",
+    "label": "strong",
+    "reasoning": "Four words requiring advanced cybersecurity knowledge, exploit development, and operating system internals.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am traveling to Tokyo next week for a business trip. I have never been to Japan before and I am very excited. I know the currency there is the Yen, but I am not sure about the local time. What is the current time in Tokyo?",
+    "label": "weak",
+    "reasoning": "A long introductory story for a basic time-zone lookup.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain zero-knowledge proofs mathematically.",
+    "label": "strong",
+    "reasoning": "Short prompt requiring complex cryptographic concepts and advanced mathematical formulas.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Can you summarize what the movie 'The Matrix' is about? Just give me one short sentence.",
+    "label": "weak",
+    "reasoning": "A simple request for a very brief pop-culture summary.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Design an L4 load balancer.",
+    "label": "strong",
+    "reasoning": "Brief prompt demanding deep networking knowledge, transport layer protocols, and scalable infrastructure design.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I have been thinking a lot about pets recently, especially cats and dogs. I know they both have four legs and a tail, and they are both mammals. However, what is the sound that a dog typically makes?",
+    "label": "weak",
+    "reasoning": "Excessive context for a kindergarten-level trivia question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Derive the Navier-Stokes equations.",
+    "label": "strong",
+    "reasoning": "Short prompt that demands complex fluid dynamics physics and advanced calculus.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "What is the square root of 144? I'm doing my middle school math homework and I forgot my calculator.",
+    "label": "weak",
+    "reasoning": "Extra context added to a basic arithmetic problem.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Write a lock-free queue in C++.",
+    "label": "strong",
+    "reasoning": "A short sentence requesting highly complex, concurrency-safe, low-level systems programming.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Hi, I am creating a basic HTML page for my personal blog. I want to add a link to my Twitter profile. What is the HTML tag used to create a hyperlink?",
+    "label": "weak",
+    "reasoning": "Verbose context for a basic HTML syntax lookup.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain quantum entanglement.",
+    "label": "strong",
+    "reasoning": "Two words requiring a deep explanation of advanced quantum physics.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I bought 3 apples yesterday, and then today my mom gave me 2 more apples. If I eat 1 apple right now, how many apples do I have left in total?",
+    "label": "weak",
+    "reasoning": "A wordy word-problem for simple addition and subtraction.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Architect a real-time multiplayer backend.",
+    "label": "strong",
+    "reasoning": "Brief prompt demanding comprehensive knowledge of UDP/TCP, state synchronization, latency mitigation, and cloud infrastructure.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Can you please tell me the name of the actor who played the character Iron Man in the Marvel Cinematic Universe movies? I think his first name is Robert.",
+    "label": "weak",
+    "reasoning": "A verbose pop-culture trivia lookup.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Develop a statistical arbitrage algorithm.",
+    "label": "strong",
+    "reasoning": "Short prompt requiring complex financial engineering, quantitative analysis, and programming.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am trying to organize my digital library of books. I have a lot of PDF files and EPUB files scattered across my desktop, documents folder, and downloads. What does the file extension 'PDF' actually stand for?",
+    "label": "weak",
+    "reasoning": "A rambling paragraph that ends with a simple acronym definition.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain the raft consensus algorithm.",
+    "label": "strong",
+    "reasoning": "Short prompt that requires a deep explanation of distributed systems state machines and leader election.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "If a train leaves Chicago traveling at 60 mph, and another train leaves New York traveling at 80 mph, wait, actually I just want to know how many minutes are in an hour.",
+    "label": "weak",
+    "reasoning": "A bait-and-switch verbose prompt that resolves to a trivial factual lookup.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Implement a compiler for a subset of C.",
+    "label": "strong",
+    "reasoning": "A single sentence asking for a massive, highly complex software engineering and computer science task.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I was looking at the night sky yesterday and noticed that the moon looked really bright and round. It got me thinking about astronomy. Who was the first person to walk on the moon?",
+    "label": "weak",
+    "reasoning": "Lots of fluff for a basic historical trivia question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Analyze the time complexity of Timsort.",
+    "label": "strong",
+    "reasoning": "Short prompt requiring an advanced breakdown of hybrid sorting algorithms and Big O notation.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Hello assistant, I need you to perform a very critical task for me. Please take the word 'hello' and convert every single letter in it to uppercase.",
+    "label": "weak",
+    "reasoning": "A dramatic, wordy prompt for basic string manipulation.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Design an RBAC system.",
+    "label": "strong",
+    "reasoning": "Four words demanding the architectural design of a complex Role-Based Access Control security system.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am writing a fantasy novel where the main character is a wizard. I need a cool sounding name for a spell that creates fire. What is the Spanish word for fire?",
+    "label": "weak",
+    "reasoning": "A lengthy creative setup for a one-word language translation.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Reverse engineer this malware payload.",
+    "label": "strong",
+    "reasoning": "Extremely short prompt requiring deep cybersecurity, assembly analysis, and threat intelligence expertise.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I have a very long and boring list of colors: red, blue, green, yellow, purple, orange, black, white, brown, pink. Could you just tell me which of these is typically the color of the sky on a clear day?",
+    "label": "weak",
+    "reasoning": "A long, redundant list leading up to a trivial general knowledge question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Prove the Banach-Tarski paradox.",
+    "label": "strong",
+    "reasoning": "Short prompt requiring highly advanced set theory and geometry proofs.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am preparing a presentation for my 3rd-grade class about farm animals. We are going to talk about cows, pigs, chickens, and horses. How many legs does a typical horse have?",
+    "label": "weak",
+    "reasoning": "Excessive context for a rudimentary biological fact.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "Explain the memory model of Rust.",
+    "label": "strong",
+    "reasoning": "Short prompt demanding deep understanding of compiler design, borrow checking, and low-level memory management.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "I am trying to learn how to use a computer properly. I have a keyboard and a mouse. Sometimes I want to copy text, and I know there is a keyboard shortcut for it involving the 'Ctrl' key. What is the shortcut to copy text on Windows?",
+    "label": "weak",
+    "reasoning": "A rambling explanation for a basic computer literacy question.",
+    "source": "batch_09_results.json"
+  },
+  {
+    "prompt": "What day of the week is it today?",
+    "label": "weak",
+    "reasoning": "This is a simple factual question requiring no deep reasoning or complex generation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Prove P ≠ NP implies 3-SAT has no polynomial solver.",
+    "label": "strong",
+    "reasoning": "This requires a rigorous mathematical proof and deep understanding of computational complexity theory.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I have been thinking about this for a really long time now, and I asked my friends and my family and even my coworkers, but nobody seems to know the answer, so I figured I would ask you instead: what is the capital city of Germany?",
+    "label": "weak",
+    "reasoning": "Despite the lengthy conversational fluff, the core request is a trivial factual retrieval.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Derive the gradient update rule for logistic regression.",
+    "label": "strong",
+    "reasoning": "The prompt demands step-by-step mathematical derivation involving calculus and machine learning concepts.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "How do you spell \"necessary\"?",
+    "label": "weak",
+    "reasoning": "This is a basic dictionary lookup that requires zero analytical capability.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Compare event sourcing versus CRUD for an e-commerce order system, analyzing consistency guarantees and storage costs across different read/write ratios, including the implications for audit logging and temporal queries.",
+    "label": "strong",
+    "reasoning": "This prompt asks for a multi-faceted architectural comparison evaluating specific trade-offs and system implications.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "My grandmother was telling me a story the other day about how when she was young, she used to travel across the country by train and she mentioned all these different cities she visited, and it made me curious — what is the largest country in the world by land area?",
+    "label": "weak",
+    "reasoning": "The prompt contains excessive irrelevant backstory for a simple geographic fact retrieval.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Implement A* search and compare its complexity to Dijkstra's.",
+    "label": "strong",
+    "reasoning": "This requires algorithmic implementation along with a theoretical comparative analysis of time and space complexity.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I need you to take this Python function that currently uses deeply nested callbacks and promises and refactor the entire thing into clean async/await syntax, explaining each transformation you make and why it improves readability and error handling.",
+    "label": "strong",
+    "reasoning": "The request involves complex code refactoring along with detailed explanations of modern software engineering principles.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Convert 100 degrees Fahrenheit to Celsius.",
+    "label": "weak",
+    "reasoning": "This is a simple arithmetic conversion that does not test advanced problem-solving skills.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Derive Bayes' theorem from first principles.",
+    "label": "strong",
+    "reasoning": "This requires a logical progression of probability axioms to construct a foundational mathematical theorem.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "So I was making dinner last night and I was following this recipe that my aunt gave me, and it called for a bunch of different spices and ingredients that I had to go to the store to buy, and while I was there I noticed they had a sale on flour, which reminded me — how many cups are in a gallon?",
+    "label": "weak",
+    "reasoning": "The prompt buries a basic unit conversion question under an unnecessary personal anecdote.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Design a distributed rate limiter using Redis.",
+    "label": "strong",
+    "reasoning": "Designing this requires understanding distributed systems, concurrency, and specific in-memory database architectures.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Explain the CAP theorem and prove why a distributed system cannot simultaneously guarantee all three properties, with concrete examples of real-world systems that sacrifice each property.",
+    "label": "strong",
+    "reasoning": "This prompt demands a theoretical proof combined with applied knowledge of real-world distributed database systems.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Refactor nested SQL subqueries into CTEs.",
+    "label": "strong",
+    "reasoning": "This requires advanced SQL knowledge to restructure complex queries for better performance and readability.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I was reading this very long article about the history of computing and it mentioned all these pioneers like Alan Turing and Ada Lovelace and Charles Babbage, and it was really fascinating but at the end of the day all I really want to know is: who founded Microsoft?",
+    "label": "weak",
+    "reasoning": "The lengthy preamble about computing history is irrelevant to the simple historical fact being requested.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Derive hash collision probability for n keys in table of size m.",
+    "label": "strong",
+    "reasoning": "This requires a rigorous probabilistic derivation regarding data structures and hash functions.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "What color is a banana?",
+    "label": "weak",
+    "reasoning": "This asks for a universally known visual attribute requiring zero cognitive effort to answer.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Explain how transformer attention works mathematically, including the derivation of scaled dot-product attention and why the scaling factor of 1/√dk is necessary.",
+    "label": "strong",
+    "reasoning": "This prompt asks for a deep dive into the mathematical mechanisms and scaling principles of modern neural network architectures.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Implement a buddy system memory allocator in C.",
+    "label": "strong",
+    "reasoning": "Implementing this requires low-level systems programming knowledge and careful memory management in C.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I've been learning about geography recently because my kids have a school project coming up and they need to label all the countries on a map, and we've been studying really hard every evening after dinner, going through flashcards and watching documentaries, and I just need to confirm — what is the largest ocean on Earth?",
+    "label": "weak",
+    "reasoning": "The prompt is filled with unnecessary context about a school project just to ask a basic geography question.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Prove quicksort's O(n log n) average case.",
+    "label": "strong",
+    "reasoning": "This requires formal algorithmic analysis and mathematical proofs involving recurrence relations or probability.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "What is the boiling point of water?",
+    "label": "weak",
+    "reasoning": "This is a basic science fact that requires no analysis or explanation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Refactor tightly coupled Java code to use dependency injection and explain how it improves testability, with before and after code examples showing the SOLID principle violations being resolved.",
+    "label": "strong",
+    "reasoning": "This requires applying object-oriented design principles, modifying code, and explaining theoretical architectural benefits.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Translate \"thank you\" to French.",
+    "label": "weak",
+    "reasoning": "This is a rudimentary, one-word language translation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Compare optimistic vs pessimistic concurrency control.",
+    "label": "strong",
+    "reasoning": "This asks for an architectural comparison of database transaction management strategies.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "My coworker and I were having a debate at lunch about random facts and trivia, and she said she was absolutely certain about this one thing, but I told her I wanted to double check just to make sure, so here's my question: what year did the Titanic sink?",
+    "label": "weak",
+    "reasoning": "The conversational setup is completely superfluous to the trivial historical date being asked.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Implement a lock-free concurrent queue using CAS.",
+    "label": "strong",
+    "reasoning": "Implementing this demands advanced knowledge of concurrency, synchronization primitives, and lock-free programming concepts.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "What year did World War II end?",
+    "label": "weak",
+    "reasoning": "This is a fundamental historical fact that needs no explanation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Explain RAFT consensus step by step.",
+    "label": "strong",
+    "reasoning": "This requires breaking down a complex distributed systems consensus algorithm into understandable, sequential stages.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I'm planning a trip to Europe next summer with my family and we're trying to figure out which countries to visit and how long to spend in each one and what the weather will be like, but before all that I just need to know something basic: what currency does Japan use?",
+    "label": "weak",
+    "reasoning": "The travel planning backstory is irrelevant to the simple, factual question about a country's currency.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Derive the information-theoretic lower bound for comparison-based sorting.",
+    "label": "strong",
+    "reasoning": "This demands a formal theoretical computer science proof regarding algorithm bounds using decision trees.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "How many bytes in a kilobyte?",
+    "label": "weak",
+    "reasoning": "This is a basic factual conversion in computer science.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Design an autoscaling Kubernetes policy for CPU and queue depth.",
+    "label": "strong",
+    "reasoning": "This requires practical knowledge of cloud infrastructure, orchestration tools, and performance metrics.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "What is the chemical symbol for gold?",
+    "label": "weak",
+    "reasoning": "This is a direct lookup of basic periodic table information.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Prove the halting problem is undecidable.",
+    "label": "strong",
+    "reasoning": "This requires a formal logical proof involving self-reference and theoretical limits of computation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Name three primary colors.",
+    "label": "weak",
+    "reasoning": "This asks for a simple, universally known list of three items.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Analyze column-store vs row-store trade-offs for OLAP.",
+    "label": "strong",
+    "reasoning": "This prompt requires an in-depth architectural evaluation of database storage formats in the context of analytical workloads.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "OK so here's the thing, I've been trying to figure this out for literally hours and I've googled it and asked ChatGPT and looked at Stack Overflow and nothing is giving me a straight answer, so please just tell me simply: what is the square root of 144?",
+    "label": "weak",
+    "reasoning": "The long-winded expression of frustration masks a trivial arithmetic calculation.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Implement a B+ tree with leaf-level linked lists.",
+    "label": "strong",
+    "reasoning": "Implementing this data structure requires complex pointer manipulation and an understanding of database indexing techniques.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Derive the bias-variance decomposition for MSE.",
+    "label": "strong",
+    "reasoning": "This requires a rigorous statistical derivation of the expected loss in machine learning estimators.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "I need some help with a school project. My teacher wants us to write a five-page essay about the solar system, and I've been researching all the planets and their moons and their atmospheres, and I have so much information already, but I just need to confirm one small detail: what is the largest planet in our solar system?",
+    "label": "weak",
+    "reasoning": "The extensive details about the school essay are just filler for a basic astronomy fact.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Design a CDC pipeline with exactly-once delivery.",
+    "label": "strong",
+    "reasoning": "This demands the design of a resilient data engineering architecture handling complex stream processing guarantees.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "How many days are in February during a leap year?",
+    "label": "weak",
+    "reasoning": "This is a basic calendrical fact requiring no thought.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "Explain the Linux CFS and derive O(log n) complexity.",
+    "label": "strong",
+    "reasoning": "This requires understanding the internal mechanics of an OS kernel scheduler along with algorithmic complexity analysis.",
+    "source": "batch_10_results.json"
+  },
+  {
+    "prompt": "What does CPU stand for?",
+    "label": "weak",
+    "reasoning": "This is a trivial acronym lookup requiring no analytical reasoning.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Refactor recursive Fibonacci to memoization then tabulation.",
+    "label": "strong",
+    "reasoning": "This requires practical application of dynamic programming principles to optimize algorithm complexity.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "I was watching a documentary about space exploration last night and they were talking about all these amazing missions that NASA has done over the decades, from the Apollo program to the Mars rovers, and it was incredibly inspiring, but there was one thing I missed — what is the speed of light in km/s?",
+    "label": "weak",
+    "reasoning": "The lengthy preamble about space documentaries masks a simple factual physics question.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive optimal SGD batch size given a compute budget.",
+    "label": "strong",
+    "reasoning": "This demands advanced mathematical derivation combining optimization theory with hardware constraints.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "How do I undo my last git commit?",
+    "label": "weak",
+    "reasoning": "This is a common, single-command technical support question.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Compare consistency models of DynamoDB, Cassandra, and CockroachDB.",
+    "label": "strong",
+    "reasoning": "This requires a deep architectural understanding of distributed database systems and their respective trade-offs.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What port does HTTPS use?",
+    "label": "weak",
+    "reasoning": "This is a basic networking fact retrieval.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Implement a Bloom filter and derive false positive probability.",
+    "label": "strong",
+    "reasoning": "This combines data structure implementation with rigorous probabilistic analysis.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "My manager sent me a Slack message asking about some technical jargon that I wasn't familiar with, and I spent about twenty minutes searching through our internal wiki and documentation trying to find the answer, but I couldn't find anything useful, so I'm hoping you can just give me a quick answer: what is a 404 error?",
+    "label": "weak",
+    "reasoning": "The elaborate backstory of a workplace interaction is unnecessary for answering a basic HTTP status code definition.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Design a multi-tenant SaaS database architecture.",
+    "label": "strong",
+    "reasoning": "This involves complex systems design addressing data isolation, scalability, and security for multiple clients.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "How do I exit vim?",
+    "label": "weak",
+    "reasoning": "This is a highly common, single-keystroke technical retrieval question.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Explain how FAISS vector quantization works.",
+    "label": "strong",
+    "reasoning": "This asks for a technical deep-dive into advanced machine learning indexing and search algorithms.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What is the difference between GET and POST?",
+    "label": "weak",
+    "reasoning": "This is a foundational web development concept requiring only a brief explanation.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive amortized O(1) for dynamic array resizing.",
+    "label": "strong",
+    "reasoning": "This requires formal algorithmic complexity analysis and mathematical proof techniques.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "I've been learning to code for about three months now and I've been following along with tutorials on YouTube and reading documentation and building small projects, and I feel like I'm making really good progress, but I just realized I don't know something really basic: what does JSON stand for?",
+    "label": "weak",
+    "reasoning": "The long story about learning to code is completely irrelevant to the simple acronym definition being requested.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Design a real-time fraud detection system using streaming ML.",
+    "label": "strong",
+    "reasoning": "This requires designing a complex, low-latency architecture combining stream processing and machine learning models.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Refactor synchronous Python to asyncio with connection pooling.",
+    "label": "strong",
+    "reasoning": "This demands advanced software engineering skills in asynchronous programming and resource management.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What is a primary key in a database?",
+    "label": "weak",
+    "reasoning": "This is a foundational, definitional concept in relational databases.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Prove Dijkstra's correctness using a loop invariant.",
+    "label": "strong",
+    "reasoning": "This requires formal computer science proof techniques and a deep understanding of graph algorithms.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "So I was setting up a new project at work and my team lead asked me to configure the server settings and I was going through all the different configuration files and environment variables, and I realized I should probably know this off the top of my head: what does REST stand for?",
+    "label": "weak",
+    "reasoning": "The long contextual setup adds no value to the basic API architecture acronym lookup.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Compare LSM trees vs B-trees for write-heavy workloads.",
+    "label": "strong",
+    "reasoning": "This requires an in-depth architectural comparison of database storage engines and their performance trade-offs.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "How do I list all running Docker containers?",
+    "label": "weak",
+    "reasoning": "This is a simple, single-command lookup for container management.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Implement a tokenizer and recursive descent parser.",
+    "label": "strong",
+    "reasoning": "This involves complex systems programming and understanding of compiler construction principles.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What is the shortcut to open DevTools in Chrome?",
+    "label": "weak",
+    "reasoning": "This is a basic keyboard shortcut trivia question.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive PageRank from the random surfer model.",
+    "label": "strong",
+    "reasoning": "This demands mathematical derivation using linear algebra and probability theory applied to network graphs.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "I'm trying to debug a web application and my senior developer keeps telling me to \"check localhost\" but I've never really understood what that term means in a technical sense, even though I've been using it for months — so what exactly is localhost?",
+    "label": "weak",
+    "reasoning": "The conversational framing about debugging only leads to a basic networking definition.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Design blue-green deployments with automatic rollback.",
+    "label": "strong",
+    "reasoning": "This requires designing a robust CI/CD pipeline architecture with complex state management and failure recovery.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Explain cache-oblivious matrix multiplication.",
+    "label": "strong",
+    "reasoning": "This requires advanced algorithmic knowledge regarding memory hierarchies and hardware-aware optimization.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What is the default port for MongoDB?",
+    "label": "weak",
+    "reasoning": "This is a basic factual lookup for database configurations.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Refactor nested error handling into a Result monad.",
+    "label": "strong",
+    "reasoning": "This demands application of advanced functional programming paradigms to improve code architecture.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "I was helping my friend move into a new apartment last weekend and we were setting up her home network and she had all these cables and routers and switches, and while we were connecting everything she asked me a question that I honestly didn't know the answer to: what is a 301 redirect?",
+    "label": "weak",
+    "reasoning": "The elaborate story about moving apartments is entirely disjointed from the simple web HTTP concept requested.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive Fisher information for a Gaussian mixture model.",
+    "label": "strong",
+    "reasoning": "This requires rigorous mathematical statistics and calculus applied to complex probability distributions.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "How do I check disk space on Linux?",
+    "label": "weak",
+    "reasoning": "This is a basic, single-command operating system query.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Implement a skip list and prove O(log n) search.",
+    "label": "strong",
+    "reasoning": "This requires both advanced data structure implementation and formal probabilistic complexity proof.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What does SSH stand for?",
+    "label": "weak",
+    "reasoning": "This is a straightforward acronym definition.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Design a system for 1B log events/day with sub-second alerting.",
+    "label": "strong",
+    "reasoning": "This involves designing a highly scalable, low-latency distributed data pipeline and monitoring architecture.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "My professor was giving a lecture about computer networking and she mentioned SSH about fifteen times but never actually explained what the acronym stood for, and I was too embarrassed to ask in front of the whole class, so can you please tell me: how do I install a package with pip?",
+    "label": "weak",
+    "reasoning": "The prompt sets up a long story about networking and SSH but abruptly asks a basic, unrelated Python package manager question.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Compare gradient boosting vs random forests vs neural nets for tabular data.",
+    "label": "strong",
+    "reasoning": "This requires a nuanced, multi-dimensional analysis of machine learning model architectures and their specific performance characteristics.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What file extension do TypeScript files use?",
+    "label": "weak",
+    "reasoning": "This is a trivial language convention fact.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Implement consistent hashing with virtual nodes.",
+    "label": "strong",
+    "reasoning": "This involves implementing a complex algorithm critical for distributed systems load balancing.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "What is the latest LTS version of Node.js?",
+    "label": "weak",
+    "reasoning": "This is a simple factual retrieval of current software release versions.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive the Euler-Lagrange equation for brachistochrone.",
+    "label": "strong",
+    "reasoning": "This demands advanced calculus of variations and physics knowledge to derive a mathematical proof.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Summarize this paragraph in one sentence.",
+    "label": "weak",
+    "reasoning": "This is a basic natural language processing task requiring no deep domain expertise.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Explain TLS 1.3 handshake vs TLS 1.2.",
+    "label": "strong",
+    "reasoning": "This asks for a detailed technical comparison of cryptographic protocols and network security improvements.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "I've been working on a presentation for an upcoming conference and I've been putting together slides about cloud infrastructure and deployment strategies, and one of my colleagues suggested I include a section about containerization, and while I was researching that topic I realized I should know something pretty basic: what is our refund policy?",
+    "label": "weak",
+    "reasoning": "The long professional setup ends in an abrupt, generic business FAQ that has nothing to do with the context.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Refactor callback Node.js code to async iterators with backpressure.",
+    "label": "strong",
+    "reasoning": "This requires deep understanding of advanced asynchronous patterns and memory-safe stream processing in Node.js.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "When is the next company holiday?",
+    "label": "weak",
+    "reasoning": "This is a basic administrative scheduling query.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Derive VC dimension of linear classifiers in d dimensions.",
+    "label": "strong",
+    "reasoning": "This requires formal mathematical proof within statistical learning theory.",
+    "source": "batch_11_results.json"
+  },
+  {
+    "prompt": "Design an end-to-end ML pipeline with feature store.",
+    "label": "strong",
+    "reasoning": "This requires a comprehensive architectural design of a complex machine learning infrastructure.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What time zone is London in?",
+    "label": "weak",
+    "reasoning": "This is a simple geographical fact retrieval.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Implement a radix tree and compare memory to hash map.",
+    "label": "strong",
+    "reasoning": "This demands advanced data structure implementation alongside theoretical memory profiling and comparison.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "I spent all morning reading through technical documentation and blog posts and watching YouTube tutorials about distributed systems, and I've been taking detailed notes and creating mind maps, but the one thing I still can't figure out is something that should be really simple: how tall is Mount Everest?",
+    "label": "weak",
+    "reasoning": "The extensive technical preamble is irrelevant filler masking a basic geographic trivia question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Prove FLP impossibility for async consensus.",
+    "label": "strong",
+    "reasoning": "This requires a rigorous theoretical computer science proof regarding the foundational limits of distributed systems.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Compare WAL vs shadow paging for crash recovery.",
+    "label": "strong",
+    "reasoning": "This involves a deep architectural comparison of complex database recovery mechanisms.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Name the four seasons.",
+    "label": "weak",
+    "reasoning": "This asks for a universally known, simple list of four items.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Explain LoRA fine-tuning mathematically.",
+    "label": "strong",
+    "reasoning": "This demands a detailed mathematical breakdown of an advanced machine learning optimization technique.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is the freezing point of water in Celsius?",
+    "label": "weak",
+    "reasoning": "This is a fundamental science fact needing no explanation.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Design a globally distributed session store with tunable consistency.",
+    "label": "strong",
+    "reasoning": "This requires complex systems design balancing data replication, latency, and consistency models at a global scale.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "My friend and I were having a really long conversation over coffee about programming languages and which ones are the best for different use cases and whether functional programming is better than object-oriented programming, and at some point the topic shifted to web development, and I realized I should know this: what programming language is Django written in?",
+    "label": "weak",
+    "reasoning": "The lengthy conversational setup about programming paradigms is completely unnecessary for a basic software trivia fact.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Refactor procedural pipeline into functional composition with generators.",
+    "label": "strong",
+    "reasoning": "This demands advanced code refactoring that shifts between programming paradigms using specialized language features.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "How many bits in a byte?",
+    "label": "weak",
+    "reasoning": "This is a foundational, elementary computing fact.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Derive attention complexity and explain FlashAttention.",
+    "label": "strong",
+    "reasoning": "This requires mathematical complexity analysis and a deep technical explanation of modern hardware-aware neural network optimizations.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Implement a Merkle tree for distributed file verification.",
+    "label": "strong",
+    "reasoning": "This involves implementing a complex cryptographic data structure used in decentralized systems.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is a JPEG?",
+    "label": "weak",
+    "reasoning": "This is a simple definitional question about a common file format.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Compare Kafka, RabbitMQ, and NATS for event-driven architectures.",
+    "label": "strong",
+    "reasoning": "This requires an architectural evaluation of multiple distributed messaging systems and their respective trade-offs.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "I was sitting in a meeting today and my boss started talking about API integrations and webhooks and rate limiting, and everyone was nodding along like they understood everything perfectly, but honestly I was a little lost, so I'm just going to start with the basics: who invented the telephone?",
+    "label": "weak",
+    "reasoning": "The long workplace anecdote about APIs creates a deceptive setup for a basic historical trivia question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Derive optimal learning rate schedule for Adam optimizer.",
+    "label": "strong",
+    "reasoning": "This requires advanced mathematical optimization theory and deep understanding of neural network training dynamics.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Is Python dynamically typed or statically typed?",
+    "label": "weak",
+    "reasoning": "This asks for a fundamental characteristic of a well-known programming language.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Design a circuit breaker with half-open state transitions.",
+    "label": "strong",
+    "reasoning": "This demands the design and implementation of a resilient distributed systems pattern involving state machine logic.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What does DNS do?",
+    "label": "weak",
+    "reasoning": "This is a basic networking concept that can be answered with a brief definition.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Explain differential privacy and derive Gaussian mechanism budget.",
+    "label": "strong",
+    "reasoning": "This involves rigorous mathematical statistics and the application of privacy-preserving algorithmic principles.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is the meaning of the word \"ephemeral\"?",
+    "label": "weak",
+    "reasoning": "This is a straightforward dictionary lookup.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Implement thread-safe LRU cache with O(1) operations.",
+    "label": "strong",
+    "reasoning": "This requires complex concurrent programming, synchronization, and optimal data structure manipulation.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "I've been reading this really long book about the history of the internet and how it evolved from ARPANET to what we have today, and there's a whole chapter about domain names and how they work, and it's fascinating but also very dense, and all I really need to know right now is: how many weeks are in a year?",
+    "label": "weak",
+    "reasoning": "The extensive setup about internet history completely mismatches the trivial calendrical fact being asked.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Compare dense vs sparse vs hybrid retrieval for RAG.",
+    "label": "strong",
+    "reasoning": "This demands an in-depth architectural comparison of modern information retrieval methodologies for generative AI.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is the hex code for white?",
+    "label": "weak",
+    "reasoning": "This is a basic, universal design fact.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Derive convergence rate of power iteration.",
+    "label": "strong",
+    "reasoning": "This requires formal linear algebra proofs and eigenvalue analysis.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Design a data lakehouse on Delta Lake.",
+    "label": "strong",
+    "reasoning": "This requires designing a comprehensive big data infrastructure and storage architecture.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is our office address?",
+    "label": "weak",
+    "reasoning": "This is a basic administrative information retrieval.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Refactor React components to use XState state machines.",
+    "label": "strong",
+    "reasoning": "This requires overhauling a UI architecture by applying formal state machine paradigms and complex refactoring.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "How do I connect to the VPN?",
+    "label": "weak",
+    "reasoning": "This is a standard IT helpdesk question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Prove edit distance has optimal substructure.",
+    "label": "strong",
+    "reasoning": "This requires formal computer science proof techniques validating dynamic programming algorithms.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "I'm new to the company and I've been going through the onboarding documents and watching all the training videos and meeting with different team members, and everyone has been really welcoming and helpful, but there's one small thing I haven't been able to figure out yet: what browser do we recommend for internal tools?",
+    "label": "weak",
+    "reasoning": "The long onboarding narrative merely leads to a simple, generic IT policy question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Explain how RAG handles hallucination vs pure parametric generation.",
+    "label": "strong",
+    "reasoning": "This requires a nuanced understanding of generative AI architectures, memory retrieval, and failure modes.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Where can I find the employee handbook?",
+    "label": "weak",
+    "reasoning": "This is a standard administrative FAQ.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Derive the recurrence for merge sort using the Master Theorem and prove its optimality for comparison-based sorting by connecting it to the decision tree lower bound argument.",
+    "label": "strong",
+    "reasoning": "This demands comprehensive theoretical computer science proof chaining covering multiple algorithmic principles.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "How do I submit a bug report?",
+    "label": "weak",
+    "reasoning": "This is a simple procedural workflow query.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Implement a red-black tree with deletion.",
+    "label": "strong",
+    "reasoning": "This involves implementing one of the most notoriously complex self-balancing data structures, specifically handling tricky edge cases.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "What is the Wi-Fi password for the guest network?",
+    "label": "weak",
+    "reasoning": "This is a simple facility information retrieval.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Analyze the trade-offs of sharding strategies for a distributed key-value store handling 500K writes per second, comparing hash-based, range-based, and directory-based sharding approaches.",
+    "label": "strong",
+    "reasoning": "This requires highly specialized knowledge in distributed database systems design, scale analysis, and architectural trade-offs.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "When does the cafeteria close?",
+    "label": "weak",
+    "reasoning": "This is a trivial logistical question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Prove the impossibility of distributed consensus in two rounds with Byzantine failures when n ≤ 3f.",
+    "label": "strong",
+    "reasoning": "This requires rigorous mathematical proof and deep theoretical knowledge of fault-tolerant distributed systems.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "How do I add someone to a Slack channel?",
+    "label": "weak",
+    "reasoning": "This is a basic software usage question.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "Derive the KL divergence between two multivariate Gaussians and explain its role in variational inference, showing why the ELBO is a valid lower bound on the log marginal likelihood.",
+    "label": "strong",
+    "reasoning": "This demands deep mathematical derivations within Bayesian machine learning and probabilistic modeling.",
+    "source": "batch_12_results.json"
+  },
+  {
+    "prompt": "I have been working at this company for three years now and I've gone through multiple team restructurings and office relocations and system migrations, but somehow through all of that I never actually found out the answer to this incredibly simple question: what is our dress code policy?",
+    "label": "weak",
+    "reasoning": "The extensive backstory about working at the company is completely irrelevant to the basic HR policy question being asked.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement Paxos consensus and prove its safety property.",
+    "label": "strong",
+    "reasoning": "This requires advanced distributed systems knowledge and formal mathematical proof techniques.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Who is my HR representative?",
+    "label": "weak",
+    "reasoning": "This is a simple administrative inquiry requiring a single factual lookup.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Compare microservices vs modular monolith architectures for a payment processing system, analyzing failure isolation, data consistency, deployment complexity, and team scaling implications.",
+    "label": "strong",
+    "reasoning": "This demands a deep, multi-faceted architectural evaluation of complex software systems under strict constraints.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Derive the time complexity of Karatsuba multiplication and explain why it's faster than the schoolbook method, extending the analysis to Toom-Cook and FFT-based approaches.",
+    "label": "strong",
+    "reasoning": "This requires rigorous algorithmic complexity analysis and deep understanding of advanced mathematical algorithms.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How many ounces in a cup?",
+    "label": "weak",
+    "reasoning": "This is a trivial measurement conversion.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Design an MVCC implementation for a database engine and prove snapshot isolation prevents write skew in specific cases but not in general.",
+    "label": "strong",
+    "reasoning": "This involves complex database architecture design combined with formal isolation level proofs.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What does FIFO mean?",
+    "label": "weak",
+    "reasoning": "This is a standard acronym definition lookup.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Explain how GAN training can suffer from mode collapse and derive conditions for Nash equilibrium in the minimax game.",
+    "label": "strong",
+    "reasoning": "This requires deep theoretical knowledge of machine learning, game theory, and mathematical derivations.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I just started learning about databases last week and I've been reading a lot of articles and watching tutorials and I even set up a small SQLite database to practice with, and my instructor keeps using this term that I keep forgetting the definition of, so could you please just remind me: what is a null pointer?",
+    "label": "weak",
+    "reasoning": "The long narrative about learning databases is disjointed from the basic programming definition requested.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a persistent data structure (specifically a persistent balanced BST) with O(log n) updates and explain the path copying technique.",
+    "label": "strong",
+    "reasoning": "This demands advanced data structure implementation using functional programming concepts and complexity analysis.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What is the file size limit for email attachments?",
+    "label": "weak",
+    "reasoning": "This is a simple IT constraint lookup.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Derive the convergence guarantees of policy gradient methods in reinforcement learning and explain the variance reduction achieved by baseline subtraction.",
+    "label": "strong",
+    "reasoning": "This requires advanced mathematical derivation within the specialized field of reinforcement learning.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Design a custom garbage collector using a tricolor marking algorithm and prove its correctness for concurrent collection.",
+    "label": "strong",
+    "reasoning": "This involves low-level systems programming, memory management design, and concurrency proofs.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How do I turn on dark mode?",
+    "label": "weak",
+    "reasoning": "This is a basic user interface navigation question.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Compare the theoretical foundations of CNNs versus Vision Transformers for image classification, deriving the inductive biases of each and explaining when one outperforms the other.",
+    "label": "strong",
+    "reasoning": "This requires an in-depth theoretical comparison of advanced deep learning architectures and their mathematical priors.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I was at the grocery store earlier today and I was trying to figure out which brand of coffee to buy because there were so many options and they all had different roast levels and flavor profiles, and while I was standing there trying to decide, a thought randomly popped into my head: what is the chemical formula for water?",
+    "label": "weak",
+    "reasoning": "The detailed grocery shopping anecdote is completely unrelated to the elementary science fact being asked.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a work-stealing scheduler and analyze its load-balancing properties under heterogeneous task durations.",
+    "label": "strong",
+    "reasoning": "This requires complex concurrent systems programming and performance analysis of task scheduling algorithms.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Derive the backpropagation algorithm for a multi-layer perceptron from the chain rule and explain vanishing gradients.",
+    "label": "strong",
+    "reasoning": "This demands foundational machine learning math derivations and gradient flow analysis.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How do I change my profile picture?",
+    "label": "weak",
+    "reasoning": "This is a simple UI interaction instruction.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Design a vector clock system for tracking causality in a distributed chat application and prove it correctly captures the happens-before relation.",
+    "label": "strong",
+    "reasoning": "This requires designing a distributed systems clock mechanism and formally proving its logical correctness.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What is the tallest building in the world?",
+    "label": "weak",
+    "reasoning": "This is a straightforward general knowledge trivia question.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Refactor this monolithic data pipeline to use the Saga pattern for distributed transactions, implementing compensating actions for each step and analyzing the consistency guarantees compared to two-phase commit.",
+    "label": "strong",
+    "reasoning": "This requires advanced architectural refactoring and analysis of distributed transaction models.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I've been going back and forth with my landlord about whether I need renter's insurance and he keeps sending me these really long emails with legal jargon that I don't understand, and honestly I'm just stressed about the whole situation, but right now what I really need to know for work is: how do I reset my password?",
+    "label": "weak",
+    "reasoning": "The long story about landlord disputes is irrelevant to the simple IT helpdesk request at the end.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Explain how speculative decoding works in LLM inference and derive the expected speedup as a function of the draft model's acceptance rate.",
+    "label": "strong",
+    "reasoning": "This demands a deep understanding of modern generative AI optimization techniques and statistical derivations.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a CRDT (Conflict-free Replicated Data Type) for a collaborative text editor and prove it achieves strong eventual consistency.",
+    "label": "strong",
+    "reasoning": "This requires implementing a highly specialized distributed data structure and formally proving its consistency model.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How many hours in a day?",
+    "label": "weak",
+    "reasoning": "This is a fundamental fact of timekeeping.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Compare token-bucket, leaky-bucket, and sliding-window rate limiting algorithms, deriving the burst tolerance and steady-state throughput of each, and explain which is optimal for API gateways serving heterogeneous clients.",
+    "label": "strong",
+    "reasoning": "This requires a detailed technical evaluation and mathematical derivation of networking algorithms.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I was organizing my desk and I found an old sticky note that had a question written on it that I had been meaning to look up for weeks but kept forgetting about, and now that I finally remembered I figured I should just ask: what country is the Eiffel Tower in?",
+    "label": "weak",
+    "reasoning": "The desk-organizing backstory is pure filler for a basic geography trivia question.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Derive the sample complexity bounds for PAC learning of halfspaces.",
+    "label": "strong",
+    "reasoning": "This requires advanced mathematical proofs within computational learning theory.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Name a fruit that is red.",
+    "label": "weak",
+    "reasoning": "This asks for a trivial example of a common category.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a log-structured merge tree from scratch and benchmark it against a B-tree for sequential vs random write workloads.",
+    "label": "strong",
+    "reasoning": "This involves implementing a complex database storage engine and designing rigorous performance benchmarks.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What is the opposite of hot?",
+    "label": "weak",
+    "reasoning": "This is a basic antonym lookup.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Explain how ring attention enables training on million-token sequences, deriving the communication overhead compared to standard tensor parallelism.",
+    "label": "strong",
+    "reasoning": "This requires deep technical knowledge of large language model scaling techniques and distributed training communication costs.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I spent the entire weekend reorganizing my home office and setting up a new monitor and keyboard and mouse, and while I was at it I also rearranged all my bookshelves and cleaned out my filing cabinet, and after all that work I sat down at my computer and realized I had a very basic question: what does URL stand for?",
+    "label": "weak",
+    "reasoning": "The detailed weekend chores narrative masks a simple web terminology acronym.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Design a zero-downtime schema migration for a 10TB PostgreSQL table with foreign key constraints.",
+    "label": "strong",
+    "reasoning": "This demands advanced database administration strategies and deep knowledge of PostgreSQL locking mechanisms.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How do I copy and paste?",
+    "label": "weak",
+    "reasoning": "This is an elementary operating system interaction.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Prove the correctness of the Bellman-Ford algorithm and derive its time complexity, explaining how it detects negative cycles.",
+    "label": "strong",
+    "reasoning": "This requires formal algorithmic proofs, complexity derivation, and graph theory knowledge.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What is the biggest animal on Earth?",
+    "label": "weak",
+    "reasoning": "This is a simple biological trivia question.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a custom thread pool with work stealing, priority scheduling, and graceful shutdown, analyzing the synchronization costs of each feature.",
+    "label": "strong",
+    "reasoning": "This requires highly advanced concurrent systems programming and careful analysis of thread synchronization overhead.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "My neighbor's kid asked me this question the other day and I felt silly for not knowing the answer right away because it's the kind of thing you learn in elementary school, but I completely blanked in the moment: how many sides does a hexagon have?",
+    "label": "weak",
+    "reasoning": "The conversational setup about the neighbor's kid is unnecessary for basic geometry fact retrieval.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Derive the optimal temperature parameter for softmax sampling in language models as a function of vocabulary size and entropy.",
+    "label": "strong",
+    "reasoning": "This requires rigorous statistical derivation and understanding of generative model decoding strategies.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "What sound does a cat make?",
+    "label": "weak",
+    "reasoning": "This is a trivial preschool-level fact.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Compare Zig, Rust, and C++ for systems programming, analyzing memory safety guarantees, compile times, and FFI ergonomics.",
+    "label": "strong",
+    "reasoning": "This demands a deep architectural comparison of low-level programming languages across multiple strict paradigms.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "How do I bookmark a website?",
+    "label": "weak",
+    "reasoning": "This is a basic browser navigation question.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "Implement a probabilistic skip graph and prove its O(log n) routing in a decentralized peer-to-peer network.",
+    "label": "strong",
+    "reasoning": "This combines complex distributed data structure implementation with formal mathematical proof of networking efficiency.",
+    "source": "batch_13_results.json"
+  },
+  {
+    "prompt": "I have been meaning to ask this for a long time but I keep getting distracted by other things at work and then I forget, and then I remember again at like 2 AM when I can't sleep, and then I forget again by morning, so I'm finally just going to ask right now before I forget: what continent is Brazil on?",
+    "label": "weak",
+    "reasoning": "The prompt is filled with irrelevant personal context and ultimately asks a trivial geographic fact.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the expectation-maximization algorithm for fitting a mixture of Gaussians.",
+    "label": "strong",
+    "reasoning": "This prompt requests a rigorous mathematical derivation of a complex machine learning algorithm.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What animal is known as man's best friend?",
+    "label": "weak",
+    "reasoning": "The prompt asks an extremely basic trivia question with no depth or complexity.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design an optimal caching strategy combining L1/L2 caches with a CDN, deriving hit rates using the Independent Reference Model.",
+    "label": "strong",
+    "reasoning": "This prompt requires advanced system design skills and formal mathematical modeling to answer.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How many letters are in the English alphabet?",
+    "label": "weak",
+    "reasoning": "The prompt is a simple factual query requiring no analysis or expertise.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Refactor this event-driven microservice from polling to server-sent events and explain the backpressure handling, connection lifecycle management, and reconnection strategy.",
+    "label": "strong",
+    "reasoning": "This prompt asks for a comprehensive architectural refactoring along with detailed technical explanations.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "My uncle was telling me about his trip to South America and all the amazing food he ate and the beautiful mountains he saw, and he showed me hundreds of photos on his phone, and it was really nice hearing about his adventures, but honestly the only thing I want to know right now is: what language do they speak in Brazil?",
+    "label": "weak",
+    "reasoning": "The prompt obscures a basic trivia question behind an excessive amount of unrelated conversational filler.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Prove that the decision version of the knapsack problem is NP-complete.",
+    "label": "strong",
+    "reasoning": "This prompt requires a formal mathematical proof in computational complexity theory.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What is the first letter of the alphabet?",
+    "label": "weak",
+    "reasoning": "The prompt asks an elementary question that requires zero reasoning or complex generation.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a distributed hash table using Kademlia and analyze its XOR-based routing metric.",
+    "label": "strong",
+    "reasoning": "This prompt demands both advanced implementation skills and algorithmic analysis of a distributed system.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How do I turn off notifications?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic support question lacking context about the specific device or application.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the optimal exploration-exploitation trade-off in multi-armed bandits using the UCB1 algorithm and prove its regret bound.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a deep understanding of reinforcement learning mathematics and formal proof techniques.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "I was cleaning out my garage and I found a box of old textbooks from college and I flipped through a few of them and it brought back so many memories of late-night study sessions and cramming for finals, and one of the books was about world history, which reminded me: what year did humans first land on the moon?",
+    "label": "weak",
+    "reasoning": "The prompt buries a simple historical fact query under a long, irrelevant personal anecdote.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design a real-time collaborative editing system using operational transformation, proving the convergence property for concurrent insertions and deletions.",
+    "label": "strong",
+    "reasoning": "This prompt combines complex system design with a rigorous formal proof requirement.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What is the opposite of left?",
+    "label": "weak",
+    "reasoning": "The prompt is a rudimentary antonym question requiring no sophisticated reasoning.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Compare the memory management models of Go, Java, and Rust, analyzing GC pause times, allocation patterns, and their impact on tail latency in microservices.",
+    "label": "strong",
+    "reasoning": "This prompt requires an expert-level comparative analysis of programming language internals and performance characteristics.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How many planets are in our solar system?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic science trivia question with a straightforward factual answer.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a Raft-based replicated state machine with log compaction and prove its linearizability.",
+    "label": "strong",
+    "reasoning": "This prompt asks for a complex distributed systems implementation coupled with a formal correctness proof.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "My coworker keeps using the word \"synergy\" in meetings and I smile and nod but I honestly have no idea what it means in a business context, but that's not even what I want to ask you about — I just need to know: what is the capital of Canada?",
+    "label": "weak",
+    "reasoning": "The prompt includes unnecessary narrative bloat before asking a fundamental geography question.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the communication complexity lower bound for matrix multiplication in the distributed setting using Loomis-Whitney inequality.",
+    "label": "strong",
+    "reasoning": "This prompt targets highly specialized theoretical computer science and advanced mathematics.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What is a rectangle?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic geometry definition request requiring no advanced generation.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design an anomaly detection system for time-series metrics using both statistical methods (z-score, Grubbs' test) and learned approaches (autoencoders), comparing their false positive rates.",
+    "label": "strong",
+    "reasoning": "This prompt requires a comprehensive design spanning statistical analysis and machine learning evaluation.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How do I log out?",
+    "label": "weak",
+    "reasoning": "The prompt is overly broad and extremely basic, providing no specific context about the platform.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Prove that minimum spanning trees can be found in O(E log V) time and explain why Fibonacci heaps improve Prim's algorithm to O(E + V log V).",
+    "label": "strong",
+    "reasoning": "This prompt demands algorithmic proof and a detailed understanding of data structure time complexities.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "I just moved to a new city and I've been exploring all the different neighborhoods and trying out new restaurants and coffee shops, and I signed up for a library card and joined a local gym, and I'm really starting to feel at home here, but there's one thing I still need to figure out for work: how do I set up direct deposit?",
+    "label": "weak",
+    "reasoning": "The prompt obscures a basic administrative question beneath a lengthy and irrelevant life story.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a self-balancing AVL tree with lazy propagation for range updates.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing a sophisticated data structure with advanced update mechanisms.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the Cramér-Rao lower bound and explain its implications for efficient estimators in maximum likelihood.",
+    "label": "strong",
+    "reasoning": "This prompt involves complex statistical derivation and a deep understanding of estimation theory.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How do I delete an email?",
+    "label": "weak",
+    "reasoning": "The prompt is a very generic tech support question lacking necessary context.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design a read-through/write-behind caching layer with eventual consistency, proving that no updates are lost under node failures using a write-ahead log.",
+    "label": "strong",
+    "reasoning": "This prompt requires designing a robust distributed system component and proving its fault tolerance.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "My sister called me yesterday and we talked for about two hours about everything from her new job to her vacation plans to the book she's reading, and she even told me about this cooking class she signed up for, and it was a really nice conversation, but now I need to focus on work — what's the shortcut for saving a file?",
+    "label": "weak",
+    "reasoning": "The prompt buries a trivial keyboard shortcut query under an extensive and unrelated personal anecdote.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Compare B-epsilon trees, Bw-trees, and LSM trees for modern NVMe storage, analyzing the I/O amplification of each under mixed read-write workloads.",
+    "label": "strong",
+    "reasoning": "This prompt requires expert knowledge of database storage engines and hardware-specific performance characteristics.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What does \"RSVP\" stand for?",
+    "label": "weak",
+    "reasoning": "The prompt is a simple acronym definition question that requires no reasoning.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a linearizable register on top of an eventually consistent store using ABD algorithm.",
+    "label": "strong",
+    "reasoning": "This prompt asks for the implementation of a specific, complex algorithm from distributed systems literature.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How many minutes in an hour?",
+    "label": "weak",
+    "reasoning": "The prompt asks for a universal, elementary fact with absolutely no complexity.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the dual formulation of the SVM optimization problem and explain why the kernel trick works.",
+    "label": "strong",
+    "reasoning": "This prompt demands a strong mathematical derivation of machine learning foundations.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "I was watching a cooking show and the chef made this incredible chocolate cake and she was explaining all the chemistry behind why certain ingredients react the way they do when you bake them at different temperatures, and it was really educational, but I got distracted and missed one thing — how many eggs are in a dozen?",
+    "label": "weak",
+    "reasoning": "The prompt hides an extremely basic factual question behind a lengthy story about baking.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design an incremental view maintenance system for materialized views in a streaming database.",
+    "label": "strong",
+    "reasoning": "This prompt requires architectural design of a complex database internals feature.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What color are stop signs?",
+    "label": "weak",
+    "reasoning": "The prompt is a trivial observational question that requires no analysis or insight.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Prove that any comparison-based selection algorithm requires Ω(n) comparisons in the worst case.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a formal mathematical proof regarding algorithmic lower bounds.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How do I take a screenshot on Mac?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic technical support query that has a simple, static answer.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a wait-free single-producer single-consumer queue and prove its correctness using the happens-before memory model.",
+    "label": "strong",
+    "reasoning": "This prompt requires writing lock-free concurrent code and formally proving its thread safety.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "I went to the doctor yesterday for a routine checkup and everything was fine, and on the way home I stopped at the pharmacy to pick up some vitamins, and then I went to the post office to mail a package, and by the time I got home I was exhausted, but before I go to bed I just want to know: what vitamin do you get from sunlight?",
+    "label": "weak",
+    "reasoning": "The prompt includes a huge amount of conversational filler before asking a basic biology fact.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Derive the optimal sharding strategy for a distributed database minimizing cross-shard transactions using graph partitioning.",
+    "label": "strong",
+    "reasoning": "This prompt requires applying advanced graph theory to a complex distributed database design problem.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "What is the square root of 9?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary math question with a trivial answer.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Compare static dispatch vs dynamic dispatch in Rust and C++, analyzing the vtable overhead, branch prediction implications, and monomorphization costs.",
+    "label": "strong",
+    "reasoning": "This prompt requires a highly technical comparison of systems programming language compilation and runtime behavior.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How do I mute a Zoom call?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic software usage question with a straightforward factual answer.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Implement a concurrent skip list with fine-grained locking and prove its linearizability.",
+    "label": "strong",
+    "reasoning": "This prompt demands the implementation and formal correctness proof of a complex concurrent data structure.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "My team is doing a trivia night next Friday and I'm trying to prepare by brushing up on general knowledge, and I've been quizzing myself with flashcards and reading Wikipedia articles, and I feel pretty confident about most categories except maybe sports, but anyway here's an easy one to start with: what is the smallest prime number?",
+    "label": "weak",
+    "reasoning": "The prompt obscures a basic mathematical fact beneath an extensive personal narrative.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "Design an observability platform with distributed tracing, deriving the sampling strategy that minimizes trace loss while staying within a storage budget.",
+    "label": "strong",
+    "reasoning": "This prompt combines large-scale system design with mathematical optimization for a sampling strategy.",
+    "source": "batch_14_results.json"
+  },
+  {
+    "prompt": "How many zeros in a million?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic numerical fact question requiring no reasoning.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Explain how mixture of experts (MoE) routing works in large language models and derive the load-balancing loss that prevents expert collapse.",
+    "label": "strong",
+    "reasoning": "This prompt requests a detailed explanation of an advanced machine learning architecture alongside a mathematical derivation.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What is the national animal of the United States?",
+    "label": "weak",
+    "reasoning": "The prompt asks a simple trivia question with a straightforward factual answer.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a persistent immutable balanced BST supporting O(log n) snapshots.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing a complex, persistent data structure with strict performance bounds.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I change the font size in a document?",
+    "label": "weak",
+    "reasoning": "The prompt is a generic word processing question lacking specific context.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the theoretical throughput limit of a TCP connection as a function of RTT and loss rate using the Mathis formula.",
+    "label": "strong",
+    "reasoning": "This prompt requires advanced networking knowledge and mathematical derivation of protocol limits.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "I was at a party last weekend and someone started a conversation about astronomy and black holes and the expanding universe, and everyone seemed really knowledgeable and was throwing around terms like \"event horizon\" and \"Hawking radiation,\" and I just stood there nodding, but what I actually wanted to know was much simpler: how many stars are on the American flag?",
+    "label": "weak",
+    "reasoning": "The prompt surrounds a basic trivia question with a lengthy, irrelevant anecdote.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design a feature flag system with gradual rollouts, user segmentation, and real-time kill switches, analyzing the consistency requirements for flag evaluation at scale.",
+    "label": "strong",
+    "reasoning": "This prompt demands designing a scalable distributed system component with complex feature requirements and consistency analysis.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What month comes after March?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary temporal question with a universally known answer.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Prove that maximum bipartite matching can be found in O(E√V) using Hopcroft-Karp.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a rigorous proof of graph theory and algorithm complexity.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I make a phone call?",
+    "label": "weak",
+    "reasoning": "The prompt asks an excessively basic, generalized usability question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a gossip protocol for failure detection in a distributed cluster and analyze its convergence time as a function of cluster size.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing a distributed systems algorithm and analyzing its mathematical convergence properties.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "My roommate's cat knocked a glass of water off the kitchen counter this morning and it shattered everywhere and I had to spend twenty minutes cleaning it up before I could even make breakfast, and now I'm running late for work, but I just need a quick answer: what day comes after Monday?",
+    "label": "weak",
+    "reasoning": "The prompt hides an incredibly basic question beneath a long, unrelated personal story.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the regret bound for Thompson Sampling in the Bernoulli bandit setting.",
+    "label": "strong",
+    "reasoning": "This prompt requires deep statistical knowledge and complex mathematical derivations in reinforcement learning.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What is the national sport of the United States?",
+    "label": "weak",
+    "reasoning": "The prompt is a simple general knowledge query requiring no analysis.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Compare SSTable compaction strategies (size-tiered, leveled, FIFO) and derive their write amplification factors.",
+    "label": "strong",
+    "reasoning": "This prompt asks for an expert-level comparison of database storage internals and derivation of performance metrics.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I open a new tab?",
+    "label": "weak",
+    "reasoning": "The prompt is a very basic browser navigation question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design an access control system using attribute-based access control (ABAC) and formally verify a set of policy rules for completeness and conflict-freedom.",
+    "label": "strong",
+    "reasoning": "This prompt combines system security design with formal verification of logical policies.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "I have this really long to-do list that I've been working through all day and I've managed to cross off about half the items, including doing my laundry, cleaning the bathroom, organizing my closet, going for a run, and calling my parents, but the one thing I haven't done yet is figure out the answer to this: what is the capital of Australia?",
+    "label": "weak",
+    "reasoning": "The prompt pads a simple geography question with tedious and irrelevant everyday details.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a Byzantine fault-tolerant replicated state machine using PBFT and analyze its message complexity.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing a foundational consensus algorithm and analyzing its networking overhead.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What does \"etc.\" mean?",
+    "label": "weak",
+    "reasoning": "The prompt asks for a basic abbreviation definition.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the space complexity of suffix arrays versus suffix trees and explain when each is preferable for pattern matching.",
+    "label": "strong",
+    "reasoning": "This prompt requires algorithmic complexity analysis and practical trade-off evaluation of advanced data structures.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I refresh a webpage?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic internet usability question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design a type inference engine for a Hindley-Milner type system and prove its soundness.",
+    "label": "strong",
+    "reasoning": "This prompt demands deep knowledge of programming language theory and formal correctness proofs.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "My dentist appointment was rescheduled three times this month because of conflicts with my work calendar, and now I finally have it booked for next Tuesday at 3 PM, but I might have to reschedule again because my team has a sprint planning meeting at that exact time, and honestly I'm just frustrated — but anyway, what time is it in New York if it's noon in London?",
+    "label": "weak",
+    "reasoning": "The prompt buries a simple time zone conversion question under a lengthy complaint about scheduling.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a region-based memory management system and compare it to garbage collection for arena-allocated temporary objects.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing low-level systems programming concepts and comparing memory management paradigms.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What is a triangle?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic geometry definition request.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the convergence rate of Newton's method for root finding and explain the Kantorovich conditions.",
+    "label": "strong",
+    "reasoning": "This prompt requires deriving numerical analysis mathematics and explaining theoretical convergence bounds.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I send an email?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary computer literacy question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design a query optimizer for a distributed SQL engine, implementing cost-based join reordering using dynamic programming and cardinality estimation with histograms.",
+    "label": "strong",
+    "reasoning": "This prompt asks for the design of complex database internals using dynamic programming and statistical techniques.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "I was at the pet store buying food for my dog and the clerk started telling me about all these different brands and their nutritional profiles and whether grain-free is actually better or not, and honestly I just wanted to buy the same bag I always buy and go home, but she was very enthusiastic so I listened politely — how old is my dog in human years if he's 5?",
+    "label": "weak",
+    "reasoning": "The prompt obscures a simple calculation inside a verbose, irrelevant story about shopping.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Prove the minimax theorem for two-player zero-sum games.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a formal mathematical proof of a fundamental theorem in game theory.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What is the square root of 25?",
+    "label": "weak",
+    "reasoning": "The prompt is an incredibly simple arithmetic question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a functional reactive programming framework with push-pull evaluation and glitch prevention.",
+    "label": "strong",
+    "reasoning": "This prompt requires designing and implementing an advanced programming paradigm with specific theoretical guarantees.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I print a document?",
+    "label": "weak",
+    "reasoning": "The prompt is a very general, basic operating system usage question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the asymptotic complexity of matrix chain multiplication using dynamic programming and explain Hu-Shing's O(n log n) improvement.",
+    "label": "strong",
+    "reasoning": "This prompt requires algorithmic complexity derivation and an understanding of highly optimized algorithmic improvements.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Name a vegetable that is green.",
+    "label": "weak",
+    "reasoning": "The prompt is a trivial naming task requiring zero analytical depth.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design a storage engine that supports both point queries and range scans efficiently, proving the trade-off between read and write performance using the RUM conjecture.",
+    "label": "strong",
+    "reasoning": "This prompt involves advanced database engineering and theoretical analysis of performance trade-offs.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "I just got back from a two-week vacation in Hawaii and it was absolutely incredible — the beaches were beautiful, the food was amazing, and I even learned how to surf, which was way harder than I expected but also really fun, and now I'm back at work trying to catch up on everything I missed — who do I ask about my vacation balance?",
+    "label": "weak",
+    "reasoning": "The prompt surrounds a basic HR question with an extensive recount of a recent vacation.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement SSA (Static Single Assignment) form conversion for a compiler IR and explain the dominance frontier algorithm for phi-node placement.",
+    "label": "strong",
+    "reasoning": "This prompt requires deep expertise in compiler design and the implementation of complex code analysis algorithms.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What is 10 minus 3?",
+    "label": "weak",
+    "reasoning": "The prompt asks an elementary arithmetic question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Compare the formal semantics of eventual consistency, causal consistency, and serializability, providing counterexamples showing behaviors allowed under each but disallowed under stricter models.",
+    "label": "strong",
+    "reasoning": "This prompt requires an expert understanding of distributed systems consistency models and the construction of theoretical counterexamples.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I set an alarm?",
+    "label": "weak",
+    "reasoning": "The prompt is a generic device usage question lacking any specificity.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the gradient of the cross-entropy loss for a softmax classifier and explain numerical stability techniques.",
+    "label": "strong",
+    "reasoning": "This prompt involves mathematical derivation of a machine learning optimization metric and practical engineering techniques for stability.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "My friend was trying to convince me to start a podcast about cooking because she says I'm a great cook and really funny and people would love listening to me talk about food, and while I appreciate her enthusiasm I'm not sure I have the time or the technical skills to produce a podcast, but that's a problem for another day — what is the boiling point of water in Fahrenheit?",
+    "label": "weak",
+    "reasoning": "The prompt introduces an extremely simple science fact question only after rambling about starting a podcast.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Implement a transactional key-value store with MVCC and snapshot isolation, proving serializability for read-only transactions.",
+    "label": "strong",
+    "reasoning": "This prompt demands the implementation of complex database concurrency controls and a formal proof of isolation levels.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "What does \"PS\" mean in a letter?",
+    "label": "weak",
+    "reasoning": "The prompt is a simple acronym definition question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Design a real-time recommendation engine using collaborative filtering with ALS, analyzing the cold-start problem and proposing hybrid approaches.",
+    "label": "strong",
+    "reasoning": "This prompt requires designing a machine learning system architecture and analyzing common algorithmic challenges.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "How do I change my wallpaper?",
+    "label": "weak",
+    "reasoning": "The prompt asks a very basic desktop or mobile customization question.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "Derive the connection between maximum flow and minimum cut and prove the max-flow min-cut theorem.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a formal mathematical proof of a core concept in graph theory and network optimization.",
+    "source": "batch_15_results.json"
+  },
+  {
+    "prompt": "I was trying to organize a surprise birthday party for my best friend and I've been coordinating with like fifteen different people about the venue and the cake and the decorations and the playlist, and it's been incredibly stressful but I think it's going to be amazing, but right now I just need a break from party planning and I have a simple question: what is the largest desert in the world?",
+    "label": "weak",
+    "reasoning": "The prompt wraps a simple geography trivia question inside a lengthy, irrelevant story about party planning.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a concurrent garbage collector using the tri-color invariant and prove it does not collect live objects.",
+    "label": "strong",
+    "reasoning": "This prompt demands both advanced systems programming and a formal mathematical correctness proof.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How many teeth do adults have?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic anatomical fact query that requires no deeper analysis.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Explain how indirect branch prediction exploits (Spectre v2) work at the microarchitectural level and analyze the performance impact of retpoline mitigations.",
+    "label": "strong",
+    "reasoning": "This prompt requires deep expertise in hardware microarchitecture, security vulnerabilities, and performance analysis.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the third planet from the sun?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary science question with a universally known, single-word answer.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design and implement a custom allocator using slab allocation for fixed-size objects, analyzing internal fragmentation and cache-line alignment trade-offs.",
+    "label": "strong",
+    "reasoning": "This prompt involves low-level systems programming and complex analysis of memory management trade-offs.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "I've been binge-watching this really great TV show about time travel and parallel universes, and the plot is incredibly complex with all these different timelines intersecting and characters meeting alternate versions of themselves, and I've had to rewatch several episodes to understand what's going on, but my question for you is completely unrelated: what is 50 divided by 5?",
+    "label": "weak",
+    "reasoning": "The prompt obscures an extremely simple arithmetic problem within an unrelated narrative about a TV show.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the conditions under which gradient clipping guarantees convergence for non-convex optimization.",
+    "label": "strong",
+    "reasoning": "This prompt requires rigorous mathematical derivation within the context of advanced machine learning optimization.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How do I check the weather?",
+    "label": "weak",
+    "reasoning": "The prompt is an overly broad, basic usability question lacking any device or platform context.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a compiler pass for dead code elimination using reaching definitions analysis.",
+    "label": "strong",
+    "reasoning": "This prompt requires applying theoretical computer science concepts to implement a complex compiler optimization.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What color is grass?",
+    "label": "weak",
+    "reasoning": "The prompt is a trivial observation query that demands no analytical generation.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design a chaos engineering framework with fault injection, steady-state hypothesis testing, and blast radius limitation.",
+    "label": "strong",
+    "reasoning": "This prompt asks for the comprehensive architectural design of a specialized distributed systems reliability testing framework.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "I was at a coffee shop working on my laptop when the barista came over and asked if I wanted a refill, and I said yes please, and then she asked what kind of milk I wanted and I said oat milk, and while she was making my coffee I suddenly remembered something I've been meaning to look up: how many grams are in a kilogram?",
+    "label": "weak",
+    "reasoning": "The prompt buries a basic unit conversion question under a tedious and irrelevant coffee shop anecdote.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Prove the correctness of the Aho-Corasick multi-pattern string matching algorithm.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a formal algorithmic proof of a sophisticated data structure and search algorithm.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the opposite of up?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary antonym question requiring zero logical reasoning.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a lock-free memory reclamation scheme using hazard pointers and prove it prevents use-after-free.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing advanced concurrent programming techniques alongside a formal safety proof.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How many sides does a square have?",
+    "label": "weak",
+    "reasoning": "The prompt is a rudimentary geometry question with a trivial factual answer.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the optimal checkpoint interval for a long-running distributed computation, balancing checkpoint overhead against expected failure recovery cost.",
+    "label": "strong",
+    "reasoning": "This prompt demands complex mathematical modeling and optimization in the context of distributed systems fault tolerance.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "My mom called me this morning to remind me that my cousin's wedding is in three weeks and I still haven't bought a gift from the registry, and she also wanted to know if I was bringing a plus one, and then she started telling me about the new curtains she bought for the living room, and after about forty-five minutes I finally managed to say goodbye — what is our PTO policy?",
+    "label": "weak",
+    "reasoning": "The prompt hides a simple workplace administrative question behind a massive wall of unrelated family conversation.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement Earley parsing and compare its complexity to GLR for ambiguous grammars.",
+    "label": "strong",
+    "reasoning": "This prompt requires implementing a complex parsing algorithm and conducting an advanced theoretical complexity comparison.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the fastest land animal?",
+    "label": "weak",
+    "reasoning": "The prompt is a common general knowledge trivia question with a static, simple answer.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design an adaptive load balancer that uses reinforcement learning to route requests, deriving the reward function and state space.",
+    "label": "strong",
+    "reasoning": "This prompt combines advanced system design with machine learning formulation and mathematical modeling.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How do I zoom in?",
+    "label": "weak",
+    "reasoning": "The prompt is a generic, low-effort usability question lacking specific software or hardware context.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the space-time trade-off in rainbow tables for password cracking and explain why salted hashes defeat them.",
+    "label": "strong",
+    "reasoning": "This prompt requires cryptographic analysis and theoretical derivation of algorithmic trade-offs.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the national flower of Japan?",
+    "label": "weak",
+    "reasoning": "The prompt is a simple geography and culture trivia question.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a differentiable neural computer with external memory addressing and explain the attention-based read/write heads.",
+    "label": "strong",
+    "reasoning": "This prompt involves implementing a highly advanced neural network architecture and explaining its complex mathematical mechanics.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "I was walking to work today and I passed by this construction site where they're building a new apartment complex, and the whole sidewalk was blocked off so I had to cross the street and walk around the entire block to get to the office, and by the time I arrived I was ten minutes late, but none of that matters because I just need to know: how many states are in the US?",
+    "label": "weak",
+    "reasoning": "The prompt buries a fundamental piece of trivia inside a long, irrelevant story about a morning commute.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Prove the correctness of the Tarjan algorithm for finding strongly connected components.",
+    "label": "strong",
+    "reasoning": "This prompt requires a formal mathematical proof for an advanced graph theory algorithm.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What does \"BRB\" stand for?",
+    "label": "weak",
+    "reasoning": "The prompt asks for a basic internet acronym definition requiring no generative depth.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design a semantic caching layer for LLM applications that clusters similar queries and serves cached responses, analyzing the similarity threshold trade-off between cache hit rate and response relevance.",
+    "label": "strong",
+    "reasoning": "This prompt demands modern AI architecture design coupled with complex statistical trade-off analysis.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How do I underline text?",
+    "label": "weak",
+    "reasoning": "The prompt is a basic word processing question with a universally simple answer.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the training dynamics of batch normalization and explain the internal covariate shift hypothesis and its recent criticisms.",
+    "label": "strong",
+    "reasoning": "This prompt requires deep mathematical understanding of neural network training dynamics and contemporary machine learning literature.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the sum of 3 and 4?",
+    "label": "weak",
+    "reasoning": "The prompt is a trivial single-digit addition problem.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a verified concurrent data structure in a language with linear types and prove data-race freedom.",
+    "label": "strong",
+    "reasoning": "This prompt involves advanced programming language theory, concurrent programming, and formal verification.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "I've been trying to eat healthier lately so I've been meal prepping on Sundays and packing my lunches for the week, and I've been trying all these new recipes for salads and grain bowls and smoothies, and honestly some of them have been really delicious but others have been pretty terrible, and I still haven't figured out how to make quinoa taste good — how many calories are in an apple?",
+    "label": "weak",
+    "reasoning": "The prompt surrounds a simple nutritional fact query with an extensive, unrelated story about meal prep.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design a multi-version concurrency control system for a distributed database, handling cross-partition transactions with 2PC and proving that read-only transactions never block.",
+    "label": "strong",
+    "reasoning": "This prompt requests an expert-level distributed database architecture design along with a formal concurrency proof.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is the color of snow?",
+    "label": "weak",
+    "reasoning": "The prompt is an extremely basic observational question with a single-word answer.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the Rademacher complexity bound for neural networks and explain its implications for generalization.",
+    "label": "strong",
+    "reasoning": "This prompt requires complex statistical learning theory derivation and theoretical analysis.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How do I find and replace text?",
+    "label": "weak",
+    "reasoning": "The prompt is a generic, low-effort software usage question.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a compiler backend that performs register allocation using graph coloring with spill code generation.",
+    "label": "strong",
+    "reasoning": "This prompt demands the implementation of a classic, complex algorithm in compiler design.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "My cousin invited me to go hiking next weekend at this beautiful trail about two hours north of the city, and she said the views from the top are absolutely breathtaking, especially during fall when all the leaves are changing colors, and I'm really looking forward to it but I need to make sure I have the right gear — what is the tallest mountain in North America?",
+    "label": "weak",
+    "reasoning": "The prompt pads a basic geographic trivia question with a lengthy story about a hiking trip.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Compare formal verification approaches (model checking, theorem proving, abstract interpretation) for verifying concurrent programs.",
+    "label": "strong",
+    "reasoning": "This prompt requires an expert-level comparative analysis of theoretical computer science methodologies.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "How do I connect Bluetooth headphones?",
+    "label": "weak",
+    "reasoning": "The prompt is a standard technical support query lacking specific device details.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Derive the information bottleneck principle and explain how it relates to the layers of a deep neural network.",
+    "label": "strong",
+    "reasoning": "This prompt involves deep mathematical derivations combining information theory and deep learning.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What is heavier, a pound of feathers or a pound of rocks?",
+    "label": "weak",
+    "reasoning": "The prompt is a classic, elementary trick question requiring no genuine analytical generation.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Implement a query execution engine with vectorized processing (batch-at-a-time) and compare its cache utilization to row-at-a-time processing using a formal cost model.",
+    "label": "strong",
+    "reasoning": "This prompt requires building advanced database internals and conducting rigorous hardware-level performance modeling.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "I spent the whole afternoon organizing my email inbox and creating folders and labels and filters so that everything is neatly sorted, and I even unsubscribed from about thirty different newsletters that I never read, and now my inbox is beautifully clean and empty, and that makes me very happy — how do I archive an email?",
+    "label": "weak",
+    "reasoning": "The prompt buries a basic software operation query underneath a long story about digital organization.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Prove the soundness and completeness of propositional resolution.",
+    "label": "strong",
+    "reasoning": "This prompt necessitates a rigorous formal proof in mathematical logic.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "What rhymes with \"cat\"?",
+    "label": "weak",
+    "reasoning": "The prompt is an elementary phonetics question with multiple trivial answers.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Design a zero-knowledge proof system for verifying computation integrity without revealing the inputs, explaining the construction of a zk-SNARK circuit.",
+    "label": "strong",
+    "reasoning": "This prompt demands advanced cryptographic system design and deep mathematical explanation.",
+    "source": "batch_16_results.json"
+  },
+  {
+    "prompt": "Hi, who are you?",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "What is p95 latency?",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Summarize the release notes for v3.2.0.",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Who do I contact for time off requests?",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "What is the max meal expense?",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Define cold start.",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Is 09:00 UTC within support hours?",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "List the known issues for the Quantum Widget.",
+    "label": "weak",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Compare the trade-offs between exponential backoff and token-bucket rate limiting when calling an upstream API that returns HTTP 429 aggressively. Explain when each is preferable and why, step by step.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Design an in-memory concurrency-aware router that decides between two LLM tiers based on prompt complexity and load. Explain the trade-offs of using a semaphore versus a token bucket, and derive the p95 latency impact of misrouting a fraction f of requests to the slow tier under 50 concurrent users.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Given a Chroma vector store with 1M embeddings and top-k=10 retrieval, analyze how HNSW parameter choices (M, efConstruction, efSearch) trade recall against query latency. Propose a tuning strategy for a service with a p95 latency budget of 80 ms.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Prove that a weighted-round-robin scheduler with weights (w1, w2) is equivalent, in the long run, to independently sampling from Bernoulli(w1 / (w1+w2)). Derive the variance of the imbalance over N requests.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Refactor the following Python function for readability and to reduce its cyclomatic complexity, and also explain each change:\\n```python\\ndef f(x, y, z):\\n    if x:\\n        if y:\\n            if z:\\n                return 1\\n            else:\\n                return 2\\n        else:\\n            return 3\\n    else:\\n        return 4\\n```",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Explain the difference between BM25 and dense retrieval, when a hybrid approach helps, and how you would evaluate the hybrid on a private FAQ corpus. Include a proposed metric and a small experiment design.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Derive the expected cost savings per 1000 requests for a two-tier router that sends fraction p of traffic to a cheap model at $0.10 / MTok and (1-p) to an expensive model at $3.00 / MTok, assuming an average of 500 tokens per response. Then compute p such that the expected cost is 20% of the always-expensive baseline.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  },
+  {
+    "prompt": "Explain step by step how to reset my password.",
+    "label": "strong",
+    "reasoning": "hand-labeled in eval set",
+    "source": "eval/labeled_prompts.json"
+  }
+]
