@@ -155,7 +155,7 @@ def _weighted_shuffle(models: list[str]) -> list[str]:
 
 # ── Internal helpers ──────────────────────────────────────────────────────
 
-async def _try_model(model: str, messages: list[dict]) -> LLMResult:
+async def _try_model(model: str, messages: list[dict], max_tokens: int) -> LLMResult:
     """
     Attempt one completion against *model*.
 
@@ -175,8 +175,8 @@ async def _try_model(model: str, messages: list[dict]) -> LLMResult:
     response = await acompletion(
         model=model,
         messages=messages,
-        max_tokens=512,
-        temperature=0.0,
+        max_tokens=max_tokens,
+        temperature=settings.temperature,
     )
 
     # Success — reset breaker.
@@ -196,7 +196,7 @@ async def _try_model(model: str, messages: list[dict]) -> LLMResult:
     )
 
 
-async def _call_sequential(models: list[str], messages: list[dict]) -> LLMResult:
+async def _call_sequential(models: list[str], messages: list[dict], max_tokens: int) -> LLMResult:
     """
     Strong-tier routing: Strict Primary Fallback.
 
@@ -211,7 +211,7 @@ async def _call_sequential(models: list[str], messages: list[dict]) -> LLMResult
     for model in models:
         breaker = get_breaker(model)
         try:
-            return await _try_model(model, messages)
+            return await _try_model(model, messages, max_tokens)
         except CircuitOpenError:
             logger.debug(f"[strong] Circuit OPEN for {model}, trying next.")
             continue
@@ -232,7 +232,7 @@ async def _call_sequential(models: list[str], messages: list[dict]) -> LLMResult
     )
 
 
-async def _call_pool(models: list[str], messages: list[dict]) -> LLMResult:
+async def _call_pool(models: list[str], messages: list[dict], max_tokens: int) -> LLMResult:
     """
     Weak-tier routing: Org-Aware Weighted Pool.
 
@@ -249,7 +249,7 @@ async def _call_pool(models: list[str], messages: list[dict]) -> LLMResult:
 
     for model in model_order:
         try:
-            return await _try_model(model, messages)
+            return await _try_model(model, messages, max_tokens)
         except CircuitOpenError:
             logger.debug(f"[weak] Circuit OPEN for {model}, trying next.")
             continue
@@ -306,18 +306,23 @@ async def call_model(
                 f"Context:\n{rag_context}"
             ),
         })
-    else:
-        messages.append({
-            "role": "system",
-            "content": "You are a concise, helpful assistant.",
-        })
     messages.append({"role": "user", "content": prompt})
 
     if tier == "strong":
         # Strict Primary Fallback — Azure first, Groq 120B only on failure.
+        if not rag_context:
+            messages.insert(0, {
+                "role": "system",
+                "content": "You are a concise, helpful assistant.",
+            })
         all_models = [settings.strong_model] + settings.strong_fallback_models
-        return await _call_sequential(all_models, messages)
+        return await _call_sequential(all_models, messages, max_tokens=settings.strong_max_tokens)
     else:
         # Org-Aware Weighted Pool — distribute across weak models.
+        if not rag_context:
+            messages.insert(0, {
+                "role": "system",
+                "content": "You are a concise assistant. Answer in 1-3 sentences maximum.",
+            })
         all_models = [settings.weak_model] + settings.weak_fallback_models
-        return await _call_pool(all_models, messages)
+        return await _call_pool(all_models, messages, max_tokens=settings.weak_max_tokens)

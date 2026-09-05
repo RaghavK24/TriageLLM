@@ -59,11 +59,16 @@ async def health():
 
 @app.get("/stats")
 async def stats():
+    from app.rate_limiter import get_group_budget
+    groq_budget = get_group_budget("groq")
+    groq_usage = groq_budget.usage_fraction if groq_budget else 0.0
+
     return {
         "in_flight": tracker.in_flight,
         "capacity": tracker.capacity,
         "load_fraction": tracker.load_fraction,
         "circuit_breakers": get_breaker_states(),
+        "groq_usage": groq_usage,
     }
 
 
@@ -85,11 +90,22 @@ async def chat(req: ChatRequest):
         complexity_result = await asyncio.to_thread(score_prompt, req.prompt)
         complexity = complexity_result.score
 
-        # 3. Read current load (already includes *this* request).
+        # 3. Read current load and rate limits.
         load = tracker.load_fraction
+        from app.rate_limiter import get_group_budget
+        groq_budget = get_group_budget("groq")
+        groq_usage = groq_budget.usage_fraction if groq_budget else 0.0
 
         # 4. Make the routing decision.
-        decision = route(complexity=complexity, load=load)
+        decision = route(
+            complexity=complexity, 
+            load=load,
+            groq_usage=groq_usage,
+            in_flight=tracker.in_flight
+        )
+        
+        if decision.tier == "429_TOO_MANY_REQUESTS":
+            raise HTTPException(status_code=429, detail=decision.reason)
 
         # 5. Call the chosen model tier.
         try:

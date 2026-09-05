@@ -305,9 +305,13 @@
     </div>
   </div>
   <div class="stats-bar" id="statsBar">
-    <div class="stat-pill" id="statLoad">
+    <div class="stat-pill" id="statLoad" title="Server Load">
       <span class="stat-dot"></span>
       <span id="loadText">0%</span>
+    </div>
+    <div class="stat-pill" id="statGroq" title="Groq API Budget">
+      <span class="stat-dot"></span>
+      <span id="groqText">Groq 0%</span>
     </div>
     <div class="stat-pill">
       <span id="flightText">0 / 50</span>
@@ -454,13 +458,23 @@ async function poll() {
   try {
     const r = await fetch('/stats');
     const s = await r.json();
+    
+    // Server Load
     const p = Math.round(s.load_fraction * 100);
-    $('loadText').textContent = p + '%';
+    $('loadText').textContent = 'Load ' + p + '%';
     $('flightText').textContent = s.in_flight + ' / ' + s.capacity;
     const pill = $('statLoad');
     pill.classList.remove('warn', 'crit');
     if (s.load_fraction >= 0.9) pill.classList.add('crit');
     else if (s.load_fraction >= 0.7) pill.classList.add('warn');
+
+    // Groq Budget
+    const g = Math.round((s.groq_usage || 0) * 100);
+    $('groqText').textContent = 'Groq ' + g + '%';
+    const groqPill = $('statGroq');
+    groqPill.classList.remove('warn', 'crit');
+    if (s.groq_usage >= 0.9) groqPill.classList.add('crit');
+    else if (s.groq_usage >= 0.7) groqPill.classList.add('warn');
 
     // Update Circuit Breakers
     if (s.circuit_breakers) {

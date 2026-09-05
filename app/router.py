@@ -53,92 +53,71 @@ class RoutingDecision:
     reason: str        # short human-readable explanation
 
 
-import math
-import random
 
-def _sigmoid_route(complexity: float, load: float) -> RoutingDecision:
-    """
-    Probabilistic routing using a sigmoid curve.
-    Instead of a hard threshold, we calculate a probability that the request
-    needs the strong model, and route based on that.
-    """
-    # Base threshold shifts based on load (same logic as step function)
-    base_threshold = settings.complexity_threshold
-    if load >= settings.load_critical_threshold:
-        # Load critical: heavy bias against strong, but don't block entirely.
-        # A genuinely complex query (score ~0.9) can still reach strong.
-        base_threshold += 0.30
-    elif load >= settings.load_high_threshold:
-        # Load high: raise the bar
-        base_threshold += 0.15
 
-    # Calculate probability using sigmoid
-    # steepness parameter controls how "hard" the threshold is.
-    # High steepness approaches a step function.
-    x = complexity - base_threshold
-    p_strong = 1.0 / (1.0 + math.exp(-settings.sigmoid_steepness * x))
-
-    # Route based on random draw against probability
-    if random.random() < p_strong:
-        return RoutingDecision(
-            tier=STRONG,
-            model=settings.strong_model,
-            reason=f"sigmoid (P={p_strong:.2f}) -> strong"
-        )
-    else:
-        return RoutingDecision(
-            tier=WEAK,
-            model=settings.weak_model,
-            reason=f"sigmoid (P={p_strong:.2f}) -> weak"
-        )
-
-def route(complexity: float, load: float) -> RoutingDecision:
+def route(
+    complexity: float, 
+    load: float,
+    groq_usage: float = 0.0,
+    in_flight: int = 0
+) -> RoutingDecision:
     """
     Decide which tier to send this request to.
 
     Args:
         complexity: classifier score, in [0, 1]
         load: current in-flight / capacity, in [0, 1]
+        groq_usage: fraction of Groq's RPM budget used [0, 1]
+        in_flight: total concurrent requests currently active
 
     Returns:
-        RoutingDecision — pass `.model` straight to the LLM client.
+        RoutingDecision — pass `.model` straight to the LLM client,
+        or '429_TOO_MANY_REQUESTS' for load shedding.
     """
     # Guard rails — never trust callers.
     complexity = max(0.0, min(1.0, complexity))
     load = max(0.0, min(1.0, load))
 
-    if settings.routing_mode == "smooth":
-        return _sigmoid_route(complexity, load)
-
     # --- Standard Step Function Routing ---
-    # --- Rule 1: system is nearly saturated. Raise the bar significantly ---
-    # --- but don't unconditionally force cheap — genuinely hard prompts ---
-    # --- still deserve the strong model. ---
-    # (The old design forced ALL traffic to weak here, which created a
-    # thundering herd on the weak-tier providers.)
     effective_bar = settings.complexity_threshold
     if load >= settings.load_critical_threshold:
         effective_bar = settings.complexity_threshold + 0.30
     elif load >= settings.load_high_threshold:
         effective_bar = settings.complexity_threshold + 0.15
 
+    # 1. Base Complexity Decision
     if complexity >= effective_bar:
-        return RoutingDecision(
-            tier=STRONG,
-            model=settings.strong_model,
-            reason=(
-                f"complexity {complexity:.2f} >= bar {effective_bar:.2f} "
-                f"(load {load:.2f}): strong model justified"
-            ),
+        target_tier = STRONG
+        reason = (
+            f"complexity {complexity:.2f} >= bar {effective_bar:.2f} "
+            f"(load {load:.2f}): strong model justified"
         )
-
-    # --- Rule 3: default is the cheap tier. Most prompts land here. ---
-    return RoutingDecision(
-        tier=WEAK,
-        model=settings.weak_model,
-        reason=(
+    else:
+        target_tier = WEAK
+        reason = (
             f"complexity {complexity:.2f} < bar {effective_bar:.2f} "
             f"(load {load:.2f}): cheap tier is sufficient"
-        ),
-    )
+        )
+
+    # 2. Rate-Limit Aware Spillover
+    # If the decision was WEAK, but Groq is functionally maxed out, spill to STRONG.
+    if target_tier == WEAK and groq_usage > 0.90:
+        target_tier = STRONG
+        reason = f"spillover: Groq budget at {groq_usage*100:.0f}%, rerouting to strong to avoid crash"
+
+    # 3. p95 Latency Protection (Fail-Fast)
+    # If the request is going to STRONG, but the server is already heavily congested,
+    # queueing it will cause a 7-8 second tail latency. Shed the load instead.
+    if target_tier == STRONG and in_flight >= 35:
+        return RoutingDecision(
+            tier="429_TOO_MANY_REQUESTS",
+            model="none",
+            reason=f"System congested ({in_flight} active). Shedding strong request to protect p95 latency."
+        )
+
+    # Final Return
+    if target_tier == STRONG:
+        return RoutingDecision(tier=STRONG, model=settings.strong_model, reason=reason)
+    else:
+        return RoutingDecision(tier=WEAK, model=settings.weak_model, reason=reason)
 

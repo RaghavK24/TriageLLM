@@ -15,7 +15,7 @@ load_dotenv()
 class Settings:
     # ---- Model IDs (LiteLLM format: "<provider>/<model>") ----
     # Primary models
-    strong_model: str = os.getenv("STRONG_MODEL", "azure/gpt-4-Azure-OpenAI-Ritwik")
+    strong_model: str = os.getenv("STRONG_MODEL", "openai/gpt-4o")
     weak_model: str = os.getenv("WEAK_MODEL", "groq/openai/gpt-oss-20b")
 
     # Fallback models (comma-separated list)
@@ -45,10 +45,6 @@ class Settings:
     cb_failure_threshold: int = int(os.getenv("CB_FAILURE_THRESHOLD", "3"))
     cb_recovery_timeout: float = float(os.getenv("CB_RECOVERY_TIMEOUT", "30.0"))
 
-    # ---- Routing mode ----
-    routing_mode: str = os.getenv("ROUTING_MODE", "step")
-    sigmoid_steepness: float = float(os.getenv("SIGMOID_STEEPNESS", "8.0"))
-
     # ---- Embeddings (used by both RAG and the classifier) ----
     embedding_model: str = os.getenv(
         "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
@@ -64,12 +60,13 @@ class Settings:
     rag_distance_threshold: float = float(os.getenv("RAG_DISTANCE_THRESHOLD", "1.2"))
 
     # ---- Generation ----
-    max_tokens: int = int(os.getenv("MAX_TOKENS", "512"))
+    weak_max_tokens: int = int(os.getenv("WEAK_MAX_TOKENS", "150"))
+    strong_max_tokens: int = int(os.getenv("STRONG_MAX_TOKENS", "512"))
     temperature: float = float(os.getenv("TEMPERATURE", "0.2"))
 
     # ---- DistilBERT classifier (fine-tuned, optional) ----
     distilbert_model_dir: str = os.getenv(
-        "DISTILBERT_MODEL_DIR", "./training/model/distilbert-complexity"
+        "DISTILBERT_MODEL_DIR", "Rk24012003/adaptive-rag-distilbert"
     )
 
 

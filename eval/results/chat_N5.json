@@ -4,76 +4,76 @@
   "n_ok": 5,
   "n_err": 0,
   "latency_ms": {
-    "avg": 963.7860832270235,
-    "p50": 966.7913331650198,
-    "p95": 1170.1843747869134,
-    "max": 1170.1843747869134
+    "avg": 1331.8011251278222,
+    "p50": 1227.408125065267,
+    "p95": 3094.7711248882115,
+    "max": 3094.7711248882115
   },
-  "total_cost_usd": 0.0005995250000000001,
-  "avg_cost_usd": 0.00011990500000000001,
+  "total_cost_usd": 0.0011637499999999999,
+  "avg_cost_usd": 0.00023274999999999997,
   "tier_counts": {
     "weak": 5
   },
   "raw": [
     {
       "ok": true,
-      "latency_ms": 966.7913331650198,
-      "server_latency_ms": 956.8175419699401,
+      "latency_ms": 351.1015838012099,
+      "server_latency_ms": 345.5016668885946,
+      "tier": "weak",
+      "model": "groq/openai/gpt-oss-safeguard-20b",
+      "cost_usd": 2.2125e-05,
+      "complexity": 0.13349594175815582,
+      "load_fraction": 0.1,
+      "prompt_tokens": 95,
+      "completion_tokens": 50
+    },
+    {
+      "ok": true,
+      "latency_ms": 1339.2529578413814,
+      "server_latency_ms": 1334.1458330396563,
       "tier": "weak",
       "model": "groq/qwen/qwen3.8-27b",
-      "cost_usd": 0.0002408,
-      "complexity": 0.11891786754131317,
+      "cost_usd": 0.00037519999999999996,
+      "complexity": 0.10333594679832458,
       "load_fraction": 0.1,
-      "prompt_tokens": 31,
-      "completion_tokens": 54
+      "prompt_tokens": 254,
+      "completion_tokens": 43
     },
     {
       "ok": true,
-      "latency_ms": 808.5496670100838,
-      "server_latency_ms": 797.4445000290871,
+      "latency_ms": 3094.7711248882115,
+      "server_latency_ms": 3088.6644169222564,
       "tier": "weak",
       "model": "groq/openai/gpt-oss-safeguard-20b",
-      "cost_usd": 6.209999999999999e-05,
-      "complexity": 0.09623109549283981,
+      "cost_usd": 5.2424999999999994e-05,
+      "complexity": 0.10453608632087708,
       "load_fraction": 0.1,
-      "prompt_tokens": 284,
-      "completion_tokens": 136
+      "prompt_tokens": 99,
+      "completion_tokens": 150
     },
     {
       "ok": true,
-      "latency_ms": 782.5555831659585,
-      "server_latency_ms": 771.100000012666,
+      "latency_ms": 646.4718340430409,
+      "server_latency_ms": 641.7391251306981,
       "tier": "weak",
-      "model": "groq/openai/gpt-oss-safeguard-20b",
-      "cost_usd": 6.24e-05,
-      "complexity": 0.10008938610553741,
+      "model": "groq/qwen/qwen3.6-27b",
+      "cost_usd": 0.0004764,
+      "complexity": 0.14758680760860443,
       "load_fraction": 0.1,
-      "prompt_tokens": 280,
-      "completion_tokens": 138
+      "prompt_tokens": 44,
+      "completion_tokens": 150
     },
     {
       "ok": true,
-      "latency_ms": 1170.1843747869134,
-      "server_latency_ms": 1159.6411659847945,
+      "latency_ms": 1227.408125065267,
+      "server_latency_ms": 1222.4904170725495,
       "tier": "weak",
-      "model": "groq/openai/gpt-oss-safeguard-20b",
-      "cost_usd": 0.0001608,
-      "complexity": 0.5558514595031738,
+      "model": "groq/qwen/qwen3.8-27b",
+      "cost_usd": 0.0002376,
+      "complexity": 0.11579744517803192,
       "load_fraction": 0.1,
-      "prompt_tokens": 96,
-      "completion_tokens": 512
-    },
-    {
-      "ok": true,
-      "latency_ms": 1090.849458007142,
-      "server_latency_ms": 1081.5701668616384,
-      "tier": "weak",
-      "model": "groq/openai/gpt-oss-20b",
-      "cost_usd": 7.3425e-05,
-      "complexity": 0.10146895796060562,
-      "load_fraction": 0.1,
-      "prompt_tokens": 287,
-      "completion_tokens": 173
+      "prompt_tokens": 42,
+      "completion_tokens": 51
     }
   ]
 }

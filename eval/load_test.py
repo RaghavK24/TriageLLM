@@ -109,25 +109,10 @@ async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--url", default="http://localhost:8000")
     ap.add_argument("--levels", type=int, nargs="+", default=[5, 15, 30, 50])
-    ap.add_argument("--endpoints", nargs="+", default=["/chat", "/chat_baseline"])
-    ap.add_argument("--smart-cooldown", action="store_true", help="Use rate_limits_measured.json to wait between runs")
     args = ap.parse_args()
 
     prompts = load_prompts()
 
-    # Calculate safe RPM if smart cooldown is enabled
-    safe_rpm = None
-    if args.smart_cooldown:
-        limits_file = RESULTS_DIR / "rate_limits_measured.json"
-        if limits_file.exists():
-            with limits_file.open("r", encoding="utf-8") as f:
-                limits = json.load(f)
-                safe_rpm = min(provider["safe_rpm"] for provider in limits.values())
-            print(f"[info] Smart cooldown enabled. Safe RPM: {safe_rpm}")
-        else:
-            print("[warn] --smart-cooldown requested but eval/results/rate_limits_measured.json not found. Ignoring.")
-
-    # Sanity: does the server respond?
     async with httpx.AsyncClient() as client:
         try:
             r = await client.get(f"{args.url}/health", timeout=10.0)
@@ -137,22 +122,12 @@ async def main():
             return
 
     for n in args.levels:
-        for ep in args.endpoints:
-            await run_level(args.url, ep, n, prompts)
-            
-            # Smart cooldown calculation
-            if safe_rpm:
-                # Wait based on requests just sent. Minimum 5 seconds.
-                wait_sec = int((n / safe_rpm) * 60) + 15
-                print(f"[info] Cooldown for {wait_sec}s to respect rate limits...")
-                for i in range(wait_sec, 0, -1):
-                    print(f"\rCooling down: {i}s remaining...", end="", flush=True)
-                    await asyncio.sleep(1.0)
-                print("\rCooling down: DONE                  ")
-            else:
-                await asyncio.sleep(1.0)
+        await run_level(args.url, "/chat", n, prompts)
+        await asyncio.sleep(1.0)
+        
+        await run_level(args.url, "/chat_baseline", n, prompts)
+        await asyncio.sleep(1.0)
 
 
 if __name__ == "__main__":
     asyncio.run(main())
-
