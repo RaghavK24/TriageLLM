@@ -28,46 +28,75 @@ Building a resilient LLM application in production is fundamentally a battle aga
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#333333', 'lineColor': '#c4a1ff'}}}%%
 flowchart TB
-    classDef user fill:#2a2a2a,stroke:#c4a1ff,stroke-width:2px,color:#fff,rx:15px;
+    classDef user fill:#2a2a2a,stroke:#c4a1ff,stroke-width:2px,color:#fff;
     classDef gateway fill:#212121,stroke:#7dd3a8,stroke-width:2px,color:#fff;
     classDef local fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
     classDef router fill:#333333,stroke:#f0a56c,stroke-width:2px,color:#fff;
-    classDef model fill:#2a2a2a,stroke:#ececec,stroke-width:1px,color:#fff,rx:8px;
-    classDef db fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff,shape:cylinder;
+    classDef model fill:#2a2a2a,stroke:#ececec,stroke-width:1px,color:#fff;
+    classDef db fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff;
     classDef shed fill:#f07070,stroke:#333,stroke-width:2px,color:#fff;
 
     Client([👤 User / Web Client]):::user -->|POST /chat| API[⚡ FastAPI Gateway]:::gateway
     
-    subgraph Local Inference & Context
-        API --> RAG[(📚 ChromaDB + MiniLM)]:::db
-        RAG -->|Retrieves Context| API
-        API --> Classifier[🧠 DistilBERT Scorer]:::local
-        API --> Tracker[📊 Active Load Tracker]:::local
-        API --> RateLimiter[⏱️ Provider API Tracker]:::local
-    end
-    
-    Classifier -.->|Base Score 0.0-1.0| DecisionEngine{🔄 Adaptive Router}:::router
-    Tracker -.->|In-Flight Count| DecisionEngine
-    RateLimiter -.->|Live RPM Budgets| DecisionEngine
-    API ==>|Route Query| DecisionEngine
-    
-    DecisionEngine -- "Adjusted Score < 0.55\n(Simple)" --> WeakPool
-    DecisionEngine -- "Adjusted Score >= 0.55\nOR Rate Limit Spillover" --> StrongPool
-    DecisionEngine -- "Active Load > 35\n(Congestion)" --> Drop[🚫 HTTP 429\nFail-Fast Load Shed]:::shed
-    
-    subgraph WeakPool [Weak Tier Pool (High Concurrency)]
+    subgraph LocalContext ["Local Inference & Context"]
         direction TB
-        Groq[🟢 Groq 20B\nPrimary Workhorse\n30 RPM]:::model
-        Gem[🟡 Gemini Flash\nFallback]:::model
-        Mis[🟠 Mistral Small\nFallback\n1 Req/Sec]:::model
-        Groq -. "Circuit Breaker" .-> Gem -. "Circuit Breaker" .-> Mis
+        Embedder[🧠 all-MiniLM-L6-v2\nEmbed Query]:::local
+        VectorDB[(📚 ChromaDB\nDocument Store)]:::db
+        Classifier[🧠 DistilBERT Scorer\nComplexity 0.0-1.0]:::local
+        
+        Tracker[📊 Active Load Tracker\n(In-flight Requests)]:::local
+        RateLimiter[⏱️ Provider API Tracker\n(RPM Deque)]:::local
+        
+        API -->|1. Raw Query| Embedder
+        Embedder -->|2. Vector| VectorDB
+        VectorDB -->|3. Top-K Context| API
+        API -->|4. Prompt + Context| Classifier
+        API -->|5. Check Load| Tracker
+        API -->|6. Check Limits| RateLimiter
     end
     
-    subgraph StrongPool [Strong Tier (Deep Reasoning)]
+    Classifier -.->|Base Score| DecisionEngine{🔄 Adaptive Router\n+ Dynamic Thresholds}:::router
+    Tracker -.->|Current Capacity| DecisionEngine
+    RateLimiter -.->|Live Budgets| DecisionEngine
+    API ==>|7. Route Payload| DecisionEngine
+    
+    DecisionEngine -- "Score < 0.55\n(Simple Context)" --> WeakPool
+    DecisionEngine -- "Score >= 0.55\nOR Quota Exhausted" --> StrongPool
+    DecisionEngine -- "Load > 70% Capacity\n(Congestion)" --> Drop[🚫 HTTP 429\nFail-Fast Load Shed]:::shed
+    
+    subgraph WeakPool ["Weak Tier Pool (High Concurrency / Simple)"]
         direction TB
-        Premium[🔵 Premium LLM\nGPT-4o / Claude 3.5]:::model
+        Groq[🟢 Groq API\n20B OSS Model\nPrimary Worker]:::model
+        Gem[🟡 Gemini API\nFlash Model\nFast Fallback]:::model
+        Mis[🟠 Mistral API\nSmall Model\nDeep Fallback]:::model
+        Groq -. "Circuit Breaker / Rate Limit" .-> Gem
+        Gem -. "Circuit Breaker / Rate Limit" .-> Mis
     end
+    
+    subgraph StrongPool ["Strong Tier (Deep Reasoning / Complex)"]
+        direction TB
+        Premium[🔵 Premium API\nGPT-4o / Claude 3.5\nHeavy Lifter]:::model
+    end
+    
+    WeakPool ==>|Streaming Response| API
+    StrongPool ==>|Streaming Response| API
+    API ==>|Server-Sent Events| Client
 ```
+
+### 🔄 The Request Lifecycle
+
+When a user submits a query, the system executes a precise sequence of operations to determine the optimal LLM route:
+
+1. **Context Retrieval (RAG):** The raw query is intercepted by the FastAPI gateway and sent to a local ChromaDB instance. Relevant document embeddings are retrieved using a `MiniLM` model and injected into the prompt as grounded context.
+2. **Local Complexity Scoring:** The enhanced prompt is analyzed by a local, fine-tuned DistilBERT model. In under 20ms, it outputs a semantic complexity score from `0.0` (simple) to `1.0` (highly complex).
+3. **Telemetry & State Tracking:** Concurrently, the system checks the **Active Load Tracker** (how many requests are currently in-flight) and the **Rate Limiter** (how much API quota is remaining for each provider).
+4. **Adaptive Routing Decision:** The `DecisionEngine` evaluates the complexity score against dynamic thresholds:
+   - **Simple Queries (Score < 0.55):** Routed to the Weak Tier Pool for fast, cost-effective generation.
+   - **Complex Queries (Score >= 0.55):** Routed to the Premium Strong Tier for deep reasoning.
+   - **Load Shedding:** If the system is under extreme congestion (e.g., >35 active requests), the router will instantly drop the request and return a `429` error to protect overall tail latency.
+5. **Tier Execution & Resilience:** 
+   - Requests sent to the Weak Pool are routed to primary high-concurrency models (e.g., Groq). 
+   - If a primary model hits a rate limit or fails, the **Circuit Breaker** trips, automatically spilling traffic over to fallback models (Gemini Flash, Mistral Small) to guarantee uptime.
 
 ---
 
