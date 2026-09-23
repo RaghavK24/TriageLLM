@@ -41,6 +41,10 @@ class CircuitBreaker:
         self.recovery_timeout = recovery_timeout
         self.window_seconds = window_seconds
 
+        # Limit the number of test requests that can pass through when HALF_OPEN.
+        self.half_open_max_calls = 1
+        self._half_open_calls = 0
+
         # Windowed failure tracking — list of monotonic timestamps.
         self._failure_times: list[float] = []
         self.last_failure_time: float = 0.0
@@ -60,16 +64,22 @@ class CircuitBreaker:
         """
         Check if a request is allowed to proceed.
         Raises CircuitOpenError if the circuit is OPEN and recovery timeout
-        (with jitter) hasn't elapsed.
+        (with jitter) hasn't elapsed, or if it is HALF_OPEN and the probe limit
+        has already been reached.
         """
         async with self._lock:
-            if self.state == "OPEN":
+            if self.state == "HALF_OPEN":
+                if self._half_open_calls >= self.half_open_max_calls:
+                    raise CircuitOpenError()
+                self._half_open_calls += 1
+            elif self.state == "OPEN":
                 now = time.monotonic()
                 # Jitter: ±20% of recovery_timeout so breakers don't all
                 # probe at the same instant.
                 jittered = self.recovery_timeout * random.uniform(0.8, 1.2)
                 if now - self.last_failure_time >= jittered:
                     self.state = "HALF_OPEN"
+                    self._half_open_calls = 1
                 else:
                     raise CircuitOpenError()
 

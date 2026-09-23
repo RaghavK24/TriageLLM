@@ -23,6 +23,7 @@ from __future__ import annotations
 import asyncio
 import logging
 import random
+import time
 from dataclasses import dataclass
 from typing import Optional
 
@@ -35,6 +36,8 @@ from app.rate_limiter import (
     record_model_request,
     get_effective_remaining_frac,
 )
+from app.metrics import CIRCUIT_BREAKER_STATE
+from app.prompts import get_system_prompt
 from config import settings
 
 # Silence LiteLLM's verbose logging in the demo.
@@ -42,6 +45,9 @@ litellm.suppress_debug_info = True
 
 logger = logging.getLogger(__name__)
 
+# Use a cryptographically secure RNG for the load balancer shuffle
+# so it isn't deterministic based on the OS import-time clock.
+_sys_rng = random.SystemRandom()
 
 @dataclass
 class LLMResult:
@@ -94,6 +100,17 @@ def get_breaker_states() -> dict[str, str]:
     return {model: cb.state for model, cb in _circuit_breakers.items()}
 
 
+def _update_cb_metric(model: str) -> None:
+    breaker = get_breaker(model)
+    if breaker.state == "CLOSED":
+        val = 1.0
+    elif breaker.state == "HALF_OPEN":
+        val = 0.5
+    else:
+        val = 0.0
+    CIRCUIT_BREAKER_STATE.labels(model=model).set(val)
+
+
 # ── Org-Aware Weighted-shuffle model selection (weak tier) ────────────────
 
 def _weighted_shuffle(models: list[str]) -> list[str]:
@@ -142,7 +159,7 @@ def _weighted_shuffle(models: list[str]) -> list[str]:
         if total <= 0:
             shuffled.extend(m for m, _ in remaining)
             break
-        r = random.random() * total
+        r = _sys_rng.random() * total
         cumulative = 0.0
         for i, (model, w) in enumerate(remaining):
             cumulative += w
@@ -167,6 +184,7 @@ async def _try_model(model: str, messages: list[dict], max_tokens: int) -> LLMRe
 
     # May raise CircuitOpenError.
     await breaker.check()
+    _update_cb_metric(model)
 
     # Record the request *before* sending so the budget tracker
     # is up-to-date for concurrent requests.
@@ -175,12 +193,12 @@ async def _try_model(model: str, messages: list[dict], max_tokens: int) -> LLMRe
     response = await acompletion(
         model=model,
         messages=messages,
-        max_tokens=max_tokens,
         temperature=settings.temperature,
     )
 
     # Success — reset breaker.
     await breaker.on_success()
+    _update_cb_metric(model)
 
     text = response.choices[0].message.content or ""
     usage = getattr(response, "usage", None)
@@ -196,6 +214,47 @@ async def _try_model(model: str, messages: list[dict], max_tokens: int) -> LLMRe
     )
 
 
+async def _execute_with_retries(model: str, messages: list[dict], max_tokens: int) -> LLMResult:
+    """
+    Execute model with Full Jitter exponential backoff for transient 503s.
+    429s (Rate Limits) or 400s fail instantly to allow fallback to the next model.
+    """
+    BASE_MS = 0.5
+    CAP_MS = 4.0
+    ATTEMPTS = 3
+    
+    for attempt in range(ATTEMPTS):
+        try:
+            return await _try_model(model, messages, max_tokens)
+        except CircuitOpenError:
+            raise  # Break out immediately, model is dead
+        except Exception as e:
+            error_str = str(e).lower()
+            # If rate limited, don't sleep - fail instantly to trigger fallback pool
+            if any(kw in error_str for kw in ("rate", "429", "capacity")):
+                logger.warning(f"[{model}] Rate limit hit — failing over instantly.")
+                breaker = get_breaker(model)
+                await breaker.on_failure()
+                _update_cb_metric(model)
+                raise
+                
+            # Transient server overload (502, 503) - worth a quick jittered retry
+            if any(kw in error_str for kw in ("503", "502", "timeout", "unavailable")):
+                if attempt < ATTEMPTS - 1:
+                    # Full Jitter (AWS pattern)
+                    sleep_time = random.uniform(0, min(CAP_MS, BASE_MS * (2 ** attempt)))
+                    logger.warning(f"[{model}] Transient error, retrying in {sleep_time:.2f}s... Error: {e}")
+                    await asyncio.sleep(sleep_time)
+                    continue
+            
+            # Any other error or out of retries - record failure and re-raise
+            logger.error(f"[{model}] Request failed: {e}")
+            breaker = get_breaker(model)
+            await breaker.on_failure()
+            _update_cb_metric(model)
+            raise
+
+
 async def _call_sequential(models: list[str], messages: list[dict], max_tokens: int) -> LLMResult:
     """
     Strong-tier routing: Strict Primary Fallback.
@@ -209,22 +268,13 @@ async def _call_sequential(models: list[str], messages: list[dict], max_tokens: 
     weak-tier pool, since Groq 120B is only reached on Azure failure.
     """
     for model in models:
-        breaker = get_breaker(model)
         try:
-            return await _try_model(model, messages, max_tokens)
+            return await _execute_with_retries(model, messages, max_tokens)
         except CircuitOpenError:
             logger.debug(f"[strong] Circuit OPEN for {model}, trying next.")
             continue
-        except Exception as e:
-            error_str = str(e).lower()
-            if any(kw in error_str for kw in ("rate", "429", "503", "capacity")):
-                logger.warning(
-                    f"[strong] {model} hit rate limit/capacity — falling back. Error: {e}"
-                )
-                await breaker.on_failure()
-            else:
-                logger.error(f"[strong] Unexpected error from {model}: {e}")
-                await breaker.on_failure()
+        except Exception:
+            # Failure already recorded in _execute_with_retries
             continue
 
     raise AllProvidersExhausted(
@@ -249,22 +299,12 @@ async def _call_pool(models: list[str], messages: list[dict], max_tokens: int) -
 
     for model in model_order:
         try:
-            return await _try_model(model, messages, max_tokens)
+            return await _execute_with_retries(model, messages, max_tokens)
         except CircuitOpenError:
             logger.debug(f"[weak] Circuit OPEN for {model}, trying next.")
             continue
-        except Exception as e:
-            error_str = str(e).lower()
-            if any(kw in error_str for kw in ("rate", "429", "503", "capacity")):
-                logger.warning(
-                    f"[weak] {model} hit rate limit/capacity. Error: {e}"
-                )
-                breaker = get_breaker(model)
-                await breaker.on_failure()
-            else:
-                logger.error(f"[weak] Unexpected error from {model}: {e}")
-                breaker = get_breaker(model)
-                await breaker.on_failure()
+        except Exception:
+            # Failure already recorded in _execute_with_retries
             continue
 
     raise AllProvidersExhausted(
@@ -277,52 +317,35 @@ async def _call_pool(models: list[str], messages: list[dict], max_tokens: int) -
 async def call_model(
     tier: str,
     prompt: str,
-    rag_context: Optional[str] = None,
+    complexity: float = 0.5,
+    domain: str = "",
+    has_rag: bool = False,
 ) -> LLMResult:
     """
     Fire one completion call based on the requested tier ("strong" or "weak").
-
-    Strong tier — Strict Primary Fallback:
-        Always tries Azure GPT-4 first.  Falls back to Groq 120B only on
-        error or open circuit breaker.  This keeps Groq's shared 30 RPM org
-        budget fully reserved for the weak-tier pool.
-
-    Weak tier — Org-Aware Weighted Pool:
-        Models compete via weighted-random shuffle using effective remaining
-        capacity (min of per-model and provider org-group budget).  Groq
-        overflow spills to non-Groq providers (Gemini, Mistral, etc.).
     """
     if tier not in ("strong", "weak"):
         raise ValueError(f"Unknown tier: {tier!r}")
 
     # Build messages payload.
     messages = []
-    if rag_context:
-        messages.append({
-            "role": "system",
-            "content": (
-                "Answer the user's question using ONLY the following context. "
-                "If the answer isn't in the context, say you don't know.\n\n"
-                f"Context:\n{rag_context}"
-            ),
-        })
+    
+    # Use soft guardrails: allow models to generate up to the ceiling
+    max_tokens = settings.max_tokens_ceiling
+    
+    sys_prompt = get_system_prompt(domain, tier, has_rag)
+    
+    messages.append({
+        "role": "system",
+        "content": sys_prompt,
+    })
     messages.append({"role": "user", "content": prompt})
 
     if tier == "strong":
         # Strict Primary Fallback — Azure first, Groq 120B only on failure.
-        if not rag_context:
-            messages.insert(0, {
-                "role": "system",
-                "content": "You are a concise, helpful assistant.",
-            })
         all_models = [settings.strong_model] + settings.strong_fallback_models
-        return await _call_sequential(all_models, messages, max_tokens=settings.strong_max_tokens)
+        return await _call_sequential(all_models, messages, max_tokens=max_tokens)
     else:
         # Org-Aware Weighted Pool — distribute across weak models.
-        if not rag_context:
-            messages.insert(0, {
-                "role": "system",
-                "content": "You are a concise assistant. Answer in 1-3 sentences maximum.",
-            })
         all_models = [settings.weak_model] + settings.weak_fallback_models
-        return await _call_pool(all_models, messages, max_tokens=settings.weak_max_tokens)
+        return await _call_pool(all_models, messages, max_tokens=max_tokens)

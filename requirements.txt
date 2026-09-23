@@ -1,24 +1,25 @@
-fastapi==0.115.6
-uvicorn[standard]==0.32.1
-pydantic==2.10.3
-python-dotenv==1.0.1
-httpx<0.28.0,>=0.23.0
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings>=2.0.0
+python-dotenv
+httpx
 
 # LLM layer
-litellm==1.55.3
+litellm
 google-generativeai
 
 # RAG
-langchain==0.3.13
-langchain-community==0.3.13
-langchain-chroma==0.1.4
-langchain-huggingface==0.1.2
+langchain
+langchain-community
+langchain-chroma
+langchain-huggingface
 chromadb
-sentence-transformers==3.3.1
+sentence-transformers
 
 # Classifier (heuristic fallback)
-scikit-learn==1.6.0
-numpy<2.0.0,>=1.26.0
+scikit-learn
+numpy
 
 # DistilBERT classifier (fine-tuned)
 transformers>=4.40.0
@@ -27,6 +28,13 @@ datasets
 torch>=2.0.0
 
 # Eval + plotting
-matplotlib==3.10.0
-tqdm==4.67.1
+matplotlib
+tqdm
 
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+pytest-mock
+
+# Metrics
+prometheus-client>=0.19.0

@@ -94,6 +94,10 @@ class ProviderBudget:
 _budgets: dict[str, ProviderBudget] = {}
 _group_budgets: dict[str, ProviderBudget] = {}
 _loaded = False
+# Protects the one-time initialization of _budgets / _group_budgets.
+# threading.Lock (not asyncio.Lock) because _ensure_loaded() may be called
+# from asyncio.to_thread() workers — asyncio primitives cannot be used from threads.
+_init_lock = Lock()
 
 
 def _load_measured_limits() -> dict[str, int]:
@@ -113,25 +117,30 @@ def _load_measured_limits() -> dict[str, int]:
 
 def _ensure_loaded() -> None:
     global _loaded
+    # Fast path: already initialized — no lock needed.
     if _loaded:
         return
-    measured = _load_measured_limits()
-    for m, rpm in measured.items():
-        _budgets[m] = ProviderBudget(rpm)
+    # Slow path: acquire lock and re-check inside to prevent duplicate init.
+    with _init_lock:
+        if _loaded:
+            return
+        measured = _load_measured_limits()
+        for m, rpm in measured.items():
+            _budgets[m] = ProviderBudget(rpm)
 
-    # Initialise group budgets for every known quota group.
-    for group, rpm in _QUOTA_GROUPS.items():
-        _group_budgets[group] = ProviderBudget(rpm)
+        # Initialise group budgets for every known quota group.
+        for group, rpm in _QUOTA_GROUPS.items():
+            _group_budgets[group] = ProviderBudget(rpm)
 
-    _loaded = True
-    logger.info(
-        f"Rate-limit budgets loaded for {len(_budgets)} models: "
-        + ", ".join(f"{m}={b.rpm_limit}rpm" for m, b in _budgets.items())
-    )
-    logger.info(
-        f"Quota groups: "
-        + ", ".join(f"{g}={b.rpm_limit}rpm" for g, b in _group_budgets.items())
-    )
+        _loaded = True
+        logger.info(
+            f"Rate-limit budgets loaded for {len(_budgets)} models: "
+            + ", ".join(f"{m}={b.rpm_limit}rpm" for m, b in _budgets.items())
+        )
+        logger.info(
+            f"Quota groups: "
+            + ", ".join(f"{g}={b.rpm_limit}rpm" for g, b in _group_budgets.items())
+        )
 
 
 def get_budget(model: str) -> ProviderBudget:

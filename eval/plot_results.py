@@ -1,30 +1,16 @@
 """
-Reads eval/results/*.json, produces:
-
-  - eval/results/latency_comparison.png
-  - eval/results/cost_comparison.png
-  - eval/results/tier_distribution.png
-  - eval/results/routing_accuracy.png
-  - eval/results/summary.md   (markdown table + percentages)
-
-Run:
-    python -m eval.plot_results
+Generates beautiful charts and a Markdown summary from the JSON results
+produced by `eval/load_test.py`.
 """
-from __future__ import annotations
 import json
 import re
 from pathlib import Path
 from typing import Dict, List
 
-import httpx
 import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
 RESULTS_DIR = HERE / "results"
-PROMPTS_FILE = HERE / "labeled_prompts.json"
-
-
-# ---- Load result JSONs -------------------------------------------------
 
 def load_summaries() -> Dict[str, Dict[int, dict]]:
     """Returns {endpoint: {N: summary}} for both /chat and /chat_baseline."""
@@ -49,17 +35,18 @@ def _pct_drop(new: float, base: float) -> float:
 
 def plot_latency(summaries):
     levels = sorted(set(summaries["chat"].keys()) & set(summaries["chat_baseline"].keys()))
+    if not levels: return
     fig, ax = plt.subplots(figsize=(9, 5))
 
-    for metric, marker in [("avg", "o"), ("p50", "s"), ("p95", "^")]:
+    for metric, marker in [("avg", "o"), ("p95", "^")]:
         adaptive = [summaries["chat"][n]["latency_ms"][metric] for n in levels]
         baseline = [summaries["chat_baseline"][n]["latency_ms"][metric] for n in levels]
-        ax.plot(levels, adaptive, marker=marker, label=f"adaptive {metric}")
-        ax.plot(levels, baseline, marker=marker, linestyle="--", label=f"baseline {metric}")
+        ax.plot(levels, adaptive, marker=marker, label=f"Adaptive {metric}")
+        ax.plot(levels, baseline, marker=marker, linestyle="--", label=f"Baseline {metric}")
 
     ax.set_xlabel("Concurrent users")
     ax.set_ylabel("Latency (ms)")
-    ax.set_title("Latency vs concurrency: adaptive router vs always-strong baseline")
+    ax.set_title("Latency vs Concurrency: Adaptive Router vs Baseline")
     ax.grid(True, alpha=0.3)
     ax.legend()
     out = RESULTS_DIR / "latency_comparison.png"
@@ -71,26 +58,29 @@ def plot_latency(summaries):
 
 def plot_cost(summaries):
     levels = sorted(set(summaries["chat"].keys()) & set(summaries["chat_baseline"].keys()))
+    if not levels: return
     fig, ax = plt.subplots(figsize=(9, 5))
 
     x = range(len(levels))
     width = 0.35
     adaptive = [summaries["chat"][n]["total_cost_usd"] for n in levels]
     baseline = [summaries["chat_baseline"][n]["total_cost_usd"] for n in levels]
-    ax.bar([i - width / 2 for i in x], adaptive, width, label="adaptive")
-    ax.bar([i + width / 2 for i in x], baseline, width, label="baseline (always strong)")
+    
+    ax.bar([i - width / 2 for i in x], adaptive, width, label="Adaptive Router")
+    ax.bar([i + width / 2 for i in x], baseline, width, label="Baseline (Always Azure)")
 
     ax.set_xticks(list(x))
     ax.set_xticklabels([str(n) for n in levels])
     ax.set_xlabel("Concurrent users")
-    ax.set_ylabel("Total USD cost for the batch")
-    ax.set_title("Cost vs concurrency")
+    ax.set_ylabel("Total USD Cost for the Batch")
+    ax.set_title("Cost vs Concurrency")
     ax.legend()
     ax.grid(True, alpha=0.3, axis="y")
 
     for i, (a, b) in enumerate(zip(adaptive, baseline)):
         drop = _pct_drop(a, b)
-        ax.text(i, max(a, b) * 1.02, f"-{drop:.0f}%", ha="center", fontsize=9)
+        if drop > 0:
+            ax.text(i - width / 2, a + (max(a, b)*0.02), f"-{drop:.0f}%", ha="center", fontsize=9, fontweight='bold', color='green')
 
     out = RESULTS_DIR / "cost_comparison.png"
     fig.tight_layout()
@@ -99,120 +89,99 @@ def plot_cost(summaries):
     print(f"[saved] {out}")
 
 
-def plot_tier_distribution(summaries):
+def plot_feature_accuracy(summaries):
+    """Calculates and plots the accuracy of the DistilBERT classifier across the 3 dimensions."""
     levels = sorted(summaries["chat"].keys())
-    fig, ax = plt.subplots(figsize=(9, 5))
+    if not levels: return
+    
+    # We just need to analyze the raw requests from the largest run
+    max_n = levels[-1]
+    raw_results = summaries["chat"][max_n]["raw"]
+    
+    tier_correct = 0
+    domain_correct = 0
+    rag_correct = 0
+    total = 0
+    
+    for r in raw_results:
+        if not r.get("ok"): continue
+        # Only evaluate non-coalesced requests (coalesced requests don't hit the classifier directly in the same way, but it's fine)
+        if r.get("coalesced"): continue
+        
+        if r.get("tier") == r.get("expected_tier"): tier_correct += 1
+        if r.get("domain") == r.get("expected_domain"): domain_correct += 1
+        if r.get("needs_rag") == r.get("expected_rag"): rag_correct += 1
+        total += 1
+        
+    if total == 0: return
 
-    weak = [summaries["chat"][n]["tier_counts"].get("weak", 0) for n in levels]
-    strong = [summaries["chat"][n]["tier_counts"].get("strong", 0) for n in levels]
-
-    x = range(len(levels))
-    ax.bar(x, weak, label="weak (cheap)")
-    ax.bar(x, strong, bottom=weak, label="strong (expensive)")
-    ax.set_xticks(list(x))
-    ax.set_xticklabels([str(n) for n in levels])
-    ax.set_xlabel("Concurrent users")
-    ax.set_ylabel("Requests routed")
-    ax.set_title("Adaptive router — tier distribution vs load")
-    ax.legend()
+    acc = {
+        "Tier Routing": tier_correct / total * 100,
+        "Domain Detection": domain_correct / total * 100,
+        "RAG Skipping": rag_correct / total * 100,
+    }
+    
+    fig, ax = plt.subplots(figsize=(7, 4))
+    bars = ax.bar(acc.keys(), acc.values(), color=['#4C72B0', '#55A868', '#C44E52'])
+    ax.set_ylim(0, 110)
+    ax.set_ylabel("Accuracy (%)")
+    ax.set_title("DistilBERT Classifier Multi-Axis Accuracy")
+    
+    for bar in bars:
+        yval = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2, yval + 2, f"{yval:.1f}%", ha='center', va='bottom', fontweight='bold')
+        
     ax.grid(True, alpha=0.3, axis="y")
-
-    out = RESULTS_DIR / "tier_distribution.png"
+    out = RESULTS_DIR / "feature_accuracy.png"
     fig.tight_layout()
     fig.savefig(out, dpi=140)
     plt.close(fig)
     print(f"[saved] {out}")
-
-
-# ---- Routing accuracy on hand-labeled prompts ------------------------
-
-def measure_routing_accuracy(base_url: str = "http://localhost:8000") -> dict:
-    """
-    Evaluates each labeled prompt locally without needing the server running.
-    """
-    import sys
-    sys.path.insert(0, str(HERE.parent))
-    from app.classifier import score_prompt
-    from config import settings
-
-    with PROMPTS_FILE.open("r", encoding="utf-8") as f:
-        prompts = json.load(f)
-
-    correct = 0
-    rows = []
-    for item in prompts:
-        try:
-            res = score_prompt(item["prompt"])
-            got = "strong" if res.score >= settings.complexity_threshold else "weak"
-        except Exception as e:
-            got = f"ERROR: {e}"
-        ok = got == item["expected_tier"]
-        correct += int(ok)
-        rows.append({
-            "prompt": item["prompt"][:80] + ("…" if len(item["prompt"]) > 80 else ""),
-            "expected": item["expected_tier"],
-            "got": got,
-            "ok": ok,
-        })
-
-    acc = correct / len(prompts) if prompts else 0.0
-    return {"accuracy": acc, "correct": correct, "total": len(prompts), "rows": rows}
-
-
-def plot_routing_accuracy(acc: dict):
-    fig, ax = plt.subplots(figsize=(6, 4))
-    ax.bar(["correct", "incorrect"], [acc["correct"], acc["total"] - acc["correct"]])
-    ax.set_title(
-        f"Routing accuracy on hand-labeled set: "
-        f"{acc['correct']}/{acc['total']} = {acc['accuracy']*100:.1f}%"
-    )
-    ax.grid(True, alpha=0.3, axis="y")
-    out = RESULTS_DIR / "routing_accuracy.png"
-    fig.tight_layout()
-    fig.savefig(out, dpi=140)
-    plt.close(fig)
-    print(f"[saved] {out}")
+    
+    return acc, total
 
 
 # ---- Markdown summary ------------------------------------------------
 
-def write_markdown_summary(summaries, acc):
+def write_markdown_summary(summaries, accuracy_data):
     levels = sorted(set(summaries["chat"].keys()) & set(summaries["chat_baseline"].keys()))
+    if not levels: return
+    
     lines: List[str] = []
-    lines.append("# Adaptive Router — Eval Summary\n")
-    lines.append("## Latency and cost vs concurrency\n")
-    lines.append("| N | avg (adapt) | avg (base) | p95 (adapt) | p95 (base) | "
-                 "cost (adapt) | cost (base) | latency Δ | cost Δ |")
-    lines.append("|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
+    lines.append("# Adaptive RAG Router — Evaluation Report\n")
+    lines.append("## 💰 Financial & Latency Savings\n")
+    lines.append("| Concurrency | Avg Latency (Router) | Avg Latency (Baseline) | Latency Drop | Cost (Router) | Cost (Baseline) | Cost Savings |")
+    lines.append("|---:|---:|---:|---:|---:|---:|---:|")
     for n in levels:
         a = summaries["chat"][n]
         b = summaries["chat_baseline"][n]
         lat_delta = _pct_drop(a["latency_ms"]["avg"], b["latency_ms"]["avg"])
         cost_delta = _pct_drop(a["total_cost_usd"], b["total_cost_usd"])
         lines.append(
-            f"| {n} "
+            f"| **{n}** "
             f"| {a['latency_ms']['avg']:.0f} ms | {b['latency_ms']['avg']:.0f} ms "
-            f"| {a['latency_ms']['p95']:.0f} ms | {b['latency_ms']['p95']:.0f} ms "
+            f"| **-{lat_delta:.0f}%** "
             f"| ${a['total_cost_usd']:.4f} | ${b['total_cost_usd']:.4f} "
-            f"| **-{lat_delta:.0f}%** | **-{cost_delta:.0f}%** |"
+            f"| **-{cost_delta:.0f}%** |"
         )
 
-    lines.append("\n## Tier distribution (adaptive)\n")
-    lines.append("| N | weak (cheap) | strong (expensive) |")
-    lines.append("|---:|---:|---:|")
+    lines.append("\n## ⚡ Cache & Coalescer Hits\n")
+    lines.append("| Concurrency | Total Requests | Cache Hits (DB) | Coalesced (RAM) | LLM Calls Saved |")
+    lines.append("|---:|---:|---:|---:|---:|")
     for n in levels:
-        tc = summaries["chat"][n]["tier_counts"]
-        lines.append(f"| {n} | {tc.get('weak', 0)} | {tc.get('strong', 0)} |")
+        a = summaries["chat"][n]
+        hits = a.get('cache_hits', 0)
+        coals = a.get('coalesced_hits', 0)
+        saved = hits + coals
+        pct = (saved / a['n_ok'] * 100) if a['n_ok'] > 0 else 0
+        lines.append(f"| **{n}** | {a['n_ok']} | {hits} | {coals} | **{saved} ({pct:.0f}%)** |")
 
-    lines.append("\n## Routing accuracy on hand-labeled prompts\n")
-    lines.append(
-        f"**{acc['correct']} / {acc['total']} = {acc['accuracy']*100:.1f}%**\n"
-    )
-    lines.append("| Expected | Got | Prompt |")
-    lines.append("|---|---|---|")
-    for r in acc["rows"]:
-        mark = "✅" if r["ok"] else "❌"
-        lines.append(f"| {r['expected']} | {r['got']} {mark} | {r['prompt']} |")
+    lines.append("\n## 🎯 DistilBERT Multi-Axis Accuracy\n")
+    if accuracy_data:
+        acc, total = accuracy_data
+        lines.append(f"*Evaluated on {total} unique requests from test_250.json*\n")
+        for k, v in acc.items():
+            lines.append(f"- **{k}**: {v:.1f}%")
 
     out = RESULTS_DIR / "summary.md"
     with out.open("w", encoding="utf-8") as f:
@@ -224,21 +193,18 @@ def write_markdown_summary(summaries, acc):
 
 def main():
     summaries = load_summaries()
-    if not summaries["chat"] or not summaries["chat_baseline"]:
-        print("[warn] no result files yet — run `python -m eval.load_test` first.")
+    if not summaries.get("chat") or not summaries.get("chat_baseline"):
+        print("[warn] No complete result files found — run `python eval/load_test.py` first.")
         return
+        
     plot_latency(summaries)
     plot_cost(summaries)
-    plot_tier_distribution(summaries)
-
-    print("[info] measuring routing accuracy on labeled prompts (one at a time)…")
-    acc = measure_routing_accuracy()
-    plot_routing_accuracy(acc)
-
-    write_markdown_summary(summaries, acc)
-    print("\nDone. Open eval/results/summary.md and the .png files.")
+    
+    acc_data = plot_feature_accuracy(summaries)
+    write_markdown_summary(summaries, acc_data)
+    
+    print("\n✅ Done! Open eval/results/summary.md and the .png files.")
 
 
 if __name__ == "__main__":
     main()
-

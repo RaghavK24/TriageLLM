@@ -1,0 +1,2063 @@
+[
+  {
+    "prompt": "Can a company block a specific person from buying its stock?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "The question is a direct yes/no-style inquiry about a company's ability to restrict a specific person from buying its stock, with a relatively narrow conceptual scope.",
+    "domain": "business",
+    "domain_reason": "It concerns securities, stock ownership, and corporate/market rules, which are core business and finance topics."
+  },
+  {
+    "prompt": "What (if any) is the reason to buy in small local stores?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "This asks for reasons to buy from small local stores, which can be answered with a relatively simple list of benefits without deep technical analysis.",
+    "domain": "business",
+    "domain_reason": "The topic concerns consumer purchasing choices, local commerce, and economic impacts, which are part of business and retail economics."
+  },
+  {
+    "prompt": "Should I take out a personal loan to pay off credit card debt?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "This is a single decision about using one type of debt to pay off another, with limited variables and no deep technical structure.",
+    "domain": "business",
+    "domain_reason": "It directly addresses debt management and credit, which are standard personal finance/business topics."
+  },
+  {
+    "prompt": "Should you keep a copy of all the code you write?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "weak",
+    "label_reason": "This is a relatively direct policy/practice question about code retention habits and can be answered with clear pros, cons, and a recommendation.",
+    "domain": "business",
+    "domain_reason": "Keeping copies of code touches on IP ownership, employment contracts, and professional practice, which are business/professional concerns around coding."
+  },
+  {
+    "prompt": "Why is fast customer support important?",
+    "label": "weak",
+    "label_reason": "This is weak complexity as it seeks a simple explanation of importance, not advanced evaluation or quantification.",
+    "domain": "business",
+    "domain_reason": "It fits business by relating to service quality and fits customer support & retention by focusing on response speed in support.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Draft a short social media post announcing a brand name change.",
+    "label": "weak",
+    "label_reason": "The prompt is weak in complexity as it asks for a single, brief post, not a campaign, and does not require deep analysis or multiple variations.",
+    "domain": "business",
+    "domain_reason": "It fits the business domain and 'Brand identity & public relations' as it focuses on communicating a brand identity change to the public via social media.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Is there a way to transfer $100 into a family member's US bank account on a daily basis?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "This is a simple procedural question about available methods to send money regularly, not requiring deep analysis or complex trade-offs.",
+    "domain": "business",
+    "domain_reason": "The topic is about recurring money transfers and payment mechanisms, which is squarely in personal finance and banking."
+  },
+  {
+    "prompt": "20% monthly mining vs 5% monthly trading",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "Comparing two fixed monthly return percentages is a simple numerical and conceptual comparison without deep multi-step reasoning.",
+    "domain": "business",
+    "domain_reason": "The prompt is about investment returns from mining versus trading, which is an investing and finance topic within the business domain."
+  },
+  {
+    "prompt": "In the stock market, why is the \"open\" price value never the same as previous day's \"close\"?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "Explaining why the open price differs from the previous close mainly requires a simple description of after-hours trading and order matching, not deep analysis.",
+    "domain": "business",
+    "domain_reason": "It pertains to basic mechanics of stock market pricing and trading sessions, which are standard finance/markets topics."
+  },
+  {
+    "prompt": "What should I do if I lost money in a scam?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "The user is asking for general next steps after losing money in a scam, which typically involves a standard set of recommended actions rather than complex analysis.",
+    "domain": "business",
+    "domain_reason": "It relates to financial scams, loss recovery, and dealing with financial institutions or authorities, placing it in the personal finance/business domain."
+  },
+  {
+    "prompt": "How much more than my mortgage should I charge for rent?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "Determining a rent amount above a mortgage payment is a relatively simple pricing question that can be addressed with basic rules of thumb and a few cost considerations.",
+    "domain": "business",
+    "domain_reason": "It concerns rental pricing, landlord costs, and return on a property, which are standard real estate and small-business finance issues."
+  },
+  {
+    "prompt": "I cosigned for a friend who is not paying the payment",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "weak",
+    "label_reason": "The issue centers on the straightforward legal and financial consequences of co-signing when the primary borrower defaults.",
+    "domain": "business",
+    "domain_reason": "It deals with credit obligations, loans, and liability in personal finance, which are within the business/finance domain."
+  },
+  {
+    "prompt": "Is 4-5 years the \u201cMidlife Crisis\u201d for a programming career?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "This involves reflecting on career trajectories, motivation, burnout, and industry norms over several years, which requires nuanced reasoning.",
+    "domain": "business",
+    "domain_reason": "The question is about career development and professional lifecycle in programming, which fits under work and career/business topics rather than pure coding."
+  },
+  {
+    "prompt": "Are there hidden downsides to a shorter mortgage?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Assessing hidden downsides of a shorter mortgage requires weighing interest costs, cash flow constraints, opportunity cost, and risk tradeoffs.",
+    "domain": "business",
+    "domain_reason": "Mortgages, loan terms, and their tradeoffs are central topics in personal finance and lending, which belong to the business domain."
+  },
+  {
+    "prompt": "How is early-and-often home buying as \"get rich\" advice feasible?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Evaluating early-and-often home buying as a wealth strategy requires analyzing leverage, risk, cash flow, housing markets, and personal finance tradeoffs.",
+    "domain": "business",
+    "domain_reason": "It is about real estate investing and personal wealth-building tactics, which fall under finance and business."
+  },
+  {
+    "prompt": "Looking after a wayward brother in mother's will",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Handling a 'wayward brother' in a will touches on legal, financial, and family-dynamics considerations, requiring nuanced judgment rather than a straightforward rule.",
+    "domain": "business",
+    "domain_reason": "The core issue is estate planning and inheritance arrangements, which are financial/legal planning topics within the broader business/finance domain."
+  },
+  {
+    "prompt": "A large e-commerce company is undergoing a major replatforming effort, replacing its legacy monolith with a microservices-based architecture while simultaneously expanding into two new international markets. The organization currently has:\n- Multiple Scrum teams working on different parts of the platform, each with its own backlog and Product Owner.\n- A centralized project management office (PMO) that tracks timelines, budgets, and risks using traditional project plans.\n- Marketing and operations teams that are not using Agile and plan campaigns and logistics on quarterly and annual cycles.\n\nFrequent issues include misaligned release dates between tech and marketing, last-minute integration problems between microservices, and confusion over who owns cross-cutting concerns (e.g., performance, security, SEO).\n\nDesign an integrated project management and Agile workflow model that:\n1) Aligns technology, marketing, and operations around shared product goals and release plans, including how to synchronize different cadences (e.g., 2-week sprints vs. quarterly campaigns).\n2) Defines a clear ownership and governance model for cross-cutting concerns across microservices teams, including how to structure architecture boards, guilds/chapters, or enabling teams.\n3) Proposes how the PMO should evolve its role, tools, and processes to support Agile delivery (e.g., moving from task tracking to outcome-based oversight, using portfolio Kanban instead of static Gantt charts).\n4) Introduces mechanisms for managing dependencies and integration risks between teams (e.g., integration sprints, contract testing, shared milestones), and explains how these will be reflected in both Agile backlogs and project-level plans.\n5) Recommends a set of cross-functional ceremonies and artifacts (e.g., joint quarterly planning, integrated demos, readiness checklists) that ensure end-to-end readiness for major launches in existing and new markets.\n\nDetail how your model will handle:\n- Situations where market launch dates are fixed due to external commitments but technical work is still uncertain.\n- Conflicts between local market requirements and the global platform roadmap.\n- Coordinating work across time zones and partially overlapping teams.\n\nExplain the trade-offs between centralizing coordination (e.g., strong PMO, central release management) and empowering autonomous product teams, and how you would iteratively refine this model based on delivery outcomes and stakeholder feedback.",
+    "label": "strong",
+    "label_reason": "This prompt is complex and strong because it involves integrating Agile software development workflows with traditional business functions (marketing, operations) and evolving the role of a PMO. It requires designing governance, ownership structures, synchronization mechanisms, and cross-functional ceremonies in the context of a large, high-stakes replatforming and market expansion effort.",
+    "domain": "business",
+    "domain_reason": "The scenario is clearly in the business domain of project management and Agile workflows, involving Scrum teams, PMO evolution, cross-functional alignment, dependency management, and governance in an e-commerce company. These are core topics within business project and program management, particularly in Agile and digital transformation contexts.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Ballpark salary equivalent today of \"healthcare benefits\" in the US?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Estimating a salary-equivalent value for healthcare benefits requires considering insurance costs, employer contributions, and market variability, making it a nuanced calculation.",
+    "domain": "business",
+    "domain_reason": "The topic is about compensation structure and the monetary value of employer-provided benefits, which fits within employment and personal finance in business."
+  },
+  {
+    "prompt": "Why are 30-year mortgages seen as unwise, if you can pay off the loan in a shorter period of time anyway?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "This involves comparing mortgage term structures, prepayment strategies, interest costs, and behavioral/financial trade-offs, requiring multi-factor reasoning.",
+    "domain": "business",
+    "domain_reason": "It is about personal finance and loan structuring, which falls under the broader business/finance domain rather than general trivia."
+  },
+  {
+    "prompt": "A mid-market cybersecurity company offers a cloud-native platform for SMBs and mid-sized enterprises, bundling threat detection, endpoint protection, and compliance tooling. Historically sales-led, the company is shifting toward a product-led growth motion while entering new geographies (Latin America and Eastern Europe). Its website is legacy, feature-heavy, and lacks a coherent SEO strategy or marketing narrative.\n\nYou have been hired to architect a comprehensive marketing strategy anchored in SEO-driven demand creation and capture, designed to serve both self-serve customers and sales-assisted deals.\n\nCreate a strategy that includes:\n1) Positioning and messaging:\n- Develop a positioning framework that clearly differentiates the company from:\n  * Pure-play endpoint protection vendors,\n  * Full-stack enterprise security suites,\n  * Low-cost \u201cfreemium\u201d tools used by SMBs.\n- Define key messages and SEO themes for three primary audiences: (a) SMB owners/IT generalists, (b) security managers in mid-market firms, and (c) partners/MSPs. For each audience, map:\n  * Their primary fears, triggers, and objections;\n  * The specific keyword clusters and search intents they are likely to use (e.g., \"SOC 2 compliance tools for startups\" vs. \"best SMB antivirus alternatives\").\n\n2) SEO information architecture and content strategy:\n- Propose a new site architecture with at least four main sections (e.g., Solutions, Use Cases, Resources, Partner Hub) and a detailed breakdown of how SEO content will be distributed across these sections.\n- Design at least three content clusters with pillar pages and supporting content. For example:\n  * \"Compliance & Audits\" (e.g., SOC 2, ISO 27001, HIPAA);\n  * \"SMB Cybersecurity 101\" education hub;\n  * \"Comparisons & Alternatives\" pages targeting competitors and generic tool categories.\nFor each cluster, specify:\n  * Pillar topics, target keywords, and search intent;\n  * Supporting article ideas, internal linking maps, and indicative CTAs aligned with self-serve sign-ups vs. demo requests.\n\n3) SEO copywriting and tone:\n- Define a tone-of-voice guideline that balances technical credibility with accessibility. Detail how this will differ for SMB vs. mid-market audiences, and how you will handle jargon, acronyms, and regulatory language.\n- Draft:\n  * A 200\u2013250 word SEO-optimized intro section for a \"SMB Cybersecurity 101\" hub page, including headings, primary keywords, and a clear CTA;\n  * A 200\u2013250 word comparison page section titled \"[Competitor Name] vs. [Your Brand]: Which Is Better for Growing SMBs?\" that uses SEO best practices for head-to-head comparison, while remaining compliant and non-defamatory.\n\n4) Global expansion and localization:\n- Outline how you will adapt the marketing and SEO strategy for Latin America and Eastern Europe, addressing:\n  * Language localization vs. transcreation for key pages;\n  * Differences in regulatory frameworks and their impact on SEO copy (e.g., local compliance terms);\n  * Region-specific keyword research, including how to handle English vs. local language queries.\n\n5) Measurement and iteration:\n- Define a KPI framework covering:\n  * Organic traffic, rankings for priority keywords, and TOFU/MOFU/BOFU content performance;\n  * Conversion metrics for self-serve sign-ups and sales-qualified leads;\n  * Content engagement metrics and their use in refining SEO copy and topic choices.\n- Suggest a quarterly iteration process that connects sales feedback, product updates, and competitive changes into ongoing SEO content and marketing strategy adjustments.\n\nDeliver a unified plan that ties all these elements together, making explicit the link between your SEO copywriting choices and broader marketing strategy decisions.",
+    "label": "strong",
+    "label_reason": "The prompt spans positioning, audience segmentation, SEO IA design, multi-cluster content strategy, tone-of-voice definition, region-specific localization, and KPI-driven iteration. It requires creation of concrete SEO copy as well as the articulation of measurement frameworks and feedback loops. The requirement to reconcile product-led and sales-led motions, plus regionally tailored SEO and messaging, makes this a multi-dimensional, 'strong' complexity task.",
+    "domain": "business",
+    "domain_reason": "The scenario is business-oriented, addressing go-to-market strategy for a cybersecurity company undergoing a motion shift and geographic expansion. The core tasks are marketing strategy (positioning, messaging by segment, tone, expansion strategy) and SEO copywriting (hub content, comparison pages, on-page structure, keyword alignment) as the main levers for demand creation and capture.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How to deal with the credit card debt from family member that has passed away?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Handling credit card debt after a family member's death involves legal, contractual, and estate considerations, making it more complex than a straightforward procedural query.",
+    "domain": "business",
+    "domain_reason": "The topic is about debt obligations, estates, and creditor rights, which are core issues in personal finance and consumer finance within the business domain."
+  },
+  {
+    "prompt": "You are the VP of People at a mid-sized, venture-backed startup (~600 employees) that is transitioning from a founder-centric culture to a professionally managed organization. Historically, HR policies were informal, with high tolerance for ad hoc decisions by founders and early leaders. Recent employee surveys indicate widespread concerns about favoritism, inconsistent performance standards, and unclear expectations for managers.\n\nYour primary objective is to institutionalize fair, transparent HR policies and robust team management practices without destroying the startup\u2019s entrepreneurial spirit and speed. You must operate under budget constraints and a mandate from the board to improve retention, reduce legal risk, and increase accountability.\n\nConstruct a detailed plan that includes:\n1) Manager role definition and expectations: Define a clear, company-wide role description for people managers, including specific behaviors and responsibilities (e.g., frequency and quality of 1:1s, feedback delivery, performance documentation, career coaching, conflict resolution). Specify which expectations are non-negotiable and which can be tailored by function or level.\n2) Performance and promotion policies: Design a standardized performance review and promotion process that reduces favoritism and subjectivity, including: criteria transparency, documentation requirements, calibration sessions, and appeal mechanisms. Explain how managers should communicate decisions and handle pushback from high performers who feel entitled to rapid advancement.\n3) Policy codification and exception handling: Develop a framework for codifying HR policies (e.g., in an employee handbook or policy portal) while allowing limited, controlled exceptions for unique cases (e.g., early employees with special equity arrangements, critical hires). Define who can authorize exceptions, how they are documented, and how to prevent exception creep that undermines fairness.\n4) Founders\u2019 and senior leaders\u2019 role: Outline how founders and senior leaders must adapt their team management behavior (e.g., no more side deals, reduced direct interference in line-level decisions) and how HR will support or challenge them when they violate agreed policies. Include strategies for protecting HR\u2019s independence and credibility.\n5) Cultural preservation vs. professionalism: Propose specific HR policies and team rituals that preserve autonomy, experimentation, and speed (e.g., lightweight approvals, fast feedback loops) while establishing guardrails around harassment, discrimination, working hours, and respectful communication. Show how managers should reconcile \u201cmove fast\u201d expectations with healthy boundaries and respectful treatment.\n\nDeliverables should include:\n- A manager handbook outline with key sections and example policy language.\n- A decision matrix for managers indicating which decisions are at their discretion vs. require HR or leadership approval.\n- A phased rollout plan over 6\u201312 months, including pilots in selected departments, measurement of impact (e.g., via engagement surveys, attrition metrics, policy violation incidents), and iterative refinement.\n\nAnalyze potential failure modes such as: managers ignoring documentation requirements, founders bypassing HR, employees perceiving the new system as bureaucratic, or burnout from increased managerial responsibilities. For each, propose specific countermeasures (training, incentives, governance, communication) that align HR policies and team management practices with the company\u2019s strategic goals.",
+    "label": "strong",
+    "label_reason": "This prompt requires integrating cultural transformation, policy codification, managerial role clarity, governance of exceptions, leadership behavior change, and multi-phase implementation in a resource-constrained startup context. It asks for concrete artifacts (handbook outline, decision matrix, rollout plan) and explicit risk analysis, making it multi-dimensional and strongly complex rather than straightforward.",
+    "domain": "business",
+    "domain_reason": "The entire scenario is focused on business HR and team management: defining manager roles, standardizing performance and promotion processes, codifying HR policies, shaping founder and leader behavior, and balancing culture with professionalism. All tasks directly concern how HR policies are established and how managers lead teams under those policies.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Is US health insurance just a terrible deal overall for a healthy young adult?",
+    "needs_rag": false,
+    "source": "stackexchange_money",
+    "label": "strong",
+    "label_reason": "Assessing whether US health insurance is a 'terrible deal' for a young adult requires comparing costs, risks, expected value, and policy structures, which is a multi-dimensional evaluation.",
+    "domain": "business",
+    "domain_reason": "The question centers on insurance products, pricing, and value, which are part of health economics and personal finance/business considerations."
+  },
+  {
+    "prompt": "I wrote a novel, now what?",
+    "needs_rag": true,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Figuring out what to do after finishing a novel touches on revision, publishing paths, and career strategy, which is multifaceted.",
+    "domain": "business",
+    "domain_reason": "It primarily concerns next steps in the writing-to-publication pipeline, including querying, marketing, and publishing options."
+  },
+  {
+    "prompt": "How do I write a comment in Python?",
+    "label": "weak",
+    "source": "batch_07_results.json",
+    "label_reason": "Showing how to write a comment in Python is a very basic syntax question requiring only a short code example.",
+    "domain": "coding",
+    "domain_reason": "The question is about Python syntax, which is squarely within the coding domain.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How do I get the current date in JavaScript?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Getting the current date in JavaScript is a single-step task using the Date object or related APIs with no intricate logic.",
+    "domain": "coding",
+    "domain_reason": "It asks how to use a standard JavaScript API to retrieve the current date, a basic programming operation."
+  },
+  {
+    "prompt": "What is the difference between 'git pull' and 'git fetch'?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Differentiating 'git pull' from 'git fetch' is a basic conceptual distinction frequently covered in introductory Git tutorials.",
+    "domain": "coding",
+    "domain_reason": "It concerns understanding two specific Git commands and their behavior in a development workflow."
+  },
+  {
+    "prompt": "Reference Guide: What does this symbol mean in PHP? (PHP Syntax)",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "The prompt is a direct request to interpret a specific PHP symbol, which is a simple reference-style question.",
+    "domain": "coding",
+    "domain_reason": "It deals with PHP syntax, clearly placing it in the programming domain."
+  },
+  {
+    "prompt": "HTTP GET with request body",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Asking about HTTP GET with a request body is a narrow protocol usage question that mainly requires citing standards and typical practice, not complex problem solving.",
+    "domain": "coding",
+    "domain_reason": "It deals with HTTP methods and request semantics, which are part of web programming and API design in the coding domain."
+  },
+  {
+    "prompt": "Make an existing Git branch track a remote branch?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "This is a direct Git command usage question about configuring branch tracking, involving a simple sequence of commands.",
+    "domain": "coding",
+    "domain_reason": "The topic is about using Git, a core software development tool, in a source-control workflow context."
+  },
+  {
+    "prompt": "Encode URL in JavaScript",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Encoding a URL in JavaScript is a direct API usage question with a small number of standard functions as answers.",
+    "domain": "coding",
+    "domain_reason": "It involves using JavaScript's built-in URL encoding functions in a programming context."
+  },
+  {
+    "prompt": "How do I check if a directory exists or not in a Bash shell script?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Checking for directory existence in a Bash script is a basic shell scripting pattern with minimal conceptual depth.",
+    "domain": "coding",
+    "domain_reason": "The question is about Bash scripting and filesystem checks, which are part of programming and scripting."
+  },
+  {
+    "prompt": "How do I loop through or enumerate a JavaScript object?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Looping through or enumerating a JavaScript object is a simple iteration pattern with a few standard constructs.",
+    "domain": "coding",
+    "domain_reason": "It deals with JavaScript object traversal, a core coding concern."
+  },
+  {
+    "prompt": "Copying files from Docker container to host",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Copying files from a Docker container to the host is a straightforward use of docker CLI commands without complex orchestration.",
+    "domain": "coding",
+    "domain_reason": "It involves using Docker tooling in a development/operations context, which is part of software engineering and coding workflows."
+  },
+  {
+    "prompt": "How do I check for an empty/undefined/null string in JavaScript?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "weak",
+    "label_reason": "Determining whether a string is empty/undefined/null in JavaScript is a basic conditional-check pattern.",
+    "domain": "coding",
+    "domain_reason": "It deals with handling JavaScript variable states and string checks, a core coding concern."
+  },
+  {
+    "prompt": "Is it wrong to use a boolean parameter to determine behavior?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Evaluating boolean parameters involves understanding API design, readability, and maintainability trade-offs rather than a simple yes/no rule.",
+    "domain": "coding",
+    "domain_reason": "It concerns function signatures and coding style decisions in software development."
+  },
+  {
+    "prompt": "If immutable objects are good, why do people keep creating mutable objects?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Reconciling the value of immutability with the prevalence of mutable objects requires understanding performance, ergonomics, and design trade-offs.",
+    "domain": "coding",
+    "domain_reason": "It concerns object mutability, a core concept in programming language and API design."
+  },
+  {
+    "prompt": "Scheme vs Common Lisp: Which characteristics made a difference in your project?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Comparing Scheme and Common Lisp in terms of project impact requires multi-faceted evaluation of language features, tooling, and real-world tradeoffs.",
+    "domain": "coding",
+    "domain_reason": "It focuses on differences between two programming languages and how their characteristics affect software projects, which is core to coding and language choice."
+  },
+  {
+    "prompt": "Write a regex to validate RFC 5322 email addresses perfectly.",
+    "label": "strong",
+    "source": "batch_09_results.json",
+    "label_reason": "Writing a regex that perfectly validates RFC 5322 email addresses is highly intricate due to the many edge cases and formal grammar rules involved.",
+    "domain": "coding",
+    "domain_reason": "The task is to construct a complex regular expression, which is a programming-related pattern-matching problem.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Why do many exception messages not contain useful details?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Explaining why exception messages lack useful details involves understanding error handling practices, logging strategies, and organizational habits.",
+    "domain": "coding",
+    "domain_reason": "The topic is about how exceptions are implemented and used in software development."
+  },
+  {
+    "prompt": "I'm a Subversion geek, why should I consider or not consider Mercurial or Git or any other DVCS?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Comparing DVCS tools to Subversion and advising whether to adopt them involves multiple criteria like workflow, features, and migration costs.",
+    "domain": "coding",
+    "domain_reason": "It is about evaluating different version control systems used in software development."
+  },
+  {
+    "prompt": "How do I know how reusable my methods should be?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Determining how reusable methods should be requires reasoning about cohesion, coupling, YAGNI, and future change, which is conceptually rich.",
+    "domain": "coding",
+    "domain_reason": "It focuses on method design and reuse decisions within code, a core programming practice issue."
+  },
+  {
+    "prompt": "Implement Paxos.",
+    "label": "strong",
+    "source": "batch_09_results.json",
+    "label_reason": "Implementing Paxos involves understanding and encoding a nontrivial distributed consensus algorithm with multiple roles, message flows, and failure modes.",
+    "domain": "coding",
+    "domain_reason": "The prompt explicitly asks to implement a well-known distributed algorithm, which is a programming task grounded in distributed systems.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Undoing a git rebase",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "strong",
+    "label_reason": "Undoing a git rebase can involve understanding commit history, reflogs, and multiple recovery strategies, making it a multi-step, non-trivial task.",
+    "domain": "coding",
+    "domain_reason": "It deals with using Git, a version control tool, in a software development workflow context."
+  },
+  {
+    "prompt": "Explain step by step how to implement binary search correctly, including edge cases (empty arrays, single elements, duplicates, off-by-one errors). Then prove termination and correctness.",
+    "label": "strong",
+    "source": "batch_08_results.json",
+    "label_reason": "Implementing binary search correctly with all edge cases and then proving termination and correctness requires careful algorithmic reasoning and formal proof.",
+    "domain": "coding",
+    "domain_reason": "It focuses on algorithm implementation details and correctness proofs for a fundamental programming routine.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Implement a lock-free concurrent queue using CAS.",
+    "label": "strong",
+    "source": "batch_10_results.json",
+    "label_reason": "Implementing a lock-free concurrent queue with CAS requires detailed understanding of concurrency primitives, memory ordering, and non-blocking algorithms.",
+    "domain": "coding",
+    "domain_reason": "The prompt is about implementing a specific concurrent data structure in code using low-level atomic operations.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Implement a Merkle tree for distributed file verification.",
+    "label": "strong",
+    "source": "batch_12_results.json",
+    "label_reason": "Implementing a Merkle tree for distributed file verification requires understanding tree data structures, hashing, and verification protocols, which is more involved than a simple coding snippet.",
+    "domain": "coding",
+    "domain_reason": "The prompt asks for an implementation of a specific data structure and algorithm, which is a coding-focused task.",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Write a catchy chorus about summer.",
+    "label": "weak",
+    "label_reason": "The instruction is simple and superficial, requesting only a chorus with a broad topic and no detailed structural or stylistic rules.",
+    "domain": "creative_writing",
+    "domain_reason": "It belongs to creative_writing and specifically to song lyrics since it calls for a chorus, a core part of many songs.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "A Robot's Last Words",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The prompt 'A Robot's Last Words' is short and open-ended, inviting a simple creative response without inherent structural or logical complexity.",
+    "domain": "creative_writing",
+    "domain_reason": "It clearly suggests a narrative or imaginative piece centered on a robot's final statement or scene."
+  },
+  {
+    "prompt": "Create a short birthday toast for a close sibling.",
+    "label": "weak",
+    "label_reason": "Weak complexity because the task is direct and narrow, needing only a basic celebratory message without complex plot, character development, or constraints.",
+    "domain": "creative_writing",
+    "domain_reason": "Falls under creative_writing as it asks for a creative, original toast, and is Speechwriting & toasts because birthday toasts are a common, brief spoken tribute.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How often should I remind my readers of the setting?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "weak",
+    "label_reason": "Deciding how often to remind readers of the setting is a relatively simple pacing and emphasis question about descriptive frequency.",
+    "domain": "creative_writing",
+    "domain_reason": "It concerns how often to include setting details in a story, which is a basic craft issue in creative writing."
+  },
+  {
+    "prompt": "The Thirteenth Arrow",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The title 'The Thirteenth Arrow' is a simple story or prompt seed that does not itself encode complex constraints or reasoning.",
+    "domain": "creative_writing",
+    "domain_reason": "It reads like a story title or writing prompt, likely involving narrative about an arrow or symbolic thirteenth item."
+  },
+  {
+    "prompt": "Write a short paragraph that describes the joy of meeting an old friend again.",
+    "label": "weak",
+    "label_reason": "Weak complexity: asks for one brief paragraph about a familiar, simple emotional moment without complex plot.",
+    "domain": "creative_writing",
+    "domain_reason": "Creative writing: invites expressive, personal-style narration; emotive descriptive paragraph: highlights joyful emotions and descriptive impressions of the reunion.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Imagine a stand-up comedy bit where a robot jokes about how weird humans are.",
+    "label": "weak",
+    "label_reason": "The prompt focuses on a 'stand-up comedy bit,' clearly signaling humorous content with observational jokes from a robot\u2019s perspective.",
+    "domain": "creative_writing",
+    "domain_reason": "It is creative writing by asking for invented comedic performance material, and it fits satire & humor through its playful commentary on human quirks.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "The brain-curdling eldritch horrors and the third dimension",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "Despite the dramatic wording, 'The brain-curdling eldritch horrors and the third dimension' mainly signals a thematic or atmospheric description rather than a complex task specification.",
+    "domain": "creative_writing",
+    "domain_reason": "The language is evocative and Lovecraftian, pointing toward horror-themed narrative or descriptive writing about dimensions and monstrosities."
+  },
+  {
+    "prompt": "How do I stop using 'the' to start sentences so much?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "weak",
+    "label_reason": "This is a narrow stylistic issue about overusing a specific word at sentence starts, which can be addressed with straightforward editing tips.",
+    "domain": "creative_writing",
+    "domain_reason": "It concerns sentence-level prose style and revision in writing."
+  },
+  {
+    "prompt": "Tell a fantasy story about a young wizard who finds a magic sword.",
+    "label": "weak",
+    "label_reason": "The prompt is short and surface-level, specifying only a basic character (young wizard) and object (magic sword) with no complex plot, worldbuilding requirements, or advanced instructions.",
+    "domain": "creative_writing",
+    "domain_reason": "It belongs to creative_writing by requesting a story, and clearly to sci-fi / fantasy through the fantasy elements of a wizard and a magic sword.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "After the funeral",
+    "needs_rag": true,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The phrase is just a short title-like snippet without an explicit multi-step task.",
+    "domain": "creative_writing",
+    "domain_reason": "It resembles the title of a story or scene, which fits a literary or narrative context."
+  },
+  {
+    "prompt": "Where to draw the line between fantasy and reality in a story?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Determining where to draw the line between fantasy and reality in a story involves complex balancing of worldbuilding, tone, and audience expectations, making it a sophisticated craft issue.",
+    "domain": "creative_writing",
+    "domain_reason": "The question is about blending fantastical and realistic elements in narrative, a central topic in speculative fiction and broader creative writing."
+  },
+  {
+    "prompt": "How do you avoid smiling, head-bobbing characters?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Eliminating recurring physical tics in characters involves deeper considerations of characterization, body language, and scene dynamics rather than a single rule.",
+    "domain": "creative_writing",
+    "domain_reason": "It directly concerns how to portray characters and their mannerisms in narrative fiction."
+  },
+  {
+    "prompt": "How do I write LGBT characters without looking like I'm trying to be politically correct?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Writing LGBT characters sensitively without seeming performative involves complex social, cultural, and craft considerations that demand nuanced guidance.",
+    "domain": "creative_writing",
+    "domain_reason": "The focus is on character creation and representation in fiction, which is squarely within creative writing craft."
+  },
+  {
+    "prompt": "Chekhov's gun, but it's just \"useless\" background info",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Exploring 'Chekhov's gun' in relation to seemingly useless background info involves understanding narrative theory, foreshadowing, and reader expectations, adding conceptual complexity.",
+    "domain": "creative_writing",
+    "domain_reason": "Chekhov's gun is a storytelling principle, and the prompt is about how to handle background details in narrative structure."
+  },
+  {
+    "prompt": "Avoiding the \"as you know\" trope in exposition",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Avoiding the 'as you know' trope entails understanding exposition techniques, subtext, and integrating information organically into a story.",
+    "domain": "creative_writing",
+    "domain_reason": "The question is about handling exposition in narrative, a specific craft concern in creative writing."
+  },
+  {
+    "prompt": "How to show a character being bored for multiple chapters without boring the reader",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "This asks for multi-chapter narrative strategies to depict boredom engagingly, which requires nuanced discussion of pacing, characterization, and reader psychology.",
+    "domain": "creative_writing",
+    "domain_reason": "It focuses on how to portray a character\u2019s emotional state in fiction without losing reader interest, a core craft issue in creative writing."
+  },
+  {
+    "prompt": "Compose four emotive descriptive paragraphs that portray a single rainy night in a small apartment kitchen, but from two alternating internal states of the same character.\n\nStructure:\n- Paragraph 1: The character is quietly hopeful, trying to convince themselves that their life can still change. This hopefulness must be conveyed only through the way they perceive the kitchen (light on water drops, the gentle simmer of a pot, the soft hum of an old refrigerator), without any explicit mention of hope or future plans.\n- Paragraph 2: Without breaking temporal continuity, subtly shift into a contrary internal state of latent despair triggered by a minor, almost mundane detail (e.g., a chipped mug, a stack of unpaid bills, a stain on the counter). The reader should feel this emotional shift through the transformation of the same environment\u2019s description, not through direct statements about feelings.\n- Paragraph 3: Return to the earlier hopeful state, but show that it is now strained, fragile, or forced. Let the description of the kitchen incorporate both the luminous elements from Paragraph 1 and the bleak elements from Paragraph 2, revealing a tension between them.\n- Paragraph 4: Allow the emotional state to settle into a complex blend that cannot be easily named\u2014part resignation, part tenderness, part quiet determination. This concluding paragraph should make use of a recurring object (like a kettle, a photograph on the fridge, or a plant on the windowsill) whose description changes in subtle ways across all four paragraphs, culminating in a final, resonant image.\n\nAdditional constraints:\n1. The character must never be named, and their backstory must never be explicitly stated. The emotional narrative must unfold entirely through descriptive observation of the kitchen and the rainy night outside the window.\n2. Use a first-person present-tense voice to heighten immediacy, but avoid direct emotional declarations (\u201cI am sad,\u201d \u201cI feel hopeful\u201d). Instead, show emotion through micro-actions (how they handle objects, how long they stare at something), and through what details they choose to notice or ignore.\n3. Incorporate all five senses across the four paragraphs, but distribute emphasis unevenly (e.g., one paragraph more focused on sound, another on smell, another on touch), to mirror the shifting interiority.\n4. Maintain a consistent timeline: the entire piece should feel like it unfolds over no more than ten minutes of real time, preserving a sense of stillness and containment.\n\nThe goal is to create a multi-layered, emotionally rich descriptive sequence where the kitchen and the rain act as mirrors of the character\u2019s conflicting inner states, resulting in four paragraphs that are individually emotive yet collectively reveal a nuanced emotional evolution.",
+    "label": "strong",
+    "label_reason": "The prompt focuses explicitly on generating multiple emotive descriptive paragraphs that chart internal emotional shifts via environmental description. It demands intricate emotional contrasts (hope vs. despair vs. complex blend), strict avoidance of explicit emotional labeling, and reliance on sensory-rich description to convey feeling. The required structure and constraints ensure the output is centered on emotive paragraph-level description rather than plot or dialogue, clearly aligning with 'Emotive descriptive paragraphs'.",
+    "domain": "creative_writing",
+    "domain_reason": "This task is rooted in creative writing craft: manipulating perspective, tense, recurring motifs, and sensory detail to reveal inner life. The emphasis on a single setting, evolving imagery, and a tight time frame are hallmark techniques in literary prose. Alternate internal states, subtextual character development, and symbolic use of objects are all central to advanced creative writing, confirming it as a creative_writing-domain prompt.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Should we avoid writing fiction about historical events without extensive research?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "This involves ethical, practical, and artistic considerations about research standards and responsibility when fictionalizing history.",
+    "domain": "creative_writing",
+    "domain_reason": "It concerns how to approach writing fiction that engages with historical events and contexts."
+  },
+  {
+    "prompt": "Generate a detailed scene plan (not the full prose) for the opening act (approximately 5\u20137 scenes) of a character-driven fantasy science fiction novel in which time travel is illegal, but memory travel is not. In this universe, an arcane-technological guild called the Mnemosyne Navigators allows clients to re-inhabit their own past experiences as fully immersive \u2018memory voyages\u2019\u2014but a recent breakthrough has made it possible to alter those memories in ways that subtly change reality.\n\nCore character requirements:\n- Protagonist: A mid-level Navigator who secretly uses memory voyages to escape the trauma of having failed to prevent a planetary-scale disaster a decade ago.\n- Deuteragonist: A time-displaced refugee from a timeline that no longer exists, who only survives as a fragile \u2018memory echo\u2019 inhabiting the protagonist\u2019s mind.\n- Antagonistic force: Not a person, but an emergent paradox\u2014reality itself beginning to fragment as multiple altered memories compete to define what \u2018really\u2019 happened.\n\nScene-planning constraints:\n- Each scene must specify: (1) setting and its sensory details, (2) which characters are present, (3) the immediate goal of each character, (4) what new information about the world\u2019s rules is revealed, and (5) a specific way in which the boundaries between memory and physical reality are blurred.\n- At least one scene must take place entirely inside a shared memory space, where both protagonist and deuteragonist experience past events differently, causing conflict.\n- Another scene must show an external consequence in the \u2018real\u2019 world that clearly stems from a modified memory, but that none of the characters fully understand yet.\n- The act should culminate in a destabilizing revelation: the protagonist realizes that one of their core memories\u2014the failure to prevent the disaster\u2014has itself been altered by an unknown agent.\n\nAfter listing the scenes, briefly explain how this opening act establishes the central thematic questions about consent, identity, and the ethics of editing one\u2019s own memories when those edits can reshape the timeline.",
+    "label": "strong",
+    "label_reason": "The prompt requires designing a multi-scene opening act with explicit structural fields for each scene (goals, settings, rule revelations, reality blurring), plus integration of characters, world rules, and thematic setup. It demands precision in planning cause-and-effect between memories and reality and culminates in a specified revelation. This layered, constraint-heavy planning task is complex and qualifies as a strong prompt for narrative generation.",
+    "domain": "creative_writing",
+    "domain_reason": "The scenario involves time and memory manipulation, emergent paradoxes, and reality fragmentation\u2014key science fiction motifs\u2014combined with guild-like structures and arcane-technical guilds reminiscent of fantasy orders. It is explicitly a \u2018fantasy science fiction novel\u2019 premise and focuses on generating story structures in that hybrid sci-fi/fantasy setting.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Write a layered satirical dramatic script (stage play or screenplay format, ~60\u201380 pages in script terms) about a televised \u2018Global Summit on Common Sense\u2019 that spirals into chaos. \n\nPremise: A coalition of world leaders, tech CEOs, influencers, and self-appointed \u2018thought leaders\u2019 convenes to draft a universal charter of \u2018Basic Common Sense.\u2019 The summit is broadcast live, with social media commentary integrated into the event in real time. \n\nStructural and stylistic guidelines:\n1. Acts and setting:\n   - Three acts: (1) Opening Ceremony and Introductions, (2) Drafting the Charter, (3) Live Backlash and Collapse.\n   - Single primary location (a futuristic conference hall), with occasional cutaways to a live social media \u2018reaction room\u2019 projected on screens.\n\n2. Humor and satirical focus:\n   - Satirize performative virtue-signaling, hollow bipartisan centrism, conspiracy culture, and the commodification of \u2018common sense\u2019 as a brand.\n   - Use overlapping dialogue and misunderstandings for comedic effect, especially during drafting sessions where every banal statement is treated as profound.\n   - Integrate on-screen comments (projected tweets, live polls, meme reactions) that undercut or reframe what is happening on stage.\n\n3. Characters and dynamics:\n   - Ensemble cast including: a vaguely defined \u2018Pragmatic Prime Minister,\u2019 a tech billionaire obsessed with \u2018disruption,\u2019 a wellness influencer who insists on re-centering everything around \u2018energy,\u2019 a populist demagogue who keeps derailing discussions, and a weary sign-language interpreter who becomes an audience favorite.\n   - Each character should embody a distinct rhetorical style and bring clashing assumptions about what \u2018common sense\u2019 means.\n\n4. Meta-theatrical and structural complexity:\n   - Include at least one scene where the characters become aware of the live audience and attempt to \u2018pivot\u2019 their personas mid-summit in response to trending hashtags.\n   - Allow the script to critique itself: perhaps a backstage argument between producers about whether the summit is actually making things worse, performed in front of a still-live mic.\n\n5. Thematic resonance:\n   - Beneath the humor, interrogate how public discourse is shaped by spectacle, algorithms, and branding, and how appeals to \u2018common sense\u2019 often conceal deeper ideological conflicts.\n   - Avoid neat resolution; end with an absurdly anodyne charter statement that says nothing, juxtaposed with a final flood of contradictory audience reactions.\n\nEnsure that the comedic beats are balanced with moments of unsettling clarity, making the satire both entertaining and thought-provoking.",
+    "label": "strong",
+    "label_reason": "This belongs to 'Satire & humor pieces' because it requests a comedic dramatic script that explicitly satirizes global summits, public discourse, and branding of 'common sense', employing humor through character archetypes, overlapping dialogue, and meta-theatrical jokes.",
+    "domain": "creative_writing",
+    "domain_reason": "It is in the 'creative_writing' domain as it involves writing an original stage or screen script with acts, characters, dialogue, and staging considerations, requiring dramatic structure and inventive world-building.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "You are ghostwriting for a seasoned software engineer who runs a thoughtful engineering-culture blog. The next post will explore why so many developers feel oddly defensive when their code is reviewed, even in supportive teams. Your task is to write a 300\u2013400 word intro and hook that:\n\n1. Opens with a composite, present-tense scene from the reviewer\u2019s and reviewee\u2019s perspectives during a pull request review\u2014switching POV once, mid-paragraph or between paragraphs, to reveal the emotional subtext on both sides without naming emotions directly.\n2. Uses small concrete details (choice of emoji in comments, length of pauses before replies, how a developer hovers over the \"Request changes\" button) to show how fragile ego, past workplace trauma, and identity investment show up in what appears to be a straightforward technical process.\n3. Introduces an implicit thesis: code review is rarely just about code; it\u2019s a mirror for how we handle being seen, corrected, and invited to grow. This thesis should be felt rather than bluntly stated.\n4. Signals that the blog post will move beyond platitudes about \"psychological safety\" into a deeper exploration of personal narrative, status games, and cultural norms in engineering teams\u2014without using bullet points or explicit \"we\u2019ll cover\" statements.\n5. Maintains a voice that is calm, intellectually honest, and slightly vulnerable, suitable for an experienced practitioner speaking to peers who have \"seen some things\" and are wary of management-speak.\n\nEnd the intro on a hook that frames a question or scenario the rest of the post will unpack, such as what it would look like if code review became a practice of mutual apprenticeship rather than a battlefield for competence. Avoid buzzwords and HR jargon; focus on crafting an opening that makes seasoned engineers recognize themselves and want to keep reading despite mild discomfort.",
+    "label": "strong",
+    "label_reason": "The prompt is complex because it demands multi-POV scene construction, subtle emotional signaling through concrete details, and a carefully implied thesis. It requires a nuanced, non-jargony tone tailored to a specific professional audience and calls for implicit structural promises about the article\u2019s content. The interplay of narrative, psychology, and cultural critique makes this a strong, multi-layered creative task.",
+    "domain": "creative_writing",
+    "domain_reason": "This is clearly about a blog post\u2019s introduction and hook: it specifies word count, opening scene design, POV strategy, and hook construction to set up the article\u2019s deeper exploration. Within 'creative_writing', it emphasizes how to start a reflective engineering-culture blog post in a way that engages and challenges readers from the first paragraphs.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Write a SQL query to select all orders where status equals 'shipped'.",
+    "label": "weak",
+    "label_reason": "Weak complexity: single-table SELECT with a simple equality condition in the WHERE clause.",
+    "domain": "data_analysis",
+    "domain_reason": "This is a straightforward SQL filtering structure, a basic pattern in data_analysis queries.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Say if this A/B test shows an improvement or not.",
+    "label": "weak",
+    "label_reason": "This is weak complexity as it asks for a binary judgment (improvement or not) without deeper exploration of data quality or assumptions.",
+    "domain": "data_analysis",
+    "domain_reason": "It fits data_analysis by requiring the interpretation of A/B outcome metrics to assess performance change.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Give an Excel formula to calculate the sum of a range if values are greater than 0.",
+    "label": "weak",
+    "label_reason": "This is weak complexity as it uses a simple conditional sum with one basic condition and no nested or multi-criteria logic.",
+    "domain": "data_analysis",
+    "domain_reason": "It is part of data_analysis because conditionally summing positive values is a common analytical operation, and the prompt is specifically about an Excel formula.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "R's lmer cheat sheet",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "Requesting an 'R's lmer cheat sheet' is mainly asking for a concise reference or summary rather than an in-depth conceptual treatment.",
+    "domain": "data_analysis",
+    "domain_reason": "The lmer function is part of R's mixed-effects modeling toolkit, which is used in statistical data analysis."
+  },
+  {
+    "prompt": "Explain why tracking KPIs is useful for a small business.",
+    "label": "weak",
+    "label_reason": "The request is for a basic justification, not for data processing or modeling, so the reasoning involved remains shallow and weak in complexity.",
+    "domain": "data_analysis",
+    "domain_reason": "It directly addresses the value of KPI tracking for a business, which falls under data_analysis in terms of monitoring and decision-making.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Remove duplicate rows from this customer list.",
+    "label": "weak",
+    "label_reason": "The instruction is single-step and straightforward, with no advanced logic or multiple conditions, matching a weak complexity level.",
+    "domain": "data_analysis",
+    "domain_reason": "Duplicates are a classic messy-data issue in data analysis, so removing duplicate rows is directly about cleaning messy data.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Suggest a simple KPI dashboard for tracking monthly revenue.",
+    "label": "weak",
+    "label_reason": "The prompt asks only for a simple suggestion, not for implementing or calculating metrics, keeping the task at a weak complexity level.",
+    "domain": "data_analysis",
+    "domain_reason": "It is about setting up a KPI dashboard to track monthly revenue, which is a straightforward KPI tracking activity within data_analysis.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Maximum Likelihood Estimation (MLE) in layman terms",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "Explaining MLE in layman terms is conceptually focused but limited in scope and does not require multi-step derivations or advanced theory.",
+    "domain": "data_analysis",
+    "domain_reason": "Maximum Likelihood Estimation is a core statistical estimation method used in data analysis and statistical modeling."
+  },
+  {
+    "prompt": "Find the most common answer to this survey question.",
+    "label": "weak",
+    "label_reason": "Weak complexity as it only requires identifying the mode, a simple frequency count.",
+    "domain": "data_analysis",
+    "domain_reason": "Clearly survey data analysis since it focuses on responses to a specific survey question.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Convert all column names to lowercase.",
+    "label": "weak",
+    "label_reason": "This is a simple, one-step formatting task with no additional constraints, making it very low in complexity.",
+    "domain": "data_analysis",
+    "domain_reason": "Renaming and standardizing column names is a routine part of cleaning and organizing messy data in data analysis workflows.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Look for overall trends in monthly website traffic data.",
+    "label": "weak",
+    "label_reason": "Weak complexity: the task is just to observe general changes in traffic across months, with no complex methods or metrics requested.",
+    "domain": "data_analysis",
+    "domain_reason": "Data_analysis domain: involves analyzing web traffic data to detect broad trends in usage over time.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "List the top three reasons selected in this multiple-choice survey question.",
+    "label": "weak",
+    "label_reason": "Weak complexity as it focuses on ranking response frequencies and listing the most common ones.",
+    "domain": "data_analysis",
+    "domain_reason": "Firmly survey data analysis because it analyzes choices selected in a multiple-choice survey item.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What happens if the explanatory and response variables are sorted independently before regression?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Analyzing the effect of independently sorting explanatory and response variables before regression demands reasoning about the structure of paired data and the consequences for estimation.",
+    "domain": "data_analysis",
+    "domain_reason": "The question is about how data preprocessing affects regression analysis, a core statistical data analysis technique."
+  },
+  {
+    "prompt": "How to tell if data is \"clustered\" enough for clustering algorithms to produce meaningful results?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Determining whether data are 'clustered enough' requires nuanced understanding of cluster validity indices, domain context, and algorithm behavior rather than a simple rule-of-thumb.",
+    "domain": "data_analysis",
+    "domain_reason": "The question is about assessing data structure for clustering, a core unsupervised statistical and data analysis task."
+  },
+  {
+    "prompt": "What if residuals are normally distributed, but y is not?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Assessing normally distributed residuals when the response variable is not normal involves nuanced understanding of regression assumptions, inference validity, and model diagnostics.",
+    "domain": "data_analysis",
+    "domain_reason": "This question concerns regression modeling assumptions and interpretation of residuals, which is central to applied statistics and data analysis."
+  },
+  {
+    "prompt": "Clustering on the output of t-SNE",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Clustering on the output of t-SNE requires nuanced understanding of manifold learning, distance distortions, and downstream clustering implications.",
+    "domain": "data_analysis",
+    "domain_reason": "This is a question about how to correctly use dimensionality reduction outputs in clustering within a data analysis / machine learning pipeline."
+  },
+  {
+    "prompt": "Python as a statistics workbench",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Discussing Python as a statistics workbench entails covering libraries, workflows, strengths, and limitations for statistical computing.",
+    "domain": "data_analysis",
+    "domain_reason": "The question focuses on using Python tools and ecosystems for performing statistical and data analysis tasks."
+  },
+  {
+    "prompt": "How to interpret a QQ plot?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Interpreting a QQ plot involves understanding quantiles, distributions, and diagnostic patterns, which goes beyond a simple definition.",
+    "domain": "data_analysis",
+    "domain_reason": "QQ plots are standard tools in statistical diagnostics and exploratory data analysis."
+  },
+  {
+    "prompt": "What are modern, easily used alternatives to stepwise regression?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Discussing modern alternatives to stepwise regression involves understanding model selection, regularization methods, and practical considerations, which is more advanced than a simple definition.",
+    "domain": "data_analysis",
+    "domain_reason": "The topic is about statistical modeling techniques and variable selection strategies in applied data analysis."
+  },
+  {
+    "prompt": "How does the correlation coefficient differ from regression slope?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Contrasting correlation coefficient with regression slope involves understanding different statistical objects, their interpretations, and conditions under which they relate, which is conceptually richer.",
+    "domain": "data_analysis",
+    "domain_reason": "Correlation and regression slope are fundamental tools in statistical data analysis and modeling."
+  },
+  {
+    "prompt": "How to calculate Area Under the Curve (AUC), or the c-statistic, by hand",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Calculating AUC or the c-statistic by hand involves integrating or summing over ROC curves, understanding ranking interpretations, and working through nontrivial computations.",
+    "domain": "data_analysis",
+    "domain_reason": "The question focuses on manual computation of a common model performance metric used in classification and predictive modeling in data analysis."
+  },
+  {
+    "prompt": "Should one remove highly correlated variables before doing PCA?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Deciding whether to remove highly correlated variables before PCA requires understanding multicollinearity, covariance structure, and how PCA behaves under redundancy.",
+    "domain": "data_analysis",
+    "domain_reason": "The question is about preprocessing and dimensionality reduction in a data analysis workflow, directly tied to practical statistics and exploratory data analysis."
+  },
+  {
+    "prompt": "Algorithms for automatic model selection",
+    "needs_rag": true,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Discussing algorithms for automatic model selection entails covering multiple methods (e.g., AIC/BIC, cross-validation, regularization) and their trade-offs, which is conceptually rich.",
+    "domain": "data_analysis",
+    "domain_reason": "Model selection is a core topic in statistical modeling and applied data analysis workflows."
+  },
+  {
+    "prompt": "What is an \"uninformative prior\"? Can we ever have one with truly no information?",
+    "needs_rag": true,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "The question probes both the definition and philosophical limits of 'uninformative priors', touching on measure-theoretic and conceptual subtleties in Bayesian statistics.",
+    "domain": "data_analysis",
+    "domain_reason": "Uninformative priors are a central concept in Bayesian statistics, which is a key subfield of data analysis and statistical modeling."
+  },
+  {
+    "prompt": "What is meant by \"purposeful, habitual, and gratuitous\" actions?",
+    "needs_rag": true,
+    "source": "stackexchange_writing",
+    "label": "weak",
+    "label_reason": "The question is a definitional request about a specific phrase, which can be answered by clarifying meanings and giving simple examples.",
+    "domain": "education",
+    "domain_reason": "It is essentially asking for explanation and clarification of terms, fitting an educational/expository context."
+  },
+  {
+    "prompt": "What is the best book to learn probability?",
+    "needs_rag": true,
+    "source": "stackexchange_math",
+    "label": "weak",
+    "label_reason": "Recommending a good book on probability is a straightforward opinion/information request without technical reasoning.",
+    "domain": "education",
+    "domain_reason": "The user is asking for learning resources (a book) rather than about probability theory itself, which fits an education/learning-resources context."
+  },
+  {
+    "prompt": "What is the single most influential book every statistician should read?",
+    "needs_rag": true,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "This is a recommendation-style question asking for a single influential book, which does not require technical derivations or complex reasoning.",
+    "domain": "education",
+    "domain_reason": "The prompt concerns educational resources and curriculum priorities for statisticians."
+  },
+  {
+    "prompt": "What's the difference between probability and statistics?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "Differentiating probability from statistics is a foundational conceptual question that can be answered at a high level without intricate technical detail.",
+    "domain": "education",
+    "domain_reason": "This is a basic conceptual clarification typically covered in introductory educational contexts for probability and statistics."
+  },
+  {
+    "prompt": "What is the difference between 20$ and $20?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "This is a simple formatting and convention question about currency notation, not requiring deep conceptual work.",
+    "domain": "education",
+    "domain_reason": "It relates to standard written conventions in English (currency formatting), which fits general language and writing education."
+  },
+  {
+    "prompt": "Polite alternative for \"none of your business\"",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "The request is for alternative phrasing of a single expression, which is a simple vocabulary/phrasing substitution task.",
+    "domain": "education",
+    "domain_reason": "It focuses on polite language choices and register, a typical topic in language learning and usage guidance."
+  },
+  {
+    "prompt": "When to use & instead of \"and\"",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "This asks a single, straightforward usage rule distinguishing '&' from 'and' without requiring multi-step reasoning.",
+    "domain": "education",
+    "domain_reason": "It concerns basic English writing conventions and style, which fits language/grammar education."
+  },
+  {
+    "prompt": "\"Dear Sir or Madam\" versus \"To whom it may concern\"",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "The question compares two standard forms of address and asks which to use, which is a simple etiquette/usage issue.",
+    "domain": "education",
+    "domain_reason": "It pertains to formal letter-writing conventions and appropriate salutations in English."
+  },
+  {
+    "prompt": "When should I use \"a\" vs \"an\"?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "This is a straightforward grammar rule question about article usage with relatively simple explanation.",
+    "domain": "education",
+    "domain_reason": "It concerns basic English grammar instruction about when to use 'a' versus 'an'."
+  },
+  {
+    "prompt": "What simple memorization method can students use for science terms?",
+    "label": "weak",
+    "label_reason": "The question asks for a single simple method, not a detailed plan or comparison, keeping complexity low and weak.",
+    "domain": "education",
+    "domain_reason": "Science terminology is part of formal education, and the prompt is about memorization techniques for those terms.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Meaning of \"has a ____ to it\"",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "The question is about interpreting a common idiomatic pattern, which is a focused phrase-meaning query.",
+    "domain": "education",
+    "domain_reason": "It concerns understanding the meaning of an English expression, a standard language-learning/education issue."
+  },
+  {
+    "prompt": "What is the opposite of 'hot'?",
+    "label": "weak",
+    "source": "batch_05_results.json",
+    "label_reason": "Finding the opposite of 'hot' is a basic vocabulary and antonym recall task with minimal cognitive load.",
+    "domain": "education",
+    "domain_reason": "This is a simple language/grammar question commonly associated with basic educational exercises in vocabulary.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Visually stunning math concepts which are easy to explain",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "The prompt asks for a curated set of math concepts that are both visually striking and easy to explain, which requires synthesis, selection, and pedagogical judgment rather than a single factual answer.",
+    "domain": "education",
+    "domain_reason": "It focuses on choosing and presenting mathematical ideas in an accessible, visually engaging way, which is primarily a teaching and learning concern."
+  },
+  {
+    "prompt": "How do I handle a colleague's gender change when citing their paper?",
+    "needs_rag": false,
+    "source": "stackexchange_academia",
+    "label": "strong",
+    "label_reason": "Handling citations after a colleague's gender transition touches on identity, respect, citation conventions, and historical vs. current names, requiring nuanced judgment.",
+    "domain": "education",
+    "domain_reason": "It pertains to scholarly citation practices and academic norms, which fall under academic/educational conventions."
+  },
+  {
+    "prompt": "What is the practical difference between a differential and a derivative?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Explaining the practical difference between a differential and a derivative requires nuanced conceptual clarification across multiple contexts (notation, linear maps, infinitesimals).",
+    "domain": "education",
+    "domain_reason": "The question is pedagogical in nature, asking for a conceptual explanation aimed at understanding calculus concepts rather than solving a specific problem."
+  },
+  {
+    "prompt": "Is there an affordable way for non-students to subscribe to multi-journals/archives?",
+    "needs_rag": false,
+    "source": "stackexchange_academia",
+    "label": "strong",
+    "label_reason": "Finding affordable multi-journal access for non-students involves understanding publishing models, library access, and alternative access routes, requiring more than a simple factual answer.",
+    "domain": "education",
+    "domain_reason": "It relates to access to scholarly literature and academic resources typically used in research and higher education."
+  },
+  {
+    "prompt": "I have stack-exchanged through my undergrad math program. Am I likely to succeed in mathematics PhD programs?",
+    "needs_rag": false,
+    "source": "stackexchange_academia",
+    "label": "strong",
+    "label_reason": "Assessing likelihood of success in a math PhD given heavy Stack Exchange use involves nuanced reasoning about study habits, depth of understanding, and graduate-level expectations.",
+    "domain": "education",
+    "domain_reason": "It is about preparation and suitability for graduate study in mathematics within the academic system."
+  },
+  {
+    "prompt": "You are an expert instructional designer tasked with creating a multi-phase, adaptive study guide and exam preparation blueprint for a first-year undergraduate course in Introductory Psychology, aimed at a diverse cohort with widely varying prior knowledge, language proficiency, and study habits.\n\nDesign a comprehensive, 6-week exam prep program that culminates in a high-stakes cumulative final exam. Your output should:\n\n1. Diagnostic & Profiling Layer\n- Specify at least three different diagnostic tools (e.g., concept inventories, learning style/strategy questionnaires, low-stakes quizzes) and detail:\n  - What each diagnostic measures (e.g., conceptual gaps in memory vs. reasoning, metacognitive awareness, time-management habits).\n  - How the results will be categorized into 3\u20134 student profiles (e.g., \u201chigh knowledge/low strategy,\u201d \u201clow knowledge/high motivation,\u201d etc.).\n  - How the profiles will directly inform differentiated study plans and exam-prep strategies.\n\n2. Content Mapping & Prioritization\n- Break the course into 8\u201310 major conceptual clusters (e.g., biological bases of behavior, learning, memory, social psychology, etc.).\n- For each cluster, define:\n  - Core concepts and common misconceptions that frequently appear in exams (include at least 3 misconceptions per cluster).\n  - The level of cognitive demand (e.g., recall, application, analysis, synthesis) you expect on the exam questions for that cluster.\n  - A tiered priority system (e.g., Tier 1: must master; Tier 2: should understand; Tier 3: beneficial but optional) and how students should allocate time across tiers.\n\n3. Multi-Modal Study Strategy Architecture\n- For each concept cluster, propose at least three different study methods that explicitly connect to different cognitive processes (e.g., retrieval practice, elaborative interrogation, dual coding, interleaving, spaced repetition).\n- Explain how each method should be implemented in practice (e.g., \u201c3x/week, 20 minutes of retrieval practice using self-generated questions\u201d vs. \u201cweekly concept mapping and peer explanation sessions\u201d).\n- Integrate both individual and collaborative strategies (e.g., study groups, peer quizzing, teaching-back exercises) and specify how group roles and structures should be designed to maximize exam performance.\n\n4. Time-Structured Weekly and Daily Plan\n- Develop a detailed weekly progression over 6 weeks, showing how students should shift from:\n  - Concept acquisition \u2192 concept consolidation \u2192 exam simulation and refinement.\n- Include:\n  - A sample weekly timetable for a student who can study 10 hours/week and another for a student who can study 20 hours/week.\n  - How to embed rest, reflection, and metacognitive check-ins into the schedule.\n  - Specific milestones (e.g., \u201cBy end of Week 3, students should pass a cumulative progress quiz at 70% or higher\u201d).\n\n5. Exam Simulation & Feedback Mechanisms\n- Design at least three types of exam simulation activities (e.g., timed mixed-topic practice tests, cumulative question banks, oral explanation exams with peers).\n- For each activity, specify:\n  - How closely it aligns with the format and cognitive demand of the final exam.\n  - The feedback cycle: what data is collected, how students interpret it, and how they adjust their study plan.\n  - How to prevent students from over-relying on recognition-based practice and instead emphasize productive struggle and generative learning.\n\n6. Support for Diverse Learners & Constraints\n- Explicitly address accommodations and adaptations for:\n  - Students with limited English proficiency.\n  - Students with ADHD or executive function challenges.\n  - Students working 20+ hours/week jobs.\n- For each group, describe:\n  - Concrete modifications to the study guide (e.g., chunking tasks, alternate formats, additional scaffolding, micro-sessions).\n  - How to maintain rigor and alignment with exam expectations while still being realistic and humane.\n\n7. Metacognitive & Emotional Regulation Layer\n- Integrate specific weekly activities that build metacognitive awareness (e.g., error logs, exam wrappers, self-explanation journals) and emotional regulation (e.g., exam anxiety strategies, self-compassion prompts).\n- Explain how these are embedded into the study plan rather than treated as optional extras.\n\nFinally, present:\n- A sample \u201cProfile A\u201d student (e.g., low prior knowledge, high motivation, limited time) and walk through how they would use this 6-week guide step-by-step up to the exam.\n- A sample \u201cProfile B\u201d student (e.g., strong prior knowledge, low structure, high procrastination) and contrast their customized plan, highlighting the different study tactics and exam-prep focus.\n\nYour answer should be structured, explicit, and operationalizable, as if it were a document given directly to students and instructors to implement for exam preparation.",
+    "label": "strong",
+    "label_reason": "This prompt is labeled as 'strong' complexity because it requires: (1) multi-phase design (diagnostics, content mapping, strategy selection, scheduling, feedback loops, and metacognition); (2) explicit differentiation for multiple learner profiles; (3) integration of cognitive psychology principles (retrieval practice, spacing, interleaving); (4) structured weekly and daily plans with constraints; and (5) explicit adaptation for diverse needs. The solution space is multi-layered and demands synthesis of pedagogy, cognitive science, and practical planning, far beyond a simple or moderate study-guide request.",
+    "domain": "education",
+    "domain_reason": "The domain is education, focused on study guides and exam prep, because the entire prompt centers on designing a 6-week structured study and exam-preparation program for an Introductory Psychology course. It asks for content clustering, prioritization of topics, construction of study schedules, exam simulations, and feedback mechanisms\u2014all of which are direct components of educational study guides and exam preparation strategies.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What should every programmer know?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Determining what every programmer should know is broad and subjective, requiring synthesis of many skills, concepts, and priorities.",
+    "domain": "education",
+    "domain_reason": "It is about outlining a curriculum or knowledge baseline for programmers, which is fundamentally an educational topic."
+  },
+  {
+    "prompt": "How do you come to terms with the fact that you might never be among the best in your research community?",
+    "needs_rag": false,
+    "source": "stackexchange_academia",
+    "label": "strong",
+    "label_reason": "This prompt involves complex emotional regulation, identity, and career expectations in a competitive research environment, requiring nuanced psychological and professional advice rather than a simple factual answer.",
+    "domain": "education",
+    "domain_reason": "The question is rooted in academic research culture and personal development within a scholarly community, which aligns most closely with academia/education rather than general life advice."
+  },
+  {
+    "prompt": "Has \"Not everyone can be a programmer\" been studied?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Asking whether 'Not everyone can be a programmer' has been studied touches on educational research, aptitude, and possibly psychology, requiring reference to empirical studies and nuanced interpretation.",
+    "domain": "education",
+    "domain_reason": "The question is about research into who can learn programming and related educational outcomes, which falls squarely under education and learning sciences."
+  },
+  {
+    "prompt": "You are collaborating with a STEM faculty learning community at a research university to redesign how core formulas, definitions, and procedures are taught and remembered in gateway courses (e.g., Calculus I, General Chemistry, Introductory Physics). Faculty complain that students \u2018forget everything\u2019 between courses and struggle to build on prior knowledge.\n\nYour tasks:\n1. Conduct a conceptual analysis of the role of memorization in STEM learning. Distinguish between:\n   - What must be memorized (e.g., key formulas, constants, canonical definitions)\n   - What should be understood conceptually but may not need verbatim memorization\n   - Situations where over-reliance on memorization can hinder problem-solving\n   Use this analysis to argue for a balanced approach that integrates memorization techniques with conceptual teaching.\n\n2. Propose a cross-course memorization strategy that spans at least three sequential courses (e.g., Calculus I\u2013III, Chem I\u2013II). Include:\n   - A shared set of memorization techniques (e.g., spaced retrieval practice across semesters, interleaving of review problems, formula derivation mnemonics)\n   - Coordination mechanisms (e.g., department-wide \u2018memory checkpoints,\u2019 cumulative quizzes that revisit prior-course content, shared spaced repetition decks maintained at the department level)\n   - Explicit plans for how later courses will reactivate and extend the memorized content from earlier ones.\n\n3. Design example instructional sequences for one topic (e.g., integration techniques, gas laws, or kinematics equations) that show:\n   - How memorization techniques are introduced (e.g., guided creation of mnemonic stories or method-of-loci layouts)\n   - How retrieval practice is embedded (e.g., low-stakes clicker questions, spaced homework problems)\n   - How students are prompted to connect memorized items to conceptual understanding and problem-solving contexts.\n\n4. Develop a faculty development component that:\n   - Addresses common faculty skepticism about \u2018teaching to memorize\u2019\n   - Provides practical tools and templates for incorporating memorization techniques without sacrificing content coverage\n   - Establishes a culture of ongoing evaluation (e.g., sharing data on retention between courses, faculty peer-observation protocols focused on memory-supportive teaching)\n\nExplain how this cross-course design will change the trajectory of students\u2019 long-term retention and transfer in STEM, and how you would measure success over a 3\u20135 year period.",
+    "label": "strong",
+    "label_reason": "This is a strong complexity prompt because it spans conceptual analysis of memorization\u2019s role in STEM, cross-course strategy design, detailed instructional sequencing, and faculty development planning. It requires balancing memorization with conceptual understanding, coordinating across multiple courses and instructors, and proposing long-term evaluation, which is multi-layered and intellectually demanding.",
+    "domain": "education",
+    "domain_reason": "The domain is education, particularly STEM higher education, focusing on gateway courses, faculty learning communities, and curriculum sequencing. The sub-topic is memorization techniques, as the prompt centers on identifying what should be memorized, integrating specific memorization strategies (mnemonics, spaced retrieval, interleaving) into teaching, and coordinating these techniques across sequential courses to improve long-term retention.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Mathematical ideas that took long to define rigorously",
+    "needs_rag": true,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Discussing mathematical ideas that took a long time to define rigorously involves historical context, multiple examples, and nuanced conceptual analysis.",
+    "domain": "education",
+    "domain_reason": "This is about the historical development and formalization of mathematical concepts, which aligns with mathematical education and history rather than a specific technical subfield."
+  },
+  {
+    "prompt": "What is an ablation study? And is there a systematic way to perform it?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "Fallback",
+    "domain": "general",
+    "domain_reason": "Fallback"
+  },
+  {
+    "prompt": "Create a simple 3-day full-body workout plan for a beginner.",
+    "label": "weak",
+    "label_reason": "Weak complexity because it asks for a basic, high-level plan without details on periodization, biomechanics, or individualized programming.",
+    "domain": "general",
+    "domain_reason": "Fits Fitness & workout routines since it directly requests a structured workout plan and mentions full-body training and weekly frequency.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What treats are good for training a small dog?",
+    "label": "weak",
+    "label_reason": "Weak complexity: straightforward request for suitable treats, with a single constraint (small dog).",
+    "domain": "general",
+    "domain_reason": "Pet care & training: training treats are a core tool in reward-based pet training.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "A Weapon or a Toy?",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The phrase is a short, ambiguous title-like question without explicit structure or constraints.",
+    "domain": "general",
+    "domain_reason": "It could apply to many contexts and does not clearly belong to a specific domain like science or business."
+  },
+  {
+    "prompt": "My God, it's full of stars!",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "This is a direct quotation that likely just needs to be recognized or referenced, without requiring multi-step analysis.",
+    "domain": "general",
+    "domain_reason": "The phrase is a well-known cultural reference (e.g., from '2001: A Space Odyssey') and does not inherently belong to a technical or specialized domain."
+  },
+  {
+    "prompt": "What is the Wi-Fi password for the guest network?",
+    "label": "weak",
+    "source": "batch_12_results.json",
+    "label_reason": "The user is simply asking for a specific password, which involves no conceptual reasoning or multi-step explanation.",
+    "domain": "general",
+    "domain_reason": "Requesting a Wi-Fi password is a generic information request unrelated to specialized domains like coding or business.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How many minutes in an hour?",
+    "label": "weak",
+    "source": "batch_14_results.json",
+    "label_reason": "Determining how many minutes are in an hour is a basic arithmetic/factual question with no nuanced reasoning.",
+    "domain": "general",
+    "domain_reason": "This is a simple everyday fact about time measurement rather than a problem in formal mathematics or another specialized domain.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How many hours are in a day?",
+    "label": "weak",
+    "source": "batch_06_results.json",
+    "label_reason": "Stating how many hours are in a day is a simple factual recall with no additional reasoning.",
+    "domain": "general",
+    "domain_reason": "This is a basic general-knowledge question about time, not tied to any specialized domain like math or coding.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Is it \"a user\" or \"an user\"?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "Fallback",
+    "domain": "general",
+    "domain_reason": "Fallback"
+  },
+  {
+    "prompt": "When is it appropriate to end a sentence in a preposition?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "Fallback",
+    "domain": "general",
+    "domain_reason": "Fallback"
+  },
+  {
+    "prompt": "Do I Work with an Orangutan?",
+    "needs_rag": true,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The question 'Do I Work with an Orangutan?' is simple and likely seeks a straightforward clarification or humorous interpretation rather than a multi-layered analysis.",
+    "domain": "general",
+    "domain_reason": "Without further context it appears as a general-life or workplace query, not clearly tied to a specialized domain like coding or math."
+  },
+  {
+    "prompt": "Construct a practical, everyday framework for maintaining a reasonably tidy and functional living space for someone who has repeatedly failed at traditional cleaning schedules or elaborate decluttering methods.\n\nYour framework should:\n1. Start with a 'baseline reset' weekend or two-day period that:\n   \u2022 Uses a simplified, room-by-room triage approach (prioritizing function over aesthetics),\n   \u2022 Identifies and creates 3\u20137 key 'stations' (e.g., entryway drop zone, mail/bills spot, laundry staging area, snack prep corner),\n   \u2022 Relies on affordable, low-effort solutions (e.g., cardboard boxes, repurposed containers) rather than requiring new purchases.\n   Describe the sequence of actions and how to avoid burnout during this reset.\n\n2. Introduce a daily 10\u201320 minute 'maintenance loop' that can be done even when tired, including:\n   \u2022 A quick pass for trash and dishes,\n   \u2022 A reset of the key stations,\n   \u2022 One micro-task that slowly improves the space over time (e.g., clearing a single surface, organizing one drawer).\n   Provide versions suitable for small apartments, shared living situations, and larger homes.\n\n3. Provide a menu of 'lazy-friendly' hacks that reduce friction, such as:\n   \u2022 Strategic placement of hampers, trash cans, and hooks based on actual behavior rather than ideal behavior,\n   \u2022 Pre-emptive clutter traps (e.g., a designated 'junk basket' that gets cleared weekly),\n   \u2022 Visual cues and labels that help future-you remember where things go.\n   Explain how to iteratively adjust these hacks based on observed habits.\n\n4. Integrate laundry, dishes, and recurring chores into realistic routines by:\n   \u2022 Offering multiple viable patterns (e.g., one-load-a-day vs. one-laundry-day-per-week),\n   \u2022 Suggesting default times linked to existing habits (e.g., start dishwasher before bed, fold laundry while watching a show),\n   \u2022 Providing backup plans for 'disaster days' when everything piles up (e.g., a triage protocol to restore basic function quickly).\n\n5. Address psychological and social elements:\n   \u2022 How to reduce shame and perfectionism around mess,\n   \u2022 How to negotiate chore expectations with roommates, partners, or family members,\n   \u2022 How to prepare for guests with a 30\u201345 minute 'emergency tidy' sequence.\n\nYour response must remain grounded in ordinary constraints (limited energy, shared spaces, busy schedules) and should avoid requiring expensive organizational products or extreme decluttering philosophies.",
+    "label": "strong",
+    "label_reason": "The prompt revolves around maintaining a tidy home using pragmatic strategies: baseline resets, maintenance loops, cleanup triage, and 'lazy-friendly' hacks. These are quintessential 'Everyday advice & life hacks' focused on daily home management and behavior-based organization, with clear emphasis on simple tricks to ease everyday chores.",
+    "domain": "general",
+    "domain_reason": "Home tidiness and cleaning routines are universal issues, fitting the 'general' domain. The prompt does not rely on specialized knowledge; instead, it targets common living situations (apartments, shared homes, family houses), making its scope broadly applicable and appropriate for a general audience.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Create a multi-generational meal prep plan for a household composed of an elderly grandparent with chewing difficulties, two middle-aged adults with busy schedules, and a teenager interested in learning to cook.\n\nScenario specifics:\n1. Dietary and texture needs:\n   - The grandparent requires softer textures (e.g., stews, minced or shredded proteins, well-cooked vegetables) but prefers not to feel singled out with entirely different meals.\n   - The adults aim for heart-healthy meals (moderate sodium, high in vegetables, limited saturated fat).\n   - The teenager is open to most foods but has limited cooking experience.\n\n2. Time and prep structure:\n   - Plan 6 dinners and 4 lunches per week, with one main 4-hour prep day and one shorter 1\u20131.5 hour session midweek.\n   - Weeknight cooking time should be capped at 20\u201325 minutes, with some meals requiring only reheating.\n\n3. Unified yet adaptable meals:\n   - Design base meals that can be easily adapted in texture and portioning for the grandparent (e.g., using the same stew base but different finishing techniques) while still enjoyable for others.\n   - Explain at least 4 techniques for texture modification (e.g., partial blending, shredding, sauce adjustments) that can be integrated into the prep and serving flow.\n\n4. Educational component for the teenager:\n   - Incorporate a learning pathway where the teenager takes on progressively more complex tasks across the week (e.g., chopping, saut\u00e9ing, assembling full dishes) during both prep days and some weeknights.\n   - Suggest a simple documentation system (e.g., a cooking journal, annotated recipes) the teenager can use to track what they\u2019ve learned.\n\n5. Practical considerations:\n   - Address safe reheating and storage, especially for the grandparent\u2019s portions (e.g., preventing overcooking that could reduce palatability).\n   - Include at least one meal per week that can be made primarily by the teenager, with clear steps and contingency instructions.\n\nDeliverables:\n- A weekly meal plan with explicit notes on texture variations for the grandparent.\n- Prep-day schedules highlighting which tasks are suitable for the teenager at different skill levels.\n- A brief guide (2\u20133 paragraphs) on integrating cooking as a family activity while respecting time constraints and different needs.\n- Notes on potential challenges (e.g., the grandparent rejecting modified textures, the teenager losing motivation) and strategies to address them.",
+    "label": "strong",
+    "label_reason": "This prompt is strongly complex because it weaves together texture-adapted cooking for an elderly person, heart-healthy meal design, family scheduling, and an educational progression for a novice teen cook. It requires detailed planning of prep, serving adaptations, pedagogy, and family dynamics.",
+    "domain": "general",
+    "domain_reason": "The focus is on cooking recipes & meal prep: planning meals, batch-preparing components, adjusting textures, and assigning kitchen tasks. The educational and generational aspects are centered around the process of preparing and serving meals from a meal prep perspective.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Design a 16-week, periodized strength and conditioning program for a 35-year-old office worker who has a history of intermittent lower back pain, a sedentary job (10+ hours sitting daily), and inconsistent exercise habits over the past 5 years. The goal is to improve functional strength, reduce back pain episodes, and build enough cardiovascular fitness to comfortably complete a hilly 10k run.\n\nYour answer must:\n1. Divide the 16 weeks into clearly defined phases (e.g., anatomical adaptation, strength, strength endurance, pre-competition/peak, deload) and justify the duration, intensity, and progression for each phase.\n2. Specify weekly training frequency and session structure, including warm-up protocols, mobility work, core stabilization exercises, primary compound lifts, accessory work, and conditioning modalities (e.g., interval runs, tempo runs, low-intensity steady state, cross-training).\n3. Integrate specific strategies to mitigate and monitor lower back pain, including exercise selection (e.g., hip hinge regressions vs. loaded deadlifts), volume control, rest intervals, and guidelines for auto-regulation (e.g., RPE or RIR-based adjustments) if pain flares up.\n4. Provide a sample microcycle (one representative week) for each major phase, including sets, reps, tempo, rest periods, and progression notes.\n5. Explain how to transition from mostly sedentary behavior to sustained compliance with this plan, including behavior-change techniques (habit stacking, environmental design, accountability structures) and contingency plans for missed sessions.\n6. Discuss how to periodically evaluate progress (objective measures like 5RM tests, submaximal HR response, pain logs, and subjective RPE trends) and how those evaluations would inform adjustments to the program over time.\n\nBe explicit about trade-offs (e.g., running volume vs. lower back loading, strength gains vs. fatigue management) and show how you would adapt the plan if the client reports either rapid progress or persistent setbacks at weeks 4, 8, and 12.",
+    "label": "strong",
+    "label_reason": "This prompt demands a multi-phase, 16-week periodized program with explicit justification for each phase, granular details for exercises, intensity, and progression, plus integration of pain management, behavioral psychology, and adaptive decision-making. It requires synthesizing strength training, cardio periodization, load management, and auto-regulation, as well as contingency planning for different progress trajectories. The complexity stems from the need to merge biomechanical, physiological, and behavioral perspectives into a coherent, evolving plan with multiple checkpoints and trade-off analyses.",
+    "domain": "general",
+    "domain_reason": "The domain is clearly fitness and workout routines: it asks for a full strength and conditioning program, weekly session structuring, running preparation, and lower back pain considerations. Everything revolves around planning, executing, and modifying a workout routine for a specific person with concrete performance and health goals.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Design a workshop for teenagers that teaches the art of starting conversations through simple greetings and basic small talk, particularly aimed at those who feel awkward or unsure in social situations like school events or clubs.\n\nFirst, outline learning objectives that explicitly focus on: (1) choosing context-appropriate greetings (formal vs. informal, group vs. one-on-one); (2) using neutral, low-pressure small talk topics (classes, hobbies, music, sports, school events); and (3) recognizing nonverbal cues that indicate whether to continue or end the conversation.\n\nNext, create at least three interactive activities. For example, a \u201cgreeting carousel\u201d where participants rotate and practice different opening lines, a role-play game where they must keep a conversation going for three turns using only basic chit-chat, and a reflection exercise where they identify which greetings felt most natural. Provide detailed instructions, sample scripts, and debrief questions for each activity.\n\nFinally, discuss how to adapt the workshop for different group sizes, cultural backgrounds, and levels of social confidence, ensuring that all content remains within the realm of simple greetings and everyday small talk rather than deeper, potentially sensitive topics.",
+    "label": "strong",
+    "label_reason": "The workshop is centered on teaching greetings and basic small talk, with objectives and activities explicitly about greeting phrases, small talk topics, and brief exchanges. The complexity comes from curriculum planning, interactive design, and adaptation considerations, all within the basic chit-chat and greetings theme.",
+    "domain": "general",
+    "domain_reason": "The workshop targets general teenage social skills in school and club environments, which are non-specialized, everyday contexts. This situates the content in the general domain rather than any specific professional or technical area.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What's the difference between \"null\" and \"void\" in legal language?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "strong",
+    "label_reason": "Distinguishing 'null' from 'void' in legal language involves nuanced interpretation of legal terminology, context, and consequences, making it more complex.",
+    "domain": "general",
+    "domain_reason": "Although legal in nature, it is a conceptual language question rather than a business, coding, or other specialized domain listed."
+  },
+  {
+    "prompt": "A user wants to deepen their understanding of how different societies imagine the future through narrative, but they are specifically uninterested in standard Western dystopias or post-apocalyptic scenarios. They want a curated set of movies and books that illustrate:\n\n- Non-Western and Indigenous futurisms (e.g., Afrofuturism, Indigenous futurisms, Asian speculative futures).\n- Futures that are not purely utopian or dystopian but explore complex, mixed outcomes of technological and social change.\n- Narratives that center communities rather than lone saviors, and that pay attention to language, tradition, and ecology.\n\nAdditional constraints:\n- The user prefers works available in English (originally or in translation), but is open to subtitles.\n- They are comfortable with speculative and experimental storytelling but dislike purely abstract or plotless works.\n- They want a balance of hopeful and critical perspectives.\n\nYour task:\n1. Recommend 5\u20138 books and 4\u20136 movies that collectively showcase a wide spectrum of non-Western and Indigenous futurist visions.\n2. For each work, provide:\n   - The cultural context (e.g., region, language, community) and how that context informs the imagined future.\n   - The central speculative premise and how it intersects with issues like colonialism, environmental change, technological sovereignty, or cultural survival.\n   - Whether the narrative arc tends more toward hopeful, cautionary, or ambivalent, with justification.\n3. Group the recommendations into at least three thematic clusters (e.g., \"Futures of Language & Story\", \"Ecological Futures\", \"Urban & Diasporic Futures\"), explaining how each cluster reveals a distinct way of thinking about the future.\n4. Explicitly contrast at least two of these works with typical Western dystopian narratives (without dwelling on those Western texts), highlighting what is different in terms of stakes, protagonists, and narrative resolutions.\n5. Conclude by suggesting an order in which the user might engage with these works over a month, explaining how this sequence would gradually expand and complicate their understanding of futurism beyond Western tropes.\n\nAvoid recommending only the most famous titles; include some lesser-known works that still have English accessibility.",
+    "label": "strong",
+    "label_reason": "The prompt is complex because it demands cultural literacy, thematic clustering, comparative analysis with Western norms, and sequencing over time. The assistant must do more than list titles; it must interpret and organize them conceptually.",
+    "domain": "general",
+    "domain_reason": "The user explicitly requests a set of movie and book recommendations centered on futurist narratives. The detailed curation and explanation are firmly within the 'Movie & book recommendations' sub-topic.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Develop a comprehensive plan for a corporate 'innovation day' event that is intentionally structured more like a festival than a conference, aimed at 200 employees across different departments and seniority levels. The company wants to foster cross-team collaboration, showcase internal projects, and generate new ideas without the event feeling obligatory or overly formal.\n\nYou should:\n1. Propose an overarching theme and visual identity (e.g., 'Innovation Carnival', 'Ideas Bazaar') and explain how this theme will influence decor, signage, and internal communications.\n2. Design multiple experience zones (e.g., demo alley, brainstorm lounge, quiet reflection pods, rapid prototyping lab) and describe their physical setup, staffing needs, and rules of engagement.\n3. Create a schedule that balances structured sessions (keynotes, lightning talks, facilitated workshops) with unstructured exploration time, explaining how employees can self-direct their participation while still meeting leadership's goals.\n4. Propose at least three interactive formats that depart from traditional presentations (e.g., idea speed-dating, problem \"hack\" booths, peer coaching circles) and explain how each format will be facilitated.\n5. Address catering and refreshments with an eye toward energy management and inclusivity (e.g., snack stations, coffee bars, hydration, dietary accommodations), and explain how food placement can encourage mingling across departments.\n6. Develop a digital engagement layer using internal tools (e.g., Slack, intranet, event apps) to support live polls, idea submission, matchmaking, and post-event documentation.\n7. Outline an approach to measuring the impact of the event (e.g., idea pipelines, cross-team collaborations formed, employee sentiment), including both quantitative metrics and qualitative feedback.\n8. Consider accessibility (physical, sensory, neurodiversity) and psychological safety, describing specific accommodations and norms (e.g., color-coded badges for interaction preferences, quiet zones, content warnings).\n9. Identify major risks (e.g., event fatigue, leadership over-dominance, low participation from certain groups) and propose strategies to mitigate them.\n\nConclude with two contrasting versions of the event (one high-budget, one low-budget/scrappy) and justify trade-offs between them.",
+    "label": "strong",
+    "label_reason": "This prompt requires complex event architecture involving multiple zones, formats, digital layers, metrics, accessibility, and risk management, plus comparative scenario planning, reflecting high complexity.",
+    "domain": "general",
+    "domain_reason": "It explicitly describes planning a corporate innovation event with festival-like elements, encompassing programming, layout, food, and engagement strategies, all of which are central to event planning and creative party-like corporate gatherings.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Create an advanced trivia \u2018labyrinth\u2019 game where players progress through a fictional museum of global culture. The museum has five wings: (1) Revolutions and Rebellions, (2) Oceans and Trade, (3) Cities in Cinema, (4) Music of Migrations, and (5) Borderland Stories.\n\nYour tasks:\n\n1. For each wing, design:\n   - A conceptual map (described textually) that links at least four exhibits (rooms) in a way that reflects real-world geography (e.g., trade routes, migration paths, colonial borders) and key historical episodes.\n   - At least three pop culture artifacts per wing (films, songs, comics, games, or TV shows) that are tied to specific exhibits and locations.\n\n2. Write 3\u20135 layered trivia questions per exhibit that:\n   - Begin with a surface-level clue (e.g., a famous movie scene, a song lyric, or a well-known historical date).\n   - Require deeper inference to connect that clue to a lesser-known historical event and a specific geographic location (for example, linking a modern protest song to a 19th-century uprising and a particular port city).\n   - May include trick elements where similar-sounding names or overlapping historical periods could mislead a player who doesn\u2019t fully understand the geography or historical details.\n\n3. Define at least two \u2018labyrinth branches\u2019 where answering one set of questions unlocks an unexpected thematic connection between wings (e.g., connecting the Oceans and Trade wing to Music of Migrations via a diaspora community in a particular city). For each branch:\n   - Explain how the branch is presented as a meta-level trivia challenge.\n   - Provide two example questions that require players to recognize the cross-wing link (e.g., tracing a commodity\u2019s trade route, the resulting migration patterns, and the pop culture output of the affected communities).\n\n4. Include a final \u2018boss-level\u2019 trivia challenge that:\n   - Requires synthesizing information from at least three wings.\n   - Asks players to reconstruct a historical narrative that explains how a geographic feature (e.g., a mountain pass, a strait, a desert) influenced both a major political event and at least two pop culture works set in different eras.\n   - Demands explicit chronological reasoning (e.g., ordering events and cultural outputs correctly).\n\nYour output should clearly label wings, exhibits, and question sets, and should demonstrate how the trivia progression becomes increasingly complex and interlinked as players move deeper into the museum.",
+    "label": "strong",
+    "label_reason": "The prompt requires designing a multi-wing, multi-exhibit trivia structure, with branching paths, meta-level challenges, and a final synthesis task. The need for conceptual mapping, layered question design, trick elements, and narrative integration makes this a highly complex, multi-layered prompt, satisfying the 'strong' label.",
+    "domain": "general",
+    "domain_reason": "The entire structure is built around trivia questions relating to pop culture artifacts, historical events, and geographic contexts. Each wing explicitly combines history and geography with pop culture references, aligning squarely with the Trivia (pop culture, history, geography) domain.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Imagine you are designing an AI-powered conversational agent whose sole purpose is to engage in pleasant, non-intrusive greetings and basic chit-chat with users who might be lonely, bored, or just passing time.\n\nFirst, specify the different user personas this agent might encounter: for example, a busy professional wanting a quick hello, an elderly person seeking a friendly check-in, a teenager looking for casual banter, and someone practicing a second language. For each persona, describe how the agent\u2019s opening greeting, tone, and pacing of small talk should differ while still remaining firmly in the domain of light, everyday conversation.\n\nNext, create a decision tree or policy framework that governs how the agent responds to typical chit-chat cues such as: users commenting on their day (\u201cI\u2019m tired,\u201d \u201cToday was great\u201d), mentioning neutral topics (weather, hobbies, food), or giving very short replies (\u201chi,\u201d \u201cok,\u201d \u201cyeah\u201d). Explain how the agent decides whether to continue, change topic, ask a small follow-up question, or gently end the conversation, ensuring it never veers into sensitive or deeply personal territory.\n\nFinally, propose a set of evaluation metrics and example test dialogues to measure whether the agent is successfully providing warm, appropriate greetings and maintaining engaging but basic small talk, without becoming repetitive or intrusive.",
+    "label": "strong",
+    "label_reason": "The prompt targets basic chit-chat and greetings specifically through the design of an AI that focuses on this narrow function. It demands multi-layered reasoning about user personas, conversation policies, and evaluation metrics, making it complex while still exclusively operating in the realm of greetings and light small talk.",
+    "domain": "general",
+    "domain_reason": "Even though an AI agent is involved, the task is framed around everyday conversational behavior, not advanced technical implementation details. The emphasis is on general human interaction via greetings and casual talk, which keeps it squarely in the general domain rather than a specialized technical field.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Design an inclusive, multi-faith winter holiday gathering for an extended family where members observe different traditions (e.g., Christmas, Hanukkah, Kwanzaa, secular New Year) and hold varying degrees of religious observance. The goal is to create a single event that honors each tradition without forcing a homogenized or tokenistic 'one-size-fits-all' celebration.\n\nYour response must:\n1. Propose an overarching framing concept (e.g., 'Festival of Lights and Stories') and explain how it creates space for multiple traditions without centering just one.\n2. Develop a shared schedule that includes: (a) a welcome ritual, (b) distinct moments for each tradition to be highlighted, and (c) at least one collaborative activity that everyone can participate in (e.g., shared meal, storytelling circle, collaborative music-making).\n3. Suggest decor and symbolic elements that are either neutral (winter, light, family) or thoughtfully representative of each tradition, explaining placement and balance to avoid visual dominance of one tradition.\n4. Plan a menu that can accommodate religious dietary laws, cultural dishes, and personal preferences, including strategies to handle conflicting needs (e.g., kosher vs. non-kosher, vegetarian vs. meat dishes) without shaming anyone.\n5. Address potential points of tension (e.g., prayers before meals, gift-giving expectations, alcohol presence) and propose ground rules or conversation scripts that respect differing beliefs.\n6. Consider the inclusion of children and teens: design at least two age-appropriate activities that help them learn about the family's diverse traditions in an engaging, non-didactic way.\n7. Include a logistics plan covering venue setup (prayer/quiet spaces, play area, seating), time management, and roles (e.g., who facilitates each ritual, who coordinates food).\n8. Propose a post-event reflection mechanism (e.g., group discussion, anonymous survey, shared family journal) to inform future gatherings.\n\nConclude with two example 'run-throughs' of the event from different family members' perspectives (e.g., a devout participant and a secular one) to show how the event feels inclusive.",
+    "label": "strong",
+    "label_reason": "This prompt requires nuanced handling of religious diversity, family dynamics, dietary constraints, and ritual design, along with logistics and conflict mitigation, which makes it complex and multi-layered.",
+    "domain": "general",
+    "domain_reason": "It is focused on planning a specific multi-faith holiday gathering, including schedule, decor, menu, and activities, all core components of event planning and inclusive party idea creation.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Write an in-depth exploration of how basic greetings and casual chit-chat function as a form of social lubrication in online text-based communities (such as chat rooms, gaming guilds, or group messaging platforms).\n\nFirst, describe several typical greeting patterns in these environments (e.g., \u201chey all,\u201d \u201cgood evening,\u201d emoji-only greetings, or lurking before speaking) and compare them to face-to-face greetings. Include discussion of timing (joining mid-conversation vs. at the start), use of usernames, and conventions like tagging or replying in threads.\n\nThen, construct at least three extended example chat transcripts where participants engage primarily in light greetings and small talk (sharing how their day is going, what they\u2019re playing, or commenting on the chat\u2019s activity level). Analyze how these low-stakes exchanges help establish norms, reduce tension, and make it easier for newcomers to participate, even when no substantive topics are discussed.\n\nFinally, assess potential pitfalls of online greetings and chit-chat, such as cliquish greeting patterns that exclude others, or misunderstandings due to brevity or lack of tone. Propose specific strategies for community moderators or regular members to foster inclusive, welcoming greeting habits that encourage ongoing light conversation.",
+    "label": "strong",
+    "label_reason": "The prompt centers on greetings and small talk within online communities, requiring both descriptive and analytical work plus example transcripts. The complexity arises from comparing modalities, constructing dialogues, and examining social dynamics, all within the domain of basic chit-chat and greetings.",
+    "domain": "general",
+    "domain_reason": "Although it touches on online platforms, the focus is on general social behavior rather than technical aspects of software. The domain thus remains general, dealing with how people greet and chat casually in digital spaces used by broad audiences.",
+    "source": "synthetic_curated",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Find the product of a 2x2 matrix and a 2x1 vector.",
+    "label": "weak",
+    "label_reason": "The prompt asks for a simple matrix-vector multiplication with small dimensions and no conceptual explanation, making it a surface-level, weak-complexity problem.",
+    "domain": "mathematics",
+    "domain_reason": "Matrix-vector multiplication is a core operation in linear algebra and is explicitly a matrix operation, fitting the matrix operations & linear algebra sub-topic in mathematics.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How do people perform mental arithmetic for complicated expressions? (In particular, $\\frac{10^2+11^2+12^2+13^2+14^2}{365}$)",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "weak",
+    "label_reason": "The question asks for methods of mental arithmetic on a specific expression, which is a straightforward computational and heuristic task.",
+    "domain": "mathematics",
+    "domain_reason": "It focuses on computing and simplifying a numerical expression and discussing arithmetic techniques, which falls under elementary mathematics."
+  },
+  {
+    "prompt": "Solve for x: 3x + 5 = 20.",
+    "label": "weak",
+    "label_reason": "This is weak complexity because it involves a single, straightforward linear equation with one variable and simple arithmetic steps, requiring only basic algebraic manipulation.",
+    "domain": "mathematics",
+    "domain_reason": "It fits high school algebra & trigonometry because solving linear equations is a core topic in introductory high school algebra curricula.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Find sin(30\u00b0).",
+    "label": "weak",
+    "label_reason": "This is weak complexity because it only requires recalling a standard trigonometric value from basic trig ratios, with no multi-step reasoning or complex calculations.",
+    "domain": "mathematics",
+    "domain_reason": "It fits high school algebra & trigonometry because evaluating sine of common angles is a fundamental skill taught in early high school trigonometry.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How many zeros in a million?",
+    "label": "weak",
+    "source": "batch_15_results.json",
+    "label_reason": "Counting the number of zeros in a million is a simple place-value question requiring only basic arithmetic understanding.",
+    "domain": "mathematics",
+    "domain_reason": "The question concerns decimal representation and counting digits, which falls under elementary mathematics.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Is there a homology theory that counts connected components of a space?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "weak",
+    "label_reason": "The question asks whether there exists a homology theory with a specific simple behavior (counting connected components), which can be addressed by referencing standard homology definitions.",
+    "domain": "mathematics",
+    "domain_reason": "It concerns homology theories and connected components, which are topics in algebraic topology."
+  },
+  {
+    "prompt": "Evaluate cos(0\u00b0).",
+    "label": "weak",
+    "label_reason": "The task is a straightforward evaluation of a well-known trigonometric value that can be answered by recall, without any deeper reasoning, making it a weak complexity prompt.",
+    "domain": "mathematics",
+    "domain_reason": "Evaluating cosine at standard angles is a basic high school trigonometry skill, fitting squarely in the 'High school algebra & trigonometry' domain.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What is the square root of 9?",
+    "label": "weak",
+    "source": "batch_14_results.json",
+    "label_reason": "Finding the square root of 9 is a basic arithmetic task requiring only elementary numerical knowledge.",
+    "domain": "mathematics",
+    "domain_reason": "The question is purely about a simple mathematical operation (square root) within basic arithmetic.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Find the greatest common divisor of 18 and 24.",
+    "label": "weak",
+    "label_reason": "This is a weak prompt because it only asks for a single basic computation (gcd of two small integers) with no deeper reasoning, proofs, or multi-step argument required.",
+    "domain": "mathematics",
+    "domain_reason": "This fits number theory because the greatest common divisor is a core concept in elementary number theory dealing with integer divisibility.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "My team is doing a trivia night next Friday and I'm trying to prepare by brushing up on general knowledge, and I've been quizzing myself with flashcards and reading Wikipedia articles, and I feel pretty confident about most categories except maybe sports, but anyway here's an easy one to start with: what is the smallest prime number?",
+    "label": "weak",
+    "source": "batch_14_results.json",
+    "label_reason": "Identifying the smallest prime number is a simple factual recall task with trivial reasoning.",
+    "domain": "mathematics",
+    "domain_reason": "The content is a basic number theory fact about prime numbers, which is a core topic in mathematics.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "I've been reading this really long book about the history of the internet and how it evolved from ARPANET to what we have today, and there's a whole chapter about domain names and how they work, and it's fascinating but also very dense, and all I really need to know right now is: how many weeks are in a year?",
+    "label": "weak",
+    "source": "batch_12_results.json",
+    "label_reason": "Finding how many weeks are in a year is a simple arithmetic fact or one-step calculation.",
+    "domain": "mathematics",
+    "domain_reason": "It involves basic numerical reasoning about time units, which falls under elementary mathematics.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "'Obvious' theorems that are actually false",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Identifying 'obvious' theorems that are actually false involves subtle counterexamples and conceptual analysis across different areas of math, making it conceptually rich.",
+    "domain": "mathematics",
+    "domain_reason": "The prompt is about theorems, their truth values, and counterexamples, which are central concerns of mathematical theory."
+  },
+  {
+    "prompt": "There are apparently $3072$ ways to draw this flower. But why?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Explaining why there are exactly 3072 ways to draw a flower suggests a combinatorial or group-theoretic counting argument that is structurally involved.",
+    "domain": "mathematics",
+    "domain_reason": "Counting the number of ways to draw a structured object is a combinatorics problem within mathematics."
+  },
+  {
+    "prompt": "Is floating-point math broken?",
+    "needs_rag": false,
+    "source": "stackexchange_stackoverflow",
+    "label": "strong",
+    "label_reason": "Discussing whether floating-point math is 'broken' requires explaining numerical representation, precision, and IEEE-754 behavior, which is conceptually rich.",
+    "domain": "mathematics",
+    "domain_reason": "The core issue is numerical representation and rounding errors, which are mathematical and numerical-analysis topics implemented in computing."
+  },
+  {
+    "prompt": "Deriving the conditional distributions of a multivariate normal distribution",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Deriving conditional distributions of a multivariate normal involves nontrivial linear algebra, matrix partitioning, and probability theory.",
+    "domain": "mathematics",
+    "domain_reason": "The prompt explicitly asks for a derivation of a probabilistic result, which is a mathematical statistics problem."
+  },
+  {
+    "prompt": "Making \u03c0 from 1 2 3 4 5 6 7 8 9",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "strong",
+    "label_reason": "Constructing \u03c0 from the digits 1 through 9 implies a nontrivial mathematical construction or approximation method.",
+    "domain": "mathematics",
+    "domain_reason": "The task explicitly involves \u03c0 and numeric manipulation, which are central mathematical topics."
+  },
+  {
+    "prompt": "Explain zero-knowledge proofs mathematically.",
+    "label": "strong",
+    "source": "batch_09_results.json",
+    "label_reason": "Explaining zero-knowledge proofs mathematically requires formal definitions, probabilistic reasoning, and potentially complexity-theoretic concepts.",
+    "domain": "mathematics",
+    "domain_reason": "Zero-knowledge proofs are rooted in formal mathematics and theoretical computer science, particularly complexity theory and cryptography.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Why does mathematical convention deal so ineptly with multisets?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "This critiques the formal treatment of multisets in mathematical convention, touching on foundations, notation, and structural issues rather than a simple fact.",
+    "domain": "mathematics",
+    "domain_reason": "It is about how mathematics as a discipline formalizes and handles multisets, a combinatorial and foundational concept."
+  },
+  {
+    "prompt": "Really advanced techniques of integration (definite or indefinite)",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Discussing 'really advanced techniques of integration' implies covering sophisticated methods beyond basic calculus, such as contour integration or measure-theoretic tools, which is inherently complex.",
+    "domain": "mathematics",
+    "domain_reason": "The focus is on integration techniques, a core topic in calculus and analysis in mathematics."
+  },
+  {
+    "prompt": "Is it possible to have a pair of Gaussian random variables for which the joint distribution is not Gaussian?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Determining whether two Gaussian random variables can have a non-Gaussian joint distribution requires deeper knowledge of multivariate distributions and dependence structures.",
+    "domain": "mathematics",
+    "domain_reason": "This is a theoretical probability question about Gaussian random variables and joint distributions, fitting pure mathematics."
+  },
+  {
+    "prompt": "Conjectures that have been disproved with extremely large counterexamples?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Finding conjectures disproved only by extremely large counterexamples requires familiarity with advanced number theory and combinatorics and their historical counterexamples.",
+    "domain": "mathematics",
+    "domain_reason": "The prompt asks about mathematical conjectures and counterexamples, which is a core concern of higher mathematics."
+  },
+  {
+    "prompt": "Derive the expected number of hash collisions when inserting n items into a hash table of size m using uniform hashing. Then compute the load factor threshold at which linear probing degrades to O(n) expected lookup time.",
+    "label": "strong",
+    "source": "batch_01_results.json",
+    "label_reason": "Deriving expected collisions and analyzing when performance degrades involves probabilistic analysis and asymptotic reasoning.",
+    "domain": "mathematics",
+    "domain_reason": "The focus is on probabilistic derivations and expected values related to hashing, which is fundamentally mathematical (probability and combinatorics).",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What were some major mathematical breakthroughs in 2016?",
+    "needs_rag": true,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Surveying major mathematical breakthroughs in a given year involves synthesizing multiple advanced results across different fields.",
+    "domain": "mathematics",
+    "domain_reason": "It explicitly asks about significant developments in the discipline of mathematics."
+  },
+  {
+    "prompt": "Chess : The Lone King",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The title suggests a themed puzzle or scenario about a lone king in chess, likely involving a single main idea rather than extensive complexity.",
+    "domain": "reasoning",
+    "domain_reason": "Although it references chess, it is likely a puzzle or logical scenario rather than deep chess theory, placing it in general reasoning."
+  },
+  {
+    "prompt": "A man lives on the 10th floor. He takes the elevator to the 7th and walks the rest. Why?",
+    "label": "weak",
+    "label_reason": "The common solution (he is too short to reach higher buttons) requires reimagining his physical constraints, characteristic of lateral thinking.",
+    "domain": "reasoning",
+    "domain_reason": "This is a reasoning puzzle where the solver must infer a hidden constraint to explain the behavior, fitting lateral thinking riddles.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "A rooster laid an egg on the roof of a barn. Which side did it roll down?",
+    "label": "weak",
+    "label_reason": "The trick is noticing that roosters do not lay eggs, so the riddle is solved by challenging the premise, a standard lateral thinking move.",
+    "domain": "reasoning",
+    "domain_reason": "It engages reasoning by forcing the solver to analyze the initial assumptions rather than compute a direct physical outcome.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "You have 13 minutes to unlock this safe",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "The prompt about having 13 minutes to unlock a safe suggests a single, likely straightforward puzzle or riddle rather than a multi-step or deeply technical problem.",
+    "domain": "reasoning",
+    "domain_reason": "It implies a logic or puzzle scenario focused on deduction or problem-solving rather than a specific technical field."
+  },
+  {
+    "prompt": "You have two appointments at 3 PM; how do you handle this?",
+    "label": "weak",
+    "label_reason": "This is weak complexity because it asks for a simple choice or adjustment between two overlapping appointments without requiring multi-step reasoning or detailed constraints.",
+    "domain": "reasoning",
+    "domain_reason": "It clearly fits everyday scheduling conflicts by involving overlapping appointments at the same time, a common daily scheduling issue.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Should you read your partner\u2019s messages if you suspect they are lying?",
+    "label": "weak",
+    "label_reason": "This prompt raises a conflict between respecting privacy and seeking truth, requiring a simple moral judgment about boundaries and trust.",
+    "domain": "reasoning",
+    "domain_reason": "It is ethical reasoning because it asks the model to evaluate competing moral values: privacy, trust, and potential deception.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Is it acceptable to pirate a movie if you can\u2019t afford to pay for it?",
+    "label": "weak",
+    "label_reason": "The prompt poses a moral question about taking copyrighted content without paying, balancing need or desire against rules and ownership.",
+    "domain": "reasoning",
+    "domain_reason": "It fits ethical reasoning as it engages with questions of rights, legality, and moral justification for breaking rules in a common digital context.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Solve this simple lateral thinking riddle: A man walks into a bar and asks for a glass of water. The bartender pulls out a gun and points it at him. The man says 'Thank you' and leaves. Why?",
+    "label": "weak",
+    "label_reason": "This is weak complexity because it presents a single, well-known, straightforward riddle with a short scenario and one clear answer, requiring only basic reasoning rather than multi-step or technical analysis.",
+    "domain": "reasoning",
+    "domain_reason": "It fits the reasoning domain because the user must infer an unstated explanation from given clues, and it is explicitly a lateral thinking riddle that requires non-linear, out-of-the-box reasoning.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "A caf\u00e9 wants to open a second branch in a nearby town. What basic factors should they check first?",
+    "label": "weak",
+    "label_reason": "This asks for simple, high-level considerations (like demand, costs, competition) to decide if expansion is feasible, without requiring detailed calculations or advanced analysis.",
+    "domain": "reasoning",
+    "domain_reason": "It focuses on business feasibility by evaluating whether opening a new branch makes sense, and involves situational deduction about a specific business scenario.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "In a card matching memory game, why is flipping the same spots helpful?",
+    "label": "weak",
+    "label_reason": "Asks for simple cause-and-effect reasoning on a basic tactic, without complex logic.",
+    "domain": "reasoning",
+    "domain_reason": "Card matching memory games are games, and the question concerns deducing a simple strategic rule for better play.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "A maze puzzle for the day",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "weak",
+    "label_reason": "\u2018A maze puzzle for the day\u2019 suggests a single maze or pathfinding challenge that is usually solved by straightforward navigation rather than layered constraints.",
+    "domain": "reasoning",
+    "domain_reason": "Maze puzzles are classic spatial/logic reasoning tasks and do not inherently belong to coding, math, or other specialized domains."
+  },
+  {
+    "prompt": "Is it faster to count to the infinite going one by one or two by two?",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "weak",
+    "label_reason": "Comparing counting one by one versus two by two to infinity is a simple conceptual question about infinite processes rather than a technical derivation.",
+    "domain": "reasoning",
+    "domain_reason": "The core issue is a conceptual paradox-style reasoning about infinity rather than specific mathematical computation or theory."
+  },
+  {
+    "prompt": "Can the Policeman catch the Thief?",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "strong",
+    "label_reason": "This suggests a pursuit or chase scenario that likely involves constraints, rules, or strategy, making it a nontrivial puzzle.",
+    "domain": "reasoning",
+    "domain_reason": "Determining whether the policeman can catch the thief typically involves logical or spatial reasoning about movement and constraints."
+  },
+  {
+    "prompt": "You are reverse-engineering a cooperative-competitive puzzle game called \"Relic Circuit\" played by 3 players on a modular board representing an ancient temple. The board consists of nodes connected by paths; some nodes are Relic nodes, others are Gate nodes. Players move pawns between nodes and place circuit tiles to form pathways of energy. The full rules are missing, but you have:\n\n- A partial design note: \"Players must collectively complete at least two Relic Circuits while individually optimizing their own Alignment score. Circuits must respect polarity constraints and cannot cross forbidden gates.\"\n- Three recorded sessions (Sessions 1\u20133) with final board states, a log of key actions, and final Alignment scores for each player.\n\nGeneral facts:\n- Each Relic node has a polarity: Positive or Negative.\n- Circuit tiles come in three types: Straight, Turn, and Split (one input, two outputs). Tiles can be oriented, but cannot be placed arbitrarily: they must extend an existing path or start from a Gate.\n- Players control different Alignments: Sun, Moon, and Tide. Sun aligns with Positive polarity, Moon with Negative, Tide with balance (equal Positive and Negative connections).\n\nSession 1:\n- Two complete Relic Circuits exist at the end: one connecting two Positive Relics via a sequence of tiles; another connecting a Positive and a Negative Relic.\n- The Sun player\u2019s Alignment score is highest; commentary: \"Sun secured multiple Positive-only circuits and avoided forbidden gates.\"\n- The Moon player has a moderate score; notes: \"Moon leveraged mixed circuits but suffered polarity dilution.\"\n- The Tide player\u2019s score is low; commentary: \"Tide failed to maintain balanced polarity across its controlled segments.\"\n\nSession 2:\n- Only one complete Relic Circuit exists (Positive-Negative). The session log notes a failure: \"Temple destabilized due to insufficient circuits; cooperative goal not met.\"\n- Despite failure, individual Alignment scores are computed: Tide has the highest, then Moon, then Sun.\n- Commentary: \"Tide excelled in balancing polarity on partial circuits, gaining Alignment even in a failed temple run. Sun overextended into forbidden gates, losing Alignment despite positive polarity dominance.\"\n\nSession 3:\n- Three complete Relic Circuits exist: one Positive-Positive, one Negative-Negative, and one Positive-Negative.\n- All players\u2019 Alignment scores are high, but Moon edges out Sun, with Tide just behind.\n- Commentary: \"Moon orchestrated negative circuits that passed near but not through forbidden gates, amplifying Alignment gains. Sun contributed heavily to positive circuits but triggered minor penalties. Tide finally found balanced segments in all circuits, maximizing its role bonus.\"\n\nAdditional design note fragment: \"Forbidden gates invert local polarity for Alignment purposes and introduce risk-reward trade-offs.\"\n\nTasks:\n1. Infer the rules for what constitutes a valid Relic Circuit, including polarity constraints and gate interactions. Explain how circuits are counted (e.g., can a single circuit serve multiple players differently based on their Alignment?).\n2. Deduce the Alignment scoring system, including:\n   - Base points for contributing tiles to circuits matching a player\u2019s Alignment (Sun/Positive, Moon/Negative, Tide/balanced).\n   - Penalties or bonuses for using or avoiding forbidden gates.\n   - How partial circuits or balanced segments yield Alignment even when the cooperative objective (minimum number of circuits) fails.\n3. Explain why Session 2 can result in high individual scores (especially for Tide) despite the cooperative failure, and why Session 3\u2019s configuration yields high scores for all but still differentiates Moon, Sun, and Tide.\n4. Propose a joint strategy framework for a 3-player team where each player\u2019s Alignment is known, addressing:\n   - How to coordinate circuit construction so the cooperative objective is met while each player optimizes their own Alignment.\n   - When it is strategically correct for Sun or Moon to risk forbidden gates and how Tide should respond to maintain balance.\n   - Conflict resolution when individual optimal moves (e.g., Sun maximizing Positive circuits) threaten the cooperative stability (e.g., neglecting Negative circuits).\n\nYour reasoning must integrate the cooperative and competitive layers: hypothesize rules that explain both temple success/failure and individual scoring, validate them on all three sessions, and derive strategies that balance group and individual incentives.",
+    "label": "strong",
+    "label_reason": "The problem blends cooperative and competitive reasoning: deducing circuit validity and Alignment scoring rules, interpreting polarity and forbidden gate effects, and explaining divergent outcomes across sessions. It then requires strategic coordination analysis where players must meet shared objectives while optimizing individual payoffs. The interplay of multi-agent incentives and incomplete rules makes this strongly complex.",
+    "domain": "reasoning",
+    "domain_reason": "The prompt focuses on deducing rules for circuit formation, polarity, and scoring in a multi-player puzzle game, then developing coordinated strategies that exploit those rules. This is directly about understanding and leveraging game mechanics, matching the 'Game rules & strategy deduction' sub-topic.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Consider a three-player abstract game called \"Triad Dominion\" played on a hexagonal board composed of 37 hex cells (a central hex, surrounded by rings of size 6, 12, and 18). Each player controls a different color: Red, Blue, and Green. You do not know the exact rules, but you have the following partial observations and constraints from a tournament summary:\n\n- The game proceeds in rounds. In each round, players act in the fixed order Red \u2192 Blue \u2192 Green.\n- Each player begins with exactly 10 identical pieces in their supply, and at the end of every game at most 8 pieces per player are on the board.\n- No captures are ever observed; once a piece is placed, it remains there until game end.\n- In the tournament, no game lasts more than 9 rounds. The earliest finishing game ends in 5 rounds, the latest in 9.\n- The official description mentions: \"Control chains, adjacency clusters, and ring dominance\" as the three core scoring concepts.\n\nYou receive detailed final board states (but not move histories) for three games, along with the final scores.\n\nGame A (scores: Red 12, Blue 10, Green 7):\n- Red has 7 pieces on the board, forming two disjoint clusters: one cluster of 4 cells near the center, all mutually adjacent in a roughly compact shape, and another cluster of 3 cells on the outermost ring, forming a contiguous arc.\n- Blue has 8 pieces, mostly on the middle ring, loosely connected: 5 of them form a chain that stretches from the inner ring toward the outer ring, with some gaps; 3 are isolated singles.\n- Green has 6 pieces, all on the outer ring, evenly spaced so that no two Green pieces are adjacent.\n- A quick rules note from the organizer states: \"Red secured a central adjacency bonus and partial ring control; Blue focused on chains but failed to fully enclose; Green misplayed ring dominance.\"\n\nGame B (scores: Red 9, Blue 14, Green 6):\n- Red has 5 pieces placed in a straight line from the center to the middle ring, with 2 additional isolated pieces on the outer ring.\n- Blue has 7 pieces forming a closed loop on the middle ring (a continuous cycle of adjacent Blue pieces that returns to its starting point) and one additional Blue piece placed inside that loop.\n- Green has 7 pieces forming a single connected cluster on the outer ring, with no interior pieces.\n- Commentary: \"Blue\u2019s loop neutralized Red\u2019s central influence and converted adjacency into a powerful chain-score multiplier. Green overcommitted to a pure ring strategy without securing adjacency synergy.\"\n\nGame C (scores: Red 11, Blue 11, Green 13):\n- Red has 6 pieces, all in the inner two rings, forming a single connected cluster that touches the center.\n- Blue has 6 pieces forming two disjoint chains of length 3 each, both chains located on the middle ring.\n- Green has 8 pieces: 5 on the outer ring forming a nearly complete ring (only one gap), and 3 in the middle ring that are adjacent to that outer ring cluster.\n- Commentary: \"Green achieved near-total ring dominance plus adjacency bridges inward. Red\u2019s central cluster was strong but insufficient without a chain or ring bonus. Blue\u2019s dual-chain approach was balanced but lacked closure.\"\n\nTasks:\n1. Infer a plausible scoring system that uses the three elements: control chains, adjacency clusters, and ring dominance. You must define formal scoring rules (e.g., points per longest chain, points per connected cluster, bonus for enclosing regions, bonuses for controlling a majority of a ring, etc.) that can reproduce the relative scoring outcomes in Games A, B, and C.\n2. For each game, show how your scoring system explains the given scores and commentary, including why certain structures (loops, near-complete rings, central clusters) are especially valuable.\n3. Deduce constraints on legal placement rules from the board states and the fact that no game exceeds 9 rounds and no player places all 10 pieces. For example, infer whether there is a placement limit per ring per round, adjacency requirements, or restrictions such as \"must extend existing chains.\"\n4. Based on your inferred rules, construct a strategic guide for an advanced player choosing between three overarching strategies: (a) central adjacency clusters, (b) chain formation with potential loops, and (c) outer ring dominance with adjacency bridges. Explain in which board situations and player turn-orders each strategy becomes optimal, and how a player should adapt dynamically if opponents contest the same strategic objective.\n\nProvide your reasoning as a structured argument: start with hypotheses about scoring and placement rules, test them against all three games, refine them to eliminate contradictions, and end with a consistent rule and strategy framework that explains both scores and commentary.",
+    "label": "strong",
+    "label_reason": "The task demands inferring an unseen scoring system and implicit placement rules from partial, qualitative descriptions and numerical outcomes, then reconciling them across multiple examples. It further requires synthesizing a high-level strategic guide based on the hypothesized rules. This entails multi-layered reasoning: hypothesis generation, constraint satisfaction, explanation of commentary, and forward-looking strategy design, which collectively justify a strong complexity label.",
+    "domain": "reasoning",
+    "domain_reason": "The prompt focuses on deducing game rules (scoring, placement constraints) and then formulating optimal strategic approaches given those rules. All reasoning is anchored in analyzing final game states and commentary to reverse-engineer rules and strategies, squarely aligning with the 'Game rules & strategy deduction' sub-topic within reasoning.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Are there published Sudoku puzzles that require guessing?",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "strong",
+    "label_reason": "Asking about published Sudoku puzzles that require guessing touches on solving theory, uniqueness, and constraint satisfaction, which involves nuanced discussion.",
+    "domain": "reasoning",
+    "domain_reason": "Sudoku-solving methodology is a logic puzzle topic focused on reasoning about constraints and deduction strategies."
+  },
+  {
+    "prompt": "An old estate houses a peculiar tradition known as \u201cThe Night of Two Truths.\u201d Once a year, the heirs to the estate must spend a night in different rooms of the mansion, each room containing a single written statement on the wall. At dawn, they gather and must collectively decide which two statements are true; if they choose correctly, the estate remains in the family, otherwise it is donated to charity.\n\nThis year, the five rooms contain the following statements:\nRoom 1: \u201cExactly one of the statements in Rooms 2 and 3 is true.\u201d\nRoom 2: \u201cExactly one of the statements in Rooms 4 and 5 is false.\u201d\nRoom 3: \u201cIf the statement in Room 1 is true, then the statement in Room 5 is false.\u201d\nRoom 4: \u201cEither the statement in Room 2 is true, or the estate must be given away.\u201d\nRoom 5: \u201cNone of the statements in Rooms 1\u20134 fully describe what decides the fate of the estate.\u201d\n\nOn the surface, this looks like a standard logical puzzle about self-referential statements. However, the family\u2019s oral history hints at a lateral twist:\n- The founder once said, \u201cThe truth of the matter is never entirely on the walls.\u201d\n- A footnote in the estate\u2019s records notes that, one year, the correct answer allegedly depended on the weather that night.\n- In all previous years, the statements were completely different, yet the rule of \u201cExactly two statements are true\u201d never changed.\n\nYour task is to determine, using lateral reasoning, how this ritual might actually be structured as a riddle that transcends pure propositional logic. You must:\n- Propose at least one solution that treats the five statements not merely as static logical propositions, but as clues pointing to an external factor (e.g., the behavior of the heirs, a hidden physical feature of the rooms, or contextual conditions like the weather).\n- Show how that external factor interacts with the truth-values of the statements in a way that could change from year to year, while preserving the rule that exactly two statements are true.\n- Explain why the founder might have designed the system so that, in some years, the fate of the estate literally depends on how the heirs interpret the statements, rather than on the statements\u2019 bare logical content.\n\nYou may, if you wish, present a purely logical truth assignment as a baseline, but you must go beyond it, using lateral thinking to integrate the historical hints. Argue for a specific, non-obvious mechanism by which \u201cthe truth is never entirely on the walls,\u201d and how Room 5\u2019s statement could be true in a way that standard logic puzzles would not normally allow.",
+    "label": "strong",
+    "label_reason": "While the puzzle appears initially as a classical logic problem, the requirement to incorporate external, contextual factors and historical hints forces the respondent into multi-layered reasoning. They must reconcile internal logical structure with external contingencies and design motivations, crafting a nuanced explanation that blends logic, narrative, and meta-rules. This level of complexity\u2014extending beyond propositional truth tables into contextual mechanisms\u2014qualifies as a strong, high-complexity prompt.",
+    "domain": "reasoning",
+    "domain_reason": "The core twist is explicitly lateral: the solution is not found solely within the self-referential statements but in re-framing them as pointers to something outside the text. This shift from a standard logic puzzle to a riddle that incorporates environment, behavior, or interpretation is characteristic of lateral thinking riddles. The solver must question assumptions about where 'truth' resides and how rules operate, engaging in non-linear reasoning that fits the lateral thinking sub-topic within the reasoning domain.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Five coloured doors, which leads to freedom?",
+    "needs_rag": false,
+    "source": "stackexchange_puzzling",
+    "label": "strong",
+    "label_reason": "The prompt about 'Five coloured doors, which leads to freedom?' suggests a structured puzzle with multiple options and constraints, requiring nontrivial deduction.",
+    "domain": "reasoning",
+    "domain_reason": "It is framed as a classic logic puzzle scenario where one must infer the correct door using clues rather than storytelling or calculation."
+  },
+  {
+    "prompt": "You are a logic-driven investigator working on an international art theft case that has suddenly taken a deadly turn. A famous painting, \u2018The Silent Harbor,\u2019 was stolen from a museum in City A six months ago. Last week, a black-market dealer in City B was found dead in his apartment, with a high-quality forgery of \u2018The Silent Harbor\u2019 hanging on his wall. Interpol suspects a connection, but the local authorities in both cities have competing theories and are reluctant to share information fully.\n\nKnown elements:\n1. The original theft: Security footage in City A shows a masked thief who appears to have intimate knowledge of the museum\u2019s layout, bypassing several alarms. No inside help has been proven, but a curator was quietly dismissed after the theft.\n2. The forgery: Experts confirm that the painting in City B is a forgery, albeit sophisticated. The dealer\u2019s records (partially destroyed) suggest he recently brokered a sale to an unnamed buyer with a penchant for \u2018testing authenticity\u2019 by running private stress tests on artworks.\n3. The death: The dealer was found with signs of poisoning; no signs of forced entry. A note on his desk reads, \u201cIt wasn\u2019t supposed to be this way. The real harbor is deeper than you think.\u201d The handwriting matches his.\n4. Cross-border rumors: There are whispers of a shadowy figure known as \u2018The Conservator\u2019 who specializes in swapping originals with forgeries long before a theft is noticed, then later orchestrating \u2018thefts\u2019 to cover the original substitution.\n5. Communication glitch: An encrypted email intercepted by Interpol between two unknown parties references \u2018the first harbor, the second echo, and the third silence.\u2019 The timing suggests it was sent between the original theft and the dealer\u2019s death.\n\nYour tasks:\n(1) Construct at least two detailed hypotheses explaining the sequence of events across both cities, including whether the museum ever had the original at the time of the theft, whether the dealer knew he had a forgery, and how \u2018The Conservator\u2019 might fit into the narrative.\n(2) Analyze the note left by the dealer and the encrypted email\u2019s cryptic phrasing, providing multiple plausible interpretations and evaluating which interpretation best aligns with your leading hypothesis.\n(3) Evaluate the competing institutional theories: City A\u2019s police believe the theft was an inside job with no international mastermind; City B\u2019s authorities blame a ruthless art cartel; Interpol favors the \u2018Conservator\u2019 legend. Weigh these theories against the evidence, explaining why certain interpretations are more or less consistent with the known facts.\n\nLay out your reasoning chronologically and thematically: first reconstruct timelines, then infer hidden steps (e.g., when a swap or poisoning likely occurred), then map those inferences to actor profiles (inside curator, dealer, Conservator, unknown buyer). Clearly distinguish between what must be true for a hypothesis to hold and what merely could be true, and explain how future evidence (e.g., forensic accounting, provenance checks, communication intercepts) could confirm or debunk your deductions.",
+    "label": "strong",
+    "label_reason": "This prompt requires constructing multi-step hypotheses involving temporal ordering, hidden actions (like pre-theft substitutions), and cross-border coordination. It also demands textual interpretation of cryptic messages and comparative evaluation of institutional theories. This engages complex reasoning about causality, consistency, and plausibility, not just surface-level storytelling, firmly aligning with advanced reasoning tasks.",
+    "domain": "reasoning",
+    "domain_reason": "The case is an art theft mystery with a suspected mastermind, a possible long con involving forgeries, and a suspicious death. The investigator\u2019s job is to deduce the relationships between these elements and identify who orchestrated them. This is quintessential 'Detective & mystery deduction': unraveling a sophisticated criminal scheme by reasoning about evidence, hidden actions, and coded communications.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Why is my mood dictated so much by how well my research is going?",
+    "needs_rag": false,
+    "source": "stackexchange_academia",
+    "label": "strong",
+    "label_reason": "Understanding why research progress affects mood heavily involves psychological, motivational, and career-structure factors that require layered explanation.",
+    "domain": "reasoning",
+    "domain_reason": "The question is about introspective analysis of emotional responses and cognitive patterns rather than a specific professional practice domain."
+  },
+  {
+    "prompt": "Is the \"hero guy saves girl\" trope misogynistic?",
+    "needs_rag": false,
+    "source": "stackexchange_writing",
+    "label": "strong",
+    "label_reason": "Assessing whether a trope is misogynistic involves nuanced ethical, cultural, and narrative analysis rather than a simple yes/no rule.",
+    "domain": "reasoning",
+    "domain_reason": "The core task is to evaluate a trope's implications and gender dynamics, which is primarily a conceptual reasoning and ethics question."
+  },
+  {
+    "prompt": "Overcoming slow problem solving due to increased knowledge of what might go wrong",
+    "needs_rag": true,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "This involves cognitive and behavioral aspects of problem solving, requiring discussion of psychology, heuristics, and strategies to manage analysis paralysis.",
+    "domain": "reasoning",
+    "domain_reason": "The core is about how increased knowledge affects reasoning speed and how to adjust one's problem-solving approach, which fits a reasoning and metacognition domain."
+  },
+  {
+    "prompt": "How do you maintain focus when a particular aspect of programming takes 10+ seconds to complete?",
+    "needs_rag": true,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Maintaining focus during long-running programming tasks involves cognitive strategies, workflow design, and productivity techniques, which is more complex than a simple factual answer.",
+    "domain": "reasoning",
+    "domain_reason": "The prompt is about human attention, habits, and decision-making rather than technical code details."
+  },
+  {
+    "prompt": "What is an adaptive router?",
+    "label": "weak",
+    "source": "batch_08_results.json",
+    "label_reason": "The question simply asks for a definition of a single concept without requiring extended analysis or derivations.",
+    "domain": "science",
+    "domain_reason": "Adaptive routers are a networking concept within computer science and communications engineering.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "My friend and I were arguing about the solar system earlier today. He thinks that the Earth is the largest planet, but I am pretty sure that isn't true. We looked at a few books but couldn't find a straight answer quickly. Out of all the planets in our solar system, which one is the biggest?",
+    "label": "weak",
+    "source": "batch_09_results.json",
+    "label_reason": "Identifying the largest planet in the solar system is a single-step factual recall question.",
+    "domain": "science",
+    "domain_reason": "The question concerns basic astronomy, which falls under the natural sciences.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "If a mass moves close to the speed of light, does it turn into a black hole?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "weak",
+    "label_reason": "The question is a single conceptual misconception about relativistic mass and black holes that can be corrected with a brief explanation.",
+    "domain": "science",
+    "domain_reason": "It asks about high-speed masses and black hole formation, which is a relativity and astrophysics issue."
+  },
+  {
+    "prompt": "What is the third planet from the sun?",
+    "label": "weak",
+    "source": "batch_16_results.json",
+    "label_reason": "Determining the third planet from the sun is a simple recall of a basic astronomy fact.",
+    "domain": "science",
+    "domain_reason": "It pertains to basic planetary astronomy, a subfield of physical science.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Why do shadows from the sun join each other when near enough?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "weak",
+    "label_reason": "Although it touches on optics, the question is a single straightforward phenomenon about shadow behavior that can be answered with basic geometric reasoning.",
+    "domain": "science",
+    "domain_reason": "It deals with light, shadows, and geometry of illumination, which are topics in basic physics/optics."
+  },
+  {
+    "prompt": "Why does a sticker slowly peel off, but if it is pulled quickly it tears?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "weak",
+    "label_reason": "This is a focused physical explanation about material behavior under different pulling speeds, which can be answered with a relatively simple discussion of stress, strain rates, and adhesion vs cohesion.",
+    "domain": "science",
+    "domain_reason": "It concerns basic mechanics and material science, explaining how stickers behave under different mechanical loading conditions."
+  },
+  {
+    "prompt": "Why does fire make very little sound?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "weak",
+    "label_reason": "Describing why fire makes little sound mostly requires a qualitative discussion of combustion, gas flow, and sound generation, not detailed calculations or advanced theory.",
+    "domain": "science",
+    "domain_reason": "The question is about physical and acoustic properties of flames, which falls under physics and physical chemistry."
+  },
+  {
+    "prompt": "What is machine learning in one sentence?",
+    "label": "weak",
+    "source": "batch_07_results.json",
+    "label_reason": "The user asks for a one-sentence definition of machine learning, which is a straightforward factual description task without deeper analysis or comparison.",
+    "domain": "science",
+    "domain_reason": "Machine learning is a subfield of computer science and artificial intelligence, fitting best under the broader science/technology domain.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Why isn't Logistic Regression called Logistic Classification?",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "weak",
+    "label_reason": "The naming question about Logistic Regression versus Logistic Classification is conceptually straightforward, centering on historical terminology and the regression-vs-classification distinction.",
+    "domain": "science",
+    "domain_reason": "It pertains to statistical modeling and machine learning concepts rather than implementation or business use."
+  },
+  {
+    "prompt": "What is it called when experts think they only know a small part of a topic and amateurs think they know almost all of a topic?",
+    "needs_rag": false,
+    "source": "stackexchange_english",
+    "label": "weak",
+    "label_reason": "Identifying the name of a well-known cognitive phenomenon is a simple recall task rather than a complex reasoning exercise.",
+    "domain": "science",
+    "domain_reason": "The question refers to a psychological effect (the Dunning\u2013Kruger effect), which belongs to the scientific domain of psychology."
+  },
+  {
+    "prompt": "I was looking at the night sky yesterday and noticed that the moon looked really bright and round. It got me thinking about astronomy. Who was the first person to walk on the moon?",
+    "label": "weak",
+    "source": "batch_09_results.json",
+    "label_reason": "Identifying the first person to walk on the moon is a single historical fact lookup.",
+    "domain": "science",
+    "domain_reason": "The question pertains to a milestone in space exploration, which falls under the domain of science and astronomy history.",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Does someone falling into a black hole see the end of the universe?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Answering this requires integrating general relativity, black hole horizons, and cosmological timescales, making it conceptually complex and multi-layered.",
+    "domain": "science",
+    "domain_reason": "It directly concerns black holes, spacetime, and cosmology, which are core topics in theoretical physics."
+  },
+  {
+    "prompt": "Are matrices and second rank tensors the same thing?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Comparing matrices and second rank tensors demands understanding linear algebra, coordinate transformations, and the abstract vs. representational nature of tensors, which is nontrivial.",
+    "domain": "science",
+    "domain_reason": "Although it uses mathematical language, the context is typically physics (e.g., continuum mechanics, relativity) where tensors and matrices are used to describe physical quantities."
+  },
+  {
+    "prompt": "Are there any examples where Bayesian credible intervals are obviously inferior to frequentist confidence intervals",
+    "needs_rag": false,
+    "source": "stackexchange_stats",
+    "label": "strong",
+    "label_reason": "Comparing Bayesian credible intervals to frequentist confidence intervals and identifying cases where one is 'obviously inferior' requires nuanced understanding of both paradigms, their assumptions, and practical performance in different scenarios.",
+    "domain": "science",
+    "domain_reason": "The question is about statistical inference frameworks and interval estimation, which falls squarely within statistical science."
+  },
+  {
+    "prompt": "Is temperature a Lorentz invariant in relativity?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Determining whether temperature is Lorentz invariant involves subtle thermodynamic and relativistic arguments and competing definitions, making it conceptually intricate.",
+    "domain": "science",
+    "domain_reason": "It lies squarely in relativistic thermodynamics and statistical physics within theoretical physics."
+  },
+  {
+    "prompt": "Why doesn't matter pass through other matter if atoms are 99.999% empty space?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Addressing why matter doesn't pass through other matter despite atoms being mostly empty space involves quantum mechanics, electromagnetic interactions, and Pauli exclusion, making it conceptually layered.",
+    "domain": "science",
+    "domain_reason": "The question deals with atomic structure and fundamental forces, which are topics in physics."
+  },
+  {
+    "prompt": "Why don't electrons crash into the nuclei they \"orbit\"?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Explaining why electrons do not spiral into nuclei requires quantum mechanics, including quantized energy levels, wavefunctions, and the failure of classical orbits, which is conceptually nontrivial.",
+    "domain": "science",
+    "domain_reason": "The question is about atomic structure and quantum behavior of electrons, which falls squarely under physics."
+  },
+  {
+    "prompt": "How literally should you take \"The Higgs boson gives other particles mass\"?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Interpreting the statement about the Higgs boson giving mass requires unpacking the Higgs mechanism, spontaneous symmetry breaking, and common misconceptions, which is conceptually involved.",
+    "domain": "science",
+    "domain_reason": "The question is about particle physics and how the Higgs field and boson relate to mass generation."
+  },
+  {
+    "prompt": "Physical meaning of Legendre transformation",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Explaining the physical meaning of the Legendre transformation requires connecting abstract mathematical operations to thermodynamic potentials and mechanics, demanding a deeper conceptual and technical treatment.",
+    "domain": "science",
+    "domain_reason": "The Legendre transform is central in physics, especially in thermodynamics and analytical mechanics, where it relates different physical potentials and formulations."
+  },
+  {
+    "prompt": "Why do we think there are only three generations of fundamental particles?",
+    "needs_rag": false,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Explaining why we think there are only three generations of fundamental particles requires discussing experimental constraints, precision electroweak measurements, and theoretical frameworks in particle physics.",
+    "domain": "science",
+    "domain_reason": "The question is about the structure of the Standard Model and particle generations, a central topic in high-energy physics."
+  },
+  {
+    "prompt": "What is the relation between electromagnetic wave and photon?",
+    "needs_rag": true,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Relating electromagnetic waves to photons requires reconciling classical field descriptions with quantum particle concepts and discussing quantization.",
+    "domain": "science",
+    "domain_reason": "It is a core physics question about the connection between classical electromagnetism and quantum electrodynamics."
+  },
+  {
+    "prompt": "What experiment would disprove string theory?",
+    "needs_rag": true,
+    "source": "stackexchange_physics",
+    "label": "strong",
+    "label_reason": "Identifying an experiment that could disprove string theory touches on deep issues of testability, energy scales, and the philosophy of science.",
+    "domain": "science",
+    "domain_reason": "It is about the empirical status and experimental implications of a theoretical physics framework."
+  },
+  {
+    "prompt": "Name two common cache eviction policies.",
+    "label": "weak",
+    "label_reason": "This is weak complexity because it only asks for naming policies, not describing, comparing, or analyzing them.",
+    "domain": "system_design",
+    "domain_reason": "Listing eviction policies is directly about caching strategies, which are a key part of system design for performance and resource usage.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "How does a circuit breaker protect downstream services?",
+    "label": "weak",
+    "label_reason": "Weak complexity: focuses on a high-level protection explanation, not internal state machines or thresholds.",
+    "domain": "system_design",
+    "domain_reason": "System_design: protection of downstream dependencies is central to reliable service-to-service communication design.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What is a managed database service in the cloud?",
+    "label": "weak",
+    "label_reason": "Weak: asks for a straightforward explanation, not replication, sharding, or tuning details.",
+    "domain": "system_design",
+    "domain_reason": "Cloud infrastructure basics: managed databases are common foundational services in cloud environments.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What problem does a circuit breaker pattern solve?",
+    "label": "weak",
+    "label_reason": "Weak complexity: basic conceptual question about the main problem, not detailed failure modes or metrics.",
+    "domain": "system_design",
+    "domain_reason": "System_design: identifying and handling dependency failures is a key design consideration in distributed systems.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Describe the idea of auto-scaling in the cloud.",
+    "label": "weak",
+    "label_reason": "Weak: asks for a conceptual overview only, not policies, algorithms, or tuning.",
+    "domain": "system_design",
+    "domain_reason": "Cloud infrastructure basics: auto-scaling is a basic operational feature of cloud infrastructure.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Choose a database service in the cloud for a small SaaS app.",
+    "label": "weak",
+    "label_reason": "Weak complexity: broad but shallow, only about choosing a service, no specific performance or consistency constraints.",
+    "domain": "system_design",
+    "domain_reason": "System_design domain: selecting a cloud database service for an application is a central database selection task in system design.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Which HTTP verb should I use to trigger an action in a REST web service?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "weak",
+    "label_reason": "The question is a single, focused design choice about HTTP verbs in REST, which is conceptually straightforward and commonly addressed by standard guidelines.",
+    "domain": "system_design",
+    "domain_reason": "It concerns RESTful API design and the semantics of HTTP methods, which falls squarely under system and API design."
+  },
+  {
+    "prompt": "Explain why we use message queues in a web app.",
+    "label": "weak",
+    "label_reason": "The prompt is short, asks for a basic explanation, and does not require deep architectural trade-offs or detailed design; this makes it weak complexity.",
+    "domain": "system_design",
+    "domain_reason": "It directly targets message queues in a web application context, which is part of system design and specifically about message queues & async processing.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What is a cache eviction policy in simple terms?",
+    "label": "weak",
+    "label_reason": "The prompt only requires a basic explanation of what an eviction policy is, not comparisons or implementation details, keeping complexity low.",
+    "domain": "system_design",
+    "domain_reason": "Eviction policies (like LRU, FIFO) are core to caching strategies in system_design, so the question is clearly within the domain.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "List core endpoints for a chat messaging API.",
+    "label": "weak",
+    "label_reason": "This is weak complexity since it only asks to list core endpoints, without addressing protocols, websockets, or distributed concerns.",
+    "domain": "system_design",
+    "domain_reason": "It fits system_design and API design by requiring definition of main API operations for sending and retrieving chat messages.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "When would you pick microservices instead of a monolith?",
+    "label": "weak",
+    "label_reason": "Weak complexity because it seeks a short, high-level condition list rather than a nuanced decision framework or quantified evaluation.",
+    "domain": "system_design",
+    "domain_reason": "Fits system_design by focusing on architectural choice criteria between microservices and monolithic designs.",
+    "source": "synthetic_curated",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Gain Access to the Caf\u00e9's Internet",
+    "needs_rag": true,
+    "source": "stackexchange_puzzling",
+    "label": "strong",
+    "label_reason": "Gaining access to a caf\u00e9's internet often involves understanding network constraints, authentication, and possibly security considerations, making it more than a trivial task.",
+    "domain": "system_design",
+    "domain_reason": "The topic relates to network access and configuration, which falls under system and network design rather than end-user generalities."
+  },
+  {
+    "prompt": "Design an optimal caching strategy combining L1/L2 caches with a CDN, deriving hit rates using the Independent Reference Model.",
+    "label": "strong",
+    "source": "batch_14_results.json",
+    "label_reason": "Designing an optimal multi-level caching strategy with L1/L2 and CDN while deriving hit rates under the IRM requires layered systems reasoning and probabilistic modeling.",
+    "domain": "system_design",
+    "domain_reason": "The question centers on cache hierarchy and CDN architecture, which are classic concerns in systems and network design.",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Compare optimistic vs pessimistic concurrency control.",
+    "label": "strong",
+    "source": "batch_10_results.json",
+    "label_reason": "Comparing optimistic and pessimistic concurrency control involves explaining trade-offs, scenarios, and conceptual differences in database or systems behavior.",
+    "domain": "system_design",
+    "domain_reason": "Concurrency control is a core topic in databases and distributed/system design, involving how systems manage concurrent access to shared resources.",
+    "needs_rag": true
+  },
+  {
+    "prompt": "Architect a multi-tenant SaaS application. Explain the trade-offs between shared database, schema-per-tenant, and database-per-tenant approaches. Analyze query performance, data isolation, and operational complexity at 100,000 tenants.",
+    "label": "strong",
+    "source": "batch_04_results.json",
+    "label_reason": "The prompt asks for a detailed architecture of a multi-tenant SaaS with trade-off analysis across three tenancy models and their impact at 100,000 tenants, requiring nuanced reasoning about performance, isolation, and operations.",
+    "domain": "system_design",
+    "domain_reason": "It centers on architectural choices for multi-tenancy, including database layout and operational trade-offs, which are classic system design topics.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Design a multi-version concurrency control system for a distributed database, handling cross-partition transactions with 2PC and proving that read-only transactions never block.",
+    "label": "strong",
+    "source": "batch_16_results.json",
+    "label_reason": "Designing MVCC for a distributed database with 2PC and proving non-blocking behavior for read-only transactions involves complex reasoning about concurrency control, distributed protocols, and correctness properties.",
+    "domain": "system_design",
+    "domain_reason": "The prompt is about architecting a distributed database concurrency control mechanism and reasoning about its transactional behavior, which is a system design topic.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Compare event sourcing versus CRUD for an e-commerce order system, analyzing consistency guarantees and storage costs across different read/write ratios, including the implications for audit logging and temporal queries.",
+    "label": "strong",
+    "source": "batch_10_results.json",
+    "label_reason": "Comparing event sourcing versus CRUD with respect to consistency, storage costs, read/write ratios, audit logging, and temporal queries requires multi-dimensional architectural analysis.",
+    "domain": "system_design",
+    "domain_reason": "The question is about architectural patterns and trade-offs in designing an e-commerce order system, which is squarely in system design.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "What is an Anti-Corruption layer, and how is it used?",
+    "needs_rag": false,
+    "source": "stackexchange_softwareengineering",
+    "label": "strong",
+    "label_reason": "Explaining an Anti-Corruption Layer involves understanding domain-driven design, legacy integration, and architectural patterns, which requires nuanced reasoning and context.",
+    "domain": "system_design",
+    "domain_reason": "Anti-Corruption Layers are a specific architectural pattern used in system integration and domain-driven design, clearly placing this in the system_design domain."
+  },
+  {
+    "prompt": "Review this Dockerfile for security vulnerabilities, layer optimization issues, and best practice violations. Rewrite it for production:\n```dockerfile\nFROM python:3.11\nCOPY . /app\nWORKDIR /app\nRUN pip install -r requirements.txt\nRUN apt-get update && apt-get install -y curl vim\nENV SECRET_KEY=mysecretkey123\nEXPOSE 8000\nCMD python app.py\n```",
+    "label": "strong",
+    "source": "batch_06_results.json",
+    "label_reason": "Reviewing a Dockerfile for security, layer optimization, and best practices, then rewriting it for production, demands layered reasoning about containerization, OS packages, secrets management, and build optimization.",
+    "domain": "system_design",
+    "domain_reason": "The task focuses on container configuration and deployment concerns, which are part of system design and infrastructure rather than just writing application code.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Compare LSM trees vs B-trees for write-heavy workloads.",
+    "label": "strong",
+    "source": "batch_11_results.json",
+    "label_reason": "Comparing LSM trees vs B-trees for write-heavy workloads involves understanding trade-offs in write amplification, read performance, compaction, and storage layouts, which is a nuanced analysis.",
+    "domain": "system_design",
+    "domain_reason": "The topic concerns internal data structures used in storage engines and how they affect system behavior, which is central to system and database design.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Optimizing response times of an ambulance corp: short-term versus average",
+    "needs_rag": false,
+    "source": "stackexchange_math",
+    "label": "strong",
+    "label_reason": "Optimizing ambulance response times with different objectives (short-term vs average) requires nuanced reasoning about stochastic processes, optimization criteria, and trade-offs.",
+    "domain": "system_design",
+    "domain_reason": "It deals with designing and analyzing an operational system (ambulance service) to meet performance goals."
+  },
+  {
+    "prompt": "Design a disaster recovery strategy for a cloud-native application across three AWS regions. Cover RPO/RTO targets, active-active vs active-passive replication, DNS failover, and cost optimization.",
+    "label": "strong",
+    "source": "batch_04_results.json",
+    "label_reason": "The prompt asks for a comprehensive disaster recovery strategy across multiple regions, including RPO/RTO, replication modes, DNS failover, and cost trade-offs, which requires holistic architectural and operational planning.",
+    "domain": "system_design",
+    "domain_reason": "It focuses on multi-region architecture, failover mechanisms, and DR planning in AWS, which are central topics in system design and infrastructure architecture.",
+    "needs_rag": false
+  },
+  {
+    "prompt": "Compare SSTable compaction strategies (size-tiered, leveled, FIFO) and derive their write amplification factors.",
+    "label": "strong",
+    "source": "batch_15_results.json",
+    "label_reason": "Comparing SSTable compaction strategies and deriving write amplification requires detailed understanding of storage engines and quantitative performance analysis.",
+    "domain": "system_design",
+    "domain_reason": "The prompt concerns internal design and performance tradeoffs of storage systems, which is a core system design and databases topic.",
+    "needs_rag": false
+  }
+]

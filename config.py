@@ -2,72 +2,117 @@
 Central configuration. All tunables live here so the router logic in app/router.py
 stays clean and readable — an interviewer should be able to open router.py and
 understand it without also having to know what "0.55" means.
+
+Uses pydantic-settings (BaseSettings) instead of a raw frozen dataclass so that:
+  - Invalid env vars are caught at startup with a clear error message.
+  - Type coercion is automatic (e.g. "0.55" → 0.55).
+  - .env file is loaded automatically without an explicit load_dotenv() call.
 """
 from __future__ import annotations
-import os
-from dataclasses import dataclass, field
-from dotenv import load_dotenv
-
-load_dotenv()
+from typing import List
+from pydantic import field_validator, Field
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-@dataclass(frozen=True)
-class Settings:
-    # ---- Model IDs (LiteLLM format: "<provider>/<model>") ----
-    # Primary models
-    strong_model: str = os.getenv("STRONG_MODEL", "openai/gpt-4o")
-    weak_model: str = os.getenv("WEAK_MODEL", "groq/openai/gpt-oss-20b")
-
-    # Fallback models (comma-separated list)
-    strong_fallback_models: list[str] = field(
-        default_factory=lambda: [
-            m.strip() for m in os.getenv("STRONG_FALLBACK_MODELS", "").split(",") if m.strip()
-        ]
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        # Extra env vars (e.g. API keys read directly by LiteLLM) are ignored.
+        extra="ignore",
     )
-    weak_fallback_models: list[str] = field(
-        default_factory=lambda: [
-            m.strip() for m in os.getenv("WEAK_FALLBACK_MODELS", "groq/openai/gpt-oss-120b,gemini/gemini-3.6-flash,mistral/mistral-small-latest").split(",") if m.strip()
-        ]
+
+    # ---- Model IDs (LiteLLM format: "<provider>/<model>") ----
+    strong_model: str = "azure/gpt-4o"
+    weak_model: str = "groq/openai/gpt-oss-20b"
+
+    # Fallback models as comma-separated strings (pydantic will coerce them).
+    # We store as str and parse in a validator so that the .env format
+    # ("model1,model2") keeps working exactly as before.
+    strong_fallback_models_raw: str = Field(
+        default="",
+        alias="STRONG_FALLBACK_MODELS",
+    )
+    weak_fallback_models_raw: str = Field(
+        default="groq/openai/gpt-oss-120b,gemini/gemini-3.6-flash,mistral/mistral-small-latest",
+        alias="WEAK_FALLBACK_MODELS",
     )
 
     # ---- Concurrency / load ----
-    max_concurrent_requests: int = int(os.getenv("MAX_CONCURRENT_REQUESTS", "50"))
+    max_concurrent_requests: int = Field(default=60, gt=0)
 
-    # ---- Routing thresholds. All are on [0, 1]. See app/router.py for how they're used. ----
-    # If complexity >= this, we lean toward the strong model.
-    complexity_threshold: float = float(os.getenv("COMPLEXITY_THRESHOLD", "0.55"))
-    # If load fraction >= this, we start biasing toward the cheap model to protect latency.
-    load_high_threshold: float = float(os.getenv("LOAD_HIGH_THRESHOLD", "0.70"))
-    # If load fraction >= this, we force the cheap model regardless of complexity.
-    load_critical_threshold: float = float(os.getenv("LOAD_CRITICAL_THRESHOLD", "0.90"))
+    # ---- Routing thresholds. All are on [0, 1]. See app/router.py ----
+    complexity_threshold: float = Field(default=0.55, ge=0.0, le=1.0)
+    load_high_threshold: float = Field(default=0.70, ge=0.0, le=1.0)
+    load_critical_threshold: float = Field(default=0.90, ge=0.0, le=1.0)
+
+    # Fraction of capacity at which strong-tier requests are shed (fail-fast).
+    # Default 0.70 → 35 active requests at capacity=50 (matches the old magic
+    # number in router.py that the code review flagged as undocumented).
+    load_shed_strong_fraction: float = Field(default=0.70, ge=0.0, le=1.0)
 
     # ---- Circuit Breaker ----
-    cb_failure_threshold: int = int(os.getenv("CB_FAILURE_THRESHOLD", "3"))
-    cb_recovery_timeout: float = float(os.getenv("CB_RECOVERY_TIMEOUT", "30.0"))
+    cb_failure_threshold: int = Field(default=3, gt=0)
+    cb_recovery_timeout: float = Field(default=30.0, gt=0.0)
 
-    # ---- Embeddings (used by both RAG and the classifier) ----
-    embedding_model: str = os.getenv(
-        "EMBEDDING_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
-    )
+    # ---- Embeddings (used for semantic cache and heuristic fallback) ----
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    semantic_cache_dir: str = "./semantic_cache_db"
 
     # ---- RAG ----
-    chroma_persist_dir: str = os.getenv("CHROMA_PERSIST_DIR", "./chroma_db")
-    rag_top_k: int = int(os.getenv("RAG_TOP_K", "3"))
-    sample_docs_dir: str = os.getenv("SAMPLE_DOCS_DIR", "./data/sample_docs")
-    # Chunks with a distance score above this are considered irrelevant and dropped.
-    # Lower = stricter (only very relevant docs). Chroma L2 distances typically
-    # range from 0.0 (identical) to ~2.0 (unrelated). 1.2 is a reasonable default.
-    rag_distance_threshold: float = float(os.getenv("RAG_DISTANCE_THRESHOLD", "1.2"))
+    rag_persist_dir: str = "./chroma_db"
+    rag_top_k: int = Field(default=3, gt=0)
+    rag_distance_threshold: float = Field(default=0.6, ge=0.0, le=1.0)
 
     # ---- Generation ----
-    weak_max_tokens: int = int(os.getenv("WEAK_MAX_TOKENS", "150"))
-    strong_max_tokens: int = int(os.getenv("STRONG_MAX_TOKENS", "512"))
-    temperature: float = float(os.getenv("TEMPERATURE", "0.2"))
+    max_tokens_ceiling: int = Field(default=2048, gt=0)
+    temperature: float = Field(default=0.2, ge=0.0, le=2.0)
+
+    # ---- Semantic Cache ----
+    semantic_cache_threshold: float = Field(default=0.15, ge=0.0, le=1.0)
+    semantic_cache_ttl: int = Field(default=3600, gt=0)  # 1 hour
+
+    # ---- Request Coalescing ----
+    coalesce_timeout: float = Field(default=60.0, gt=0.0)
 
     # ---- DistilBERT classifier (fine-tuned, optional) ----
-    distilbert_model_dir: str = os.getenv(
-        "DISTILBERT_MODEL_DIR", "Rk24012003/adaptive-rag-distilbert"
-    )
+    distilbert_model_dir: str = "Rk24012003/adaptive-rag-distilbert"
+
+    # ---- Derived properties (not env vars) ----
+
+    @property
+    def strong_fallback_models(self) -> List[str]:
+        """Parse the comma-separated fallback list into a Python list."""
+        return [m.strip() for m in self.strong_fallback_models_raw.split(",") if m.strip()]
+
+    @property
+    def weak_fallback_models(self) -> List[str]:
+        return [m.strip() for m in self.weak_fallback_models_raw.split(",") if m.strip()]
+
+    @property
+    def load_shed_strong_threshold(self) -> int:
+        """
+        Absolute in-flight count above which strong-tier requests are shed.
+
+        Computed from load_shed_strong_fraction × max_concurrent_requests so
+        the threshold automatically scales if capacity is changed via env var.
+        Replaces the old hardcoded magic number `in_flight >= 35` in router.py.
+        """
+        return int(self.load_shed_strong_fraction * self.max_concurrent_requests)
+
+    # ---- Cross-field validation ----
+
+    @field_validator("load_critical_threshold")
+    @classmethod
+    def critical_above_high(cls, v: float, info) -> float:
+        high = info.data.get("load_high_threshold", 0.70)
+        if v <= high:
+            raise ValueError(
+                f"load_critical_threshold ({v}) must be greater than "
+                f"load_high_threshold ({high})"
+            )
+        return v
 
 
 settings = Settings()

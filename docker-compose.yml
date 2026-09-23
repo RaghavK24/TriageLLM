@@ -1,0 +1,25 @@
+services:
+  api:
+    build: 
+      context: .
+      # Force AMD64 if you plan to deploy to AWS/GCP, otherwise let it build native ARM64 for local speed
+      # platform: linux/amd64
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Named Volumes (Managed by Docker, safe for Windows/Mac permissions)
+      - chroma_db:/app/chroma_db
+      - semantic_cache_db:/app/semantic_cache_db
+      # Bind Mount (Safe for flat files like CSVs/JSONs)
+      - ./eval/results:/app/eval/results
+    environment:
+      # Thread safety flags (overrides to ensure stability)
+      - TOKENIZERS_PARALLELISM=false
+      - OMP_NUM_THREADS=1
+
+volumes:
+  chroma_db:
+  semantic_cache_db:
+

@@ -29,4 +29,7 @@ training/model/distilbert-complexity/model.safetensors
 *.log
 
 *.ses
-*.md
+semantic_cache_db/
+
+# Testing
+.pytest_cache/

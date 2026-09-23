@@ -10,7 +10,7 @@ Inputs (both normalized to [0, 1]):
     load        — fraction of concurrent capacity currently in use
 
 Output:
-    RoutingDecision(tier, model, reason)
+    RoutingDecision(tier, model, reason)  — or raises LoadSheddingError
 
 The rule surface, in plain English:
 
@@ -46,17 +46,35 @@ STRONG = "strong"
 WEAK = "weak"
 
 
+class LoadSheddingError(Exception):
+    """
+    Raised by route() when the system is too congested to safely queue a
+    strong-tier request without causing tail-latency blowup.
+
+    Carrying HTTP-layer concerns (status codes) inside a domain object
+    (RoutingDecision.tier) was a design smell — the old code set
+    tier="429_TOO_MANY_REQUESTS" and then checked that string in main.py.
+    A proper exception separates the routing domain from the HTTP layer:
+    route() raises, main.py catches and converts to HTTPException.
+    """
+    def __init__(self, in_flight: int, threshold: int):
+        self.in_flight = in_flight
+        self.threshold = threshold
+        super().__init__(
+            f"System congested ({in_flight} active, shed threshold={threshold}). "
+            "Dropping strong-tier request to protect p95 latency."
+        )
+
+
 @dataclass
 class RoutingDecision:
-    tier: str          # "strong" | "weak"
+    tier: str          # "strong" | "weak" only — no HTTP codes leaked here
     model: str         # actual model id, ready to pass to LiteLLM
     reason: str        # short human-readable explanation
 
 
-
-
 def route(
-    complexity: float, 
+    complexity: float,
     load: float,
     groq_usage: float = 0.0,
     in_flight: int = 0
@@ -71,21 +89,26 @@ def route(
         in_flight: total concurrent requests currently active
 
     Returns:
-        RoutingDecision — pass `.model` straight to the LLM client,
-        or '429_TOO_MANY_REQUESTS' for load shedding.
+        RoutingDecision — pass `.model` straight to the LLM client.
+
+    Raises:
+        LoadSheddingError — if the system is too congested to safely serve
+        a strong-tier request. main.py converts this to HTTP 429.
     """
     # Guard rails — never trust callers.
     complexity = max(0.0, min(1.0, complexity))
     load = max(0.0, min(1.0, load))
 
-    # --- Standard Step Function Routing ---
+    # --- Step 1: Dynamic Threshold Adjustment ---
+    # Base threshold comes from config; we raise it under load to aggressively
+    # shed marginal traffic to the cheap tier, protecting tail latency.
     effective_bar = settings.complexity_threshold
     if load >= settings.load_critical_threshold:
         effective_bar = settings.complexity_threshold + 0.30
     elif load >= settings.load_high_threshold:
         effective_bar = settings.complexity_threshold + 0.15
 
-    # 1. Base Complexity Decision
+    # --- Step 2: Base Complexity Decision ---
     if complexity >= effective_bar:
         target_tier = STRONG
         reason = (
@@ -99,25 +122,28 @@ def route(
             f"(load {load:.2f}): cheap tier is sufficient"
         )
 
-    # 2. Rate-Limit Aware Spillover
+    # --- Step 3: Rate-Limit Aware Spillover ---
     # If the decision was WEAK, but Groq is functionally maxed out, spill to STRONG.
     if target_tier == WEAK and groq_usage > 0.90:
         target_tier = STRONG
         reason = f"spillover: Groq budget at {groq_usage*100:.0f}%, rerouting to strong to avoid crash"
 
-    # 3. p95 Latency Protection (Fail-Fast)
-    # If the request is going to STRONG, but the server is already heavily congested,
-    # queueing it will cause a 7-8 second tail latency. Shed the load instead.
-    if target_tier == STRONG and in_flight >= 35:
+    # --- Step 4: p95 Latency Protection (Fail-Fast Load Shedding) ---
+    # If the request is going to STRONG, but the server is already heavily
+    # congested, queueing it will cause 7-8 second tail latencies.
+    # --- Graceful Degradation ---
+    # If the system is heavily loaded, we refuse to route to the STRONG tier
+    # (Azure) because it takes 20s and ties up capacity. Instead of rejecting
+    # the user, we forcefully downgrade them to the WEAK tier (Groq).
+    if target_tier == STRONG and in_flight >= settings.load_shed_strong_threshold:
         return RoutingDecision(
-            tier="429_TOO_MANY_REQUESTS",
-            model="none",
-            reason=f"System congested ({in_flight} active). Shedding strong request to protect p95 latency."
+            tier=WEAK, 
+            model=settings.weak_model, 
+            reason=f"graceful_degradation_load_{in_flight}"
         )
 
-    # Final Return
+    # --- Final Return ---
     if target_tier == STRONG:
         return RoutingDecision(tier=STRONG, model=settings.strong_model, reason=reason)
     else:
         return RoutingDecision(tier=WEAK, model=settings.weak_model, reason=reason)
-

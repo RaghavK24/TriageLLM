@@ -1,224 +1,298 @@
-# 🚀 Adaptive RAG Router: Load-Aware, Resilient LLM Gateway
+# 🚀 TriageLLM: Load-Aware, Resilient AI Gateway
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector_Store-blue.svg)
-![Status](https://img.shields.io/badge/Status-Production_Ready-success.svg)
+![PyTorch](https://img.shields.io/badge/PyTorch-MultiHead_DistilBERT-red.svg)
+![License](https://img.shields.io/badge/License-MIT-purple.svg)
 
-An enterprise-grade, dynamically scaling API gateway for Retrieval-Augmented Generation (RAG) applications. It intercepts user queries, injects semantic context from a local vector database, scores the query's complexity using a local ML model, and intelligently routes the request between a pool of fast/cheap LLMs and a heavy Premium LLM (like GPT-4o). 
+A production-grade, highly concurrent API gateway that intelligently routes Large Language Model (LLM) requests between "strong" (e.g., GPT-4o, Gemini 1.5 Pro) and "weak" (e.g., Llama-3, Gemini Flash) model tiers. 
 
-Crucially, it features **Stateful Circuit Breakers**, **Dynamic Load-Aware Thresholds**, and **Proactive Rate Limiters** to guarantee 100% uptime during massive concurrency bursts.
+By evaluating prompt complexity in real-time (< 5ms local inference) and orchestrating a suite of resilience middleware, this gateway delivers **~60% baseline cost savings during normal operation, scaling up to 95%+ savings under extreme burst load** as dynamic load shedding and semantic caching absorb the traffic spikes.
 
-*(**Note:** Powered by [LiteLLM](https://github.com/BerriAI/litellm) under the hood, the router is completely provider-agnostic. You can plug in absolutely any paid premium API—OpenAI, Anthropic, AWS Bedrock, etc.—just by changing the model string in your `.env`).*
+Built to mirror the exact AI infrastructure patterns used at companies like Uber, Netflix, and Google.
 
----
+## System Architecture
 
-## 🛑 The Production Problem
-
-Building a resilient LLM application in production is fundamentally a battle against three constraints: Cost, Latency, and Rate Limits.
-
-1. **Unnecessary Cost:** Standard applications route every request to a single, heavy model. Users asking simple FAQs cost just as much as users asking complex analytical questions. Furthermore, cheap models often "ramble" and hallucinate when asked simple questions, destroying cost savings.
-2. **Tail Latency (p95) Spikes:** Under concurrent load, requests queue up waiting for the heavy model to finish generating. A 50-user burst can easily cause 8+ second wait times for users stuck at the back of the queue.
-3. **The API Concurrency Trap:** Free and developer-tier APIs are heavily restricted. Mistral throttles at 1 request-per-second; Gemini caps at ~20 requests per day. Hitting these with concurrent bursts instantly triggers `HTTP 429 Too Many Requests`, crashing standard applications.
-
----
-
-## 🏗️ System Architecture
+The gateway sits between client applications and downstream LLM providers. It normalizes the API surface and intercepts requests to apply complexity scoring, RAG retrieval, semantic caching, request coalescing, and fail-fast load shedding.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryBorderColor': '#333333', 'lineColor': '#c4a1ff'}}}%%
-flowchart TB
-    classDef user fill:#2a2a2a,stroke:#c4a1ff,stroke-width:2px,color:#fff;
-    classDef gateway fill:#212121,stroke:#7dd3a8,stroke-width:2px,color:#fff;
-    classDef local fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff,stroke-dasharray: 5 5;
-    classDef router fill:#333333,stroke:#f0a56c,stroke-width:2px,color:#fff;
-    classDef model fill:#2a2a2a,stroke:#ececec,stroke-width:1px,color:#fff;
-    classDef db fill:#212121,stroke:#7cc8e0,stroke-width:2px,color:#fff;
-    classDef shed fill:#f07070,stroke:#333,stroke-width:2px,color:#fff;
+flowchart TD
+    Client([Client / Web UI]) -->|POST /chat| Semaphore
 
-    Client(["👤 User / Web Client"]):::user -->|POST /chat| API["⚡ FastAPI Gateway"]:::gateway
-
-    subgraph LocalContext ["Local Inference & Context"]
-        Embedder["🧠 all-MiniLM-L6-v2<br/>Embed Query"]:::local
-        VectorDB[("📚 ChromaDB<br/>Document Store")]:::db
-        Classifier["🧠 DistilBERT Scorer<br/>Complexity 0.0-1.0"]:::local
-        Tracker["📊 Active Load Tracker<br/>In-flight Requests"]:::local
-        RateLimiter["⏱️ Provider API Tracker<br/>RPM Deque"]:::local
-
-        API -->|"1. Raw Query"| Embedder
-        Embedder -->|"2. Vector"| VectorDB
-        VectorDB -->|"3. Top-K Context"| API
-        API -->|"4. Prompt + Context"| Classifier
-        API -->|"5. Check Load"| Tracker
-        API -->|"6. Check Limits"| RateLimiter
+    subgraph Concurrency Control
+        Semaphore{Concurrency Semaphore\nmax_concurrent=60}
+        Semaphore -->|in_flight >= limit| Shed([HTTP 503\nService Unavailable])
+        Semaphore -->|capacity available| Classify
     end
 
-    Classifier -.->|"Base Score"| DecisionEngine{"🔄 Adaptive Router<br/>+ Dynamic Thresholds"}:::router
-    Tracker -.->|"Current Capacity"| DecisionEngine
-    RateLimiter -.->|"Live Budgets"| DecisionEngine
-    API ==>|"7. Route Payload"| DecisionEngine
-
-    DecisionEngine -- "Score under 0.55<br/>(Simple)" --> WeakPool
-    DecisionEngine -- "Score 0.55+<br/>OR Quota Exhausted" --> StrongPool
-    DecisionEngine -- "Load over 70%<br/>(Congestion)" --> Drop["🚫 HTTP 429<br/>Fail-Fast Load Shed"]:::shed
-
-    subgraph WeakPool ["Weak Tier Pool (High Concurrency / Simple)"]
-        Groq["🟢 Groq API<br/>20B OSS Model<br/>Primary Worker"]:::model
-        Gem["🟡 Gemini API<br/>Flash Model<br/>Fast Fallback"]:::model
-        Mis["🟠 Mistral API<br/>Small Model<br/>Deep Fallback"]:::model
-        Groq -. "Circuit Breaker / Rate Limit" .-> Gem
-        Gem -. "Circuit Breaker / Rate Limit" .-> Mis
+    subgraph Intelligence Layer
+        Classify[DistilBERT MultiHeadRouter\n< 5ms local inference]
+        Classify -->|outputs| Scores["complexity_score · needs_rag · domain"]
+        Scores --> RAGCheck{needs_rag?}
+        RAGCheck -->|Yes + use_rag=true| RAG[(ChromaDB RAG Store\nHNSW cosine search\narXiv + Wikipedia corpus)]
+        RAGCheck -->|No| Router
+        RAG -->|top-k chunks appended to prompt| Router
     end
 
-    subgraph StrongPool ["Strong Tier (Deep Reasoning / Complex)"]
-        Premium["🔵 Premium API<br/>GPT-4o / Claude 3.5<br/>Heavy Lifter"]:::model
+    subgraph Routing Engine
+        Router{Load-Adaptive Router}
+        Router -->|load > 0.90\nin_flight > shed_threshold| LoadShed([HTTP 429\nLoad Shedding])
+        Router -->|complexity_score > dynamic_bar\nstrong tier| CacheStrong
+        Router -->|complexity_score <= dynamic_bar\nweak tier| CacheWeak
     end
 
-    WeakPool ==>|"Streaming Response"| API
-    StrongPool ==>|"Streaming Response"| API
-    API ==>|"Server-Sent Events"| Client
+    subgraph Semantic Cache
+        CacheStrong[(Semantic Cache\nStrong Tier Lookup\ncosine dist < 0.15)]
+        CacheWeak[(Semantic Cache\nWeak Tier Lookup\ncosine dist < 0.15)]
+        CacheStrong -->|HIT| CacheReturn([Return Cached Answer\nSkip LLM entirely])
+        CacheWeak -->|HIT| CacheReturn
+        CacheStrong -->|MISS| Coalescer
+        CacheWeak -->|MISS| Coalescer
+    end
+
+    subgraph Request Coalescer
+        Coalescer[Singleflight Coalescer\nasyncio.Task deduplication\nkey = prompt + tier]
+        Coalescer -->|first request\nacquires task| LLMExec
+        Coalescer -->|duplicate concurrent\nrequests wait on same task| LLMExec
+    end
+
+    subgraph LLM Execution
+        LLMExec{Tier?}
+        LLMExec -->|Strong| CB_Strong
+
+        subgraph Strong Tier
+            CB_Strong[Circuit Breaker\nwindowed failure tracking]
+            CB_Strong -->|CLOSED / HALF_OPEN| Primary[Primary: GPT-4o\nStrict Fallback]
+            Primary -->|5xx / timeout| Fallback[Fallback Models\nexponential backoff + jitter]
+            CB_Strong -->|OPEN| StrongFail([Raise AllProvidersExhausted])
+        end
+
+        LLMExec -->|Weak| CB_Weak
+
+        subgraph Weak Tier
+            CB_Weak[Circuit Breaker\n+ ProviderBudget RateLimiter]
+            CB_Weak -->|CLOSED / HALF_OPEN| Shuffle[Org-Aware Weighted Shuffle\nweight = min model_frac, org_frac\nfloored at 0.05]
+            Shuffle --> WeakModels["Groq Llama · Gemini Flash\nMistral · fallback pool"]
+            CB_Weak -->|OPEN| WeakFail([Skip provider\ntry next in pool])
+        end
+    end
+
+    Primary --> StoreCache
+    Fallback --> StoreCache
+    WeakModels --> StoreCache
+
+    subgraph Response
+        StoreCache[Store response\nin Semantic Cache\nwith TTL]
+        StoreCache --> FinalReturn([Return answer + metadata\ntier · model · cost · cache_hit\ncoalesced · domain · needs_rag])
+    end
+
+    %% Styling
+    classDef strong fill:#f9d0c4,stroke:#c0392b,stroke-width:2px;
+    classDef weak fill:#d4edda,stroke:#27ae60,stroke-width:2px;
+    classDef cache fill:#cce5ff,stroke:#2980b9,stroke-width:2px;
+    classDef error fill:#f8d7da,stroke:#721c24,stroke-width:1px,color:#721c24;
+    classDef decision fill:#fff3cd,stroke:#856404,stroke-width:2px;
+
+    class Primary,Fallback strong;
+    class Shuffle,WeakModels weak;
+    class CacheStrong,CacheWeak,StoreCache cache;
+    class Shed,LoadShed,StrongFail,WeakFail error;
 ```
 
-### 🔄 The Request Lifecycle
 
-When a user submits a query, the system executes a precise sequence of operations to determine the optimal LLM route:
+### The 6-Step Request Pipeline
 
-1. **Context Retrieval (RAG):** The raw query is intercepted by the FastAPI gateway and sent to a local ChromaDB instance. Relevant document embeddings are retrieved using a `MiniLM` model and injected into the prompt as grounded context.
-2. **Local Complexity Scoring:** The enhanced prompt is analyzed by a local, fine-tuned DistilBERT model. In under 20ms, it outputs a semantic complexity score from `0.0` (simple) to `1.0` (highly complex).
-3. **Telemetry & State Tracking:** Concurrently, the system checks the **Active Load Tracker** (how many requests are currently in-flight) and the **Rate Limiter** (how much API quota is remaining for each provider).
-4. **Adaptive Routing Decision:** The `DecisionEngine` evaluates the complexity score against dynamic thresholds:
-   - **Simple Queries (Score < 0.55):** Routed to the Weak Tier Pool for fast, cost-effective generation.
-   - **Complex Queries (Score >= 0.55):** Routed to the Premium Strong Tier for deep reasoning.
-   - **Load Shedding:** If the system is under extreme congestion (e.g., >35 active requests), the router will instantly drop the request and return a `429` error to protect overall tail latency.
-5. **Tier Execution & Resilience:** 
-   - Requests sent to the Weak Pool are routed to primary high-concurrency models (e.g., Groq). 
-   - If a primary model hits a rate limit or fails, the **Circuit Breaker** trips, automatically spilling traffic over to fallback models (Gemini Flash, Mistral Small) to guarantee uptime.
+1. **Multi-Head Complexity Scoring**: A custom, locally fine-tuned DistilBERT model scores the raw prompt simultaneously for `complexity`, `domain`, and `needs_rag` in under 5ms.
+2. **Conditional RAG**: If the classifier detects the prompt needs external context, the gateway queries a ChromaDB vector store. If not, it skips retrieval entirely, saving precious milliseconds.
+3. **Load-Adaptive Routing**: The router makes a `strong` vs `weak` decision based on the complexity score. Under heavy system load, it dynamically raises the complexity bar (fail-fast load shedding) to aggressively downgrade requests and protect P95 tail latencies.
+4. **Semantic Caching**: Powered by ChromaDB using HNSW vector indexing. Instead of relying on exact-match string hashing, it returns cached answers for *semantically similar* queries (cosine distance < 0.15).
+5. **Request Coalescing (Singleflight)**: Prevents the "thundering herd" problem. If 10 users ask the same un-cached question simultaneously, the gateway halts 9 of them via `asyncio.Task` shielding, queries the LLM exactly once, and broadcasts the single response to all 10 clients.
+6. **Resilient Execution**: Upstream calls are guarded by windowed Circuit Breakers (with jittered half-open probes to prevent secondary thundering herds). Weak models are selected via an org-aware weighted shuffle to prevent phantom capacity routing on shared quotas (like Groq).
 
----
+## The Intelligence Layer: Custom Multi-Head DistilBERT
 
-## 🧠 Deep Dive: Engineering & Design Choices
+Instead of relying on a slow, expensive "LLM-as-a-Judge" to route prompts, this gateway uses a custom PyTorch model built on `distilbert-base-uncased`. 
 
-This project was built from the ground up to solve edge-case concurrency failures. Here are the core architectural decisions implemented in the codebase:
+The model was fine-tuned using a Grid Search (Batch Size, LR, Weight Decay, Dropout) on a 2,000-prompt labeled dataset. It features a custom `MultiHeadRouter` architecture that predicts three targets from a single pass:
+1. **Complexity Score (Sigmoid)**: Used by the router to determine tier.
+2. **RAG Requirement (Sigmoid)**: Determines if external context should be fetched.
+3. **Domain Classification (Softmax)**: Categorizes the prompt into one of 10 domains (e.g., `coding`, `business`, `system_design`) to dynamically select the most optimal System Prompt.
 
-### 1. Local DistilBERT Classification (Zero-Cost Routing)
-Many "adaptive" frameworks use an LLM (like GPT-3.5) to decide if a prompt is complex enough for GPT-4. This doubles latency and API costs. This architecture uses a fine-tuned **DistilBERT** pipeline (`app/classifier.py`) hosted on Hugging Face that automatically downloads and caches on first run to score prompt complexity semantically in less than 20 milliseconds, for free.
+**Multi-Axis Accuracy (vs. GPT-4 Labeled Ground Truth):**
+- Domain Detection: **83.6%**
+- RAG Skipping: **79.5%**
+- Tier Routing: **69.9%** 
 
-### 2. Local Vector RAG Injection
-Before classification occurs, the user's prompt is embedded using a local `sentence-transformers/all-MiniLM-L6-v2` model. The `app/rag.py` module queries a persistent **ChromaDB** vector store to retrieve top-K relevant documents. The context is injected into the prompt so the LLM has grounded knowledge.
+## Performance, Cost & Survivability Benchmarks
 
-### 3. Dynamic Load-Aware Thresholding
-The router (`app/router.py`) does not use static rules. The base complexity threshold is `0.55`. However, the `load_tracker.py` constantly monitors active in-flight requests. If the server detects a high-load burst (e.g., >70% capacity), the router **dynamically raises the threshold** to `0.70` or `0.85`. This forces the system to aggressively shed marginal traffic to the cheap/fast tier to survive the spike.
+The system was evaluated using `eval/load_test.py`, firing concurrent traffic against both the Adaptive Router and a standard Baseline (which simulates a naive app that always queries the strong model).
 
-### 4. Proactive Org-Aware Rate Limiting
-APIs like Groq enforce strict 30 RPM limits *across the entire organization*. The `rate_limiter.py` module tracks timestamps in a `deque` to calculate exact remaining budgets locally. Instead of waiting to be rejected by the API, the system knows exactly when its 30 requests are up and stops sending traffic to Groq.
+*Traffic included a deterministic 20% duplicate ratio to test caching and coalescing under real-world conditions.*
 
-### 5. Weighted Fallback Pools & Spillover
-If Groq hits its 30 RPM limit, the Weak Tier relies on a weighted lottery (`_call_pool` in `llm_client.py`). It seamlessly spills remaining requests over to Gemini and Mistral, perfectly utilizing their heavily-throttled limits. If the *entire* Weak Tier is exhausted, the router overrides DistilBERT and spills simple queries to the Strong Tier to guarantee 100% uptime.
+### 1. Burst Survivability Under Overload
 
-### 6. Stateful Circuit Breakers
-If an API provider goes down (or aggressively rate-limits), standard applications will repeatedly wait 10 seconds for a timeout, hanging the client. The `circuit_breaker.py` implements a state machine (Closed -> Open -> Half-Open). If a model fails 5 times, the breaker trips, and the router instantly removes that model from the pool for 30 seconds, preventing cascading failures.
+The gateway is configured with a hard capacity ceiling of `max_concurrent_requests = 60`. The most significant result in the evaluation is at **N=80 — 133% of that capacity**. A standard application would experience cascading failures or multi-minute tail latencies at this level. The gateway absorbed the burst without dropping a single request, serving all 80 users at an average latency of **2,782 ms**.
 
-### 7. p95 Latency Protection (Fail-Fast Backpressure)
-If the Premium LLM (Strong Tier) becomes severely congested (>35 active connections), queuing new requests will cause massive 8-second tail latencies. The router prevents this by instantly returning a `429 Too Many Requests`. This Fail-Fast backpressure forces clients to retry later rather than hanging indefinitely.
+The mechanism behind this is the middleware stack's ability to prevent traffic from reaching the LLM layer entirely. At N=80, **81% of requests were resolved before hitting any model** — 58 from the semantic cache and 7 via request coalescing — leaving only 15 queries to be executed against the LLM pool.
 
-### 8. Tiered Output Caps & Persona Engineering
-Cheap models often hallucinate or output overly verbose answers for simple questions, inflating token costs. To solve this, `llm_client.py` dynamically injects behavioral system prompts (*"You are a concise assistant. Answer in 1-3 sentences maximum."*) and enforces a strict `max_tokens=150` generation cap exclusively on the Weak Tier.
+| Concurrency | Total Requests | Cache Hits | Coalesced | **LLM Calls Made** |
+|---:|---:|---:|---:|---:|
+| **10** | 10 | 0 | 3 | **7** |
+| **30** | 30 | 9 | 7 | **14** |
+| **60** | 60 | 29 | 9 | **22** |
+| **80** | 80 | 58 | 7 | **15** |
 
----
+### 2. Cost & Latency vs. Baseline
 
-## 📊 Evaluation & Results
+At normal concurrency (N=10 to N=30), the gateway delivers a consistent **~58% cost reduction** from DistilBERT-driven tier routing alone. As concurrency scales and the cache warm-up takes effect, savings compound further.
 
-The repository includes a custom concurrent async simulator (`eval/load_test.py`) that fires 50 concurrent requests. It compares the Adaptive Router against a **Naive Baseline** (which sends 100% of traffic to the Premium LLM). 
+| Concurrency | Avg Latency (Router) | Avg Latency (Baseline) | Latency Drop | Cost (Router) | Cost (Baseline) | Cost Savings |
+|---:|---:|---:|---:|---:|---:|---:|
+| **10** | 7,143 ms | 14,685 ms | **-51%** | $0.0326 | $0.0778 | **-58.0%** |
+| **30** | 7,669 ms | 19,683 ms | **-61%** | $0.1223 | $0.2924 | **-58.2%** |
+| **60** | 13,201 ms | 28,259 ms | **-53%** | $0.1477 | $0.8669 | **-83.0%** |
+| **80** | 2,782 ms | 27,375 ms | **-90%** | $0.0325 | $1.0484 | **-96.9%** |
 
-Tested on a dataset of 50 unique RAG/HR prompts, the **routing classification accuracy was 96.0%**.
-
-### 1. Cost Reduction (-81%)
-![Cost Comparison](eval/results/cost_comparison.png)
-By identifying simple traffic, routing to the Weak Tier, and enforcing strict token caps, operational cost plummeted from **$0.0406 to $0.0079 (an 81% reduction)** at N=30 concurrent users.
-
-### 2. Tail Latency Protection (-58%)
 ![Latency Comparison](eval/results/latency_comparison.png)
-In the Baseline test, 50 concurrent requests overwhelmed the Premium LLM's queue. Average latency skyrocketed to 4.6 seconds, and p95 latency nearly hit 8 seconds. The Adaptive Router offloaded 80% of this traffic to blazingly fast Weak instances, processing the burst in **1.9 seconds on average (58% faster)**.
+![Cost Comparison](eval/results/cost_comparison.png)
 
-### 3. Absolute Reliability (0% vs 10% Error Rate)
-![Tier Distribution](eval/results/tier_distribution.png)
-During the N=50 load test:
-* **The Baseline (Premium LLM Only):** Dropped 10% of requests (5 failures) because a 50-request burst instantly exceeded the provider's rate limits, causing upstream `429` crashes.
-* **The Adaptive Router:** Processed **all 50 requests perfectly (0% error rate)**. As the primary Weak model saturated, the Weighted Fallback Pool seamlessly activated, balancing the remaining traffic across backup APIs.
+### 3. Key Design Decisions
 
----
+*   **Free-Tier Resilience & Org-Aware Routing**: While the strong tier utilized a paid commercial model, the weak tier relied on free-tier providers (like Groq) which impose extremely strict, org-wide rate limits (e.g., 30 Requests Per Minute). This hard constraint drove the development of the **Org-Aware Weighted Shuffle** load balancer and the `ProviderBudget` rate-limiter, enabling the gateway to gracefully spill overflow traffic to fallback models before triggering `429 Too Many Requests` errors.
+*   **Tier-Aware Semantic Caching**: The cache lookup deliberately occurs after the concurrency semaphore and router logic. This ensures that weak-tier prompts cannot accidentally retrieve strong-tier cached answers, preserving strict tier boundaries for cached responses.
+*   **Factual Request Coalescing**: The singleflight coalescer collapses identical concurrent requests using the raw prompt and tier as the cache key. This optimizes for highly deterministic factual queries (e.g., knowledge base lookups) by returning the exact same response to all concurrent users.
+*   **In-Memory Gateway State**: Circuit breakers, rate limiters, and the request coalescer operate using fast, in-memory state primitives (like `asyncio.Lock` and `deque`) to minimize latency overhead, ensuring routing decisions complete in milliseconds.
 
-## 📂 Repository Structure
+## Installation & Deployment
 
-```text
-adaptive-rag-router/
-├── app/
-│   ├── main.py              # FastAPI core, endpoints, and UI serving
-│   ├── router.py            # Adaptive routing, Dynamic Thresholds, Spillover
-│   ├── classifier.py        # Local DistilBERT pipeline for prompt scoring
-│   ├── llm_client.py        # LiteLLM execution, tier management, & token caps
-│   ├── rate_limiter.py      # Real-time RPM tracking for providers (e.g., Groq)
-│   ├── load_tracker.py      # Semaphore-based in-flight connection tracking
-│   ├── circuit_breaker.py   # State machine (Open/Closed) for API resilience
-│   └── rag.py               # ChromaDB + SentenceTransformers vector retrieval
-├── eval/
-│   ├── load_test.py         # Concurrent async load simulator (N=5 to N=50)
-│   ├── plot_results.py      # Auto-generates matplotlib evaluation charts
-│   └── labeled_prompts.json # 50 hand-crafted evaluation prompts (80/20 mix)
-├── static/
-│   └── index.html           # Custom HTML/JS chat dashboard with live system stats
-├── training/                # Scripts and notebooks for fine-tuning DistilBERT
-├── config.py                # Centralized environment vars and safe defaults
-└── requirements.txt         
-```
+This project uses Docker to ensure environment consistency and handles tricky dependencies (like PyTorch and ChromaDB's SQLite C-extensions) automatically. 
 
----
+### Prerequisites
+1. **Docker Desktop**: You must have [Docker](https://www.docker.com/) installed and the Docker daemon actively running on your machine.
+2. **Provider API Keys**: You will need API keys for your preferred LLM providers (e.g., OpenAI for the strong tier, Groq for the free weak tier).
 
-## 🚀 Getting Started
+### 1. Environment Setup
+Clone the repository and set up your environment variables. We use a `.env` file to securely inject API keys and routing thresholds.
 
-### 1. Installation
-Clone the repository and install the dependencies:
 ```bash
-git clone https://github.com/RaghavK24/adaptive-rag-router.git
+git clone https://github.com/your-username/adaptive-rag-router.git
 cd adaptive-rag-router
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+cp .env.example .env
 ```
+*Note: Open the `.env` file and insert your actual API keys. The `.env.example` file is intentionally pre-configured with generic model names (like `gpt-4o`) to protect cloud provider privacy.*
 
-### 2. Environment Setup
-Create a `.env` file in the root directory. You can plug in any APIs supported by LiteLLM:
-```env
-# Premium Tier (Strong)
-OPENAI_API_KEY=your_openai_key
-# Or use ANTHROPIC_API_KEY=your_anthropic_key
-STRONG_MODEL=openai/gpt-4o
+### 2. Data Ingestion (Conditional RAG)
+Before starting the server, you need to populate the local ChromaDB vector store. This script automatically fetches ~500 recent Machine Learning paper abstracts from the arXiv API and ~2,000 passages from a HuggingFace Wikipedia dataset.
 
-# Weak Tier (Fast/Cheap)
-GROQ_API_KEY=your_groq_key
-GEMINI_API_KEY=your_gemini_key
-MISTRAL_API_KEY=your_mistral_key
-
-WEAK_MODEL=groq/openai/gpt-oss-20b
-MAX_CONCURRENT_REQUESTS=50
-```
-
-### 3. Running the Server
-Start the FastAPI server:
 ```bash
-uvicorn app.main:app --port 8000
+# We recommend doing this inside a virtual environment if running locally
+pip install -r requirements.txt
+python scripts/ingest_rag_data.py
 ```
-Open your browser to **`http://localhost:8000`**. The custom UI includes a live telemetry dashboard that monitors server load, active circuit breakers, and API budget consumption in real-time as you chat.
+*Note: The script checks if the database is already populated and will safely exit if it is.*
+
+### 3. Start the Gateway Server
+We highly recommend running the server via Docker Compose. The `docker-compose.yml` mounts the ChromaDB databases as named volumes to persist state and applies specific environment variables (`TOKENIZERS_PARALLELISM=false`) to prevent thread deadlocks on macOS/Linux. The Dockerfile is also explicitly optimized to pull the **CPU-only PyTorch wheel**, preventing 3GB of unnecessary CUDA bloat on the gateway server.
+
+Run the following command:
+```bash
+docker-compose up --build
+```
+The FastAPI gateway will start and bind to `http://localhost:8000`.
+
+## Usage & API Reference
+
+The project includes a built-in web frontend and several API endpoints.
+
+### The Web Frontend
+Once the server is running, simply open your browser to `http://localhost:8000/static/index.html`. This provides a beautiful UI to chat with the gateway and instantly see which tier it routed you to, how long it took, and how much it cost.
+
+### `POST /chat`
+The primary API endpoint. The request is intercepted, classified, and routed through the entire middleware stack.
+
+**Request:**
+```json
+{
+  "prompt": "What is the difference between an inner join and an outer join?",
+  "use_rag": true
+}
+```
+*Note on `use_rag`: The `use_rag: true` flag in the payload gives the gateway permission to use RAG. However, the final decision is still made by the DistilBERT classifier. The gateway will only execute a vector search if `use_rag` is true AND the ML model scores the prompt as needing external context.*
+
+**Response:**
+```json
+{
+  "answer": "An inner join returns only the rows that have matching values in both tables...",
+  "metadata": {
+    "routing": {
+      "tier": "weak",
+      "model_used": "groq/openai/gpt-oss-20b",
+      "reason": "complexity 0.12 < bar 0.55 (load 0.05): cheap tier is sufficient",
+      "load_fraction": 0.05,
+      "groq_usage": 0.33
+    },
+    "classifier": {
+      "classifier_type": "multi_head_router",
+      "complexity_logit": -1.98,
+      "rag_logit": -2.45
+    },
+    "domain": "coding",
+    "needs_rag": false,
+    "cache_hit": false,
+    "coalesced": false,
+    "usage": {
+      "prompt_tokens": 45,
+      "completion_tokens": 120,
+      "cost_usd": 0.0001
+    }
+  }
+}
+```
+
+### `POST /chat_baseline`
+A benchmarking endpoint used strictly for load testing. It bypasses all intelligence (routing, caching, coalescing) and forces the request directly to the strong model with RAG enabled, allowing you to accurately measure the gateway's performance ROI.
+
+### `GET /health`
+Returns the internal state of the middleware components, including current active load, circuit breaker states, and cache/coalescer hit rates.
+
+## Benchmarking Your Own API Keys
+You can run the same load tests we used to generate our benchmarks. This is especially useful if you want to test the burst-survivability of your own paid API limits.
+
+```bash
+python eval/load_test.py --levels 10 30 60 80 --duplicate-ratio 0.2
+```
+This will fire deterministic traffic against both endpoints and output rich JSON logs and a markdown summary of your exact cost savings.
+
+## 6. Engineering Deep-Dive & Academic Precedents
+
+This project was heavily inspired by recent academic research and enterprise AI infrastructure patterns used at companies like Google, Uber, and Netflix.
+
+### 1. Cost Cascading (FrugalGPT)
+Stanford's *FrugalGPT (arXiv: 2305.05176)* demonstrated that cascading queries from cheap models to expensive models can reduce costs by up to 98% while matching GPT-4 performance. Our **Load-Adaptive Router** implements this cascade dynamically—not just based on prompt complexity, but by factoring in real-time system load to aggressively shed traffic to the cheaper tier during traffic spikes.
+
+### 2. Machine-Learned Routing (RouteLLM)
+LMSYS's *RouteLLM (2024)* established that predicting model preference via binary classifiers is highly effective. We expanded on this concept by fine-tuning a `MultiHeadRouter` that simultaneously predicts RAG necessity and Domain, condensing three separate LLM-as-a-judge calls into a single <5ms local inference pass.
+
+### 3. Request Coalescing (Singleflight)
+Inspired by Google's internal `groupcache` architecture, the `RequestCoalescer` uses `asyncio.Task` shielding. When a popular cached item expires under heavy load, the first request acquires the lock, and all subsequent concurrent requests wait on that single execution, completely eliminating the "thundering herd" problem that typically brings down LLM APIs during viral events.
+
+### 4. Org-Aware Rate Limiting
+Unlike naive token bucket rate limiters, our `ProviderBudget` system accounts for providers (like Groq) that enforce a single *org-wide* RPM limit across all models. The weighted-shuffle load balancer calculates the *effective* remaining capacity (the minimum of the specific model budget and the overall org budget) to gracefully spill overflow traffic to completely different fallback providers before hitting hard `429` limits.
+
+## 7. Testing
+
+The gateway is built with production reliability in mind. The repository includes a comprehensive `pytest` suite that tests all middleware components in isolation, including the circuit breakers, request coalescer, load tracker, rate limiters, and the routing logic itself.
+
+To run the test suite locally:
+```bash
+pip install -r requirements.txt
+pytest tests/ -v
+```
 
 ---
 
-## 🧪 Running the Load Test
-To recreate the evaluation graphs locally, start the server in one terminal, then run the load simulator in another:
+## Conclusion
 
-```bash
-# Fire a concurrent burst of N=5, 15, 30, and 50 users
-python -m eval.load_test --levels 5 15 30 50
+This project serves as a technical exploration of what it takes to build a highly concurrent, cost-efficient AI gateway. By blending custom Machine Learning (DistilBERT) with classic distributed systems engineering (Singleflight, Circuit Breakers, Load Shedding), TriageLLM proves that it's possible to drastically cut LLM API costs while simultaneously protecting tail latency under extreme burst loads. 
 
-# Generate the matplotlib charts and summary markdown
-python -m eval.plot_results
-```
+If you have any questions about the architecture or the fine-tuning process, feel free to explore the codebase or reach out!
